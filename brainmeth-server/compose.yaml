@@ -1,0 +1,84 @@
+name: brainmeth
+
+x-minecraft-common: &minecraft-common
+  image: itzg/minecraft-server:java25
+  restart: unless-stopped
+  depends_on:
+    packwiz:
+      condition: service_healthy
+  networks:
+    - brainmeth
+  environment: &minecraft-environment
+    EULA: "TRUE"
+    TYPE: "NEOFORGE"
+    VERSION: "26.2"
+    NEOFORGE_VERSION: "26.2.0.88"
+    PACKWIZ_URL: "http://packwiz/pack.toml"
+    MEMORY: "${MEMORY:-8G}"
+    MODE: "survival"
+    DIFFICULTY: "hard"
+    PVP: "true"
+    ONLINE_MODE: "true"
+    ENABLE_WHITELIST: "true"
+    MAX_PLAYERS: "${MAX_PLAYERS:-12}"
+    VIEW_DISTANCE: "${VIEW_DISTANCE:-8}"
+    SIMULATION_DISTANCE: "${SIMULATION_DISTANCE:-6}"
+    ENABLE_RCON: "true"
+    RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
+    TZ: "${TZ:-Europe/London}"
+  secrets:
+    - rcon_password
+  tty: true
+  stdin_open: true
+
+services:
+  # Serves the Packwiz definition only on the private Docker network.
+  # This lets the GitHub repository remain private.
+  packwiz:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    volumes:
+      - ./pack:/usr/share/nginx/html:ro
+    networks:
+      - brainmeth
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/pack.toml || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  minecraft-prod:
+    <<: *minecraft-common
+    profiles: ["prod"]
+    container_name: brainmeth-prod
+    environment:
+      <<: *minecraft-environment
+      MOTD: "${MOTD:-Brainmeth}"
+    ports:
+      - "25565:25565/tcp"
+      - "${VOICE_PORT_PROD:-24454}:24454/udp"
+    volumes:
+      - "${PROD_DATA_DIR:-/srv/minecraft}:/data"
+
+  minecraft-test:
+    <<: *minecraft-common
+    profiles: ["test"]
+    container_name: brainmeth-test
+    environment:
+      <<: *minecraft-environment
+      MOTD: "Brainmeth TEST"
+      MAX_PLAYERS: "4"
+      ENABLE_WHITELIST: "true"
+    ports:
+      - "25566:25565/tcp"
+      - "${VOICE_PORT_TEST:-24455}:24454/udp"
+    volumes:
+      - "${TEST_DATA_DIR:-/srv/minecraft-test}:/data"
+
+networks:
+  brainmeth:
+    name: brainmeth
+
+secrets:
+  rcon_password:
+    file: ./secrets/rcon_password.txt
