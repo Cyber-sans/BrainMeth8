@@ -1,7 +1,7 @@
 name: brainmeth
 
 x-minecraft-common: &minecraft-common
-  image: itzg/minecraft-server:java25
+  image: itzg/minecraft-server:java25-graalvm
   pull_policy: daily
   restart: unless-stopped
   depends_on:
@@ -19,6 +19,7 @@ x-minecraft-common: &minecraft-common
     GID: "1000"
     MEMORY: "${MEMORY:-8G}"
     USE_MEOWICE_FLAGS: "true"
+    USE_MEOWICE_GRAALVM_FLAGS: "true"
     MODE: "survival"
     DIFFICULTY: "hard"
     PVP: "true"
