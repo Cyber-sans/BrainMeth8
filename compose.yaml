@@ -72,10 +72,10 @@ services:
       <<: *minecraft-environment
       MOTD: "${MOTD:-Brainmeth}"
     ports:
-      - "25577:25565/tcp"
+      - "${MC_PORT_PROD:-25577}:25565/tcp"
       - "${VOICE_PORT_PROD:-25576}:24454/udp"
     volumes:
-      - "${PROD_DATA_DIR:-/srv/minecraft}:/data"
+      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}:/data"
 
 
   minecraft-backup:
@@ -114,7 +114,7 @@ services:
       - rcon_password
     volumes:
       - "${PROD_DATA_DIR:-/srv/minecraft}:/data:ro"
-      - "${BACKUP_DIR:-/srv/minecraft-backups}:/backups"
+      - "${BACKUP_DIR:-/srv/minecraft/brainmeth/backups}:/backups"
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     logging:
@@ -131,11 +131,12 @@ services:
       <<: *minecraft-environment
       MOTD: "Brainmeth TEST"
       MAX_PLAYERS: "4"
+      MEMORY: "${TEST_MEMORY:-3G}"
     ports:
-      - "25575:25565/tcp"
+      - "${MC_PORT_TEST:-25575}:25565/tcp"
       - "${VOICE_PORT_TEST:-25574}:24454/udp"
     volumes:
-      - "${TEST_DATA_DIR:-/srv/minecraft-test}:/data"
+      - "${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test}:/data"
 
 networks:
   brainmeth:
