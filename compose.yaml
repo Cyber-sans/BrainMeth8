@@ -2,6 +2,7 @@ name: brainmeth
 
 x-minecraft-common: &minecraft-common
   image: itzg/minecraft-server:java25
+  pull_policy: daily
   restart: unless-stopped
   depends_on:
     packwiz:
@@ -14,17 +15,22 @@ x-minecraft-common: &minecraft-common
     VERSION: "26.2"
     NEOFORGE_VERSION: "26.2.0.88"
     PACKWIZ_URL: "http://packwiz/pack.toml"
+    UID: "1000"
+    GID: "1000"
     MEMORY: "${MEMORY:-8G}"
+    USE_MEOWICE_FLAGS: "true"
     MODE: "survival"
     DIFFICULTY: "hard"
     PVP: "true"
     ONLINE_MODE: "true"
-    ENABLE_WHITELIST: "true"
+    ENABLE_WHITELIST: "false"
     MAX_PLAYERS: "${MAX_PLAYERS:-12}"
     VIEW_DISTANCE: "${VIEW_DISTANCE:-8}"
     SIMULATION_DISTANCE: "${SIMULATION_DISTANCE:-6}"
     ENABLE_RCON: "true"
     RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
+    GENERATE_LOG4J2_CONFIG: "true"
+    ROLLING_LOG_MAX_FILES: "30"
     TZ: "${TZ:-Europe/London}"
   secrets:
     - rcon_password
@@ -68,7 +74,6 @@ services:
       <<: *minecraft-environment
       MOTD: "Brainmeth TEST"
       MAX_PLAYERS: "4"
-      ENABLE_WHITELIST: "true"
     ports:
       - "25566:25565/tcp"
       - "${VOICE_PORT_TEST:-24455}:24454/udp"
