@@ -133,7 +133,7 @@ services:
       MAX_PLAYERS: "4"
     ports:
       - "25576:25565/tcp"
-      - "${VOICE_PORT_TEST:-24455}:24454/udp"
+      - "${VOICE_PORT_TEST:-25575}:24454/udp"
     volumes:
       - "${TEST_DATA_DIR:-/srv/minecraft-test}:/data"
 
