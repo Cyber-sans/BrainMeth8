@@ -32,7 +32,6 @@ asynclogger
 ixeris
 
 # Essential QoL / modded playability
-https://modrinth.com/mod/jei/version/mvroCyBw
 jade
 appleskin
 mouse-tweaks
@@ -49,3 +48,36 @@ fast-ip-ping
 https://modrinth.com/mod/put-a-plug-in-it%21
 https://modrinth.com/mod/asyncparticles/version/ri5uXTny
 https://modrinth.com/mod/immersive-optimization/version/FINcrLHK
+
+# Experience / visual / QoL baseline
+distanthorizons
+lambdynamiclights
+sound-physics-remastered
+ambientsounds
+visuality-forge
+subtle-effects
+continuity
+rei
+inventory-essentials
+better-stats
+chat-heads
+not-enough-animations
+3dskinlayers
+wavey-capes
+entitytexturefeatures
+entity-model-features
+just-zoom
+better-advancements
+advancement-plaques
+crafting-tweaks
+client-tweaks
+visual-workbench
+easy-shulker-boxes
+enchantment-descriptions
+polytone
+comforts
+rightclickharvest
+trade-cycling
+easy-magic
+easy-anvils
+trashslot
