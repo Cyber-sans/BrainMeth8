@@ -113,8 +113,8 @@ services:
     secrets:
       - rcon_password
     volumes:
-      - "${PROD_DATA_DIR:-/srv/minecraft}:/data:ro"
-      - "${BACKUP_DIR:-/srv/minecraft/brainmeth/backups}:/backups"
+      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}:/data:ro"
+      - "${BACKUP_DIR:-/mnt/Backup3TB/minecraft/brainmeth/backups}:/backups"
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     logging:
