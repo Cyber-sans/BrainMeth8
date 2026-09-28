@@ -1,7 +1,6 @@
 name = "Kotlin for Forge"
 filename = "kotlinforforge-6.3.0-all.jar"
-side = "both"
-
+side = "client"
 [download]
 url = "https://cdn.modrinth.com/data/ordsPcFz/versions/WSKgpZoB/kotlinforforge-6.3.0-all.jar"
 hash-format = "sha512"

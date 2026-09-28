@@ -1,7 +1,6 @@
 name = "Clumps"
 filename = "Clumps-neoforge-26.2-26.2.1.jar"
-side = "both"
-
+side = "server"
 [download]
 url = "https://cdn.modrinth.com/data/Wnxd13zP/versions/FPYWjnnE/Clumps-neoforge-26.2-26.2.1.jar"
 hash-format = "sha512"

@@ -1,7 +1,6 @@
 name = "AppleSkin"
 filename = "appleskin-neoforge-mc26.2-3.0.10.jar"
 side = "both"
-
 [download]
 url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/slnk1Qah/appleskin-neoforge-mc26.2-3.0.10.jar"
 hash-format = "sha512"

@@ -1,7 +1,6 @@
 name = "Fzzy Config"
 filename = "fzzy_config-0.7.7+26.2+neoforge.jar"
-side = "both"
-
+side = "client"
 [download]
 url = "https://cdn.modrinth.com/data/hYykXjDp/versions/DP6iNAD6/fzzy_config-0.7.7%2B26.2%2Bneoforge.jar"
 hash-format = "sha512"

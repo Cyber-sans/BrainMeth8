@@ -1,7 +1,6 @@
 name = "Controlling"
 filename = "Controlling-neoforge-26.2-26.2.4.jar"
 side = "client"
-
 [download]
 url = "https://cdn.modrinth.com/data/xv94TkTM/versions/dnK3EzBH/Controlling-neoforge-26.2-26.2.4.jar"
 hash-format = "sha512"

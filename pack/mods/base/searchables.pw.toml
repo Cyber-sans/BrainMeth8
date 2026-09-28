@@ -1,7 +1,6 @@
 name = "Searchables"
 filename = "Searchables-neoforge-26.2-1.0.1.jar"
 side = "client"
-
 [download]
 url = "https://cdn.modrinth.com/data/fuuu3xnx/versions/AUn6wxKQ/Searchables-neoforge-26.2-1.0.1.jar"
 hash-format = "sha512"

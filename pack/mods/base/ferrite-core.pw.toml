@@ -1,7 +1,6 @@
 name = "FerriteCore"
 filename = "ferritecore-9.0.0-neoforge.jar"
 side = "both"
-
 [download]
 url = "https://cdn.modrinth.com/data/uXXizFIs/versions/LtVvw4uS/ferritecore-9.0.0-neoforge.jar"
 hash-format = "sha512"

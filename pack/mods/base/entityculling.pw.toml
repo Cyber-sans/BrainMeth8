@@ -1,7 +1,6 @@
 name = "Entity Culling"
 filename = "entityculling-neoforge-1.11.2-mc26.2.jar"
 side = "client"
-
 [download]
 url = "https://cdn.modrinth.com/data/NNAgCjsB/versions/6vCuV21u/entityculling-neoforge-1.11.2-mc26.2.jar"
 hash-format = "sha512"
