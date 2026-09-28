@@ -73,7 +73,7 @@ services:
       MOTD: "${MOTD:-Brainmeth}"
     ports:
       - "25577:25565/tcp"
-      - "${VOICE_PORT_PROD:-24477}:24454/udp"
+      - "${VOICE_PORT_PROD:-25576}:24454/udp"
     volumes:
       - "${PROD_DATA_DIR:-/srv/minecraft}:/data"
 
@@ -132,8 +132,8 @@ services:
       MOTD: "Brainmeth TEST"
       MAX_PLAYERS: "4"
     ports:
-      - "25576:25565/tcp"
-      - "${VOICE_PORT_TEST:-25575}:24454/udp"
+      - "25575:25565/tcp"
+      - "${VOICE_PORT_TEST:-25574}:24454/udp"
     volumes:
       - "${TEST_DATA_DIR:-/srv/minecraft-test}:/data"
 
