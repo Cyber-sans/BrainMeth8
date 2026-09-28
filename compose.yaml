@@ -64,14 +64,12 @@ services:
       - /bin/sh
       - -ec
       - |
-        FILE=/installer/neoforge-26.2.0.88-installer.jar
-        URL=https://maven.neoforged.net/releases/net/neoforged/neoforge/26.2.0.88/neoforge-26.2.0.88-installer.jar
-        if [ ! -s "$FILE" ]; then
+        if [ ! -s /installer/neoforge-26.2.0.88-installer.jar ]; then
           echo "Downloading pinned NeoForge 26.2.0.88 installer..."
-          wget -O "$FILE.tmp" "$URL"
-          mv "$FILE.tmp" "$FILE"
+          wget -O /installer/neoforge-26.2.0.88-installer.jar.tmp https://maven.neoforged.net/releases/net/neoforged/neoforge/26.2.0.88/neoforge-26.2.0.88-installer.jar
+          mv /installer/neoforge-26.2.0.88-installer.jar.tmp /installer/neoforge-26.2.0.88-installer.jar
         fi
-        test -s "$FILE"
+        test -s /installer/neoforge-26.2.0.88-installer.jar
     volumes:
       - neoforge-installer:/installer
 
