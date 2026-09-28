@@ -23,20 +23,20 @@ This repository contains definitions and source code. It intentionally does **no
 Production runtime:
 
 ```text
-/srv/minecraft
+/srv/minecraft/brainmeth/prod
 ```
 
 Test runtime:
 
 ```text
-/srv/minecraft-test
+/srv/minecraft/brainmeth/test
 ```
 
 ## First bootstrap on cropduster
 
 ```bash
-git clone <private-repo-url> /opt/brainmeth-server
-cd /opt/brainmeth-server
+git clone <private-repo-url> /srv/minecraft/brainmeth/server
+cd /srv/minecraft/brainmeth/server
 ./scripts/bootstrap.sh
 ```
 
@@ -54,10 +54,10 @@ Production, once tested:
 
 Ports:
 
-- production Minecraft: `25565/tcp`
-- production voice: `24454/udp`
-- test Minecraft: `25566/tcp`
-- test voice: `24455/udp`
+- production Minecraft: `25577/tcp`
+- production voice: `25576/udp`
+- test Minecraft: `25575/tcp`
+- test voice: `25574/udp`
 
 ## Adding ordinary mods
 
