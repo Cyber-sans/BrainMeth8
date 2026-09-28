@@ -45,7 +45,7 @@ https://modrinth.com/mod/sodium-extra/version/HKUWDkn7
 https://modrinth.com/mod/reeses-sodium-options/version/XToySQwf
 default-options
 fast-ip-ping
-https://modrinth.com/mod/put-a-plug-in-it%21
+xedaBnSm
 https://modrinth.com/mod/asyncparticles/version/ri5uXTny
 https://modrinth.com/mod/immersive-optimization/version/FINcrLHK
 
