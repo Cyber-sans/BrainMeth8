@@ -4,11 +4,17 @@ x-minecraft-common: &minecraft-common
   image: itzg/minecraft-server:java25-graalvm
   pull_policy: daily
   restart: unless-stopped
+  stop_grace_period: 1m
   depends_on:
     packwiz:
       condition: service_healthy
   networks:
     - brainmeth
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
   environment: &minecraft-environment
     EULA: "TRUE"
     TYPE: "NEOFORGE"
@@ -17,7 +23,7 @@ x-minecraft-common: &minecraft-common
     PACKWIZ_URL: "http://packwiz/pack.toml"
     UID: "1000"
     GID: "1000"
-    MEMORY: "${MEMORY:-8G}"
+    MEMORY: "${MEMORY:-6G}"
     USE_MEOWICE_FLAGS: "true"
     USE_MEOWICE_GRAALVM_FLAGS: "true"
     MODE: "survival"
