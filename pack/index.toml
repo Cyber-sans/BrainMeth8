@@ -6,7 +6,7 @@ hash = "58940093947a8f2ad8053aac2066210c182e3e417a30d0379394e87dea9448f3"
 
 [[files]]
 file = "base-mods.txt"
-hash = "7426b58bf7dd33a9f4677863c1019c9d4ce9fa29adf97029c73b678a43171636"
+hash = "993be0bdac16e507054ac0430a0a355d73d2d18accaa31920aed0dfa291bae6b"
 
 [[files]]
 file = "mods/base/alternate-current.pw.toml"
@@ -19,18 +19,18 @@ hash = "944104c0ced6f5d5a7dae365d0b76a86f13e99ccbf0f93d0fde609c64fac304f"
 metafile = true
 
 [[files]]
+file = "mods/base/asynclogger.pw.toml"
+hash = "93c761ab146f0f86c21f1fef38e7e9370ea1ec6b7aadb0cd2fdf7be6ae3d7c65"
+metafile = true
+
+[[files]]
 file = "mods/base/automodpack.pw.toml"
-hash = "768cf5ecd2d80beacac0a2df259b651f367a5ebf707e0876f2c7a006704e4ef3"
+hash = "402cbe495bf82de0ff88bddf7e995c5985cc0173c5302f10aca72adbbfb0dd80"
 metafile = true
 
 [[files]]
 file = "mods/base/badoptimizations.pw.toml"
 hash = "521b96af7a7239c46e6ce5d93ec334761a6d63a0b4b5b8aa4a82268f4e200807"
-metafile = true
-
-[[files]]
-file = "mods/base/better-block-entities.pw.toml"
-hash = "fd2e84dc939f2d17795b5d2a6a7399e7fae97c8fea358743dc6e390012cddf07"
 metafile = true
 
 [[files]]
@@ -54,8 +54,18 @@ hash = "5397ce8e79e7bb26d0a902cadc632ea8ccbccc313dd2cacdd0238d058ed17b0a"
 metafile = true
 
 [[files]]
+file = "mods/base/configmanager.pw.toml"
+hash = "8ca1b26869321849e183e65a8cec0578a70599aaf59d97d5fdbb1bf6c539f73c"
+metafile = true
+
+[[files]]
 file = "mods/base/controlling.pw.toml"
 hash = "849dfdcecabd2a1cc064a5ec281a2bb09b0fda1e8598dee2e7e65827aeaa80cf"
+metafile = true
+
+[[files]]
+file = "mods/base/crash-assistant.pw.toml"
+hash = "ee994e2fde210a6485d8189969e36bd0ffd589646fa90b95446ec6ad2ec25467"
 metafile = true
 
 [[files]]
@@ -81,6 +91,11 @@ metafile = true
 [[files]]
 file = "mods/base/immediatelyfast.pw.toml"
 hash = "7b7e53d7f8ae3974d88c90ca97f1ffcc742e78f947afd46345748b0c3a311e2e"
+metafile = true
+
+[[files]]
+file = "mods/base/ixeris.pw.toml"
+hash = "13f0ac47f3b5049c9b54e9a4d38971cca691f0fc330b778ad01c9781683ed285"
 metafile = true
 
 [[files]]
