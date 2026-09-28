@@ -1,0 +1,59 @@
+name: Sync Packwiz base mods
+
+on:
+  push:
+    paths:
+      - "pack/base-mods.txt"
+      - ".github/workflows/sync-base-pack.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.x"
+
+      - name: Install Packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Rebuild curated base mod metadata
+        working-directory: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf mods/base
+          mkdir -p mods/base
+
+          while IFS= read -r spec || [[ -n "$spec" ]]; do
+            [[ -z "$spec" || "$spec" =~ ^[[:space:]]*# ]] && continue
+            echo "Adding $spec"
+            packwiz --meta-folder mods/base modrinth add "$spec" -y
+          done < base-mods.txt
+
+          packwiz refresh
+          packwiz list -v
+
+      - name: Commit generated Packwiz metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add pack/
+          if git diff --cached --quiet; then
+            echo "Pack already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync Brainmeth base Packwiz mods"
+          git push
