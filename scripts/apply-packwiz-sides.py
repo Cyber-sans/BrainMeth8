@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-mods = root / "pack" / "mods" / "base"
+mods = root / "pack" / "mods"
 overrides = json.loads((root / "pack" / "side-overrides.json").read_text())
 
 seen = set()
