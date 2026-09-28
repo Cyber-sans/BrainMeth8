@@ -96,7 +96,7 @@ services:
       RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
       # Built-in cron runs inside the backup container.
       # Default starts warnings at 03:50 local time so the archive begins at ~04:00.
-      CRON_SCHEDULE: "${BACKUP_CRON:-50 3 * * *}"
+      CRON_SCHEDULE: "${BACKUP_CRON:-50 4 * * *}"
       CRON_BACKUP_UID: "1000"
       PRE_SAVE_ALL_SCRIPT: |-
         rcon-cli say "Server backup in 10 minutes."
