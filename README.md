@@ -6,85 +6,110 @@ Fresh Minecraft server stack for `cropduster`.
 
 - Minecraft **26.2**
 - **NeoForge 26.2.0.88**
-- Java **25**
-- Docker Compose
-- `itzg/minecraft-server`
-- Packwiz as the authoritative modpack definition
-- AutoModpack for player synchronisation
-- Modrinth App as the recommended player launcher
-- GitHub Actions for custom mod validation/builds
+- Java **25 / GraalVM**
+- Docker Compose + `itzg/minecraft-server`
+- Packwiz as the authoritative mod/config definition
+- AutoModpack for client synchronisation
+- GitHub for version control and custom-mod source
 
-NeoForge 26.2 officially targets Java 25-era Minecraft. The custom mod project is based on the current NeoForge 26.2 ModDevGradle template.
-
-## Repository vs runtime
-
-This repository contains definitions and source code. It intentionally does **not** contain worlds, player data, backups, logs, credentials, or generated runtime state.
-
-Production runtime:
+## Layout on cropduster
 
 ```text
-/srv/minecraft/brainmeth/prod
+/srv/minecraft/brainmeth/
+├── server/   # Git repo: Compose, Packwiz, scripts, docs, custom-mod source
+├── prod/     # Production Minecraft runtime data
+└── test/     # Test Minecraft runtime data
+
+/mnt/Backup3TB/minecraft/brainmeth/
+└── backups/  # Daily compressed production backups
 ```
 
-Test runtime:
+The Git repo contains definitions/source only. Worlds, player data, generated configs, downloaded runtime files and logs live in `prod/` or `test/`. Backups stay on the separate 3 TB backup drive.
 
-```text
-/srv/minecraft/brainmeth/test
-```
-
-## First bootstrap on cropduster
-
-```bash
-git clone <private-repo-url> /srv/minecraft/brainmeth/server
-cd /srv/minecraft/brainmeth/server
-./scripts/bootstrap.sh
-```
-
-Start the test instance first:
-
-```bash
-./scripts/deploy.sh test
-```
-
-Production, once tested:
-
-```bash
-./scripts/deploy.sh prod
-```
-
-Ports:
+## Ports
 
 - production Minecraft: `25577/tcp`
 - production voice: `25576/udp`
 - test Minecraft: `25575/tcp`
 - test voice: `25574/udp`
 
-## Adding ordinary mods
+## Runtime defaults
 
-Install Packwiz on the admin/development machine, then from `pack/`:
+- Production heap: **6G**
+- Test heap: **3G**
+- GraalVM 25
+- MeowIce + GraalVM JVM flags
+- whitelist disabled
+- Docker and Minecraft log rotation enabled
+- Watchtower disabled for Brainmeth containers
+- daily production backup at about **05:00 local time**, with 10m / 5m / 60s in-game warnings
+
+## First bootstrap on cropduster
+
+Clone the private repo to:
 
 ```bash
+/srv/minecraft/brainmeth/server
+```
+
+Then:
+
+```bash
+cd /srv/minecraft/brainmeth/server
+./scripts/bootstrap.sh
+```
+
+Start test:
+
+```bash
+./scripts/deploy.sh test
+```
+
+Start production:
+
+```bash
+./scripts/deploy.sh prod
+```
+
+## Adding ordinary mods
+
+Use Packwiz on the development/admin side, then commit and push:
+
+```bash
+cd pack
 packwiz modrinth add <project>
 # or
 packwiz curseforge add <project>
+git add .
+git commit
+git push
 ```
 
-Commit the resulting TOML changes. Deploy to **test** before production.
+Then on `cropduster`:
+
+```bash
+cd /srv/minecraft/brainmeth/server
+git pull
+```
+
+Packwiz is the source of truth. Server-only mods must be marked server-side so they are not distributed to clients.
 
 ## Custom mods
 
-Small shared Brainmeth mechanics live in:
+Custom NeoForge mods live in:
+
+```text
+custom-mods/
+```
+
+The initial shared mod is:
 
 ```text
 custom-mods/brainmeth-core
 ```
 
-The initial project targets NeoForge 26.2 and Java 25. CI builds the JAR on every push/PR.
+Target **NeoForge 26.2 / Java 25**, build a JAR, then add the approved artifact into the Packwiz/server flow. GitHub Actions can build/validate custom mods.
 
 ## AutoModpack
 
-AutoModpack is intentionally part of the architecture but is not hard-coded into the empty Packwiz skeleton. Add its current NeoForge 26.2 release through Packwiz as the first pack dependency so Packwiz remains the single authoritative mod/version definition.
-
-Players install AutoModpack once into a normal NeoForge 26.2 Modrinth instance; after that it synchronises the official server pack.
-
-See `docs/PLAYER_SETUP.md`.
+AutoModpack synchronises the official required client content from the running server to players. It should be added through Packwiz so Packwiz remains the authoritative mod/version definition.
