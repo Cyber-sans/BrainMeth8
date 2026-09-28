@@ -1,0 +1,5 @@
+# Brainmeth Distant Horizons baseline.
+# Generate unexplored distant terrain on the dedicated server so clients can receive LODs.
+[common.worldGenerator]
+enableDistantGeneration = true
+distantGeneratorMode = "INTERNAL_SERVER"
