@@ -1,0 +1,12 @@
+name = "Enchantment Descriptions"
+filename = "EnchantmentDescriptions-neoforge-MC26.2-26.2.0.2.jar"
+side = "client"
+[download]
+url = "https://cdn.modrinth.com/data/UVtY3ZAC/versions/CKyUV0Hj/EnchantmentDescriptions-neoforge-MC26.2-26.2.0.2.jar"
+hash-format = "sha512"
+hash = "e88330e646bf50c27e271e63f7ad084d24bfa13d3f4f5aed79f156b43e5f2e2fe43aeb357545bdf93d74bcfd1b6f52e3a82d971183ce134e3cb71c864d204f52"
+
+[update]
+[update.modrinth]
+mod-id = "UVtY3ZAC"
+version = "CKyUV0Hj"

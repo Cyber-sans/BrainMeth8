@@ -1,0 +1,12 @@
+name = "Easy Anvils"
+filename = "EasyAnvils-v26.2.3-mc26.2.x-NeoForge.jar"
+side = "both"
+[download]
+url = "https://cdn.modrinth.com/data/OZBR5JT5/versions/SFTxlmII/EasyAnvils-v26.2.3-mc26.2.x-NeoForge.jar"
+hash-format = "sha512"
+hash = "c94cfe6a0595b970d5561d70f589500fae7375c96412dea353a4f57e3ca3e895dfc47caa41656c4a57326e8af3b877e70b19e9f5ecaf8780243cab277c1d51c0"
+
+[update]
+[update.modrinth]
+mod-id = "OZBR5JT5"
+version = "SFTxlmII"

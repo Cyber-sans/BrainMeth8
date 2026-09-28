@@ -1,6 +1,6 @@
 name = "Concurrent Chunk Management Engine (NeoForge)"
 filename = "c2me-neoforge-mc26.2-0.4.2-alpha.0.94.jar"
-side = "server"
+side = "both"
 [download]
 url = "https://cdn.modrinth.com/data/COlSi5iR/versions/tkK6uyoU/c2me-neoforge-mc26.2-0.4.2-alpha.0.94.jar"
 hash-format = "sha512"
