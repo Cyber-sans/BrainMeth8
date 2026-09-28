@@ -1,0 +1,43 @@
+{
+  "server": [
+    "alternate-current",
+    "c2me-neoforge",
+    "clumps",
+    "configmanager",
+    "scalablelux",
+    "servercore",
+    "spark",
+    "structure-layout-optimizer",
+    "zfastnoise"
+  ],
+  "client": [
+    "badoptimizations",
+    "betterf3",
+    "cloth-config",
+    "controlling",
+    "crash-assistant",
+    "dynamic-fps",
+    "entityculling",
+    "fzzy-config",
+    "immediatelyfast",
+    "ixeris",
+    "jei",
+    "kotlin-for-forge",
+    "moreculling",
+    "mouse-tweaks",
+    "particle-core",
+    "searchables",
+    "shulkerboxtooltip",
+    "sodium"
+  ],
+  "both": [
+    "appleskin",
+    "asynclogger",
+    "automodpack",
+    "ferrite-core",
+    "jade",
+    "lithium",
+    "modernfix-mvus",
+    "simple-voice-chat"
+  ]
+}
