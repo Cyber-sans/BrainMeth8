@@ -21,6 +21,7 @@ spark
 
 # Client performance
 sodium
+https://modrinth.com/mod/iris/version/k55HdONq
 immediatelyfast
 entityculling
 moreculling
