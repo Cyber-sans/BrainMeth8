@@ -1,9 +1,9 @@
 {
   "server": [
     "alternate-current",
-    "c2me-neoforge",
     "clumps",
     "configmanager",
+    "immersive-optimization",
     "scalablelux",
     "servercore",
     "spark",
@@ -11,13 +11,16 @@
     "zfastnoise"
   ],
   "client": [
+    "asyncparticles",
     "badoptimizations",
     "betterf3",
     "cloth-config",
     "controlling",
     "crash-assistant",
+    "default-options",
     "dynamic-fps",
     "entityculling",
+    "fast-ip-ping",
     "fzzy-config",
     "immediatelyfast",
     "iris",
@@ -27,18 +30,23 @@
     "moreculling",
     "mouse-tweaks",
     "particle-core",
+    "reeses-sodium-options",
     "searchables",
     "shulkerboxtooltip",
-    "sodium"
+    "sodium",
+    "sodium-extra"
   ],
   "both": [
     "appleskin",
     "asynclogger",
     "automodpack",
+    "c2me-neoforge",
     "ferrite-core",
     "jade",
     "lithium",
     "modernfix-mvus",
+    "put-a-plug-in-it",
+    "put-a-plug-in-it!",
     "simple-voice-chat"
   ]
 }
