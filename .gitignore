@@ -1,0 +1,4 @@
+.env
+secrets/rcon_password.txt
+*.log
+.DS_Store
