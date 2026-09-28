@@ -39,13 +39,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # NeoForge only scans /mods itself, not nested /mods/base.
+          # Keep all generated Packwiz mod metadata directly under pack/mods/.
           rm -rf mods/base
-          mkdir -p mods/base
+          mkdir -p mods
+          find mods -maxdepth 1 -type f -name '*.pw.toml' -delete
 
           while IFS= read -r spec || [[ -n "$spec" ]]; do
             [[ -z "$spec" || "$spec" =~ ^[[:space:]]*# ]] && continue
             echo "Adding $spec"
-            packwiz --meta-folder mods/base modrinth add "$spec" -y
+            packwiz --meta-folder mods modrinth add "$spec" -y
           done < base-mods.txt
 
           python ../scripts/apply-packwiz-sides.py
