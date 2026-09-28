@@ -24,7 +24,7 @@ if [[ ! -s secrets/rcon_password.txt ]]; then
   echo "Generated secrets/rcon_password.txt"
 fi
 
-sudo install -d -m 775 -o "$USER" -g "$(id -gn)" "${PROD_DATA_DIR:-/srv/minecraft}" "${TEST_DATA_DIR:-/srv/minecraft-test}"
+sudo install -d -m 775 -o "$USER" -g "$(id -gn)" "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}" "${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test}" "${BACKUP_DIR:-/srv/minecraft/brainmeth/backups}"
 
 ./scripts/validate.sh
 
