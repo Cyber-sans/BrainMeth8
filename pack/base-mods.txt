@@ -3,7 +3,7 @@
 # Exact URLs are used where the current 26.2 build is beta/alpha and deliberately selected.
 
 # Pack/client synchronisation
-automodpack
+https://modrinth.com/mod/automodpack/version/4rbeqlE5
 simple-voice-chat
 
 # Core server + shared performance
@@ -25,9 +25,10 @@ immediatelyfast
 entityculling
 moreculling
 badoptimizations
-https://modrinth.com/mod/better-block-entities/version/vfpPl6mq
 particle-core
 dynamic-fps
+asynclogger
+ixeris
 
 # Essential QoL / modded playability
 https://modrinth.com/mod/jei/version/mvroCyBw
@@ -37,3 +38,5 @@ mouse-tweaks
 shulkerboxtooltip
 betterf3
 controlling
+crash-assistant
+configmanager
