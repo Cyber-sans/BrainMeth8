@@ -5,6 +5,8 @@ x-minecraft-common: &minecraft-common
   pull_policy: daily
   restart: unless-stopped
   stop_grace_period: 1m
+  labels:
+    com.centurylinklabs.watchtower.enable: "false"
   depends_on:
     packwiz:
       condition: service_healthy
@@ -50,6 +52,8 @@ services:
   packwiz:
     image: nginx:1.27-alpine
     restart: unless-stopped
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
     volumes:
       - ./pack:/usr/share/nginx/html:ro
     networks:
@@ -72,6 +76,43 @@ services:
       - "${VOICE_PORT_PROD:-24454}:24454/udp"
     volumes:
       - "${PROD_DATA_DIR:-/srv/minecraft}:/data"
+
+
+  minecraft-backup:
+    image: itzg/mc-backup:latest
+    pull_policy: daily
+    profiles: ["prod"]
+    container_name: brainmeth-backup
+    restart: unless-stopped
+    user: "1000:1000"
+    depends_on:
+      minecraft-prod:
+        condition: service_healthy
+    networks:
+      - brainmeth
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+    environment:
+      RCON_HOST: "minecraft-prod"
+      RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
+      INITIAL_DELAY: "0"
+      BACKUP_INTERVAL: "${BACKUP_INTERVAL:-6h}"
+      BACKUP_ON_STARTUP: "false"
+      BACKUP_METHOD: "tar"
+      TAR_COMPRESS_METHOD: "zstd"
+      PRUNE_BACKUPS_DAYS: "0"
+      PRUNE_BACKUPS_COUNT: "${BACKUP_KEEP_COUNT:-28}"
+      TZ: "${TZ:-Europe/London}"
+    secrets:
+      - rcon_password
+    volumes:
+      - "${PROD_DATA_DIR:-/srv/minecraft}:/data:ro"
+      - "${BACKUP_DIR:-/srv/minecraft-backups}:/backups"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   minecraft-test:
     <<: *minecraft-common
