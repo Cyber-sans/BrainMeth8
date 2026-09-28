@@ -37,6 +37,7 @@ x-minecraft-common: &minecraft-common
     ONLINE_MODE: "true"
     ENABLE_WHITELIST: "false"
     MAX_PLAYERS: "${MAX_PLAYERS:-12}"
+    OPS: "${OPS:-CyberSans}"
     VIEW_DISTANCE: "${VIEW_DISTANCE:-8}"
     SIMULATION_DISTANCE: "${SIMULATION_DISTANCE:-6}"
     ENABLE_RCON: "true"
