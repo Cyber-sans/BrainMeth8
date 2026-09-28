@@ -41,6 +41,7 @@ jobs:
             packwiz --meta-folder mods/base modrinth add "$spec" -y
           done < base-mods.txt
 
+          python ../scripts/apply-packwiz-sides.py
           packwiz refresh
           packwiz list -v
 
