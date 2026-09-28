@@ -10,6 +10,8 @@ x-minecraft-common: &minecraft-common
   depends_on:
     packwiz:
       condition: service_healthy
+    neoforge-installer:
+      condition: service_completed_successfully
   networks:
     - brainmeth
   logging:
@@ -22,6 +24,7 @@ x-minecraft-common: &minecraft-common
     TYPE: "NEOFORGE"
     VERSION: "26.2"
     NEOFORGE_VERSION: "26.2.0.88"
+    NEOFORGE_INSTALLER: "/neoforge/neoforge-26.2.0.88-installer.jar"
     PACKWIZ_URL: "http://packwiz/pack.toml"
     UID: "1000"
     GID: "1000"
@@ -47,6 +50,31 @@ x-minecraft-common: &minecraft-common
   stdin_open: true
 
 services:
+  # Downloads the exact pinned NeoForge installer once into a persistent Docker volume.
+  # This bypasses NeoForge Maven metadata resolution while keeping the version reproducible.
+  neoforge-installer:
+    image: alpine:3.22
+    pull_policy: daily
+    restart: "no"
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+    networks:
+      - brainmeth
+    command:
+      - /bin/sh
+      - -ec
+      - |
+        FILE=/installer/neoforge-26.2.0.88-installer.jar
+        URL=https://maven.neoforged.net/releases/net/neoforged/neoforge/26.2.0.88/neoforge-26.2.0.88-installer.jar
+        if [ ! -s "$FILE" ]; then
+          echo "Downloading pinned NeoForge 26.2.0.88 installer..."
+          wget -O "$FILE.tmp" "$URL"
+          mv "$FILE.tmp" "$FILE"
+        fi
+        test -s "$FILE"
+    volumes:
+      - neoforge-installer:/installer
+
   # Serves the Packwiz definition only on the private Docker network.
   # This lets the GitHub repository remain private.
   packwiz:
@@ -76,6 +104,7 @@ services:
       - "${VOICE_PORT_PROD:-25576}:24454/udp"
     volumes:
       - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}:/data"
+      - neoforge-installer:/neoforge:ro
 
 
   minecraft-backup:
@@ -137,10 +166,15 @@ services:
       - "${VOICE_PORT_TEST:-25574}:24454/udp"
     volumes:
       - "${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test}:/data"
+      - neoforge-installer:/neoforge:ro
 
 networks:
   brainmeth:
     name: brainmeth
+
+volumes:
+  neoforge-installer:
+    name: brainmeth-neoforge-installer
 
 secrets:
   rcon_password:
