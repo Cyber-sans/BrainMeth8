@@ -72,8 +72,8 @@ services:
       <<: *minecraft-environment
       MOTD: "${MOTD:-Brainmeth}"
     ports:
-      - "25565:25565/tcp"
-      - "${VOICE_PORT_PROD:-24454}:24454/udp"
+      - "25577:25565/tcp"
+      - "${VOICE_PORT_PROD:-24477}:24454/udp"
     volumes:
       - "${PROD_DATA_DIR:-/srv/minecraft}:/data"
 
@@ -95,7 +95,7 @@ services:
       RCON_HOST: "minecraft-prod"
       RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
       # Built-in cron runs inside the backup container.
-      # Default starts warnings at 03:50 local time so the archive begins at ~04:00.
+      # Default starts warnings at 04:50 local time so the archive begins at ~05:00.
       CRON_SCHEDULE: "${BACKUP_CRON:-50 4 * * *}"
       CRON_BACKUP_UID: "1000"
       PRE_SAVE_ALL_SCRIPT: |-
