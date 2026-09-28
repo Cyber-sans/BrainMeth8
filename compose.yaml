@@ -25,7 +25,7 @@ x-minecraft-common: &minecraft-common
     PACKWIZ_URL: "http://packwiz/pack.toml"
     UID: "1000"
     GID: "1000"
-    MEMORY: "${MEMORY:-6G}"
+    MEMORY: "${PROD_MEMORY:-6G}"
     USE_MEOWICE_FLAGS: "true"
     USE_MEOWICE_GRAALVM_FLAGS: "true"
     MODE: "survival"
