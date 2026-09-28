@@ -56,7 +56,7 @@ sound-physics-remastered
 ambientsounds
 visuality-forge
 subtle-effects
-continuity
+# continuity omitted on NeoForge 26.2: current 26.2 build is Fabric/Quilt and Connector is not available for 26.2
 rei
 inventory-essentials
 better-stats
