@@ -1,0 +1,13 @@
+name = "Alternate Current"
+filename = "alternate_current-mc26.2-1.9.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/r0v8vy1s/versions/M2Q5tR9o/alternate_current-mc26.2-1.9.0.jar"
+hash-format = "sha512"
+hash = "2253638977bf2b2c97332b893f63d4299141856fcfb9524c454de12cee9e52b2c6bd175157e4542d63e8829995a00a52eac359357b021f5e32f8bd9c479d0038"
+
+[update]
+[update.modrinth]
+mod-id = "r0v8vy1s"
+version = "M2Q5tR9o"

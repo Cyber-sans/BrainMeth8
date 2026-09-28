@@ -1,0 +1,13 @@
+name = "AutoModpack"
+filename = "automodpack-5.0.0-rc.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/k68glP2e/versions/bBBmWoC3/automodpack-5.0.0-rc.2.jar"
+hash-format = "sha512"
+hash = "1ecaf268b62f82c7b40774482caf2721c029b0f5d355303c71e5223585e6e888bf6990c2d50fcb3237104e6bc3d2353d8111e2521aa3df5f83e1c98c085f0380"
+
+[update]
+[update.modrinth]
+mod-id = "k68glP2e"
+version = "bBBmWoC3"
