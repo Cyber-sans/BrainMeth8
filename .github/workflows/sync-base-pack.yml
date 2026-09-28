@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - "pack/base-mods.txt"
+      - "pack/side-overrides.json"
+      - "pack/config/**"
+      - "scripts/apply-packwiz-sides.py"
       - ".github/workflows/sync-base-pack.yml"
   workflow_dispatch:
 
