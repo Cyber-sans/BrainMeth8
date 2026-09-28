@@ -1,0 +1,39 @@
+# Brainmeth 26.2 NeoForge base stack
+# Packwiz resolves the latest compatible NeoForge 26.2 release unless an exact version URL is used.
+# Exact URLs are used where the current 26.2 build is beta/alpha and deliberately selected.
+
+# Pack/client synchronisation
+automodpack
+simple-voice-chat
+
+# Core server + shared performance
+lithium
+ferrite-core
+https://modrinth.com/mod/c2me-neoforge/version/tkK6uyoU
+https://modrinth.com/mod/scalablelux/version/sj4ujwsT
+modernfix-mvus
+servercore
+alternate-current
+zfastnoise
+structure-layout-optimizer
+clumps
+spark
+
+# Client performance
+sodium
+immediatelyfast
+entityculling
+moreculling
+badoptimizations
+https://modrinth.com/mod/better-block-entities/version/vfpPl6mq
+particle-core
+dynamic-fps
+
+# Essential QoL / modded playability
+https://modrinth.com/mod/jei/version/mvroCyBw
+jade
+appleskin
+mouse-tweaks
+shulkerboxtooltip
+betterf3
+controlling
