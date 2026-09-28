@@ -43,7 +43,7 @@ configmanager
 
 https://modrinth.com/mod/sodium-extra/version/HKUWDkn7
 https://modrinth.com/mod/reeses-sodium-options/version/XToySQwf
-https://modrinth.com/mod/default-options/version/26.2.0.2%2Bneoforge-26.2
+default-options
 fast-ip-ping
 https://modrinth.com/mod/put-a-plug-in-it%21
 https://modrinth.com/mod/asyncparticles/version/ri5uXTny
