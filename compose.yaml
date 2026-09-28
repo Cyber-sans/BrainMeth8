@@ -96,8 +96,15 @@ services:
       RCON_HOST: "minecraft-prod"
       RCON_PASSWORD_FILE: "/run/secrets/rcon_password"
       INITIAL_DELAY: "0"
-      BACKUP_INTERVAL: "${BACKUP_INTERVAL:-6h}"
+      BACKUP_INTERVAL: "${BACKUP_INTERVAL:-24h}"
       BACKUP_ON_STARTUP: "false"
+      PRE_SAVE_ALL_SCRIPT: |-
+        rcon-cli say "Server backup in 10 minutes."
+        sleep 5m
+        rcon-cli say "Server backup in 5 minutes."
+        sleep 4m
+        rcon-cli say "Server backup in 60 seconds."
+        sleep 60s
       BACKUP_METHOD: "tar"
       TAR_COMPRESS_METHOD: "zstd"
       PRUNE_BACKUPS_DAYS: "0"
