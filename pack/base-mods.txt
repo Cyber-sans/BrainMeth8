@@ -68,7 +68,7 @@ better-stats
 chat-heads
 not-enough-animations
 3dskinlayers
-waveycapes
+https://modrinth.com/mod/kYuIpRLv/version/8oLUoF0z
 entitytexturefeatures
 entity-model-features
 just-zoom
