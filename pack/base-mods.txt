@@ -34,7 +34,6 @@ asynclogger
 ixeris
 
 # Essential QoL / modded playability
-jade
 appleskin
 mouse-tweaks
 shulkerboxtooltip
