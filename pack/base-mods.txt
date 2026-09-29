@@ -1,4 +1,5 @@
 # Brainmeth 26.2 NeoForge base stack
+# Generated Packwiz metadata is installed at the NeoForge mods root.
 # Packwiz resolves the latest compatible NeoForge 26.2 release unless an exact version URL is used.
 # Exact URLs are used where the current 26.2 build is beta/alpha and deliberately selected.
 
