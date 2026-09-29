@@ -1,5 +1,6 @@
 # Brainmeth Distant Horizons baseline for DH 3.3.3 / config schema v4.
 # Generate missing distant terrain on the dedicated server and serve LODs to clients.
+# Current DH 3.3.3 keys are validated by scripts/validate.sh.
 _version = 4
 
 [server]
