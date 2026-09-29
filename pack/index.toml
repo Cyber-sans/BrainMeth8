@@ -6,7 +6,7 @@ hash = "58940093947a8f2ad8053aac2066210c182e3e417a30d0379394e87dea9448f3"
 
 [[files]]
 file = "base-mods.txt"
-hash = "4c84f6408e431c12e7e82d6e7ba031f46d0b5f150e03eb8a5a8550ba98d44e13"
+hash = "ad80ccbc590bd6f13ea5c1bfc02eba0a79e617fa9a6f4e922ace18e650a09dc6"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -152,7 +152,7 @@ metafile = true
 
 [[files]]
 file = "mods/distanthorizons.pw.toml"
-hash = "b1b1d8c17b342867346ce8ac706dbaf406e380225988262610fa2b1f4d56f412"
+hash = "d0732ae1c562d0b16fc43b44efbc2a76b64759ff3449b7104beef0aa728654b9"
 metafile = true
 
 [[files]]
@@ -391,11 +391,6 @@ hash = "88be5a2f499384053a3d930f92342ef70525273ddec7b462efa27fe773ac727e"
 metafile = true
 
 [[files]]
-file = "mods/subtle-effects.pw.toml"
-hash = "a654b27bd29e5ec744d8e0af9ace73ffd3d6f56942329737c10af297ce1b09e1"
-metafile = true
-
-[[files]]
 file = "mods/tcdcommons.pw.toml"
 hash = "8759afe2cad50f4ceb1f10c426c0c1a8e88e9b58333d1e98f9e9940a72955cfe"
 metafile = true
@@ -432,4 +427,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "1ac074603e28f0da6b97a3d1e1eff72f21384ac524b27e71ee4748f0185ae73b"
+hash = "de04c524c11abfe725b4c6027c373b15fd38dca47ed9277b371e144a1f95bef4"
