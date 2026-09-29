@@ -3,6 +3,7 @@
 # Exact URLs are used where the current 26.2 build is beta/alpha and deliberately selected.
 
 # Pack/client synchronisation
+# AutoModpack publishes Packwiz client + both sides only.
 https://modrinth.com/mod/automodpack/version/4rbeqlE5
 simple-voice-chat
 
