@@ -6,11 +6,11 @@ hash = "58940093947a8f2ad8053aac2066210c182e3e417a30d0379394e87dea9448f3"
 
 [[files]]
 file = "base-mods.txt"
-hash = "ad80ccbc590bd6f13ea5c1bfc02eba0a79e617fa9a6f4e922ace18e650a09dc6"
+hash = "8df844d5029ee8f9a3bcbe292a37b15199ebf94e27cbcc09387117db85cdd84f"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "19dd241e512ec4211eb4ec6cdda12ed2993a084b079bd0e4a996c6050094d763"
+hash = "6674676fc3d90e906e0eabf1d5bab2f4f0977112d169bc8ecfb5a2ce947d6093"
 
 [[files]]
 file = "config/modernfix-mixins.properties"
@@ -241,11 +241,6 @@ hash = "9fe378e71036f41df323c094236914cb1b6514a78e6ba1355f66e9904889438e"
 metafile = true
 
 [[files]]
-file = "mods/jade.pw.toml"
-hash = "2fe30b442cf6a78f5a42e5e7e5093e5f4533c3dcaacadb902b13bf4da8f40e28"
-metafile = true
-
-[[files]]
 file = "mods/jamlib.pw.toml"
 hash = "3e3c6e6f3b000e271dbc5ed22491358f3b087d03393c2a7d9e96851e53b4aa65"
 metafile = true
@@ -427,4 +422,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "de04c524c11abfe725b4c6027c373b15fd38dca47ed9277b371e144a1f95bef4"
+hash = "1c65e28183de1ac958c05242666d46fa1bad1873dd7138bbccc338fc0b7fa943"
