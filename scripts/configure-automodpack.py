@@ -1,47 +1,50 @@
 #!/usr/bin/env python3
-"""Keep AutoModpack's client payload sourced from host-modpack, not server mods."""
+"""Configure AutoModpack 4.0.5 so Brainmeth clients get only the staged Packwiz payload."""
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
-import re
 
 
-FACTORY = """# Brainmeth-managed AutoModpack server configuration.
-# Client mods are supplied explicitly from automodpack/host-modpack/main/.
-# The server mods directory is deliberately not mirrored to clients.
-modpack {
-  name: "Brainmeth"
-  General {
-    main {
-      display-name: "Brainmeth"
-      description: "Core Brainmeth client pack"
-      required: true
-      default-selected: true
-      from-server: [kubejs/**, emotes/*]
-      exclude: ["**/.*", "**/.*/**", "**/*.{tmp,disabled,bak}", kubejs/server_scripts/**]
-      editable: [options.txt, config/**]
+SYNCED_FILES = [
+    "/kubejs/**",
+    "!/kubejs/server_scripts/**",
+    "/emotes/*",
+]
+
+
+def fresh_config() -> dict:
+    # AutoModpack 4.0.5 ServerConfigFieldsV2.
+    return {
+        "DO_NOT_CHANGE_IT": 2,
+        "modpackName": "Brainmeth",
+        "modpackHost": True,
+        "generateModpackOnStart": True,
+        "syncedFiles": SYNCED_FILES,
+        "allowEditsInFiles": ["/options.txt", "/config/**"],
+        "forceCopyFilesToStandardLocation": [],
+        "nonModpackFilesToDelete": {},
+        "autoExcludeServerSideMods": True,
+        "autoExcludeUnnecessaryFiles": True,
+        "requireAutoModpackOnClient": True,
+        "nagUnModdedClients": True,
+        "nagMessage": "This server provides dedicated modpack through AutoModpack!",
+        "nagClickableMessage": "Click here to get the AutoModpack!",
+        "nagClickableLink": "https://modrinth.com/project/automodpack",
+        "bindAddress": "",
+        "bindPort": -1,
+        "addressToSend": "",
+        "portToSend": -1,
+        "disableInternalTLS": False,
+        "requireMagicPackets": False,
+        "updateIpsOnEveryStart": False,
+        "bandwidthLimit": 0,
+        "validateSecrets": True,
+        "secretLifetime": 336,
+        "selfUpdater": False,
+        "acceptedLoaders": ["neoforge"],
     }
-  }
-}
-auto-exclude-server-side-mods: true
-"""
-
-
-def strip_server_mod_rules(text: str) -> tuple[str, int]:
-    pattern = re.compile(r"(?m)^(?P<prefix>\s*from-server\s*:\s*)\[(?P<body>[^\]]*)\]")
-
-    def repl(match: re.Match[str]) -> str:
-        entries = [e.strip() for e in match.group("body").split(",") if e.strip()]
-        kept = []
-        for entry in entries:
-            normalized = entry.strip().strip('"').strip("'").lstrip("!").lstrip("/")
-            if normalized.startswith("mods/"):
-                continue
-            kept.append(entry)
-        return f"{match.group('prefix')}[{', '.join(kept)}]"
-
-    return pattern.subn(repl, text)
 
 
 def main() -> int:
@@ -49,26 +52,39 @@ def main() -> int:
     ap.add_argument("--data-root", required=True)
     args = ap.parse_args()
 
-    conf = Path(args.data_root).resolve() / "automodpack" / "server.conf"
-    conf.parent.mkdir(parents=True, exist_ok=True)
+    amp = Path(args.data_root).resolve() / "automodpack"
+    amp.mkdir(parents=True, exist_ok=True)
+    conf = amp / "automodpack-server.json"
 
-    if not conf.exists():
-        conf.write_text(FACTORY, encoding="utf-8")
-        print(f"Created Brainmeth AutoModpack config: {conf}")
-        return 0
-
-    old = conf.read_text(encoding="utf-8")
-    new, count = strip_server_mod_rules(old)
-    if count == 0:
-        raise RuntimeError(
-            f"Could not find AutoModpack from-server rules in {conf}; refusing to guess"
-        )
-
-    if new != old:
-        conf.write_text(new, encoding="utf-8")
-        print("Removed server mods from AutoModpack from-server rules.")
+    if conf.exists():
+        try:
+            data = json.loads(conf.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"Invalid AutoModpack JSON in {conf}: {exc}") from exc
+        if not isinstance(data, dict):
+            raise RuntimeError(f"Unexpected AutoModpack config shape in {conf}")
     else:
-        print("AutoModpack server-mod mirroring already disabled.")
+        data = fresh_config()
+
+    # AutoModpack 4.0.5 uses syncedFiles. Deliberately omit /mods/*.jar:
+    # client/both mods are staged into automodpack/host-modpack/main/mods instead.
+    data["syncedFiles"] = list(SYNCED_FILES)
+    if not data.get("modpackName"):
+        data["modpackName"] = "Brainmeth"
+
+    conf.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+    # A short-lived earlier Brainmeth deploy wrote the newer AutoModpack 4.0.6+
+    # server.conf format. AutoModpack 4.0.5 ignores it, so remove only our copy.
+    wrong = amp / "server.conf"
+    if wrong.exists():
+        text = wrong.read_text(encoding="utf-8", errors="replace")
+        if "Brainmeth-managed AutoModpack server configuration" in text:
+            wrong.unlink()
+            print(f"Removed ignored AutoModpack config from newer schema: {wrong}")
+
+    print(f"Configured AutoModpack 4.0.5: {conf}")
+    print(f"AutoModpack syncedFiles: {data['syncedFiles']}")
     return 0
 
 
