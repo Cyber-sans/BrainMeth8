@@ -1,13 +1,19 @@
 {
   "server": [
+    "ai-improvements",
+    "almanac",
     "alternate-current",
     "clumps",
     "configmanager",
     "immersive-optimization",
+    "jasione",
+    "krypton-fnp",
+    "lmd",
     "rightclickharvest",
     "scalablelux",
     "servercore",
     "spark",
+    "springlotus",
     "structure-layout-optimizer",
     "zfastnoise"
   ],

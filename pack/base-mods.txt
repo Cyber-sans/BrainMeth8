@@ -20,6 +20,10 @@ zfastnoise
 structure-layout-optimizer
 clumps
 spark
+krypton-fnp
+ai-improvements
+lmd
+jasione
 
 # Client performance
 sodium
