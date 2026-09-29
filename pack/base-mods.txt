@@ -31,7 +31,7 @@ https://modrinth.com/mod/iris/version/k55HdONq
 immediatelyfast
 entityculling
 moreculling
-obe
+https://modrinth.com/mod/better-block-entities/version/vfpPl6mq
 badoptimizations
 particle-core
 dynamic-fps
