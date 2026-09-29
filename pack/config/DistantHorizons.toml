@@ -1,5 +1,10 @@
-# Brainmeth Distant Horizons baseline.
-# Generate unexplored distant terrain on the dedicated server so clients can receive LODs.
+# Brainmeth Distant Horizons baseline for DH 3.3.3 / config schema v4.
+# Generate missing distant terrain on the dedicated server and serve LODs to clients.
+_version = 4
+
+[server]
+enableServerGeneration = true
+
 [common.worldGenerator]
 enableDistantGeneration = true
 distantGeneratorMode = "INTERNAL_SERVER"
