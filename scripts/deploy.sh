@@ -28,4 +28,9 @@ python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DA
 docker compose --profile "$TARGET" pull
 docker compose --profile "$TARGET" up -d --remove-orphans
 
+# Pack/config changes are consumed during Minecraft startup, so every deploy
+# deliberately recreates the target server without bouncing shared services.
+SERVICE="minecraft-$TARGET"
+docker compose --profile "$TARGET" up -d --force-recreate --no-deps "$SERVICE"
+
 docker compose ps
