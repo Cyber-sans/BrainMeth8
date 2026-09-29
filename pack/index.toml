@@ -6,7 +6,7 @@ hash = "58940093947a8f2ad8053aac2066210c182e3e417a30d0379394e87dea9448f3"
 
 [[files]]
 file = "base-mods.txt"
-hash = "01ef9ca93aed4dcd6163ec925addb38c861f0d47cec916d5f8a8c433ae8c5c8f"
+hash = "121389f87151793386b267938a44d0ea91051b4977937bae30e7fa20fe096eb9"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -88,6 +88,11 @@ metafile = true
 [[files]]
 file = "mods/better-advancements.pw.toml"
 hash = "e727dba8b0f5e2a4cb4fcd1c8cd734217f215cb1dcd3d0f55a98e50b7a83ceac"
+metafile = true
+
+[[files]]
+file = "mods/better-block-entities.pw.toml"
+hash = "f0fbde01a7995dcdca510c63f5ddb4ce0b769c1dd0cf8cd5bd2974dfed40d0c7"
 metafile = true
 
 [[files]]
@@ -452,4 +457,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "0842131216d2c6e1dd0cb3c63b8a309e88cb7458a5a3210294655278c7e384a7"
+hash = "f32fcb8b8121c9cefab85567248495c6a6de36301e7a32ceb05ba256f992be83"
