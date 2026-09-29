@@ -31,6 +31,7 @@ https://modrinth.com/mod/iris/version/k55HdONq
 immediatelyfast
 entityculling
 moreculling
+obe
 badoptimizations
 particle-core
 dynamic-fps
@@ -67,7 +68,7 @@ better-stats
 chat-heads
 not-enough-animations
 3dskinlayers
-wavey-capes
+waveycapes
 entitytexturefeatures
 entity-model-features
 just-zoom
