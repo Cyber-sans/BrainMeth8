@@ -22,6 +22,7 @@ else
   DATA_DIR="${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test}"
 fi
 
+python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
 docker compose --profile "$TARGET" pull
