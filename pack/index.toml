@@ -6,7 +6,7 @@ hash = "58940093947a8f2ad8053aac2066210c182e3e417a30d0379394e87dea9448f3"
 
 [[files]]
 file = "base-mods.txt"
-hash = "8df844d5029ee8f9a3bcbe292a37b15199ebf94e27cbcc09387117db85cdd84f"
+hash = "01ef9ca93aed4dcd6163ec925addb38c861f0d47cec916d5f8a8c433ae8c5c8f"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -28,6 +28,16 @@ metafile = true
 [[files]]
 file = "mods/advancement-plaques.pw.toml"
 hash = "a3836c09ea59408e053d72f44c3c0c03d0d69ccc1825ee041c49a0f99ed07de5"
+metafile = true
+
+[[files]]
+file = "mods/ai-improvements.pw.toml"
+hash = "fae608c75f212c5be1bc44d2796f316f40982aea0605da4cea88bc8b3770a968"
+metafile = true
+
+[[files]]
+file = "mods/almanac.pw.toml"
+hash = "f8423e4036132930e45e29e1cd3adda90dca91f362557de30a054202afeae4df"
 metafile = true
 
 [[files]]
@@ -246,6 +256,11 @@ hash = "3e3c6e6f3b000e271dbc5ed22491358f3b087d03393c2a7d9e96851e53b4aa65"
 metafile = true
 
 [[files]]
+file = "mods/jasione.pw.toml"
+hash = "4c23375aa5d02b82a0e9994b2b3420edbe0e5f3152eadc807b494121c301ebff"
+metafile = true
+
+[[files]]
 file = "mods/just-zoom.pw.toml"
 hash = "c451dca35480a0f10ed360c6c4fc9750bc385484d8f137892aaf7dc8afb63fb1"
 metafile = true
@@ -261,6 +276,11 @@ hash = "70cc938c3adba81939f3e68bcf997e6275ed31d09764367bbc97b74344eaa885"
 metafile = true
 
 [[files]]
+file = "mods/krypton-fnp.pw.toml"
+hash = "93e5c6cc1f6cd47b5b471fe942d02e5b26aa212d6a9b8ee01f97e422361326bf"
+metafile = true
+
+[[files]]
 file = "mods/lambdynamiclights.pw.toml"
 hash = "02e875caf46f1b5ff280960d7b9ddee5f07012ae5dd624e75f8dfe457c9bc342"
 metafile = true
@@ -268,6 +288,11 @@ metafile = true
 [[files]]
 file = "mods/lithium.pw.toml"
 hash = "03aba6054ebbd57b90c9535148122e0203f159d920f2a1b40b8864ea08cee168"
+metafile = true
+
+[[files]]
+file = "mods/lmd.pw.toml"
+hash = "5cc2daf409d894debac166c2f5d5de4daac608cbd6f3db08db66f762e397f231"
 metafile = true
 
 [[files]]
@@ -381,6 +406,11 @@ hash = "c1786fe0ac4d26017396181478a537d2f0f5ea72189a893b733d775bc75856e1"
 metafile = true
 
 [[files]]
+file = "mods/springlotus.pw.toml"
+hash = "a19e01112825b7e9c71265787d40db476f859811827c93b94547af20c1ee71ef"
+metafile = true
+
+[[files]]
 file = "mods/structure-layout-optimizer.pw.toml"
 hash = "88be5a2f499384053a3d930f92342ef70525273ddec7b462efa27fe773ac727e"
 metafile = true
@@ -422,4 +452,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "1c65e28183de1ac958c05242666d46fa1bad1873dd7138bbccc338fc0b7fa943"
+hash = "0842131216d2c6e1dd0cb3c63b8a309e88cb7458a5a3210294655278c7e384a7"

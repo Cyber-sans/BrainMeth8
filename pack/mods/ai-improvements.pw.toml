@@ -1,0 +1,12 @@
+name = "AI Improvements: Performance Tuning"
+filename = "AI-Improvements-26.1.1-0.5.4.jar"
+side = "server"
+[download]
+url = "https://cdn.modrinth.com/data/DSVgwcji/versions/2N8rYJgE/AI-Improvements-26.1.1-0.5.4.jar"
+hash-format = "sha512"
+hash = "ba480f9273d2f57fa7f021106f48a5bf1eec524ed6e10d22284cae8fbd6095133bfdac40114c0b69fa787f8ce288a49d751524f69d502c30dfa531f6d2989217"
+
+[update]
+[update.modrinth]
+mod-id = "DSVgwcji"
+version = "2N8rYJgE"
