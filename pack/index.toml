@@ -10,7 +10,7 @@ hash = "8df844d5029ee8f9a3bcbe292a37b15199ebf94e27cbcc09387117db85cdd84f"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "6674676fc3d90e906e0eabf1d5bab2f4f0977112d169bc8ecfb5a2ce947d6093"
+hash = "260ef7e224a9da9c816841457b596ff846a031f632e8e39e96e56066c287d56e"
 
 [[files]]
 file = "config/modernfix-mixins.properties"
