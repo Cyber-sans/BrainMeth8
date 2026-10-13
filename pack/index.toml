@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "e587d06a0d07e76031b5a9ce16e1cc4fa5541d71780091b569759cb3e2e57bb5"
+hash = "67a4be91a55460e2fba16af7956f8313459ddb34e12789927cf169a2b9744a2d"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -103,6 +103,11 @@ metafile = true
 [[files]]
 file = "mods/bookshelf-lib.pw.toml"
 hash = "68d6016fa3707c434b3aca5db041c7518c70feb53d0183faa2502cc6efd4c827"
+metafile = true
+
+[[files]]
+file = "mods/bountiful.pw.toml"
+hash = "1dd7171749897513c7dfd55657fe54b3ee5a088c22c1f9b22c17040f75ba3c78"
 metafile = true
 
 [[files]]
@@ -467,4 +472,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "fe4ac0abb7a2e19233cbf795684c53b7b1b28c26519e852f26281e0701f97bad"
+hash = "898bca453bdacd9363304815597e524295db517a23c07be76407cb61595c53fc"
