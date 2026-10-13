@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "27174df0c969d5f942113160ae233130c539801fd4c24849c4610feac4f75107"
+hash = "e587d06a0d07e76031b5a9ce16e1cc4fa5541d71780091b569759cb3e2e57bb5"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -91,6 +91,11 @@ hash = "4ec9b24b863c0293dec871657b44a7f4d8576e5a31b398b6461dba33003847d3"
 metafile = true
 
 [[files]]
+file = "mods/betterdays.pw.toml"
+hash = "2f0735285d50b620f64d3597e018c456b6df7cbeafa21f84d060ecb7fe4567b3"
+metafile = true
+
+[[files]]
 file = "mods/betterf3.pw.toml"
 hash = "ad5e80170523ded81647cfbcef6d20cf0404362cf27fd60886ec3ff29b28805a"
 metafile = true
@@ -108,6 +113,11 @@ metafile = true
 [[files]]
 file = "mods/chat-heads.pw.toml"
 hash = "0b866d885b7693f79d1d2ff7dd52f6a26e6107b6550716ec9170e8d87c087af5"
+metafile = true
+
+[[files]]
+file = "mods/chatanimation.pw.toml"
+hash = "973c0e7da4b225820026b5bfe2d560a2de2ff5ccaa40b8437f20ba059a31a3ae"
 metafile = true
 
 [[files]]
@@ -141,6 +151,11 @@ hash = "79d169b6df5c420d29768b9047b10ab7b90c3553460c1741bab21ebad2ba5760"
 metafile = true
 
 [[files]]
+file = "mods/coroutil.pw.toml"
+hash = "d901f874a1e09747b8d0d072c38c426eceead1f29c8ba36680f8f0082996b152"
+metafile = true
+
+[[files]]
 file = "mods/crafting-tweaks.pw.toml"
 hash = "8cc14a755f39da3c8d559726ec7c9046c731f808d4bbe355bc1fd2cad178fe5b"
 metafile = true
@@ -156,13 +171,28 @@ hash = "63d1560de24b53cad7052d19c1a44b4eab64ad9f696d01c9f2a72fccd5540557"
 metafile = true
 
 [[files]]
+file = "mods/cut-through.pw.toml"
+hash = "2a4347cebe419d88fc74fae6f090fb2c05b9b2e64d1197520b53ac8ce755d8be"
+metafile = true
+
+[[files]]
 file = "mods/default-options.pw.toml"
 hash = "9a20aaf4ce082a67b8d15d4644be656a3f945cf334dfb22bc6fc74b8e8842033"
 metafile = true
 
 [[files]]
+file = "mods/diagonal-fences.pw.toml"
+hash = "3c2bd8d3e960aef312cf4e05711567f67b0ae87979a232d24ce1fe4db8cc13b9"
+metafile = true
+
+[[files]]
 file = "mods/distanthorizons.pw.toml"
 hash = "b8d0b93424a6a373ab15cff8ed023b7f01b5ff99604308a38cd7cea33c33afbe"
+metafile = true
+
+[[files]]
+file = "mods/dripsounds.pw.toml"
+hash = "34b3faebedb58588e9aeebc5fb40c63992f24c6a64dffd9f6c8594267edb5369"
 metafile = true
 
 [[files]]
@@ -256,6 +286,16 @@ hash = "bc5c3a4949f25f87ace463dd97ba119290ff6a2dd2993b4ee98f84fda9196b78"
 metafile = true
 
 [[files]]
+file = "mods/lets-do-herbalbrews.pw.toml"
+hash = "e7c7c19a0a0f67f4f9cd2e1b19eba38aae30c98013c750a168b273d710b84898"
+metafile = true
+
+[[files]]
+file = "mods/lets-do-vinery.pw.toml"
+hash = "91a9d28de28aeb2ba87fb36d09c9389d258d144bbe81608117a4ca6590a748b9"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "726e03a1a7fba33c5018f4f49882cd97351a8ad282ac0bf34664fa6a4cf4a457"
 metafile = true
@@ -293,6 +333,11 @@ metafile = true
 [[files]]
 file = "mods/particle-core.pw.toml"
 hash = "4d4783fbfb9338c641e4365beeabdc180ec37f03c559b494611bb53c19607b2c"
+metafile = true
+
+[[files]]
+file = "mods/ping-wheel.pw.toml"
+hash = "00a55d8f79407d30c0f014de50a06e0f0191d654f0013739d8af81868655458a"
 metafile = true
 
 [[files]]
@@ -366,6 +411,11 @@ hash = "0f3cbb8dd3d5fe20466f9d14a768f3c796d7c11f276df7a8b8c8244a5f7de790"
 metafile = true
 
 [[files]]
+file = "mods/stoneworks.pw.toml"
+hash = "713ac084112dbfb9d237e5edc0fcdb6d1759cb4bb1e766a8ed24dd9f7a895b4d"
+metafile = true
+
+[[files]]
 file = "mods/structure-layout-optimizer.pw.toml"
 hash = "ac44c21c54953293cddcd8ca6f05224d29f2a4ae9fd9adfcd5428b7566c57e78"
 metafile = true
@@ -378,6 +428,11 @@ metafile = true
 [[files]]
 file = "mods/supplementaries.pw.toml"
 hash = "8b153c57ef7ce31141ff77f79c00f11cd405a0867a718b2e38c76dd128475adb"
+metafile = true
+
+[[files]]
+file = "mods/tabtps.pw.toml"
+hash = "b8fdecfaaf5d77811d7a09a1eb98ee62f56e9fa9a5ea32fc9703332717b7c639"
 metafile = true
 
 [[files]]
@@ -401,10 +456,15 @@ hash = "c07574233616b4cc738bfcff3499064231e855a211e3504e7064e9ea0a6bfdbd"
 metafile = true
 
 [[files]]
+file = "mods/what-are-they-up-to.pw.toml"
+hash = "8938f081f5e4cc48c66fe447c59171879a209bcd45080f11e5142e95dfd87279"
+metafile = true
+
+[[files]]
 file = "mods/zfastnoise.pw.toml"
 hash = "8a0bdcf819a24ed6e592680eb589443246458d31e78dabad1e7aadcf658e524e"
 metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "e6e0983ab2f3002eb2611a4728e99d6fef0d74c864d50f3cc7bda8be31ef43ab"
+hash = "fe4ac0abb7a2e19233cbf795684c53b7b1b28c26519e852f26281e0701f97bad"
