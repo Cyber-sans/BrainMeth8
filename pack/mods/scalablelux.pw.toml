@@ -1,12 +1,12 @@
 name = "ScalableLux"
-filename = "ScalableLux-neoforge-0.3.0-alpha.0.16-all.jar"
+filename = "ScalableLux-neoforge-0.3.0-alpha.0.8-all.jar"
 side = "server"
 [download]
-url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/sj4ujwsT/ScalableLux-neoforge-0.3.0-alpha.0.16-all.jar"
+url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/9KuFoPhC/ScalableLux-neoforge-0.3.0-alpha.0.8-all.jar"
 hash-format = "sha512"
-hash = "43eec805b97129dba07e48cc8bc92d62fa7d56956675b96bf3cba43fd73194388466805bddde32831df01461db3e8c221cc500d817ca7684bec4b02f237b07c6"
+hash = "fa7bb3ee6641cf94b957b4c30635711e7f9d2b5e66b544899ce4ac039d8a59814ca7f7d97c0f66b3a80261d59a3ec3d328ad0d9dcdfc13d77af580f702094a94"
 
 [update]
 [update.modrinth]
 mod-id = "Ps1zyz6x"
-version = "sj4ujwsT"
+version = "9KuFoPhC"

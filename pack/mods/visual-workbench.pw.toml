@@ -1,12 +1,12 @@
 name = "Visual Workbench"
-filename = "VisualWorkbench-v26.2.1-mc26.2.x-NeoForge.jar"
+filename = "VisualWorkbench-v21.1.2-1.21.1-NeoForge.jar"
 side = "both"
 [download]
-url = "https://cdn.modrinth.com/data/kfqD1JRw/versions/zoLCpqp3/VisualWorkbench-v26.2.1-mc26.2.x-NeoForge.jar"
+url = "https://cdn.modrinth.com/data/kfqD1JRw/versions/3646RfLS/VisualWorkbench-v21.1.2-1.21.1-NeoForge.jar"
 hash-format = "sha512"
-hash = "ec40407e6b6c9025ba5bb66c03be2d86ae3d15b3c5e4e8d25eb1275bf45d9ec4ea0d8c85f834354857de4b87f81a0ec10bad51dd2932d14fa1a47268b1acc973"
+hash = "3737a436143acc1c6f80d0633371dafb4e24026d585bf5afa80421e1d1d6bbd2243d040c43a70d6796377227c0762d058c27c2b16a3fb20d0c2602bd04ae2038"
 
 [update]
 [update.modrinth]
 mod-id = "kfqD1JRw"
-version = "zoLCpqp3"
+version = "3646RfLS"

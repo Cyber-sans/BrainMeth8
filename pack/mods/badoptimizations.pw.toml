@@ -1,12 +1,12 @@
 name = "BadOptimizations"
-filename = "BadOptimizations-2.4.1-26.2-forge.jar"
+filename = "BadOptimizations-2.4.1-1.21.1.jar"
 side = "client"
 [download]
-url = "https://cdn.modrinth.com/data/g96Z4WVZ/versions/IDYkXahy/BadOptimizations-2.4.1-26.2-forge.jar"
+url = "https://cdn.modrinth.com/data/g96Z4WVZ/versions/S2qthD5S/BadOptimizations-2.4.1-1.21.1.jar"
 hash-format = "sha512"
-hash = "4d65e6baa49d58cb4ea352919bb853f689d4d6dc660d27dcb8e26692f277511ef6cbf37c1dde07fdfc622566b35bb415a0ac9816e1ec5f4d0c60583c2c409d06"
+hash = "2b66428bd98bd5ec0e09f2ec6af801cefb7b9b99cc4f0993daeaffe8d0ccc5ee0c2a73e9f38d4f92540ead0181704d2c9e946837ec05cf710fc3b20fce3b0cac"
 
 [update]
 [update.modrinth]
 mod-id = "g96Z4WVZ"
-version = "IDYkXahy"
+version = "S2qthD5S"

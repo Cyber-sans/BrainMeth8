@@ -1,12 +1,12 @@
 name = "Better Advancements"
-filename = "BetterAdvancements-NeoForge-26.2-0.6.0.77.jar"
+filename = "BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar"
 side = "client"
 [download]
-url = "https://cdn.modrinth.com/data/Q2OqKxDG/versions/kn85SmV1/BetterAdvancements-NeoForge-26.2-0.6.0.77.jar"
+url = "https://cdn.modrinth.com/data/Q2OqKxDG/versions/FjTYILOi/BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar"
 hash-format = "sha512"
-hash = "43a5c9922574ae74baf96daa60754fd5c41f1db3d9db30a10a6a629e2b6343ad2d4322365e8fbe7bf421d0de04d6fa86bf2b32dc2c68db7ca1f1397b598496a7"
+hash = "b3deafd146dc3ea6e879fbc92f00de5797319a1aa620fb3b39be64c19271dab2efa07f824cda7139f8c22f2524ea413949357f5469bb6de584d1386de069c6b7"
 
 [update]
 [update.modrinth]
 mod-id = "Q2OqKxDG"
-version = "kn85SmV1"
+version = "FjTYILOi"

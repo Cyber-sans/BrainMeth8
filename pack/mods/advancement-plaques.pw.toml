@@ -1,12 +1,12 @@
 name = "Advancement Plaques"
-filename = "AdvancementPlaques-26.2-neoforge-1.7.2.jar"
+filename = "AdvancementPlaques-1.21.1-neoforge-1.6.8.jar"
 side = "client"
 [download]
-url = "https://cdn.modrinth.com/data/9NM0dXub/versions/Tl7N8BOp/AdvancementPlaques-26.2-neoforge-1.7.2.jar"
+url = "https://cdn.modrinth.com/data/9NM0dXub/versions/OWylG33I/AdvancementPlaques-1.21.1-neoforge-1.6.8.jar"
 hash-format = "sha512"
-hash = "ab9ff02bb3da63f6bc2b9aa1ed673ba158942b0413656b1390ee6a427df42fbcfbcd183d625c220fb79a285a53aaca973c6a7c536cd61f0d655e66a2b5a76845"
+hash = "94724dd77d005f0a189c4843efcc2800cf3d3e01d1f1ac184c6f6ad7c921aec508e93fa0bfac0e641a74c1629d4e5e4d06b8c1a3e0d8e63f97db89b2f879c106"
 
 [update]
 [update.modrinth]
 mod-id = "9NM0dXub"
-version = "Tl7N8BOp"
+version = "OWylG33I"

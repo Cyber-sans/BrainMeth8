@@ -1,13 +1,13 @@
 name = "Iceberg"
-filename = "Iceberg-26.2-neoforge-1.4.2.2.jar"
+filename = "Iceberg-1.21.1-neoforge-1.3.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/5faXoLqX/versions/a9lfJkkL/Iceberg-26.2-neoforge-1.4.2.2.jar"
+url = "https://cdn.modrinth.com/data/5faXoLqX/versions/IMssx9du/Iceberg-1.21.1-neoforge-1.3.2.jar"
 hash-format = "sha512"
-hash = "db0f3a3d990825246a4c84b7407dde661ccca51fbdd326b651996b479d2eaf31cdc4264b7171a46a0f506dd0a3fba6be4ba48aed4bf2b795c88d6a838d95132b"
+hash = "19d33195cfee0a640f40fb64d82346df7ac970ddb43ed68ba2dacb4793b18d577fd57dd43a4c2e94f731487c024b8d7ebcc52721764ec9d8a87bd68fc7df5c96"
 
 [update]
 [update.modrinth]
 mod-id = "5faXoLqX"
-version = "a9lfJkkL"
+version = "IMssx9du"
