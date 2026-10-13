@@ -102,3 +102,5 @@ stoneworks
 
 # Brainmeth Contracts foundation: bounty boards and objectives
 bountiful
+# Required Bountiful library (not automatically pulled by Packwiz)
+kambrik
