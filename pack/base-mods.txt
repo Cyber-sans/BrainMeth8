@@ -51,7 +51,6 @@ ambientsounds
 visuality-forge
 rei
 inventory-essentials
-better-stats
 chat-heads
 not-enough-animations
 3dskinlayers
