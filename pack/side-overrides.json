@@ -11,7 +11,8 @@
     "servercore",
     "spark",
     "structure-layout-optimizer",
-    "zfastnoise"
+    "zfastnoise",
+    "tabtps"
   ],
   "client": [
     "3dskinlayers",
@@ -49,7 +50,10 @@
     "sodium",
     "sound-physics-remastered",
     "visuality-forge",
-    "wavey-capes"
+    "wavey-capes",
+    "chatanimation",
+    "cut-through",
+    "dripsounds"
   ],
   "both": [
     "appleskin",
@@ -72,6 +76,13 @@
     "moonlight",
     "supplementaries",
     "supplementaries-squared",
-    "amendments"
+    "amendments",
+    "betterdays",
+    "what-are-they-up-to",
+    "ping-wheel",
+    "diagonal-fences",
+    "lets-do-herbalbrews",
+    "lets-do-vinery",
+    "stoneworks"
   ]
 }

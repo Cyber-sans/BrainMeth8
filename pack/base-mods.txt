@@ -75,3 +75,27 @@ moonlight
 supplementaries
 supplementaries-squared
 amendments
+
+# Approved new gameplay / co-op / decor additions (2026-10-13)
+# Better Days: accelerated time while players sleep
+betterdays
+# TabTPS: live TPS/MSPT display
+tabtps
+# Chat Animation / Smooth Chat
+chatanimation
+# Cut Through: attack through tall grass
+cut-through
+# Watut: multiplayer activity and typing indicators
+what-are-they-up-to
+# Ping Wheel: multiplayer markers
+ping-wheel
+# Diagonal Fences: connected diagonal fences
+diagonal-fences
+# Let's Do HerbalBrews: tea and coffee
+lets-do-herbalbrews
+# Let's Do Vinery: viticulture and decor
+lets-do-vinery
+# Drip Sounds: client-only drip audio
+dripsounds
+# Stoneworks: stone building variants
+stoneworks
