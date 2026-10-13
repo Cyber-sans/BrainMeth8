@@ -1,9 +1,9 @@
 # Player setup
 
-The intended player experience is:
+After migration testing passes, the intended player experience is:
 
 1. Open the Modrinth App.
-2. Create a normal **NeoForge 26.2** instance.
+2. Create a normal **NeoForge 1.21.1 (21.1.220)** instance.
 3. Install **AutoModpack** into that instance once.
 4. Connect to Brainmeth.
 5. Verify/accept the server fingerprint and official pack download.

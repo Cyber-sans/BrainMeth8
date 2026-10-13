@@ -1,12 +1,15 @@
+> **Migration branch only — not production ready.** Fresh isolated Docker test and world.
+> See [migration instructions](docs/MIGRATION_1_21_1.md). Do not deploy production or reuse old 26.2 data.
+
 # Brainmeth Minecraft Server
 
 Fresh Minecraft server stack for `cropduster`.
 
 ## Baseline
 
-- Minecraft **26.2**
-- **NeoForge 26.2.0.88**
-- Java **25 / GraalVM**
+- Minecraft **1.21.1**
+- **NeoForge 21.1.220**
+- Java **21**
 - Docker Compose + `itzg/minecraft-server`
 - Packwiz as the authoritative mod/config definition
 - AutoModpack for client synchronisation
@@ -37,8 +40,8 @@ The Git repo contains definitions/source only. Worlds, player data, generated co
 
 - Production heap: **6G**
 - Test heap: **3G**
-- GraalVM 25
-- MeowIce + GraalVM JVM flags
+- Java 21
+- Standard Java 21 JVM defaults during migration testing
 - whitelist disabled
 - Docker and Minecraft log rotation enabled
 - Watchtower disabled for Brainmeth containers
@@ -108,7 +111,7 @@ The initial shared mod is:
 custom-mods/brainmeth-core
 ```
 
-Target **NeoForge 26.2 / Java 25**, build a JAR, then add the approved artifact into the Packwiz/server flow. GitHub Actions can build/validate custom mods.
+Target **NeoForge 1.21.1 / Java 21**, build a JAR, then add the approved artifact into the Packwiz/server flow. GitHub Actions can build/validate custom mods.
 
 ## AutoModpack
 

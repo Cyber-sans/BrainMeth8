@@ -1,6 +1,6 @@
 # Brainmeth Core
 
-NeoForge 26.2 / Java 25 custom mod workspace for small shared Brainmeth mechanics.
+NeoForge 1.21.1 / Java 21 custom mod workspace for small shared Brainmeth mechanics.
 
 Good candidates for this mod:
 
@@ -13,7 +13,7 @@ Good candidates for this mod:
 
 Keep genuinely large independent systems (for example complex volcano worldgen) as separate mods if they grow large enough to justify it.
 
-Build locally with Gradle 9.2.1+ and Java 25:
+Build locally with Gradle 9.2.1+ and Java 21:
 
 ```bash
 gradle build

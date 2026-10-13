@@ -1,7 +1,7 @@
-name: brainmeth
+name: brainmeth1211
 
 x-minecraft-common: &minecraft-common
-  image: itzg/minecraft-server:java25-graalvm
+  image: itzg/minecraft-server:java21
   pull_policy: daily
   restart: unless-stopped
   stop_grace_period: 1m
@@ -22,15 +22,15 @@ x-minecraft-common: &minecraft-common
   environment: &minecraft-environment
     EULA: "TRUE"
     TYPE: "NEOFORGE"
-    VERSION: "26.2"
-    NEOFORGE_VERSION: "26.2.0.88"
-    NEOFORGE_INSTALLER: "/neoforge/neoforge-26.2.0.88-installer.jar"
+    VERSION: "1.21.1"
+    NEOFORGE_VERSION: "21.1.220"
+    NEOFORGE_INSTALLER: "/neoforge/neoforge-21.1.220-installer.jar"
     PACKWIZ_URL: "http://packwiz/pack.toml"
     UID: "1000"
     GID: "1000"
     MEMORY: "${PROD_MEMORY:-6G}"
-    USE_MEOWICE_FLAGS: "true"
-    USE_MEOWICE_GRAALVM_FLAGS: "true"
+    USE_MEOWICE_FLAGS: "false"
+    USE_MEOWICE_GRAALVM_FLAGS: "false"
     MODE: "survival"
     DIFFICULTY: "hard"
     PVP: "true"
@@ -65,12 +65,12 @@ services:
       - /bin/sh
       - -ec
       - |
-        if [ ! -s /installer/neoforge-26.2.0.88-installer.jar ]; then
-          echo "Downloading pinned NeoForge 26.2.0.88 installer..."
-          wget -O /installer/neoforge-26.2.0.88-installer.jar.tmp https://maven.neoforged.net/releases/net/neoforged/neoforge/26.2.0.88/neoforge-26.2.0.88-installer.jar
-          mv /installer/neoforge-26.2.0.88-installer.jar.tmp /installer/neoforge-26.2.0.88-installer.jar
+        if [ ! -s /installer/neoforge-21.1.220-installer.jar ]; then
+          echo "Downloading pinned NeoForge 21.1.220 installer..."
+          wget -O /installer/neoforge-21.1.220-installer.jar.tmp https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.220/neoforge-21.1.220-installer.jar
+          mv /installer/neoforge-21.1.220-installer.jar.tmp /installer/neoforge-21.1.220-installer.jar
         fi
-        test -s /installer/neoforge-26.2.0.88-installer.jar
+        test -s /installer/neoforge-21.1.220-installer.jar
     volumes:
       - neoforge-installer:/installer
 
@@ -94,15 +94,15 @@ services:
   minecraft-prod:
     <<: *minecraft-common
     profiles: ["prod"]
-    container_name: brainmeth-prod
+    container_name: brainmeth1211-prod
     environment:
       <<: *minecraft-environment
       MOTD: "${MOTD:-Brainmeth}"
     ports:
-      - "${MC_PORT_PROD:-25577}:25565/tcp"
-      - "${VOICE_PORT_PROD:-25576}:24454/udp"
+      - "${MC_PORT_PROD:-25587}:25565/tcp"
+      - "${VOICE_PORT_PROD:-25586}:24454/udp"
     volumes:
-      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}:/data"
+      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod-1211}:/data"
       - neoforge-installer:/neoforge:ro
 
 
@@ -110,7 +110,7 @@ services:
     image: itzg/mc-backup:latest
     pull_policy: daily
     profiles: ["prod"]
-    container_name: brainmeth-backup
+    container_name: brainmeth1211-backup
     restart: unless-stopped
     depends_on:
       minecraft-prod:
@@ -141,8 +141,8 @@ services:
     secrets:
       - rcon_password
     volumes:
-      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod}:/data:ro"
-      - "${BACKUP_DIR:-/mnt/Backup3TB/minecraft/brainmeth/backups}:/backups"
+      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod-1211}:/data:ro"
+      - "${BACKUP_DIR:-/mnt/Backup3TB/minecraft/brainmeth/backups-1211}:/backups"
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     logging:
@@ -154,26 +154,26 @@ services:
   minecraft-test:
     <<: *minecraft-common
     profiles: ["test"]
-    container_name: brainmeth-test
+    container_name: brainmeth1211-test
     environment:
       <<: *minecraft-environment
       MOTD: "Brainmeth TEST"
       MAX_PLAYERS: "4"
       MEMORY: "${TEST_MEMORY:-3G}"
     ports:
-      - "${MC_PORT_TEST:-25575}:25565/tcp"
-      - "${VOICE_PORT_TEST:-25574}:24454/udp"
+      - "${MC_PORT_TEST:-25585}:25565/tcp"
+      - "${VOICE_PORT_TEST:-25584}:24454/udp"
     volumes:
-      - "${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test}:/data"
+      - "${TEST_DATA_DIR:-/srv/minecraft/brainmeth/test-1211}:/data"
       - neoforge-installer:/neoforge:ro
 
 networks:
   brainmeth:
-    name: brainmeth
+    name: brainmeth1211
 
 volumes:
   neoforge-installer:
-    name: brainmeth-neoforge-installer
+    name: brainmeth1211-neoforge-installer
 
 secrets:
   rcon_password:

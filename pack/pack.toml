@@ -1,6 +1,6 @@
 name = "Brainmeth"
 author = "Cyber"
-version = "0.1.0"
+version = "0.2.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
@@ -9,5 +9,5 @@ hash-format = "sha256"
 hash = "b631816be2f22fe7ff1cf792c4cd640da6138f0cbf9dfe8c683360736243d4bd"
 
 [versions]
-minecraft = "26.2"
-neoforge = "26.2.0.88"
+minecraft = "1.21.1"
+neoforge = "21.1.220"

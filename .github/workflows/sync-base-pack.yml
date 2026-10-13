@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: packwiz-sync
+  group: packwiz-sync-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

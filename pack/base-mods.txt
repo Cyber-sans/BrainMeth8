@@ -1,44 +1,38 @@
-# Brainmeth 26.2 NeoForge base stack
-# Generated Packwiz metadata is installed at the NeoForge mods root.
-# Packwiz resolves the latest compatible NeoForge 26.2 release unless an exact version URL is used.
-# Exact URLs are used where the current 26.2 build is beta/alpha and deliberately selected.
+# Brainmeth staging: Minecraft 1.21.1 / NeoForge 21.1.220
+# Packwiz resolves unpinned mods for NeoForge 1.21.1.
+# 26.2-only versions intentionally replaced; test before production.
 
-# Pack/client synchronisation
-# AutoModpack publishes Packwiz client + both sides only.
-https://modrinth.com/mod/automodpack/version/4rbeqlE5
+# AutoModpack / multiplayer
+https://modrinth.com/mod/automodpack/version/ET2mE920
 simple-voice-chat
 
-# Core server + shared performance
+# Shared / server performance
 lithium
 ferrite-core
-https://modrinth.com/mod/c2me-neoforge/version/tkK6uyoU
-https://modrinth.com/mod/scalablelux/version/sj4ujwsT
-modernfix-mvus
+https://modrinth.com/mod/c2me-neoforge/version/KmfiVd28
+scalablelux
+modernfix
 servercore
 alternate-current
 zfastnoise
 structure-layout-optimizer
 clumps
 spark
-krypton-fnp
 ai-improvements
 lmd
-jasione
 
-# Client performance
-sodium
-https://modrinth.com/mod/iris/version/k55HdONq
+# Client performance. BBE 1.3.4 targets Sodium 0.8.12-0.8.13.
+https://modrinth.com/mod/sodium/version/mc1.21.1-0.8.13-neoforge
+https://modrinth.com/mod/iris/version/KduFYu4t
+https://modrinth.com/mod/better-block-entities/version/JgYqDEaQ
 immediatelyfast
 entityculling
 moreculling
-https://modrinth.com/mod/better-block-entities/version/vfpPl6mq
 badoptimizations
 particle-core
 dynamic-fps
-asynclogger
-ixeris
 
-# Essential QoL / modded playability
+# Essential QoL
 appleskin
 mouse-tweaks
 shulkerboxtooltip
@@ -46,31 +40,22 @@ betterf3
 controlling
 crash-assistant
 configmanager
-
-https://modrinth.com/mod/sodium-extra/version/HKUWDkn7
-https://modrinth.com/mod/reeses-sodium-options/version/XToySQwf
 default-options
 fast-ip-ping
-xedaBnSm
-https://modrinth.com/mod/asyncparticles/version/ri5uXTny
-https://modrinth.com/mod/immersive-optimization/version/FINcrLHK
 
-# Experience / visual / QoL baseline
-distanthorizons
+# Visuals and gameplay
+https://modrinth.com/mod/distanthorizons/version/3.3.3-1.21.1
 lambdynamiclights
 sound-physics-remastered
 ambientsounds
 visuality-forge
-# continuity omitted on NeoForge 26.2: current 26.2 build is Fabric/Quilt and Connector is not available for 26.2
 rei
 inventory-essentials
 better-stats
 chat-heads
 not-enough-animations
 3dskinlayers
-https://modrinth.com/mod/kYuIpRLv/version/8oLUoF0z
-entitytexturefeatures
-entity-model-features
+wavey-capes
 just-zoom
 better-advancements
 advancement-plaques
@@ -85,3 +70,9 @@ rightclickharvest
 trade-cycling
 easy-magic
 easy-anvils
+
+# Vanilla-plus building: Supplementaries family
+moonlight
+supplementaries
+supplementaries-squared
+amendments
