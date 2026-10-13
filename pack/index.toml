@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "dd5c06bc3998697c0e1f71e6c4d68f52615913a12a89784a33a6241ee3007d43"
+hash = "34e92cbfe9df37d07f4e8c2ee81d828ca358d4c3c0e8617f8c21fab29433c903"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -316,6 +316,11 @@ hash = "67666263da765d1f226d9b614581669d9b7bda861e8b36aaf23b9a61edfa4f79"
 metafile = true
 
 [[files]]
+file = "mods/minecart-speed.pw.toml"
+hash = "b19bb1aa1760cefcd17bc522522aacddab62ea971faf4f2beb69b1a85073447b"
+metafile = true
+
+[[files]]
 file = "mods/modernfix.pw.toml"
 hash = "d10fbef1555f5277563b9cbf7683811ac0f38c1af41646e6ce5c3aaa2149425d"
 metafile = true
@@ -477,4 +482,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "0e6ecbb24cc9f96ed834a2521da4c3d281f544f647e0eaa62239f4f41d89c7cb"
+hash = "553488093fecbe9cf0c50a8410c20b5524ffef26abe645b35c269c7ab0ba0346"

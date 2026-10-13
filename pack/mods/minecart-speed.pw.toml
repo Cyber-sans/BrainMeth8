@@ -1,0 +1,12 @@
+name = "Minecart Speed"
+filename = "minecartspeed-neoforge-1.21.1.jar"
+side = "server"
+[download]
+url = "https://cdn.modrinth.com/data/k6iVKsZi/versions/pW7iywFp/minecartspeed-neoforge-1.21.1.jar"
+hash-format = "sha512"
+hash = "2150f58424979258a141d962b5bb8d9db698b8b79f7effd6545345f77e3f7e97a0ddfb54e9df570a1d3d9b4f9e22d1420dc1ed7df15f982e031f3b059102f421"
+
+[update]
+[update.modrinth]
+mod-id = "k6iVKsZi"
+version = "pW7iywFp"
