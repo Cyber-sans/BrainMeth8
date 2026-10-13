@@ -8,6 +8,9 @@ on:
       - "pack/config/**"
       - "scripts/apply-packwiz-sides.py"
       - "scripts/validate.sh"
+      - "scripts/deploy.sh"
+      - "scripts/verify-game-rules.py"
+      - "rules/**"
       - ".github/workflows/sync-base-pack.yml"
   workflow_dispatch:
 
