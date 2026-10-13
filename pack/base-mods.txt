@@ -110,3 +110,6 @@ https://modrinth.com/mod/minecart-speed/version/pW7iywFp
 
 # Improved biome-specific creeper variants (NeoForge 1.21.1)
 https://modrinth.com/mod/creeper-overhaul/version/9rleJcdO
+
+# VanillaBackport: vanilla features from newer Minecraft updates (NeoForge 1.21.1)
+https://modrinth.com/mod/vanillabackport/version/rUSWdBok
