@@ -107,3 +107,6 @@ kambrik
 
 # Global minecart speed on any rail; pin NeoForge 1.21.1 release
 https://modrinth.com/mod/minecart-speed/version/pW7iywFp
+
+# Improved biome-specific creeper variants (NeoForge 1.21.1)
+https://modrinth.com/mod/creeper-overhaul/version/9rleJcdO
