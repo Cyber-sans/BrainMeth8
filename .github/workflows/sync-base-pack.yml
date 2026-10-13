@@ -63,7 +63,7 @@ jobs:
           bash -n scripts/validate.sh scripts/deploy.sh
           mkdir -p secrets
           printf 'ci-placeholder-only\n' > secrets/rcon_password.txt
-          ./scripts/validate.sh
+          bash scripts/validate.sh
 
       - name: Commit generated Packwiz metadata
         shell: bash
