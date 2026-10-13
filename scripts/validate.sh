@@ -19,6 +19,17 @@ grep -q '^name: brainmeth1211$' compose.yaml
 grep -q 'itzg/minecraft-server:java21' compose.yaml
 # Verify server-side datapack payload before any server is started.
 python3 scripts/verify-game-rules.py
+# Confirm High-Speed Rail remains configured to 4x vanilla minecart speed.
+python3 - <<'PY'
+import json
+from pathlib import Path
+source = Path("config/highspeed-rail.json5").read_text()
+config = json.loads("\n".join(line for line in source.splitlines() if not line.lstrip().startswith("//")))
+assert config["defaults"]["oldMaxSpeed"] == 32
+assert config["isNewMinecartPhysicsForceEnabled"] is False
+assert config["blocks"][0]["oldMaxSpeed"] == 8
+print("High-Speed Rail configured: 32 blocks/s on straight rails.")
+PY
 docker compose config -q
 
 echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."

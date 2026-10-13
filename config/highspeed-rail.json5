@@ -1,0 +1,19 @@
+// Brainmeth 1.21.1: 4x vanilla speed on straight rails (32 blocks/s).
+// Classic physics; curves must slow to vanilla to avoid derailment.
+{
+  "isNewMinecartPhysicsForceEnabled": false,
+  "defaults": {
+    "oldMaxSpeed": 32,
+    "maxSpeed": 32
+  },
+  "blocks": [
+    {
+      "blockIds": ["minecraft:redstone_block"],
+      "oldMaxSpeed": 8,
+      "maxSpeed": 8
+    }
+  ],
+  "isSpeedometerEnabled": false,
+  "isTrueSpeedometerEnabled": false,
+  "isIceBoatsEnabled": true
+}

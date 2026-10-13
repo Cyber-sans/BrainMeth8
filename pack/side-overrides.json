@@ -12,7 +12,8 @@
     "spark",
     "structure-layout-optimizer",
     "zfastnoise",
-    "tabtps"
+    "tabtps",
+    "highspeed-rail"
   ],
   "client": [
     "3dskinlayers",
