@@ -1,12 +1,12 @@
 name = "BetterF3"
-filename = "BetterF3-19.0.0-NeoForge-26.2.jar"
+filename = "BetterF3-19.0.1-NeoForge-26.2.jar"
 side = "client"
 [download]
-url = "https://cdn.modrinth.com/data/8shC1gFX/versions/GKmHNRiK/BetterF3-19.0.0-NeoForge-26.2.jar"
+url = "https://cdn.modrinth.com/data/8shC1gFX/versions/OHos0BN3/BetterF3-19.0.1-NeoForge-26.2.jar"
 hash-format = "sha512"
-hash = "f410a05bb3b6f4e50333c8c6f3ba87200b87c6925f641e588af879d77a363b0e7e49a3440e8dff11064702c80762a0571762d77dccc55a08601fb9858767a911"
+hash = "3b934da197f4dc4a5695139ba1ba56aa2f8815a2cae6ae1b89a19636d9c446d91ee7f496e04fb61f69982a7723dfc1159f79ca2355cc49385c2fb7f55519a5b7"
 
 [update]
 [update.modrinth]
 mod-id = "8shC1gFX"
-version = "GKmHNRiK"
+version = "OHos0BN3"
