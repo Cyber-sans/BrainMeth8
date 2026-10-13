@@ -48,10 +48,6 @@ mkdir -p "$DATA_DIR/world/datapacks"
 mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
 
-# Apply the pinned High-Speed Rail server configuration, including on redeploy.
-mkdir -p "$DATA_DIR/config"
-cp "$ROOT/config/highspeed-rail.json5" "$DATA_DIR/config/highspeed-rail.json5"
-
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 

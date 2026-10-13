@@ -104,6 +104,3 @@ stoneworks
 bountiful
 # Required Bountiful library (not automatically pulled by Packwiz)
 kambrik
-
-# Faster minecarts, NeoForge 1.21.1 (server-side)
-highspeed-rail
