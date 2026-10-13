@@ -99,3 +99,6 @@ lets-do-vinery
 dripsounds
 # Stoneworks: stone building variants
 stoneworks
+
+# Brainmeth Contracts foundation: bounty boards and objectives
+bountiful
