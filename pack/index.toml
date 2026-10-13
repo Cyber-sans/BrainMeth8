@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "ab2067b9dfd42b1e08319f0b9c3449218914e3521f165c8c77769d3d75fbc4e8"
+hash = "a7d42dee1f2e976d85cdefdc6f32dd5d3255f75abbe531da1529f254babb83e7"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -366,6 +366,11 @@ hash = "00a55d8f79407d30c0f014de50a06e0f0191d654f0013739d8af81868655458a"
 metafile = true
 
 [[files]]
+file = "mods/platform.pw.toml"
+hash = "00887452f4c902a5f98fc42875d522e59948b60c20d887855a183c0f7235c641"
+metafile = true
+
+[[files]]
 file = "mods/polytone.pw.toml"
 hash = "e0291a77ff9b7ae85a836ca9a11d9ad85876d5a45511233d36ef08d1dc6d5751"
 metafile = true
@@ -471,6 +476,11 @@ hash = "96a35515f2d9a8a94c7a5f8aa3bc13c8e17416b0a2befc301ffed5519f47eccd"
 metafile = true
 
 [[files]]
+file = "mods/vanillabackport.pw.toml"
+hash = "e89cf694a381323f98264551e1dc56ac0257cdae572cd7154933bbff05fe95b9"
+metafile = true
+
+[[files]]
 file = "mods/visual-workbench.pw.toml"
 hash = "3a8709e862dfd34834825c03c298f7a707db62be14b9de386eefa263f5774198"
 metafile = true
@@ -497,4 +507,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "c2c19dd4c7b855bde5ee7bca8c978f2592080d51a1a641adfb7532b72880dd06"
+hash = "47efc362aa6efe2a604262261ed657aca54c3457ed434adcc09f5281b1748b9b"
