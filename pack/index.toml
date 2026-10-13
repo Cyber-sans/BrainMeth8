@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "34e92cbfe9df37d07f4e8c2ee81d828ca358d4c3c0e8617f8c21fab29433c903"
+hash = "ab2067b9dfd42b1e08319f0b9c3449218914e3521f165c8c77769d3d75fbc4e8"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -176,6 +176,11 @@ hash = "63d1560de24b53cad7052d19c1a44b4eab64ad9f696d01c9f2a72fccd5540557"
 metafile = true
 
 [[files]]
+file = "mods/creeper-overhaul.pw.toml"
+hash = "78716707ecc4f0bf6bb47d5b7b4380490600b31bc9e6e9f1c336c4dbac82c59b"
+metafile = true
+
+[[files]]
 file = "mods/cut-through.pw.toml"
 hash = "2a4347cebe419d88fc74fae6f090fb2c05b9b2e64d1197520b53ac8ce755d8be"
 metafile = true
@@ -243,6 +248,11 @@ metafile = true
 [[files]]
 file = "mods/fzzy-config.pw.toml"
 hash = "4641c8c527cda767a6c429efbf3ca8726e79c817b73cb240f522bcdd723a7ec9"
+metafile = true
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "35779b39ddc06059ec483b33de2ecfdc3adb95c0a49e69b6701fb0024827e2f5"
 metafile = true
 
 [[files]]
@@ -381,6 +391,11 @@ hash = "27721caca5a03b743bf25888e1d984142948069dace31453f103f94f7f24d2ce"
 metafile = true
 
 [[files]]
+file = "mods/resourceful-lib.pw.toml"
+hash = "c0b066684294c33972d562e0cb08ea17b2d31bcf86cd1d6c63b8e968f0eac7a2"
+metafile = true
+
+[[files]]
 file = "mods/rightclickharvest.pw.toml"
 hash = "5391056f980761bb1bb2e7d7825c9c58114b1ebe8fb0eb6f960f3e22b3e02b2c"
 metafile = true
@@ -482,4 +497,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "553488093fecbe9cf0c50a8410c20b5524ffef26abe645b35c269c7ab0ba0346"
+hash = "c2c19dd4c7b855bde5ee7bca8c978f2592080d51a1a641adfb7532b72880dd06"
