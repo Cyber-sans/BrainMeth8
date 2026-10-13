@@ -40,6 +40,14 @@ elif [[ -f "$marker" ]] && [[ "$(cat "$marker")" != "1.21.1" ]]; then
 else
   printf '1.21.1\n' > "$marker"
 fi
+# Install Brainmeth gameplay rules as a server-side datapack before startup.
+# The function runs on every world load/reload; no client changes required.
+DATAPACK_SOURCE="$ROOT/rules/brainmeth-rules"
+DATAPACK_DEST="$DATA_DIR/world/datapacks/brainmeth-rules"
+mkdir -p "$DATA_DIR/world/datapacks"
+mkdir -p "$DATAPACK_DEST"
+cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 

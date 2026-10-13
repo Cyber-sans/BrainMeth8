@@ -17,6 +17,8 @@ grep -q '^distantGeneratorMode = "INTERNAL_SERVER"$' pack/config/DistantHorizons
 
 grep -q '^name: brainmeth1211$' compose.yaml
 grep -q 'itzg/minecraft-server:java21' compose.yaml
+# Verify server-side datapack payload before any server is started.
+python3 scripts/verify-game-rules.py
 docker compose config -q
 
 echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."
