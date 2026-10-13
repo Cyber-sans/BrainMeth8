@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "67a4be91a55460e2fba16af7956f8313459ddb34e12789927cf169a2b9744a2d"
+hash = "dd5c06bc3998697c0e1f71e6c4d68f52615913a12a89784a33a6241ee3007d43"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -276,6 +276,11 @@ hash = "639d477709dcdfe0b2d32965f9e851b10a903c724f92168c1f3076fec417a29d"
 metafile = true
 
 [[files]]
+file = "mods/kambrik.pw.toml"
+hash = "ffff115d6c4ac56981f48ec1ce126660539bcc972c0adff6b4dcbfc1ee2a06ec"
+metafile = true
+
+[[files]]
 file = "mods/konkrete.pw.toml"
 hash = "054a1887da4f14b791910660a2a7a2035ac1382461b881a65fe07b224c03735f"
 metafile = true
@@ -472,4 +477,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "898bca453bdacd9363304815597e524295db517a23c07be76407cb61595c53fc"
+hash = "0e6ecbb24cc9f96ed834a2521da4c3d281f544f647e0eaa62239f4f41d89c7cb"
