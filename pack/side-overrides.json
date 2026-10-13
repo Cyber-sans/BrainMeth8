@@ -12,7 +12,8 @@
     "spark",
     "structure-layout-optimizer",
     "zfastnoise",
-    "tabtps"
+    "tabtps",
+    "minecart-speed"
   ],
   "client": [
     "3dskinlayers",

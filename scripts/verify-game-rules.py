@@ -16,5 +16,6 @@ allowed = read("data/brainmeth/tags/item/mending_allowed.json")["values"]
 expected = {f"minecraft:netherite_{n}" for n in ("helmet", "chestplate", "leggings", "boots", "sword", "pickaxe", "axe", "shovel", "hoe")}
 assert set(allowed) == expected and len(allowed) == len(expected), allowed
 assert read("data/minecraft/tags/function/load.json")["values"] == ["brainmeth:load"]
-assert (root / "data/brainmeth/function/load.mcfunction").read_text().strip() == "gamerule doInsomnia false"
-print("Brainmeth datapack validated: Netherite-only Mending; phantom insomnia disabled.")
+load_commands = [line.strip() for line in (root / "data/brainmeth/function/load.mcfunction").read_text().splitlines() if line.strip() and not line.lstrip().startswith("#")]
+assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4"], load_commands
+print("Brainmeth datapack validated: Netherite-only Mending; phantoms disabled; minecarts 4x.")
