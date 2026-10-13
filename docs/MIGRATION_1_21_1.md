@@ -13,7 +13,7 @@ the original 26.2 server. Deploy script blocks production and unknown older worl
 After GitHub Actions has successfully regenerated the Packwiz metadata:
 
 ```bash
-git clone --branch migration/neoforge-1.21.1 <private-repo-SSH-URL> /srv/minecraft/brainmeth/server-1211
+git clone --branch migration/neoforge-1.21.1 git@github.com:Cyber-sans/BrainMeth8.git /srv/minecraft/brainmeth/server-1211
 cd /srv/minecraft/brainmeth/server-1211
 ./scripts/bootstrap.sh
 ./scripts/deploy.sh test

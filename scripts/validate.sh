@@ -15,11 +15,8 @@ grep -q '^enableServerGeneration = true$' pack/config/DistantHorizons.toml
 grep -q '^enableDistantGeneration = true$' pack/config/DistantHorizons.toml
 grep -q '^distantGeneratorMode = "INTERNAL_SERVER"$' pack/config/DistantHorizons.toml
 
-grep -q '^name: brainmeth1211
-
-echo "Validation passed: Compose + Packwiz skeleton + DH 3.3.3 schema-v5 baseline are structurally valid."
- compose.yaml
+grep -q '^name: brainmeth1211$' compose.yaml
 grep -q 'itzg/minecraft-server:java21' compose.yaml
 docker compose config -q
 
-echo "Validation passed: Compose + Packwiz skeleton + DH 3.3.3 schema-v5 baseline are structurally valid."
+echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."

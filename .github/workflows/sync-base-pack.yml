@@ -56,6 +56,15 @@ jobs:
           packwiz refresh
           packwiz list -v
 
+      - name: Validate migration deployment structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n scripts/validate.sh scripts/deploy.sh
+          mkdir -p secrets
+          printf 'ci-placeholder-only\n' > secrets/rcon_password.txt
+          ./scripts/validate.sh
+
       - name: Commit generated Packwiz metadata
         shell: bash
         run: |
