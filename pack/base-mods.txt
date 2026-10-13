@@ -85,4 +85,3 @@ rightclickharvest
 trade-cycling
 easy-magic
 easy-anvils
-trashslot
