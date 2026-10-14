@@ -75,7 +75,12 @@
     "dripsounds",
     "sodium-extra",
     "reeses-sodium-options",
-    "entitytexturefeatures"
+    "entitytexturefeatures",
+    "legendary-tooltips",
+    "legendarytooltips",
+    "iceberg",
+    "prism-lib",
+    "prism"
   ],
   "both": [
     "appleskin",
