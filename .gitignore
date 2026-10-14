@@ -2,3 +2,4 @@
 secrets/rcon_password.txt
 *.log
 .DS_Store
+.pack-runtime/
