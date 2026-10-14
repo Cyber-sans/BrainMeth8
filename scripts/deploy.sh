@@ -62,6 +62,13 @@ IMPROVED_MOBS_CONFIG_DEST="$DATA_DIR/config/improvedmobs/common.toml"
 mkdir -p "$(dirname "$IMPROVED_MOBS_CONFIG_DEST")"
 cp "$IMPROVED_MOBS_CONFIG_SOURCE" "$IMPROVED_MOBS_CONFIG_DEST"
 
+# Savage Ender Dragon (Cupboard): JSON config is read at server startup.
+# Keep on the isolated 1.21.1 test server; originals remain unchanged.
+DRAGONFIGHT_CONFIG_SOURCE="$ROOT/rules/server-config/dragonfight.json"
+DRAGONFIGHT_CONFIG_DEST="$DATA_DIR/config/dragonfight.json"
+mkdir -p "$(dirname "$DRAGONFIGHT_CONFIG_DEST")"
+cp "$DRAGONFIGHT_CONFIG_SOURCE" "$DRAGONFIGHT_CONFIG_DEST"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
