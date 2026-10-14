@@ -20,6 +20,7 @@ grep -q 'itzg/minecraft-server:java21' compose.yaml
 # Verify server-side datapack payload before any server is started.
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-improved-mobs.py
+python3 scripts/verify-dragonfight.py
 docker compose config -q
 
 echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."
