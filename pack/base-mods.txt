@@ -155,3 +155,6 @@ https://modrinth.com/mod/bosses-of-mass-destruction-forge/version/snhDYBxP
 # Important: destructive first phase and fiery skull explosions; arena away from builds.
 # Config offers health/speed/attack damage/cooldowns, not a verified no-grief toggle.
 https://modrinth.com/mod/wither-reincarnated/version/6d4I4VPO
+
+# Not Enough Trials 6.4, NeoForge 1.21.1; YUNG's API dependency already present.
+https://modrinth.com/datapack/not-enough-trials/version/8k3cwiQv
