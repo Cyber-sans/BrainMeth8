@@ -84,7 +84,9 @@
     "legendarytooltips",
     "iceberg",
     "prism-lib",
-    "prism"
+    "prism",
+    "distant-horizons-seedgen",
+    "distant-horizons-seed-gen"
   ],
   "both": [
     "appleskin",
