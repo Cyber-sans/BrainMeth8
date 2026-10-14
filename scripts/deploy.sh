@@ -69,6 +69,12 @@ DRAGONFIGHT_CONFIG_DEST="$DATA_DIR/config/dragonfight.json"
 mkdir -p "$(dirname "$DRAGONFIGHT_CONFIG_DEST")"
 cp "$DRAGONFIGHT_CONFIG_SOURCE" "$DRAGONFIGHT_CONFIG_DEST"
 
+# Bosses of Mass Destruction: per-boss encounter tuning (AutoConfig/Jankson).
+BOMD_CONFIG_SOURCE="$ROOT/rules/server-config/bosses_of_mass_destruction.json5"
+BOMD_CONFIG_DEST="$DATA_DIR/config/bosses_of_mass_destruction.json5"
+mkdir -p "$(dirname "$BOMD_CONFIG_DEST")"
+cp "$BOMD_CONFIG_SOURCE" "$BOMD_CONFIG_DEST"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
