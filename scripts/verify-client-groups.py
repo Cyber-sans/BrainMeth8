@@ -88,7 +88,7 @@ def main() -> None:
     for group_id, label, selection in (
         ("main", "Essential", "REQUIRED"),
         ("recommended", "Recommended", "RECOMMENDED"),
-        ("extras", "Extras", "OPTIONAL"),
+        ("extras", "Extras", "RECOMMENDED"),
     ):
         assert f"    {group_id} {{\n      display-name: \"{label}\"" in cfg
         assert f"      selection: {selection}" in cfg
