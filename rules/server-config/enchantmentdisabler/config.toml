@@ -1,0 +1,8 @@
+# Brainmeth 1.21.1 / Dungeons and Taverns 4.4.4
+# Keep all other DnT enchantments. Explicitly forbid auto-repair and Elytra durability enchantments.
+# table/loot/trade = false means unavailable from that source.
+[disabler]
+disabledEnchantmentsV2 = [
+  [ "nova_structures:photosynthesis", { table = false, loot = false, trade = false } ],
+  [ "nova_structures:wax_wings", { table = false, loot = false, trade = false } ]
+]
