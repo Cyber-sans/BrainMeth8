@@ -24,7 +24,9 @@
     "yungs-better-witch-huts",
     "yungs-bridges",
     "nullscape",
-    "enchantment-disabler"
+    "enchantment-disabler",
+    "improved-mobs",
+    "improvedmobs"
   ],
   "client": [
     "3dskinlayers",
