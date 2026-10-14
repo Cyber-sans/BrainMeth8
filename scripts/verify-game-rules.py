@@ -59,5 +59,14 @@ for rel in dnt_loot[:3]:
     assert "minecraft:shulker_shell" in json.dumps(read(rel)), rel
 assert read("data/minecraft/tags/function/load.json")["values"] == ["brainmeth:load"]
 load_commands = [line.strip() for line in (root / "data/brainmeth/function/load.mcfunction").read_text().splitlines() if line.strip() and not line.lstrip().startswith("#")]
-assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4"], load_commands
-print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecarts 4x.")
+assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4", "function brainmeth:lobby/init"], load_commands
+assert read("data/minecraft/tags/function/tick.json")["values"] == ["brainmeth:lobby/tick"]
+lobby = root / "data/brainmeth/function/lobby"
+for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel"):
+    assert (lobby / f"{name}.mcfunction").is_file(), name
+assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction").read_text()
+assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
+assert "fill -10 199 -10 10 207 10 minecraft:air" in (lobby / "open.mcfunction").read_text()
+assert "unless entity @s[x=-9,y=201,z=-9,dx=18,dy=5,dz=18]" in (lobby / "locked.mcfunction").read_text()
+assert "if score #state bm_launch matches 0" in (lobby / "tick.mcfunction").read_text()
+print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecarts 4x; gated launch lobby.")
