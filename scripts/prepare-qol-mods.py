@@ -87,7 +87,7 @@ def main():
         raise RuntimeError("Unverified TCDCommons download")
     content = (
         f'name = {json.dumps(title)}\n'
-        f'filename = {json.dumps(jar["filename"])}\nside = "client"\n'
+        f'filename = {json.dumps(jar["filename"])}\nside = "both"\n'
         f'[download]\nurl = {json.dumps(url)}\nhash-format = "sha512"\nhash = "{checksum}"\n\n'
         f'[update]\n[update.modrinth]\nmod-id = "{v["project_id"]}"\nversion = "{v["id"]}"\n'
     )
