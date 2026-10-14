@@ -167,3 +167,6 @@ https://modrinth.com/mod/the-knocker/version/JnhR7dWq
 
 # Naturalist 2.0.5 NeoForge 1.21.1 — immersive wildlife (client + server).
 https://modrinth.com/mod/naturalist/version/ETgOvHHS
+
+# Naturalist 2.0.5, NeoForge 1.21.1: vanilla-friendly wildlife and animal behaviours.
+https://modrinth.com/mod/naturalist/version/ETgOvHHS
