@@ -26,16 +26,13 @@
     "nullscape",
     "enchantment-disabler",
     "improved-mobs",
-    "improvedmobs",
     "savage-ender-dragon",
     "cupboard",
     "geophilic",
     "incendium",
     "not-enough-trials",
-    "indexor",
     "indexor-ledger",
-    "inventory-backups",
-    "inventorybackups"
+    "inventory-backups"
   ],
   "client": [
     "3dskinlayers",
@@ -81,12 +78,9 @@
     "reeses-sodium-options",
     "entitytexturefeatures",
     "legendary-tooltips",
-    "legendarytooltips",
     "iceberg",
     "prism-lib",
-    "prism",
-    "distant-horizons-seedgen",
-    "distant-horizons-seed-gen"
+    "distant-horizons-seedgen"
   ],
   "both": [
     "appleskin",
@@ -100,9 +94,6 @@
     "easy-shulker-boxes",
     "ferrite-core",
     "lithium",
-    "modernfix-mvus",
-    "put-a-plug-in-it",
-    "put-a-plug-in-it!",
     "simple-voice-chat",
     "trade-cycling",
     "visual-workbench",
@@ -127,7 +118,6 @@
     "bosses-of-mass-destruction-forge",
     "wither-reincarnated",
     "raids-enhanced",
-    "raidsenhanced",
     "nirvana",
     "macaws-holidays",
     "the-knocker",
