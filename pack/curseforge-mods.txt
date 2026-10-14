@@ -1,0 +1,4 @@
+# CurseForge-only mods; pinned by project/file ID for reproducible NeoForge builds.
+# Savage Ender Dragon 5.0: NeoForge 1.21.1 (2026-09-28), required Cupboard dependency.
+# Official page: https://www.curseforge.com/minecraft/mc-mods/savage-ender-dragon/files/9003375
+523327:9003375
