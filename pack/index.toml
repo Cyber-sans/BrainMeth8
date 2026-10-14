@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "2ef4d01ad8360e276635c26675afdc91b9a968376f77cd90d2415810a01c5221"
+hash = "60b06405d22aebac2c9de7823755a4f2f11cd1a6c4d881c65e78290a429d3ab2"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -585,6 +585,11 @@ hash = "8a78c4d50191dd24096c788ea20f1ebec472a02bad3967578e4d0532e0e729d1"
 metafile = true
 
 [[files]]
+file = "mods/the-knocker.pw.toml"
+hash = "d9246cb2f33b59302b1fda49cd0fd363609557c87ec7cafe42c4e2aefb237ba0"
+metafile = true
+
+[[files]]
 file = "mods/trade-cycling.pw.toml"
 hash = "96a35515f2d9a8a94c7a5f8aa3bc13c8e17416b0a2befc301ffed5519f47eccd"
 metafile = true
@@ -676,4 +681,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "9934f3b154b7c2778e751d7ed99209b60395df1c014368859d9c7fe4b617a4cf"
+hash = "c2aeccd4eab3b1cfd17ace401607dd3e7b21e37675ebed2599bd34783643f93a"
