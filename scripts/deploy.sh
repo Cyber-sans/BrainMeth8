@@ -48,6 +48,13 @@ mkdir -p "$DATA_DIR/world/datapacks"
 mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
 
+# Keep targeted DnT enchantment bans on the server, without disabling other enchants.
+# The enchantment-disabler mod reads this config at startup.
+ENCHANT_CONFIG_SOURCE="$ROOT/rules/server-config/enchantmentdisabler/config.toml"
+ENCHANT_CONFIG_DEST="$DATA_DIR/config/enchantmentdisabler/config.toml"
+mkdir -p "$(dirname "$ENCHANT_CONFIG_DEST")"
+cp "$ENCHANT_CONFIG_SOURCE" "$ENCHANT_CONFIG_DEST"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
