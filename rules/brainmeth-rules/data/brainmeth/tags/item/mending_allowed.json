@@ -9,6 +9,15 @@
     "minecraft:netherite_pickaxe",
     "minecraft:netherite_axe",
     "minecraft:netherite_shovel",
-    "minecraft:netherite_hoe"
+    "minecraft:netherite_hoe",
+    "deeperdarker:warden_helmet",
+    "deeperdarker:warden_chestplate",
+    "deeperdarker:warden_leggings",
+    "deeperdarker:warden_boots",
+    "deeperdarker:warden_sword",
+    "deeperdarker:warden_pickaxe",
+    "deeperdarker:warden_axe",
+    "deeperdarker:warden_shovel",
+    "deeperdarker:warden_hoe"
   ]
 }
