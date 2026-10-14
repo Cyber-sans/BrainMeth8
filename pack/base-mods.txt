@@ -147,3 +147,6 @@ https://modrinth.com/datapack/incendium/version/7mVvV9Th
 sodium-extra
 https://modrinth.com/mod/reeses-sodium-options/version/mc1.21.1-2.2.3%2Bneoforge
 https://modrinth.com/mod/entitytexturefeatures/version/HOizEpC7
+
+# Four exploration bosses (Night Lich, Void Blossom, Nether Gauntlet, Obsidilith). Official NeoForge 1.21.1 port, 1.3.3.
+https://modrinth.com/mod/bosses-of-mass-destruction-forge/version/snhDYBxP
