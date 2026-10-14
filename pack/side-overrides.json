@@ -26,7 +26,9 @@
     "nullscape",
     "enchantment-disabler",
     "improved-mobs",
-    "improvedmobs"
+    "improvedmobs",
+    "savage-ender-dragon",
+    "cupboard"
   ],
   "client": [
     "3dskinlayers",
