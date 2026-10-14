@@ -79,6 +79,12 @@ cp "$BOMD_CONFIG_SOURCE" "$BOMD_CONFIG_DEST"
 # First boot creates the TOML; redeploy afterwards to apply this tuning.
 python3 ./scripts/tune-wither-reincarnated.py --data-root "$DATA_DIR"
 
+# The Knocker: rare encounters regardless of the world's Hard setting.
+KNOCKER_CONFIG_SOURCE="$ROOT/rules/server-config/knocker.toml"
+KNOCKER_CONFIG_DEST="$DATA_DIR/config/knocker.toml"
+mkdir -p "$(dirname "$KNOCKER_CONFIG_DEST")"
+cp "$KNOCKER_CONFIG_SOURCE" "$KNOCKER_CONFIG_DEST"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
