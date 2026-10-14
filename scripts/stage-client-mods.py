@@ -34,7 +34,7 @@ def main() -> int:
     pack_root = Path(args.pack_root).resolve()
     data_root = Path(args.data_root).resolve()
     base = data_root / "automodpack" / "host-modpack"
-    visuals = {"3dskinlayers", "chat-heads", "chatanimation", "not-enough-animations", "visuality-forge", "wavey-capes", "better-animations-collection", "item-highlighter", "better-ping-display", "blur-plus", "midnightlib", "falling-leaves"}
+    visuals = {"3dskinlayers", "chat-heads", "chatanimation", "not-enough-animations", "visuality-forge", "wavey-capes", "better-animations-collection", "item-highlighter", "better-ping-display", "blur-plus", "midnightlib", "falling-leaves", "continuity-neoforged", "screenshot-to-clipboard"}
     ambience = {"ambientsounds", "sound-physics-remastered", "sounds", "presence-footsteps", "mru", "yacl"}
     quality_of_life = {"better-stats", "eating-animation", "groovy-mod-loader", "tcdcommons"}
     def group_for(meta: Path) -> str:
