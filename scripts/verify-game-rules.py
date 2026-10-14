@@ -59,7 +59,7 @@ for rel in dnt_loot[:3]:
     assert "minecraft:shulker_shell" in json.dumps(read(rel)), rel
 assert read("data/minecraft/tags/function/load.json")["values"] == ["brainmeth:load"]
 load_commands = [line.strip() for line in (root / "data/brainmeth/function/load.mcfunction").read_text().splitlines() if line.strip() and not line.lstrip().startswith("#")]
-assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4", "function brainmeth:lobby/init"], load_commands
+assert load_commands == ["gamerule doInsomnia false", "function brainmeth:lobby/init"], load_commands
 assert read("data/minecraft/tags/function/tick.json")["values"] == ["brainmeth:lobby/tick"]
 lobby = root / "data/brainmeth/function/lobby"
 for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel", "parkour_finish", "escape"):
@@ -84,4 +84,4 @@ for name in ("build", "open"):
         assert volume <= 32768, (name, a, volume)
 assert "unless entity @s[x=-23,y=201,z=-23,dx=46,dy=22,dz=46]" in (lobby / "locked.mcfunction").read_text()
 assert "if score #state bm_launch matches 0" in (lobby / "tick.mcfunction").read_text()
-print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecarts 4x; gated launch lobby.")
+print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecart speed temporarily vanilla; gated launch lobby.")
