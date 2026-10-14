@@ -22,7 +22,7 @@ hash = "d5ca8b2af2ca7b36ad488db9c6a3956327fabafdba33db8b4752ea941d29267f"
 
 [[files]]
 file = "curseforge-mods.txt"
-hash = "dfab07a4a1138750758a7fb106b5c7a7cd9b01a4569eaf6790b8e234fd12b357"
+hash = "e2f99e7c365a055de4f546ade1399cde87b4a2f45cb1d5f5414de5a1788dab64"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -410,6 +410,11 @@ hash = "cab5b67dae7f41f719452e0604aebffd5854270c5ce031850ff9a5958b9873fd"
 metafile = true
 
 [[files]]
+file = "mods/nirvana.pw.toml"
+hash = "ee5233b5cbf6080cae7b5cb6e159af944685094df2586b49e2641be9e97a8e51"
+metafile = true
+
+[[files]]
 file = "mods/not-enough-animations.pw.toml"
 hash = "6404c375b7c68242200108558e2d24b7bc1f81b5a247ef489bad368e5073b728"
 metafile = true
@@ -656,4 +661,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "6a3facff3b7821093ea9763e16c9dfbaff3b930136c65d3b77a000aa93400909"
+hash = "8fb5ab5480915cae9ea051ddc96e4d554d1ecaa40d6b9b5ae091cf4ee86fc69a"
