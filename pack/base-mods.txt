@@ -164,3 +164,6 @@ https://modrinth.com/mod/macaws-holidays/version/NvmjbNce
 
 # The Knocker 1.5.2 NeoForge 1.21.1 — rare psychological horror encounters.
 https://modrinth.com/mod/the-knocker/version/JnhR7dWq
+
+# Naturalist 2.0.5 NeoForge 1.21.1 — immersive wildlife (client + server).
+https://modrinth.com/mod/naturalist/version/ETgOvHHS
