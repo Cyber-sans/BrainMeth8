@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "7963015b05f0a82ea30b431e09e808b95a77bc4efb4aefc304b820682a5b1712"
+hash = "2ef4d01ad8360e276635c26675afdc91b9a968376f77cd90d2415810a01c5221"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -212,11 +212,6 @@ metafile = true
 [[files]]
 file = "mods/default-options.pw.toml"
 hash = "9a20aaf4ce082a67b8d15d4644be656a3f945cf334dfb22bc6fc74b8e8842033"
-metafile = true
-
-[[files]]
-file = "mods/deimos.pw.toml"
-hash = "8fa452b9f04851f6c190c5e77caa0b81023e9f99b2c969ca28e92bca48748f02"
 metafile = true
 
 [[files]]
@@ -525,11 +520,6 @@ hash = "6b597f39eb68f6e37365f27fccff45bc38e846ffd74ae23246a2b9d15e7a8c25"
 metafile = true
 
 [[files]]
-file = "mods/server-side-horror.pw.toml"
-hash = "e5665e8bc8357ec85dde0c247a4795410e57f4e8ec3b0ca3623baa7b3344c6d7"
-metafile = true
-
-[[files]]
 file = "mods/servercore.pw.toml"
 hash = "961b9cf2b6b86113d8873984b5b798ba6268d3f27062459816c1cfbd5ee71a50"
 metafile = true
@@ -686,4 +676,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "bc44a1002a7c1be015087ac088098d96464d2189256c2749ff49bdf55779080f"
+hash = "9934f3b154b7c2778e751d7ed99209b60395df1c014368859d9c7fe4b617a4cf"
