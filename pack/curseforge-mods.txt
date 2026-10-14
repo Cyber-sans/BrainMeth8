@@ -5,3 +5,6 @@
 # Raids:Enhanced 1.0.2 NeoForge 1.21.1 (client + server); latest stable release.
 # https://www.curseforge.com/minecraft/mc-mods/raids-enhanced/files/7676063
 1467121:7676063
+# Nirvana 2.0.11: cannabis/hemp gameplay; NeoForge 1.21.1; both sides.
+# https://www.curseforge.com/minecraft/mc-mods/nirvana/files/8164363
+1278909:8164363
