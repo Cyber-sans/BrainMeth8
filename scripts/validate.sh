@@ -27,6 +27,13 @@ assert mod["name"] == "AutoModpack" and mod["side"] == "both"
 assert mod["download"]["url"].startswith("https://cdn.modrinth.com/data/k68glP2e/")
 assert mod["download"]["hash-format"] == "sha512" and len(mod["download"]["hash"]) == 128
 assert "4.0.5" not in mod["filename"], "Old AutoModpack version still selected"
+assert not (root / "mods/dripsounds.pw.toml").exists(), "Drip Sounds must be removed"
+for slug in ("sounds", "presence-footsteps", "mru", "yacl"):
+    metadata = root / f"mods/{slug}.pw.toml"
+    assert metadata.is_file(), f"Missing audio mod {slug}"
+    entry = re.search(rb'file = "mods/' + slug.encode() + rb'\.pw\.toml"\nhash = "([a-f0-9]{64})"', index)
+    assert entry and entry.group(1).decode() == hashlib.sha256(metadata.read_bytes()).hexdigest(), f"Invalid checksum for {slug}"
+    assert tomllib.loads(metadata.read_text())["side"] == "client", f"{slug} must be client-only"
 PY
 
 # Keep the DH 3.3.3 dedicated-server baseline deterministic.
@@ -48,7 +55,7 @@ python3 scripts/verify-wither-reincarnated.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py"):
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py"):
     ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
 PY
 docker compose config -q
