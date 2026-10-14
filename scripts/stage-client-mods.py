@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Stage the explicit Packwiz client payload into AutoModpack's host-modpack area.
 
-Only Packwiz entries marked client or both are published to clients. Server-only
+Only Packwiz entries marked client or both are published to clients.\nEssential is mandatory, Recommended is preselected, Extras is opt-in. Server-only
 mods stay in /data/mods for NeoForge but never enter AutoModpack's client pack.
 """
 from __future__ import annotations
@@ -34,13 +34,89 @@ def main() -> int:
     pack_root = Path(args.pack_root).resolve()
     data_root = Path(args.data_root).resolve()
     base = data_root / "automodpack" / "host-modpack"
-    visuals = {"3dskinlayers", "chat-heads", "chatanimation", "not-enough-animations", "visuality-forge", "wavey-capes", "better-animations-collection", "item-highlighter", "better-ping-display", "blur-plus", "midnightlib", "falling-leaves", "continuity-neoforged", "screenshot-to-clipboard", "entity-model-features", "effectual", "tlib", "particle-rain"}
-    ambience = {"ambientsounds", "sound-physics-remastered", "sounds", "presence-footsteps", "mru", "yacl"}
-    quality_of_life = {"better-stats", "eating-animation", "groovy-mod-loader", "tcdcommons"}
+    # Everything not in these curated lists is Essential by default. This is
+    # deliberately conservative: a new gameplay mod or shared library must not
+    # accidentally land in a group players may deselect.
+    recommended_mods = {
+    "3dskinlayers",
+    "ambientsounds",
+    "appleskin",
+    "badoptimizations",
+    "better-advancements",
+    "better-block-entities",
+    "betterf3",
+    "c2me-neoforge",
+    "chat-heads",
+    "client-tweaks",
+    "controlling",
+    "crash-assistant",
+    "cut-through",
+    "default-options",
+    "distant-horizons-seedgen",
+    "distanthorizons",
+    "dynamic-fps",
+    "enchantment-descriptions",
+    "entityculling",
+    "entitytexturefeatures",
+    "fast-ip-ping",
+    "ferrite-core",
+    "immediatelyfast",
+    "inventory-essentials",
+    "iris",
+    "just-zoom",
+    "lambdynamiclights",
+    "lithium",
+    "moreculling",
+    "mouse-tweaks",
+    "mru",
+    "presence-footsteps",
+    "reeses-sodium-options",
+    "rei",
+    "searchables",
+    "shulkerboxtooltip",
+    "sodium",
+    "sodium-extra",
+    "sound-physics-remastered",
+    "sounds",
+    "yacl",
+    }
+    extra_mods = {
+    "advancement-plaques",
+    "better-animations-collection",
+    "better-ping-display",
+    "better-stats",
+    "blur-plus",
+    "chatanimation",
+    "continuity-neoforged",
+    "eating-animation",
+    "effectual",
+    "entity-model-features",
+    "falling-leaves",
+    "groovy-mod-loader",
+    "item-highlighter",
+    "legendary-tooltips",
+    "midnightlib",
+    "not-enough-animations",
+    "particle-rain",
+    "polytone",
+    "screenshot-to-clipboard",
+    "tcdcommons",
+    "tlib",
+    "visuality-forge",
+    "wavey-capes",
+    }
+    assert not (recommended_mods & extra_mods), "Client groups must be disjoint"
+
     def group_for(meta: Path) -> str:
         name = meta.name.removesuffix(".pw.toml")
-        return "visuals" if name in visuals else ("ambience" if name in ambience else ("visuals" if name in quality_of_life else "main"))
-    for group in ("main", "visuals", "ambience"):
+        if name in extra_mods:
+            return "extras"
+        if name in recommended_mods:
+            return "recommended"
+        return "main"
+
+    # Source of truth for output group ids is AutoModpack server.conf.
+    for group in ("main", "recommended", "extras"):
         (base / group / "mods").mkdir(parents=True, exist_ok=True)
 
     state_file = data_root / "automodpack" / ".brainmeth-packwiz-client-files.json"
