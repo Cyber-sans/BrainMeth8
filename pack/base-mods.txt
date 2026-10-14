@@ -113,3 +113,24 @@ https://modrinth.com/mod/creeper-overhaul/version/9rleJcdO
 
 # VanillaBackport: vanilla features from newer Minecraft updates (NeoForge 1.21.1)
 https://modrinth.com/mod/vanillabackport/version/rUSWdBok
+
+# Approved vanilla-plus structure/worldgen expansion (2026-10-14)
+# Pinned NeoForge 1.21.1 YUNG suite, EXCLUDING Better End Island and Extras.
+https://modrinth.com/mod/yungs-api/version/1.21.1-NeoForge-5.1.9
+https://modrinth.com/mod/yungs-better-dungeons/version/1.21.1-NeoForge-5.1.4
+https://modrinth.com/mod/yungs-better-mineshafts/version/1.21.1-NeoForge-5.1.1
+https://modrinth.com/mod/yungs-better-strongholds/version/1.21.1-NeoForge-5.1.3
+https://modrinth.com/mod/yungs-better-nether-fortresses/version/1.21.1-NeoForge-3.1.5
+https://modrinth.com/mod/yungs-better-ocean-monuments/version/1.21.1-NeoForge-4.1.2
+https://modrinth.com/mod/yungs-better-desert-temples/version/1.21.1-NeoForge-4.1.5
+https://modrinth.com/mod/yungs-better-jungle-temples/version/1.21.1-NeoForge-3.1.2
+https://modrinth.com/mod/yungs-better-witch-huts/version/1.21.1-NeoForge-4.1.1
+https://modrinth.com/mod/yungs-bridges/version/1.21.1-NeoForge-5.1.1
+# Dungeons and Taverns: base NeoForge 4.4.4 only (no separate DnT overhauls).
+https://modrinth.com/datapack/dungeons-and-taverns/version/BYUUUeZA
+# Otherside progression; do not grant Soul Elytra (Brainmeth datapack blocks its recipe).
+https://modrinth.com/mod/deeperdarker/version/TuD0Zvi3
+# End terrain, no Better End Island.
+https://modrinth.com/datapack/nullscape/version/dHJAVX8s
+# Selective, non-retroactive blocking of DnT Photosynthesis and Wax Wings.
+https://modrinth.com/mod/enchantment-disabler/version/3.4.1%2B1.21.1-neoforge
