@@ -90,6 +90,8 @@ python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 
 docker compose --profile "$TARGET" pull
+# Nginx bind mounts the runtime directory inode. Recreate it after atomic regeneration.
+docker compose --profile "$TARGET" up -d --force-recreate packwiz
 docker compose --profile "$TARGET" up -d --remove-orphans
 
 # Pack/config changes are consumed during Minecraft startup, so every deploy
