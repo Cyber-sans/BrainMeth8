@@ -46,6 +46,7 @@ grep -q '^distantGeneratorMode = "INTERNAL_SERVER"$' pack/config/DistantHorizons
 grep -q '^name: brainmeth1211$' compose.yaml
 grep -q 'itzg/minecraft-server:java21' compose.yaml
 # Verify server-side datapack payload before any server is started.
+python3 scripts/verify-client-groups.py --pack-root .pack-runtime
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-improved-mobs.py
 python3 scripts/verify-dragonfight.py
@@ -55,7 +56,7 @@ python3 scripts/verify-wither-reincarnated.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py"):
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "verify-client-groups.py"):
     ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
 PY
 docker compose config -q
