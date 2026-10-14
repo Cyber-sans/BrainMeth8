@@ -19,6 +19,25 @@ jobs:
       - name: Regenerate from exact SHA-verified DnT 4.4.4 JAR
         run: python3 scripts/generate-dnt-loot-overrides.py
 
+      - name: Audit actual Deeper and Darker Soul Elytra recipe ID
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import io,hashlib,tomllib,urllib.request,zipfile
+          with open("pack/mods/deeperdarker.pw.toml","rb") as f:
+              meta=tomllib.load(f)
+          request=urllib.request.Request(meta["download"]["url"],headers={"User-Agent":"Brainmeth-Recipe-Audit/1.0"})
+          with urllib.request.urlopen(request,timeout=90) as r:
+              b=r.read()
+          algo=meta["download"]["hash-format"].replace("-","")
+          assert hashlib.new(algo,b).hexdigest()==meta["download"]["hash"], "Unexpected DnD version/hash"
+          with zipfile.ZipFile(io.BytesIO(b)) as jar:
+              hits=[p for p in jar.namelist() if "soul_elytra" in p and ("/recipe/" in p or "/recipes/" in p)]
+              print("SOUL_ELYTRA_RECIPE_FILES:",hits)
+              assert "data/deeperdarker/recipe/soul_elytra.json" in hits, ("Override recipe path is incorrect",hits)
+          print("PASS: Soul Elytra recipe ID matches Brainmeth NeoForge override")
+          PY
+
       - name: Commit only targeted loot-table overrides
         run: |
           set -euo pipefail
