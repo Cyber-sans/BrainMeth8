@@ -161,7 +161,3 @@ https://modrinth.com/datapack/not-enough-trials/version/8k3cwiQv
 
 # Macaw's Holidays 1.1.1, NeoForge 1.21.1, holiday/Halloween decorations (client + server).
 https://modrinth.com/mod/macaws-holidays/version/NvmjbNce
-
-# Secret atmospheric horror (server-side only): Server-Side Horror 4.2, NeoForge 1.21.1.
-# Do not advertise this addition in player-facing mod descriptions.
-https://modrinth.com/mod/server-side-horror/version/vN08BjJj
