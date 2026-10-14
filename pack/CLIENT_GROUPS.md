@@ -1,13 +1,13 @@
 # Brainmeth AutoModpack client groups
 
-The **test** AutoModpack 5 pack presents three groups. There is no more
+The **test** AutoModpack 5 pack presents three groups, all preselected by default. There is no more
 standalone Visual Enhancements or Ambient Audio group.
 
 | Group id / folder | Player label | Selection | Contents |
 |---|---|---|---|
 | `main` | **Essential** | REQUIRED | Gameplay content, networking, and conservative mandatory/shared dependencies. |
 | `recommended` | **Recommended** | RECOMMENDED (preselected) | Client performance, Distant Horizons/SeedGen, shaders and everyday quality-of-life/audio. |
-| `extras` | **Extras** | OPTIONAL (unchecked) | Cosmetic particles, alternative animations and preference-based UI. |
+| `extras` | **Extras** | RECOMMENDED (preselected, can be deselected) | Cosmetic particles, alternative animations and preference-based UI. |
 
 Examples of **Recommended**: Sodium, Iris, Distant Horizons, DH SeedGen,
 ModernFix, Lithium, AppleSkin, 3D Skin Layers, AmbientSounds, Sounds,
@@ -17,7 +17,7 @@ Examples of **Extras**: Better Animations Collection, Effectual,
 Falling Leaves, Particle Rain, Eating Animation, EMF, Blur+,
 Continuity: NeoForged, and Item Highlighter.
 
-**Dependencies and selection:** Extras requires Recommended, so a player
+**Dependencies and selection:** Both Recommended and Extras are enabled by default but can be deselected. Extras requires Recommended, so a player
 who checks Extras also receives the performance and common libraries
 in Recommended. This avoids a mod in Extras starting without a mod in
 Recommended that it needs. Libraries required by core game content
