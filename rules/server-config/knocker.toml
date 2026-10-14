@@ -1,0 +1,6 @@
+# The Knocker — rare encounters independent of Minecraft's Hard difficulty.
+# Keys/file name verified against the author's published Knocker config source;
+# confirm the NeoForge 1.21.1 generated config at first staging startup.
+["server and client"]
+spawn_rate = "rare"
+respect_difficulty = false
