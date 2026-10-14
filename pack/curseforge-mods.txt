@@ -8,3 +8,10 @@
 # Nirvana 2.0.11: cannabis/hemp gameplay; NeoForge 1.21.1; both sides.
 # https://www.curseforge.com/minecraft/mc-mods/nirvana/files/8164363
 1278909:8164363
+# Legendary Tooltips 1.5.5 NeoForge 1.21.1 (client only) and required libraries.
+# https://www.curseforge.com/minecraft/mc-mods/legendary-tooltips/files/6400660
+532127:6400660
+# Iceberg 1.3.2 NeoForge 1.21.1
+520110:6423863
+# Prism 1.0.11 NeoForge 1.21.1
+638111:6372979
