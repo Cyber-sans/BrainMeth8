@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "e99f4bc0f5fb4414183a83ef29587fe7753c750fd13eae68ced4d5d5b3088cde"
+hash = "a452a6bf26b16398f25b50369b38456a79ee3d5844c2e2899a28a0e8f4015d1f"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -281,6 +281,11 @@ hash = "2f9a1e8a8bc5c5f57efa2b5f05a9f58beff6a8d05f5b69e4f329a723ba036877"
 metafile = true
 
 [[files]]
+file = "mods/improved-mobs.pw.toml"
+hash = "a05a2abba1a3d4a74fa6f95fc05cd67741a092b0c7b29f623a6c5fd2c289959b"
+metafile = true
+
+[[files]]
 file = "mods/inventory-essentials.pw.toml"
 hash = "46b0d42496acb436809d5001e3c13024697cb744cf69f8168f8b45dc21cb628f"
 metafile = true
@@ -491,6 +496,11 @@ hash = "b8fdecfaaf5d77811d7a09a1eb98ee62f56e9fa9a5ea32fc9703332717b7c639"
 metafile = true
 
 [[files]]
+file = "mods/tenshilib.pw.toml"
+hash = "8a78c4d50191dd24096c788ea20f1ebec472a02bad3967578e4d0532e0e729d1"
+metafile = true
+
+[[files]]
 file = "mods/trade-cycling.pw.toml"
 hash = "96a35515f2d9a8a94c7a5f8aa3bc13c8e17416b0a2befc301ffed5519f47eccd"
 metafile = true
@@ -577,4 +587,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "fb3f8ef16dd20cb1a429dbf09838a327877987be37b8c15d5196797818c6edb0"
+hash = "a83d2bdf73f5a17a77b6b3f0ff8781e77f74ff7da96f02069da796d0e3c2d826"

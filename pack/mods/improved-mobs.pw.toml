@@ -1,0 +1,12 @@
+name = "Improved Mobs"
+filename = "improvedmobs-1.21.1-1.16.0.b-neoforge.jar"
+side = "server"
+[download]
+url = "https://cdn.modrinth.com/data/23MovWyi/versions/bgyn3PYl/improvedmobs-1.21.1-1.16.0.b-neoforge.jar"
+hash-format = "sha512"
+hash = "412a0672ca5e80cf9b7a62dbc0d69c6bee9d33b3a9234cd939c6dc53c43ac647e04afe4801192e4c301708f08c65f9f4da6ef203bab18f6e30bf441f776269eb"
+
+[update]
+[update.modrinth]
+mod-id = "23MovWyi"
+version = "bgyn3PYl"
