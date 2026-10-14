@@ -18,6 +18,7 @@ MODS = {
     "presence-footsteps": ("Presence Footsteps [FORGE]", "dLfueQtY", "APwizIWh"),
     "mru": ("MRU", "SNVQ2c0g", "hVJ8gBNJ"),
     "yacl": ("YetAnotherConfigLib", "1eAoo2KR", "XoVxAvc2"),
+    "better-animations-collection": ("Better Animations Collection", "OoOVj3J3", "3sJ71XQz"),
 }
 
 def digest(data: bytes) -> str:
