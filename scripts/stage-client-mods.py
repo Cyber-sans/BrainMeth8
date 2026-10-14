@@ -11,6 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 import tempfile
+import shutil
 import tomllib
 import urllib.request
 from urllib.parse import quote
@@ -32,9 +33,16 @@ def main() -> int:
 
     pack_root = Path(args.pack_root).resolve()
     data_root = Path(args.data_root).resolve()
-    target = data_root / "automodpack" / "host-modpack" / "main" / "mods"
+    base = data_root / "automodpack" / "host-modpack"
+    visuals = {"3dskinlayers", "chat-heads", "chatanimation", "not-enough-animations", "visuality-forge", "wavey-capes"}
+    ambience = {"ambientsounds", "dripsounds", "sound-physics-remastered"}
+    def group_for(meta: Path) -> str:
+        name = meta.name.removesuffix(".pw.toml")
+        return "visuals" if name in visuals else ("ambience" if name in ambience else "main")
+    for group in ("main", "visuals", "ambience"):
+        (base / group / "mods").mkdir(parents=True, exist_ok=True)
+
     state_file = data_root / "automodpack" / ".brainmeth-packwiz-client-files.json"
-    target.mkdir(parents=True, exist_ok=True)
     state_file.parent.mkdir(parents=True, exist_ok=True)
 
     wanted: dict[str, dict[str, str]] = {}
@@ -71,24 +79,36 @@ def main() -> int:
             ])
         else:
             raise ValueError(f"Unsupported Packwiz download mode in {meta}: {dl!r}")
+        if filename in wanted:
+            raise ValueError(f"Duplicate mod filename in Packwiz: {filename}")
         wanted[filename] = {
+            "group": group_for(meta),
+
             "urls": urls,
             "hash_format": dl.get("hash-format", "sha256"),
             "hash": dl["hash"],
         }
 
     try:
-        previous = set(json.loads(state_file.read_text()))
+        prev_data = json.loads(state_file.read_text(encoding="utf-8"))
+        previous = ({name: "main" for name in prev_data}
+                    if isinstance(prev_data, list) else dict(prev_data))
     except (FileNotFoundError, json.JSONDecodeError):
-        previous = set()
+        previous = {}
 
-    for stale in sorted(previous - set(wanted)):
-        path = target / stale
-        if path.is_file():
-            print(f"Removing stale managed client-pack mod: {stale}")
-            path.unlink()
+    for filename, old_group in sorted(previous.items()):
+        if filename not in wanted or old_group != wanted[filename]["group"]:
+            old_path = base / old_group / "mods" / filename
+            if old_path.is_file():
+                if filename in wanted and digest(old_path, wanted[filename]["hash_format"]) == wanted[filename]["hash"].lower():
+                    new_path = base / wanted[filename]["group"] / "mods" / filename
+                    new_path.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(old_path, new_path)
+                print(f"Removing obsolete staged location: {old_group}/{filename}")
+                old_path.unlink()
 
     for filename, spec in wanted.items():
+        target = base / spec["group"] / "mods"
         dest = target / filename
         algo = spec["hash_format"].replace("-", "")
 
@@ -130,8 +150,8 @@ def main() -> int:
             )
         tmp_path.replace(dest)
 
-    state_file.write_text(json.dumps(sorted(wanted), indent=2) + "\n")
-    print(f"Staged {len(wanted)} Packwiz client/both mod(s) for AutoModpack.")
+    state_file.write_text(json.dumps({name: spec["group"] for name, spec in sorted(wanted.items())}, indent=2) + "\n")
+    print(f"Staged {len(wanted)} Packwiz client/both mod(s) across AutoModpack v5 groups.")
     return 0
 
 
