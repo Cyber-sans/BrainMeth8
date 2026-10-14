@@ -186,7 +186,7 @@ metafile = true
 
 [[files]]
 file = "mods/cupboard.pw.toml"
-hash = "55f8f5c6152e6c0ceb79d38ca741910665754d1ce0755234b09318923e586e43"
+hash = "55d6ba3b2bde8d15d731344977377899b82455e7331a6abc5a79a43a2345d0f7"
 metafile = true
 
 [[files]]
@@ -441,7 +441,7 @@ metafile = true
 
 [[files]]
 file = "mods/savage-ender-dragon.pw.toml"
-hash = "bc400d41aa0775f6473348526a616b96593c322c9888999dd4bfb71f1d59448f"
+hash = "3269e7be45bedfb45ef122845a0b77c70426ea96c63fecfb367e673941e4a6fd"
 metafile = true
 
 [[files]]
@@ -601,4 +601,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "a83d2bdf73f5a17a77b6b3f0ff8781e77f74ff7da96f02069da796d0e3c2d826"
+hash = "dd11f98d11f5d36c12ba1dc5c9bfe991b5121823f3e4cb2a4a3b304e41da9639"
