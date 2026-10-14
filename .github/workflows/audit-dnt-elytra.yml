@@ -1,41 +1,33 @@
-name: Audit pinned DnT Elytra loot
+name: Verify and regenerate DnT loot restrictions
 on:
   push:
     paths:
       - ".github/workflows/audit-dnt-elytra.yml"
+      - "scripts/generate-dnt-loot-overrides.py"
   workflow_dispatch:
+
 permissions:
-  contents: read
+  contents: write
+
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect DnT v4.4.4 packaged End vault loot
-        shell: bash
+      - name: Check out migration branch
+        uses: actions/checkout@v4
+
+      - name: Regenerate from exact SHA-verified DnT 4.4.4 JAR
+        run: python3 scripts/generate-dnt-loot-overrides.py
+
+      - name: Commit only targeted loot-table overrides
         run: |
-          python3 - <<'PY'
-          import io,json,urllib.request,zipfile
-          url="https://cdn.modrinth.com/data/tpehi7ww/versions/BYUUUeZA/dungeons-and-taverns-v4.4.4.jar"
-          req=urllib.request.Request(url,headers={"User-Agent":"Brainmeth-Structure-Loot-Audit/1.0"})
-          with urllib.request.urlopen(req,timeout=50) as r:
-              archive=zipfile.ZipFile(io.BytesIO(r.read()))
-          print("ARCHIVE_ENTRY_COUNT",len(archive.namelist()))
-          for path in archive.namelist():
-              low=path.lower()
-              if not (low.endswith(".json") and "loot_table" in low):
-                  continue
-              data=archive.read(path).decode("utf8",errors="replace")
-              if "elytra" not in data.lower() and "wax_wing" not in data.lower() and "photosynthesis" not in data.lower():
-                  continue
-              print("MATCH",path)
-              try:
-                  value=json.loads(data)
-                  for pi,pool in enumerate(value.get("pools",[])):
-                      for ei,entry in enumerate(pool.get("entries",[])):
-                          es=json.dumps(entry,sort_keys=True)
-                          if any(s in es.lower() for s in ("elytra","wax_wing","photosynthesis")):
-                              print("  POOL",pi,"ENTRY",ei,es[:1500])
-              except Exception as e:
-                  print(" PARSE_ERROR",str(e))
-          print("DONE")
-          PY
+          set -euo pipefail
+          git add rules/brainmeth-rules/data/nova_structures/loot_table/
+          if git diff --cached --quiet; then
+            echo "Dungeons and Taverns loot overrides are up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Remove DnT bonus Elytra and banned enchantments from vault loot"
+          git push
