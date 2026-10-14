@@ -21,6 +21,7 @@ grep -q 'itzg/minecraft-server:java21' compose.yaml
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-improved-mobs.py
 python3 scripts/verify-dragonfight.py
+python3 scripts/verify-bomd.py
 docker compose config -q
 
 echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."
