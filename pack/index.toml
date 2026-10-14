@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "a452a6bf26b16398f25b50369b38456a79ee3d5844c2e2899a28a0e8f4015d1f"
+hash = "0797b111d2651db9f02e9f9c34cbb260e0104b7f8e3cc341d21dcf7b9bdfbfa1"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -110,6 +110,11 @@ hash = "68d6016fa3707c434b3aca5db041c7518c70feb53d0183faa2502cc6efd4c827"
 metafile = true
 
 [[files]]
+file = "mods/bosses-of-mass-destruction-forge.pw.toml"
+hash = "e330d3ae034c53c90d9d2bf4ba6701612487d716f1d6e46dd6c47cb6853295f5"
+metafile = true
+
+[[files]]
 file = "mods/bountiful.pw.toml"
 hash = "1dd7171749897513c7dfd55657fe54b3ee5a088c22c1f9b22c17040f75ba3c78"
 metafile = true
@@ -117,6 +122,11 @@ metafile = true
 [[files]]
 file = "mods/c2me-neoforge.pw.toml"
 hash = "09f835693044ef27cd37d6c14476594589684bcd75b2492076ee64cc5c2817c3"
+metafile = true
+
+[[files]]
+file = "mods/cerbons-api.pw.toml"
+hash = "479dab388743fb59d3399d2d87a0a7dc0819a4184b74f734fa9cc1eecdd6f6f6"
 metafile = true
 
 [[files]]
@@ -260,6 +270,11 @@ hash = "ea2fba055555e617ea9f880b7d045d4b63dc57d9d6f3b9327f341f5cd70d90f3"
 metafile = true
 
 [[files]]
+file = "mods/entitytexturefeatures.pw.toml"
+hash = "5afc6cae1d905dbe9dffa8a553c2ec361d5a6c9ebb32a64d99a054d187384e05"
+metafile = true
+
+[[files]]
 file = "mods/fast-ip-ping.pw.toml"
 hash = "d976b229d58803c6c82619d12cdffa27955140fda97b29caf8ffe40a42d14068"
 metafile = true
@@ -280,6 +295,11 @@ hash = "35779b39ddc06059ec483b33de2ecfdc3adb95c0a49e69b6701fb0024827e2f5"
 metafile = true
 
 [[files]]
+file = "mods/geophilic.pw.toml"
+hash = "e51c1f2d5f452d4bc348f032e637562bc57c8bb6d75b51beff09cfebd36c9e93"
+metafile = true
+
+[[files]]
 file = "mods/iceberg.pw.toml"
 hash = "a2fbecad69fcbff54919864ea8b95e54d140a1a2c637d73307fb366e76066fe6"
 metafile = true
@@ -292,6 +312,11 @@ metafile = true
 [[files]]
 file = "mods/improved-mobs.pw.toml"
 hash = "a05a2abba1a3d4a74fa6f95fc05cd67741a092b0c7b29f623a6c5fd2c289959b"
+metafile = true
+
+[[files]]
+file = "mods/incendium.pw.toml"
+hash = "22b76d770cd9bb5bfc3a60134620c14af2899cd6704b04d50e12ae89f11c7319"
 metafile = true
 
 [[files]]
@@ -420,6 +445,11 @@ hash = "0a04f1d0b86262c6dfdbd14e0493d7f4786f24054a95a07ff7b41a7870bb258d"
 metafile = true
 
 [[files]]
+file = "mods/reeses-sodium-options.pw.toml"
+hash = "d04621e72b3cf19975465d97a62b30162b2f942efe5bf08e6a95ebcb1930debc"
+metafile = true
+
+[[files]]
 file = "mods/rei.pw.toml"
 hash = "49574974a51125fc4e33e930b5f3bd7f8884bf36bca2c81880913b006a05d371"
 metafile = true
@@ -467,6 +497,11 @@ metafile = true
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "1cc43ff63e05c1e31ca7bc915e6c5c2c8bee8a1a406c501b354454c25af42f45"
+metafile = true
+
+[[files]]
+file = "mods/sodium-extra.pw.toml"
+hash = "049effb741d20c6f529376025d50c9e0fe0666c2557f0a98f1391ce35a30b263"
 metafile = true
 
 [[files]]
@@ -601,4 +636,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "dd11f98d11f5d36c12ba1dc5c9bfe991b5121823f3e4cb2a4a3b304e41da9639"
+hash = "a588d18432457e5ad0a4f55495d326997f37c29b6a9a2a87d0e4d2cee50162aa"
