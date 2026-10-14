@@ -134,3 +134,6 @@ https://modrinth.com/mod/deeperdarker/version/TuD0Zvi3
 https://modrinth.com/datapack/nullscape/version/dHJAVX8s
 # Selective, non-retroactive blocking of DnT Photosynthesis and Wax Wings.
 https://modrinth.com/mod/enchantment-disabler/version/Uxs8QN2P
+
+# Default Improved Mobs difficulty; prevent extra block griefing, theft and destructive item use.
+https://modrinth.com/mod/improved-mobs/version/bgyn3PYl
