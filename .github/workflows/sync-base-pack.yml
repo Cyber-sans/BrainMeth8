@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "pack/base-mods.txt"
+      - "pack/curseforge-mods.txt"
       - "pack/side-overrides.json"
       - "pack/config/**"
       - "scripts/apply-packwiz-sides.py"
@@ -54,6 +55,15 @@ jobs:
             echo "Adding $spec"
             packwiz --meta-folder mods modrinth add "$spec" -y
           done < base-mods.txt
+
+          # Official CurseForge-only mods are listed separately because the
+          # Modrinth resolver cannot install them. Explicit project:file pins.
+          while IFS= read -r spec || [[ -n "$spec" ]]; do
+            [[ -z "$spec" || "$spec" =~ ^[[:space:]]*# ]] && continue
+            IFS=: read -r addon_id file_id <<< "$spec"
+            echo "Adding CurseForge $addon_id file $file_id"
+            packwiz --meta-folder mods curseforge add --addon-id "$addon_id" --file-id "$file_id" -y
+          done < curseforge-mods.txt
 
           python ../scripts/apply-packwiz-sides.py
           packwiz refresh
