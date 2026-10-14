@@ -62,7 +62,7 @@ load_commands = [line.strip() for line in (root / "data/brainmeth/function/load.
 assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4", "function brainmeth:lobby/init"], load_commands
 assert read("data/minecraft/tags/function/tick.json")["values"] == ["brainmeth:lobby/tick"]
 lobby = root / "data/brainmeth/function/lobby"
-for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel", "parkour_finish"):
+for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel", "parkour_finish", "escape"):
     assert (lobby / f"{name}.mcfunction").is_file(), name
 assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction").read_text()
 assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
@@ -71,6 +71,8 @@ assert "fill -24 212 -24 24 224 24 minecraft:air" in (lobby / "open.mcfunction")
 assert "unless score #layout bm_launch matches 2" in (lobby / "init.mcfunction").read_text()
 assert "scoreboard players set #layout bm_launch 2" in (lobby / "build.mcfunction").read_text()
 assert "scoreboard players add @s bm_parkour 1" in (lobby / "parkour_finish.mcfunction").read_text()
+assert "tag @s add bm_staff" in (lobby / "escape.mcfunction").read_text()
+assert "spreadplayers 0 0 4 35 false @s" in (lobby / "escape.mcfunction").read_text()
 assert "function brainmeth:lobby/parkour_finish" in (lobby / "tick.mcfunction").read_text()
 # Every fill in the build and cleanup must fit the vanilla 32768-block limit.
 import re
