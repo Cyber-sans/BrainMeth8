@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Validate the deliberately small Improved Mobs 1.21.1 safety override.
+"""Validate Improved Mobs 1.21.1 safety override and raised difficulty ceiling.
 
-Only disable destructiveness. All default difficulty/AI/gear settings remain upstream.
+Disable destructiveness and increase cap to 400. Keep default growth/AI/gear.
 """
 from __future__ import annotations
 import tomllib
@@ -11,7 +11,8 @@ root = Path(__file__).resolve().parents[1]
 with (root / "rules/server-config/improvedmobs/common.toml").open("rb") as f:
     cfg = tomllib.load(f)
 
-assert set(cfg) == {"features", "ai", "equipment"}, set(cfg)
+assert set(cfg) == {"general", "features", "ai", "equipment"}, set(cfg)
+assert cfg["general"] == {"Difficulty Increase": ["0;difficulty + 0.1", "400;difficulty"]}
 assert cfg["features"] == {"Feature Blacklist": ["BLOCKBREAK", "STEAL"]}, cfg["features"]
 assert cfg["ai"] == {"TNT Block Destruction": False}, cfg["ai"]
 assert set(cfg["equipment"]) == {"Item Use Blacklist"}
@@ -35,4 +36,4 @@ assert "improved-mobs" in sides["server"]
 deploy = (root / "scripts/deploy.sh").read_text()
 assert 'IMPROVED_MOBS_CONFIG_DEST="$DATA_DIR/config/improvedmobs/common.toml"' in deploy
 assert 'cp "$IMPROVED_MOBS_CONFIG_SOURCE" "$IMPROVED_MOBS_CONFIG_DEST"' in deploy
-print("Improved Mobs validated: upstream difficulty defaults, destructive additions disabled.")
+print("Improved Mobs validated: default growth; 400 ceiling; destructive additions disabled.")
