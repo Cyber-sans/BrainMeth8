@@ -55,6 +55,13 @@ ENCHANT_CONFIG_DEST="$DATA_DIR/config/enchantmentdisabler/config.toml"
 mkdir -p "$(dirname "$ENCHANT_CONFIG_DEST")"
 cp "$ENCHANT_CONFIG_SOURCE" "$ENCHANT_CONFIG_DEST"
 
+# Improved Mobs: retain upstream combat/difficulty defaults, disable only
+# destructive extra AI (block breaking, theft, explosives, lava and fire).
+IMPROVED_MOBS_CONFIG_SOURCE="$ROOT/rules/server-config/improvedmobs/common.toml"
+IMPROVED_MOBS_CONFIG_DEST="$DATA_DIR/config/improvedmobs/common.toml"
+mkdir -p "$(dirname "$IMPROVED_MOBS_CONFIG_DEST")"
+cp "$IMPROVED_MOBS_CONFIG_SOURCE" "$IMPROVED_MOBS_CONFIG_DEST"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
