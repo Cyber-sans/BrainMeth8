@@ -63,6 +63,37 @@ def main():
         meta.write_text(content)
         index += f'\n[[files]]\nfile = "mods/{slug}.pw.toml"\nhash = "{sha(content.encode())}"\nmetafile = true\n'
         print(f"Pinned {title}: {v['version_number']} ({v['id']})")
+    # Better Statistics Screen requires TCDCommons; it must be present in
+    # the same optional Extras group, so do not silently omit it.
+    slug = "tcdcommons"
+    title = "TCDCommons API"
+    meta = root / "mods" / f"{slug}.pw.toml"
+    if meta.exists():
+        raise RuntimeError(f"Duplicate mod: {slug}")
+    releases = get("https://api.modrinth.com/v2/project/tcdcommons/version?loaders=%5B%22neoforge%22%5D&game_versions=%5B%221.21.1%22%5D")
+    matches = [v for v in releases if "neoforge" in v.get("loaders", [])
+               and "1.21.1" in v.get("game_versions", [])
+               and v.get("version_type") == "release"]
+    if not matches:
+        raise RuntimeError("No NeoForge 1.21.1 TCDCommons release found")
+    v = matches[0]
+    jars = [file for file in v.get("files", []) if file.get("primary")
+            and file.get("filename", "").endswith(".jar")]
+    if len(jars) != 1:
+        raise RuntimeError("Ambiguous TCDCommons primary JAR")
+    jar = jars[0]
+    url, checksum = jar["url"], jar.get("hashes", {}).get("sha512")
+    if not url.startswith("https://cdn.modrinth.com/data/") or not checksum or len(checksum) != 128:
+        raise RuntimeError("Unverified TCDCommons download")
+    content = (
+        f'name = {json.dumps(title)}\n'
+        f'filename = {json.dumps(jar["filename"])}\nside = "client"\n'
+        f'[download]\nurl = {json.dumps(url)}\nhash-format = "sha512"\nhash = "{checksum}"\n\n'
+        f'[update]\n[update.modrinth]\nmod-id = "{v["project_id"]}"\nversion = "{v["id"]}"\n'
+    )
+    meta.write_text(content)
+    index += f'\n[[files]]\nfile = "mods/{slug}.pw.toml"\nhash = "{sha(content.encode())}"\nmetafile = true\n'
+    print(f"Pinned {title}: {v['version_number']} ({v['id']})")
     index_path.write_text(index)
     pack, count = re.subn(
         r'(\[index\]\nfile = "index\.toml"\nhash-format = "sha256"\nhash = ")[a-f0-9]{64}(")',
