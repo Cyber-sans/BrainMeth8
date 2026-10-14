@@ -1,0 +1,41 @@
+name: Audit pinned DnT Elytra loot
+on:
+  push:
+    paths:
+      - ".github/workflows/audit-dnt-elytra.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect DnT v4.4.4 packaged End vault loot
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import io,json,urllib.request,zipfile
+          url="https://cdn.modrinth.com/data/tpehi7ww/versions/BYUUUeZA/dungeons-and-taverns-v4.4.4.jar"
+          req=urllib.request.Request(url,headers={"User-Agent":"Brainmeth-Structure-Loot-Audit/1.0"})
+          with urllib.request.urlopen(req,timeout=50) as r:
+              archive=zipfile.ZipFile(io.BytesIO(r.read()))
+          print("ARCHIVE_ENTRY_COUNT",len(archive.namelist()))
+          for path in archive.namelist():
+              low=path.lower()
+              if not (low.endswith(".json") and "loot_table" in low):
+                  continue
+              data=archive.read(path).decode("utf8",errors="replace")
+              if "elytra" not in data.lower() and "wax_wing" not in data.lower() and "photosynthesis" not in data.lower():
+                  continue
+              print("MATCH",path)
+              try:
+                  value=json.loads(data)
+                  for pi,pool in enumerate(value.get("pools",[])):
+                      for ei,entry in enumerate(pool.get("entries",[])):
+                          es=json.dumps(entry,sort_keys=True)
+                          if any(s in es.lower() for s in ("elytra","wax_wing","photosynthesis")):
+                              print("  POOL",pi,"ENTRY",ei,es[:1500])
+              except Exception as e:
+                  print(" PARSE_ERROR",str(e))
+          print("DONE")
+          PY
