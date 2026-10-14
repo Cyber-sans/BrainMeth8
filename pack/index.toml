@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "60b06405d22aebac2c9de7823755a4f2f11cd1a6c4d881c65e78290a429d3ab2"
+hash = "7b6432aec0b5cd6b401f2f3a3a966816f9c850d53cfdfe8c6ae03b3ab0dcab48"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -220,6 +220,11 @@ hash = "3c2bd8d3e960aef312cf4e05711567f67b0ae87979a232d24ce1fe4db8cc13b9"
 metafile = true
 
 [[files]]
+file = "mods/distant-horizons-seedgen.pw.toml"
+hash = "d6d250fe33e94342baeafcf8299241099f6eff3a6d4ca1d4e9dcd77461e1dd1b"
+metafile = true
+
+[[files]]
 file = "mods/distanthorizons.pw.toml"
 hash = "b8d0b93424a6a373ab15cff8ed023b7f01b5ff99604308a38cd7cea33c33afbe"
 metafile = true
@@ -427,6 +432,11 @@ metafile = true
 [[files]]
 file = "mods/mouse-tweaks.pw.toml"
 hash = "cab5b67dae7f41f719452e0604aebffd5854270c5ce031850ff9a5958b9873fd"
+metafile = true
+
+[[files]]
+file = "mods/naturalist.pw.toml"
+hash = "a4b9ff6cd026c308ef903bc377e5ff6b44e2fcb2431503899ee812cc52a72461"
 metafile = true
 
 [[files]]
@@ -691,4 +701,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "6db566f29e9962fc9b665f6d04a7540a59d8edb30e2d2a39f37d3f4a8cacb6d9"
+hash = "c4e235e2742293047c52481fff7922f76e141c1e5fd9c90a678f2b29e6bc72db"

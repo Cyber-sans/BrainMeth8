@@ -1,0 +1,12 @@
+name = "Distant Horizons SeedGen"
+filename = "Distant Horizons SeedGen 0.7.0 for 1.21.1 NeoForge.jar"
+side = "client"
+[download]
+url = "https://cdn.modrinth.com/data/iUGLCJTI/versions/ODFiFPVn/Distant%20Horizons%20SeedGen%200.7.0%20for%201.21.1%20NeoForge.jar"
+hash-format = "sha512"
+hash = "836e49459d04c41ce3f7c5b9874a9da49ba453acdadce9e5436446c4f5779456f6899c148ec77408c76b2f789a052d4a1dbb4e6abb2f5274cc9549ed17541a4a"
+
+[update]
+[update.modrinth]
+mod-id = "iUGLCJTI"
+version = "ODFiFPVn"
