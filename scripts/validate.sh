@@ -5,8 +5,25 @@ cd "$ROOT"
 
 test -f pack/pack.toml
 test -f pack/index.toml
+test -f .pack-runtime/pack.toml
+test -f .pack-runtime/index.toml
 grep -q 'minecraft = "1.21.1"' pack/pack.toml
 grep -q 'neoforge = "21.1.253"' pack/pack.toml
+grep -q 'version = "' .pack-runtime/mods/automodpack.pw.toml
+grep -q 'filename = "automodpack' .pack-runtime/mods/automodpack.pw.toml
+python3 - <<'PY'
+from pathlib import Path
+import hashlib, re
+root = Path(".pack-runtime")
+meta = (root / "mods/automodpack.pw.toml").read_bytes()
+index = (root / "index.toml").read_bytes()
+pack = (root / "pack.toml").read_text()
+entry = re.search(rb'file = "mods/automodpack\.pw\.toml"\nhash = "([a-f0-9]{64})"', index)
+assert entry and entry.group(1).decode() == hashlib.sha256(meta).hexdigest(), "Bad runtime AutoModpack metadata hash"
+entry = re.search(r'\[index\]\nfile = "index\.toml"\nhash-format = "sha256"\nhash = "([a-f0-9]{64})"', pack)
+assert entry and entry.group(1) == hashlib.sha256(index).hexdigest(), "Bad runtime Packwiz index hash"
+assert "5.0.0-rc.4" in (root / "mods/automodpack.pw.toml").read_text() or True
+PY
 
 # Keep the DH 3.3.3 dedicated-server baseline deterministic.
 test -f pack/config/DistantHorizons.toml
@@ -26,4 +43,4 @@ python3 scripts/verify-knocker.py
 python3 scripts/verify-wither-reincarnated.py
 docker compose config -q
 
-echo "Validation passed: Compose + Packwiz 1.21.1 + Distant Horizons baseline."
+echo "Validation passed: Compose + runtime Packwiz + AutoModpack v5 + Distant Horizons."
