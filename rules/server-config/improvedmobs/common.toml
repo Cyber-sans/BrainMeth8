@@ -1,0 +1,26 @@
+# Improved Mobs 1.16.0.b / NeoForge 1.21.1
+# Keep ALL default difficulty progression, AI strength, mob equipment, and attributes.
+# Change only destructive behaviour added by Improved Mobs.
+# These names/groups are from the upstream 1.21 NeoForge ConfigSpecs.
+
+[features]
+# Extra AI block-breaking and stealing from inventories are disabled;
+# ordinary combat, movement, and useful item AI remain enabled.
+"Feature Blacklist" = ["BLOCKBREAK", "STEAL"]
+
+[ai]
+# Belt-and-braces: thrown TNT must not destroy blocks.
+"TNT Block Destruction" = false
+
+[equipment]
+# These items may still exist for players; hostile mobs must not use them.
+# Keep upstream's default buckler exclusion.
+"Item Use Blacklist" = [
+  "bigbrain:buckler",
+  "minecraft:tnt",
+  "minecraft:lava_bucket",
+  "minecraft:flint_and_steel",
+  "minecraft:fire_charge",
+  "supplementaries:bomb",
+  "supplementaries:bomb_blue"
+]
