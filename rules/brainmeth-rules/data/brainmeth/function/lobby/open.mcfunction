@@ -2,7 +2,7 @@ scoreboard players set #state bm_launch 1
 scoreboard players set #countdown bm_launch 0
 title @a title {"text":"GO!","color":"green","bold":true}
 title @a subtitle {"text":"Brainmeth has begun!","color":"yellow"}
-playsound minecraft:entity.ender_dragon.growl master @a ~ ~ ~ 1 1
+execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 1 1
 # Release players to safe terrain near origin (surface placement handles variable world height).
 execute in minecraft:overworld run spreadplayers 0 0 4 35 false @a[tag=bm_lobby]
 gamemode survival @a[tag=bm_lobby]
