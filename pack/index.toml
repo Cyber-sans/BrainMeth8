@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "a7d42dee1f2e976d85cdefdc6f32dd5d3255f75abbe531da1529f254babb83e7"
+hash = "e99f4bc0f5fb4414183a83ef29587fe7753c750fd13eae68ced4d5d5b3088cde"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -186,6 +186,11 @@ hash = "2a4347cebe419d88fc74fae6f090fb2c05b9b2e64d1197520b53ac8ce755d8be"
 metafile = true
 
 [[files]]
+file = "mods/deeperdarker.pw.toml"
+hash = "81e3f935779cecdeeddedc8c232401755451a4423188ba24b87e065163da39d9"
+metafile = true
+
+[[files]]
 file = "mods/default-options.pw.toml"
 hash = "9a20aaf4ce082a67b8d15d4644be656a3f945cf334dfb22bc6fc74b8e8842033"
 metafile = true
@@ -203,6 +208,11 @@ metafile = true
 [[files]]
 file = "mods/dripsounds.pw.toml"
 hash = "34b3faebedb58588e9aeebc5fb40c63992f24c6a64dffd9f6c8594267edb5369"
+metafile = true
+
+[[files]]
+file = "mods/dungeons-and-taverns.pw.toml"
+hash = "aefe08eb86096bf4066eaaefd839357715999540cf50328c8eb517065ef2b379"
 metafile = true
 
 [[files]]
@@ -228,6 +238,11 @@ metafile = true
 [[files]]
 file = "mods/enchantment-descriptions.pw.toml"
 hash = "5e69631288cadccbbed6fa21dcf4ec4f1e08e1ccf913e15dc20b316c4eab56a7"
+metafile = true
+
+[[files]]
+file = "mods/enchantment-disabler.pw.toml"
+hash = "876f5092e500bc47ee931e7d729eb40df8cc06d40b4a8183ef5175a6aca42b35"
 metafile = true
 
 [[files]]
@@ -353,6 +368,11 @@ metafile = true
 [[files]]
 file = "mods/not-enough-animations.pw.toml"
 hash = "6404c375b7c68242200108558e2d24b7bc1f81b5a247ef489bad368e5073b728"
+metafile = true
+
+[[files]]
+file = "mods/nullscape.pw.toml"
+hash = "29f7a4560ecccacda8b7ca73f22cee634e443e6422639687e5a40b95fda9b975"
 metafile = true
 
 [[files]]
@@ -501,10 +521,60 @@ hash = "8938f081f5e4cc48c66fe447c59171879a209bcd45080f11e5142e95dfd87279"
 metafile = true
 
 [[files]]
+file = "mods/yungs-api.pw.toml"
+hash = "720e144cd4506275e0ce52465c05cdb4e857ca3f757b910201bd25fd7fdbca62"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-desert-temples.pw.toml"
+hash = "857daf228ed143453c1450c7bee1c598241ce9be713efb54f7f0634f2a047de1"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-dungeons.pw.toml"
+hash = "fd4cfd9bd480f720a58bf03879366705b23485bc60612a3ea7bdcffe762119bf"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-jungle-temples.pw.toml"
+hash = "03019c80a7ab224f4b4807f428033b35a3bec0528ab05cb1b3c909b6cf71e3d2"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-mineshafts.pw.toml"
+hash = "3dc83237c3c965ea2482a93a5b122f6677d051b377cfb850e57310f927868ce5"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-nether-fortresses.pw.toml"
+hash = "a44e4d75b1260905d7900e2c85fcd0947e66f78134e09ac6aacf78783d48e35e"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-ocean-monuments.pw.toml"
+hash = "95723f073197e5b85171547cde97f774bcdce171e2b881001f7aac81d8eb8f72"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-strongholds.pw.toml"
+hash = "8c74b74a79f4d8429bdaf57197076afd92b022d26d79f84789a5241271ada709"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-witch-huts.pw.toml"
+hash = "191db2291e562dfa134837f61e49b59e262a3067ecca93eed019309f851a32b7"
+metafile = true
+
+[[files]]
+file = "mods/yungs-bridges.pw.toml"
+hash = "3195f52e383d02c261b5f096ece635f358f36d9adeec1024313671f926fc6c0d"
+metafile = true
+
+[[files]]
 file = "mods/zfastnoise.pw.toml"
 hash = "8a0bdcf819a24ed6e592680eb589443246458d31e78dabad1e7aadcf658e524e"
 metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "47efc362aa6efe2a604262261ed657aca54c3457ed434adcc09f5281b1748b9b"
+hash = "fb3f8ef16dd20cb1a429dbf09838a327877987be37b8c15d5196797818c6edb0"
