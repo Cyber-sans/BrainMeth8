@@ -1,12 +1,12 @@
 # Improved Mobs 1.16.0.b / NeoForge 1.21.1
-# Keep default difficulty growth, AI strength, mob equipment and attributes.
-# Raise only the progression ceiling from 250 to 400.
+# Keep default AI strength, mob equipment and attributes.
+# Set progression to +0.2 every 2400 ticks (2 per Minecraft day), capped at 350.
 # Upstream equipment chance formulas still plateau at 250; no gear tuning here.
-# Change only destructive behaviour added by Improved Mobs.
+# Also disable destructive behaviour added by Improved Mobs.
 # These names/groups are from the upstream 1.21 NeoForge ConfigSpecs.
 
 [general]
-"Difficulty Increase" = ["0;difficulty + 0.1", "400;difficulty"]
+"Difficulty Increase" = ["0;min(difficulty + 0.2, 350)", "350;difficulty" ]
 
 [features]
 # Extra AI block-breaking and stealing from inventories are disabled;
