@@ -170,3 +170,7 @@ https://modrinth.com/mod/naturalist/version/ETgOvHHS
 
 # Naturalist 2.0.5, NeoForge 1.21.1: vanilla-friendly wildlife and animal behaviours.
 https://modrinth.com/mod/naturalist/version/ETgOvHHS
+
+# Distant Horizons SeedGen 0.7.0, NeoForge 1.21.1; client-side LOD acceleration.
+# Experimental with C2ME/ZFastNoise; may disable itself when missing matching server worldgen data.
+https://modrinth.com/mod/distant-horizons-seedgen/version/ODFiFPVn
