@@ -16,7 +16,7 @@ import urllib.request
 MODS = {
     "sounds": ("Sounds", "ZouiUX7t", "IliWO68S"),
     "presence-footsteps": ("Presence Footsteps [FORGE]", "dLfueQtY", "APwizIWh"),
-    "mru": ("MRU", "SNVQ2c0g", "hVJ8gBNJ"),
+    "mru": ("MRU", "SNVQ2c0g", "qYqVf5jP"),
     "yacl": ("YetAnotherConfigLib", "1eAoo2KR", "XoVxAvc2"),
     "better-animations-collection": ("Better Animations Collection", "OoOVj3J3", "3sJ71XQz"),
     "entity-model-features": ("Entity Model Features", "4I1XuqiY", "gEOHNhtN"),
