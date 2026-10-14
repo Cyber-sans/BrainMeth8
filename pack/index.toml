@@ -22,7 +22,7 @@ hash = "d5ca8b2af2ca7b36ad488db9c6a3956327fabafdba33db8b4752ea941d29267f"
 
 [[files]]
 file = "curseforge-mods.txt"
-hash = "e2f99e7c365a055de4f546ade1399cde87b4a2f45cb1d5f5414de5a1788dab64"
+hash = "2f0728d3efbc2e850a39d850cd5481ad51bd69a6c0d9f35e188b8964d0da2429"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -306,7 +306,7 @@ metafile = true
 
 [[files]]
 file = "mods/iceberg.pw.toml"
-hash = "a2fbecad69fcbff54919864ea8b95e54d140a1a2c637d73307fb366e76066fe6"
+hash = "f720e1b84471ca7cca196f9b6716bc06da60d6d3c5253c3203e0c2facb2d7bfc"
 metafile = true
 
 [[files]]
@@ -362,6 +362,11 @@ metafile = true
 [[files]]
 file = "mods/lambdynamiclights.pw.toml"
 hash = "bc5c3a4949f25f87ace463dd97ba119290ff6a2dd2993b4ee98f84fda9196b78"
+metafile = true
+
+[[files]]
+file = "mods/legendary-tooltips.pw.toml"
+hash = "f01ced336f8cf2d8a6bdd1dd3eaf254502a2cbc45903556e771ff5b19b05c8aa"
 metafile = true
 
 [[files]]
@@ -452,6 +457,11 @@ metafile = true
 [[files]]
 file = "mods/prickle.pw.toml"
 hash = "c99c5bac469e8d6ece5aae80f08635e3bbb8367f0c586b6288573c725faefe69"
+metafile = true
+
+[[files]]
+file = "mods/prism-lib.pw.toml"
+hash = "f42466f907aeca89bcf3866cd1caba56c20e1f53a090b1980884f80f819d2ae0"
 metafile = true
 
 [[files]]
@@ -661,4 +671,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "8fb5ab5480915cae9ea051ddc96e4d554d1ecaa40d6b9b5ae091cf4ee86fc69a"
+hash = "42164162d88cc12c1438f4f490cac44d60b0940535fb2f22c9d581236cbd29c5"
