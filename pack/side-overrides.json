@@ -31,7 +31,11 @@
     "cupboard",
     "geophilic",
     "incendium",
-    "not-enough-trials"
+    "not-enough-trials",
+    "indexor",
+    "indexor-ledger",
+    "inventory-backups",
+    "inventorybackups"
   ],
   "client": [
     "3dskinlayers",
