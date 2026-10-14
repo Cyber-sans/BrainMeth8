@@ -146,7 +146,7 @@ metafile = true
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "98606421ea5db9672c952d91113b08b32fc4012016d4847f42b3f60467b836a7"
+hash = "b084dae7bbc94e129e4e93d19898a7f04f44c43902b2663e28e6d7dbc346817d"
 metafile = true
 
 [[files]]
@@ -296,7 +296,7 @@ metafile = true
 
 [[files]]
 file = "mods/fzzy-config.pw.toml"
-hash = "4641c8c527cda767a6c429efbf3ca8726e79c817b73cb240f522bcdd723a7ec9"
+hash = "58bf7bd827e47f5bd80e9b51b931bfca08e311d02cbc95cd80ff2bf4fcc98ea1"
 metafile = true
 
 [[files]]
@@ -371,7 +371,7 @@ metafile = true
 
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
-hash = "02018ac1767259f32056b302c7c6f03511089d87e833670b49d4f37e016a9837"
+hash = "29621c823875b39352a29ba26032fd1f9c3621277e7864e7c99b24294f6365bd"
 metafile = true
 
 [[files]]
