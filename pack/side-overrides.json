@@ -13,7 +13,18 @@
     "structure-layout-optimizer",
     "zfastnoise",
     "tabtps",
-    "minecart-speed"
+    "minecart-speed",
+    "yungs-better-dungeons",
+    "yungs-better-mineshafts",
+    "yungs-better-strongholds",
+    "yungs-better-nether-fortresses",
+    "yungs-better-ocean-monuments",
+    "yungs-better-desert-temples",
+    "yungs-better-jungle-temples",
+    "yungs-better-witch-huts",
+    "yungs-bridges",
+    "nullscape",
+    "enchantment-disabler"
   ],
   "client": [
     "3dskinlayers",
@@ -88,6 +99,9 @@
     "bountiful",
     "kambrik",
     "creeper-overhaul",
-    "vanillabackport"
+    "vanillabackport",
+    "yungs-api",
+    "dungeons-and-taverns",
+    "deeperdarker"
   ]
 }
