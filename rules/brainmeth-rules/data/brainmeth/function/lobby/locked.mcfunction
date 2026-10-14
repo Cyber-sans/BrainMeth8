@@ -1,3 +1,4 @@
+tag @a[tag=bm_staff,tag=bm_lobby] remove bm_lobby
 tag @a[tag=!bm_staff] add bm_lobby
 gamemode adventure @a[tag=bm_lobby,gamemode=!adventure]
 execute as @a[tag=bm_lobby] at @s unless dimension minecraft:overworld in minecraft:overworld run tp @s 0 202 0
