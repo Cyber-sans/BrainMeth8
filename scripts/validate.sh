@@ -28,6 +28,8 @@ assert mod["download"]["url"].startswith("https://cdn.modrinth.com/data/k68glP2e
 assert mod["download"]["hash-format"] == "sha512" and len(mod["download"]["hash"]) == 128
 assert "4.0.5" not in mod["filename"], "Old AutoModpack version still selected"
 assert not (root / "mods/dripsounds.pw.toml").exists(), "Drip Sounds must be removed"
+assert not (root / "mods/minecart-speed.pw.toml").exists(), "Minecart Speed must be quarantined"
+assert b'file = "mods/minecart-speed.pw.toml"' not in index, "Minecart Speed still in runtime index"
 for slug in ("sounds", "presence-footsteps", "mru", "yacl"):
     metadata = root / f"mods/{slug}.pw.toml"
     assert metadata.is_file(), f"Missing audio mod {slug}"
@@ -56,7 +58,7 @@ python3 scripts/verify-wither-reincarnated.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "verify-client-groups.py"):
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "disable-minecart-speed.py", "verify-client-groups.py"):
     ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
 PY
 docker compose config -q
