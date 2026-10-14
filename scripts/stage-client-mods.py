@@ -13,6 +13,7 @@ from pathlib import Path
 import tempfile
 import tomllib
 import urllib.request
+from urllib.parse import quote
 
 
 def digest(path: Path, algorithm: str) -> str:
@@ -51,8 +52,27 @@ def main() -> int:
 
         filename = info["filename"]
         dl = info["download"]
+        if Path(filename).name != filename or filename in {".", ".."}:
+            raise ValueError(f"Unsafe mod filename in {meta}: {filename!r}")
+        urls = []
+        if dl.get("url"):
+            urls.append(dl["url"])
+        elif dl.get("mode") == "metadata:curseforge":
+            cf = info.get("update", {}).get("curseforge", {})
+            if "file-id" not in cf or "project-id" not in cf:
+                raise ValueError(f"Missing CurseForge file/project ID: {meta}")
+            file_id = int(cf["file-id"])
+            project_id = int(cf["project-id"])
+            cdn_path = f"{file_id // 1000}/{file_id % 1000}/{quote(filename)}"
+            urls.extend([
+                f"https://mediafilez.forgecdn.net/files/{cdn_path}",
+                f"https://edge.forgecdn.net/files/{cdn_path}",
+                f"https://www.curseforge.com/api/v1/mods/{project_id}/files/{file_id}/download",
+            ])
+        else:
+            raise ValueError(f"Unsupported Packwiz download mode in {meta}: {dl!r}")
         wanted[filename] = {
-            "url": dl["url"],
+            "urls": urls,
             "hash_format": dl.get("hash-format", "sha256"),
             "hash": dl["hash"],
         }
@@ -76,22 +96,37 @@ def main() -> int:
             print(f"Client mod already current: {filename}")
             continue
 
-        print(f"Downloading client-pack mod: {filename}")
-        req = urllib.request.Request(
-            spec["url"],
-            headers={"User-Agent": "Brainmeth-Packwiz-Client-Stager/1.0"},
-        )
-        with urllib.request.urlopen(req, timeout=120) as response, tempfile.NamedTemporaryFile(
-            dir=target, delete=False
-        ) as tmp:
-            tmp.write(response.read())
-            tmp_path = Path(tmp.name)
-
-        actual = digest(tmp_path, algo)
-        if actual != spec["hash"].lower():
-            tmp_path.unlink(missing_ok=True)
+        print(f"Downloading client-pack mod: {filename}", flush=True)
+        failures = []
+        tmp_path = None
+        for url in spec["urls"]:
+            try:
+                req = urllib.request.Request(
+                    url,
+                    headers={"User-Agent": "Brainmeth-Packwiz-Client-Stager/1.0"},
+                )
+                with urllib.request.urlopen(req, timeout=60) as response, tempfile.NamedTemporaryFile(
+                    dir=target, delete=False
+                ) as tmp:
+                    tmp_path = Path(tmp.name)
+                    for chunk in iter(lambda: response.read(1024 * 1024), b""):
+                        tmp.write(chunk)
+                actual = digest(tmp_path, algo)
+                if actual != spec["hash"].lower():
+                    raise RuntimeError(
+                        f"Hash mismatch: expected {spec['hash']}, got {actual}"
+                    )
+                break
+            except (OSError, RuntimeError) as exc:
+                failures.append(f"{url}: {exc}")
+                if tmp_path is not None:
+                    tmp_path.unlink(missing_ok=True)
+                    tmp_path = None
+        if tmp_path is None:
             raise RuntimeError(
-                f"Hash mismatch for {filename}: expected {spec['hash']}, got {actual}"
+                f"Unable to download verified client mod {filename}. "
+                "CurseForge may restrict automated downloads. Tried:\\n  "
+                + "\\n  ".join(failures)
             )
         tmp_path.replace(dest)
 
