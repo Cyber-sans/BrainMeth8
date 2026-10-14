@@ -14,6 +14,8 @@ if [[ "$TARGET" == "prod" ]]; then
   exit 2
 fi
 python3 ./scripts/prepare-pack-v5.py --pack-root "$ROOT/pack" --runtime-root "$ROOT/.pack-runtime"
+# TEMP: quarantine Minecart Speed on test while investigating its watchdog hang.
+python3 ./scripts/disable-minecart-speed.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-audio-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-qol-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-ui-mods.py --runtime-root "$ROOT/.pack-runtime"
@@ -97,6 +99,9 @@ KNOCKER_CONFIG_DEST="$DATA_DIR/config/knocker.toml"
 mkdir -p "$(dirname "$KNOCKER_CONFIG_DEST")"
 cp "$KNOCKER_CONFIG_SOURCE" "$KNOCKER_CONFIG_DEST"
 
+# Remove the stale server-only jar before restarting NeoForge. Packwiz no longer
+# lists it, and deletion is limited to this exact mod's filename.
+rm -f "$DATA_DIR/mods/minecartspeed-neoforge-1.21.1.jar"
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 
