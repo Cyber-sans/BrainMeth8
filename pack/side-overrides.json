@@ -71,7 +71,10 @@
     "wavey-capes",
     "chatanimation",
     "cut-through",
-    "dripsounds"
+    "dripsounds",
+    "sodium-extra",
+    "reeses-sodium-options",
+    "entitytexturefeatures"
   ],
   "both": [
     "appleskin",
