@@ -39,7 +39,7 @@ def main() -> int:
     quality_of_life = {"better-stats", "eating-animation", "groovy-mod-loader", "tcdcommons"}
     def group_for(meta: Path) -> str:
         name = meta.name.removesuffix(".pw.toml")
-        return "visuals" if name in visuals else ("ambience" if name in ambience else "main")
+        return "visuals" if name in visuals else ("ambience" if name in ambience else ("visuals" if name in quality_of_life else "main"))
     for group in ("main", "visuals", "ambience"):
         (base / group / "mods").mkdir(parents=True, exist_ok=True)
 
