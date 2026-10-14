@@ -82,7 +82,7 @@ def main() -> int:
         index_path = tmp / "index.toml"
         index = index_path.read_text(encoding="utf-8")
         import re
-        pattern = r'(file = "mods/automodpack\\.pw\\.toml"\\nhash = ")[a-f0-9]{64}(")'
+        pattern = r'(file = "mods/automodpack\.pw\.toml"\nhash = ")[a-f0-9]{64}(")'
         replacement_hash = sha256(metadata.encode("utf-8"))
         index, count = re.subn(pattern, lambda m: m.group(1) + replacement_hash + m.group(2), index)
         if count != 1:
@@ -90,7 +90,7 @@ def main() -> int:
         index_path.write_text(index, encoding="utf-8")
         pack_path = tmp / "pack.toml"
         pack = pack_path.read_text(encoding="utf-8")
-        pattern = r'(\\[index\\]\\nfile = "index\\.toml"\\nhash-format = "sha256"\\nhash = ")[a-f0-9]{64}(")'
+        pattern = r'(\[index\]\nfile = "index\.toml"\nhash-format = "sha256"\nhash = ")[a-f0-9]{64}(")'
         pack, count = re.subn(pattern, lambda m: m.group(1) + sha256(index.encode("utf-8")) + m.group(2), pack)
         if count != 1:
             raise RuntimeError("Could not find Packwiz top-level index hash")
