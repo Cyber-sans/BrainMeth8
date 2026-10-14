@@ -49,3 +49,5 @@ content changes. Inspect `docker logs --tail=150 brainmeth1211-test` if an
 update or generation fails. Avoid promoting pre-release AutoModpack to
 production without a successful clean-client test.
 
+
+Audio pack update: runtime Packwiz removes Drip Sounds and pins Sounds 2.4.18 LTS, Presence Footsteps (NeoForge), MRU, and YACL for Minecraft 1.21.1. All four new mods are client-only and placed in the recommended Ambient Audio group. Exact Modrinth file hashes are verified during staging. No server-only mods are sent to clients.
