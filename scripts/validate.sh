@@ -6,7 +6,7 @@ cd "$ROOT"
 test -f pack/pack.toml
 test -f pack/index.toml
 grep -q 'minecraft = "1.21.1"' pack/pack.toml
-grep -q 'neoforge = "21.1.220"' pack/pack.toml
+grep -q 'neoforge = "21.1.253"' pack/pack.toml
 
 # Keep the DH 3.3.3 dedicated-server baseline deterministic.
 test -f pack/config/DistantHorizons.toml
