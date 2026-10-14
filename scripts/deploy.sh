@@ -75,6 +75,10 @@ BOMD_CONFIG_DEST="$DATA_DIR/config/bosses_of_mass_destruction.json5"
 mkdir -p "$(dirname "$BOMD_CONFIG_DEST")"
 cp "$BOMD_CONFIG_SOURCE" "$BOMD_CONFIG_DEST"
 
+# Wither: Reincarnated: patch actual generated config, preserving explosion sizes.
+# First boot creates the TOML; redeploy afterwards to apply this tuning.
+python3 ./scripts/tune-wither-reincarnated.py --data-root "$DATA_DIR"
+
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
 
