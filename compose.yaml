@@ -23,8 +23,8 @@ x-minecraft-common: &minecraft-common
     EULA: "TRUE"
     TYPE: "NEOFORGE"
     VERSION: "1.21.1"
-    NEOFORGE_VERSION: "21.1.220"
-    NEOFORGE_INSTALLER: "/neoforge/neoforge-21.1.220-installer.jar"
+    NEOFORGE_VERSION: "21.1.253"
+    NEOFORGE_INSTALLER: "/neoforge/neoforge-21.1.253-installer.jar"
     PACKWIZ_URL: "http://packwiz/pack.toml"
     UID: "1000"
     GID: "1000"
@@ -65,12 +65,12 @@ services:
       - /bin/sh
       - -ec
       - |
-        if [ ! -s /installer/neoforge-21.1.220-installer.jar ]; then
-          echo "Downloading pinned NeoForge 21.1.220 installer..."
-          wget -O /installer/neoforge-21.1.220-installer.jar.tmp https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.220/neoforge-21.1.220-installer.jar
-          mv /installer/neoforge-21.1.220-installer.jar.tmp /installer/neoforge-21.1.220-installer.jar
+        if [ ! -s /installer/neoforge-21.1.253-installer.jar ]; then
+          echo "Downloading pinned NeoForge 21.1.253 installer..."
+          wget -O /installer/neoforge-21.1.253-installer.jar.tmp https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.253/neoforge-21.1.253-installer.jar
+          mv /installer/neoforge-21.1.253-installer.jar.tmp /installer/neoforge-21.1.253-installer.jar
         fi
-        test -s /installer/neoforge-21.1.220-installer.jar
+        test -s /installer/neoforge-21.1.253-installer.jar
     volumes:
       - neoforge-installer:/installer
 
