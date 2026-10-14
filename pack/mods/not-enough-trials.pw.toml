@@ -1,0 +1,12 @@
+name = "Not Enough Trials"
+filename = "NotEnoughTrials-1.21-v6.4-Neoforge.jar"
+side = "server"
+[download]
+url = "https://cdn.modrinth.com/data/1W5PhsYU/versions/8k3cwiQv/NotEnoughTrials-1.21-v6.4-Neoforge.jar"
+hash-format = "sha512"
+hash = "227b9805fcbd0fdd0f320c762acdaacf20378a18b29e163178bf3f7d7a5288a27bd9f2988dd30c33ed65cede81dac4b1882da177c32f00fa87f01050dffc76a0"
+
+[update]
+[update.modrinth]
+mod-id = "1W5PhsYU"
+version = "8k3cwiQv"

@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "41ee0714c3167569a36ad7da469867f00072fef46f89e850f70c16b4e15abf0d"
+hash = "ce3aaffe88499d01dba7528312a9b1f8b17f8b53d9ff951b1c4e6fea45a35ca6"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -22,7 +22,7 @@ hash = "d5ca8b2af2ca7b36ad488db9c6a3956327fabafdba33db8b4752ea941d29267f"
 
 [[files]]
 file = "curseforge-mods.txt"
-hash = "730db0a5a103db54d71e3d49c6bae805027039c0315a7fedc0c86e32fa818ca5"
+hash = "dfab07a4a1138750758a7fb106b5c7a7cd9b01a4569eaf6790b8e234fd12b357"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -280,6 +280,11 @@ hash = "d976b229d58803c6c82619d12cdffa27955140fda97b29caf8ffe40a42d14068"
 metafile = true
 
 [[files]]
+file = "mods/fdlib.pw.toml"
+hash = "a85ef8504d5bd6fca464cfa59df51af343a5194f5b71ed127197751280d904a6"
+metafile = true
+
+[[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "10a97be2f151991884866d6d65ec5582945c533e64b1c09d1e949e736321a4f4"
 metafile = true
@@ -410,6 +415,11 @@ hash = "6404c375b7c68242200108558e2d24b7bc1f81b5a247ef489bad368e5073b728"
 metafile = true
 
 [[files]]
+file = "mods/not-enough-trials.pw.toml"
+hash = "7fe381bd03347882e040c8a7a6fa0c6f5370932191ca291e6ae012a565add62b"
+metafile = true
+
+[[files]]
 file = "mods/nullscape.pw.toml"
 hash = "29f7a4560ecccacda8b7ca73f22cee634e443e6422639687e5a40b95fda9b975"
 metafile = true
@@ -442,6 +452,11 @@ metafile = true
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "0a04f1d0b86262c6dfdbd14e0493d7f4786f24054a95a07ff7b41a7870bb258d"
+metafile = true
+
+[[files]]
+file = "mods/raids-enhanced.pw.toml"
+hash = "9f4192cd21a6ad107884f8233cba39d7a6c290f2bf6b284e62fcb3ee643e63ee"
 metafile = true
 
 [[files]]
@@ -641,4 +656,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "32d916a6226d59f2932099b3e5eafd2a37e6bf65cf94182065eb5b58500eed29"
+hash = "6a3facff3b7821093ea9763e16c9dfbaff3b930136c65d3b77a000aa93400909"
