@@ -14,6 +14,7 @@ if [[ "$TARGET" == "prod" ]]; then
   exit 2
 fi
 python3 ./scripts/prepare-pack-v5.py --pack-root "$ROOT/pack" --runtime-root "$ROOT/.pack-runtime"
+python3 ./scripts/prepare-audio-mods.py --runtime-root "$ROOT/.pack-runtime"
 ./scripts/validate.sh
 
 if [[ -f .env ]]; then
