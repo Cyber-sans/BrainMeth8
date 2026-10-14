@@ -15,7 +15,6 @@ REQUIRED_DEPENDENCIES = {
     "sounds": ("mru", "yacl"),
     "better-animations-collection": ("puzzles-lib",),
     "blur-plus": ("midnightlib",),
-    "better-stats": ("tcdcommons",),
     "eating-animation": ("groovy-mod-loader",),
     "effectual": ("tlib",),
     "item-highlighter": ("iceberg",),
