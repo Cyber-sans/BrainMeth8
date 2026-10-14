@@ -10,13 +10,14 @@ mods = root / "pack" / "mods"
 overrides = json.loads((root / "pack" / "side-overrides.json").read_text())
 
 seen = set()
+assert set(overrides) == {"server", "client", "both"}
+all_stems = [stem for stems in overrides.values() for stem in stems]
+assert len(all_stems) == len(set(all_stems)), "Conflicting duplicate side overrides"
 for side, stems in overrides.items():
     for stem in stems:
         path = mods / f"{stem}.pw.toml"
         if not path.exists():
-            # Dependencies can change; do not fail the whole sync for a missing optional entry.
-            print(f"side override skipped (not present): {stem}")
-            continue
+            raise FileNotFoundError(f"Side override {side}/{stem} missing from generated Packwiz metadata")
         text = path.read_text()
         new, count = re.subn(r'^side\s*=\s*"[^"]+"\s*$', f'side = "{side}"', text, count=1, flags=re.M)
         if count != 1:
