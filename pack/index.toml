@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "ce3aaffe88499d01dba7528312a9b1f8b17f8b53d9ff951b1c4e6fea45a35ca6"
+hash = "7963015b05f0a82ea30b431e09e808b95a77bc4efb4aefc304b820682a5b1712"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -215,6 +215,11 @@ hash = "9a20aaf4ce082a67b8d15d4644be656a3f945cf334dfb22bc6fc74b8e8842033"
 metafile = true
 
 [[files]]
+file = "mods/deimos.pw.toml"
+hash = "8fa452b9f04851f6c190c5e77caa0b81023e9f99b2c969ca28e92bca48748f02"
+metafile = true
+
+[[files]]
 file = "mods/diagonal-fences.pw.toml"
 hash = "3c2bd8d3e960aef312cf4e05711567f67b0ae87979a232d24ce1fe4db8cc13b9"
 metafile = true
@@ -390,6 +395,11 @@ hash = "67666263da765d1f226d9b614581669d9b7bda861e8b36aaf23b9a61edfa4f79"
 metafile = true
 
 [[files]]
+file = "mods/macaws-holidays.pw.toml"
+hash = "39de4bc8cfd89b2823506c535b601e08ed8dcb1dc9cd077b5d263e88502a4e6f"
+metafile = true
+
+[[files]]
 file = "mods/minecart-speed.pw.toml"
 hash = "b19bb1aa1760cefcd17bc522522aacddab62ea971faf4f2beb69b1a85073447b"
 metafile = true
@@ -512,6 +522,11 @@ metafile = true
 [[files]]
 file = "mods/searchables.pw.toml"
 hash = "6b597f39eb68f6e37365f27fccff45bc38e846ffd74ae23246a2b9d15e7a8c25"
+metafile = true
+
+[[files]]
+file = "mods/server-side-horror.pw.toml"
+hash = "e5665e8bc8357ec85dde0c247a4795410e57f4e8ec3b0ca3623baa7b3344c6d7"
 metafile = true
 
 [[files]]
@@ -671,4 +686,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "42164162d88cc12c1438f4f490cac44d60b0940535fb2f22c9d581236cbd29c5"
+hash = "bc44a1002a7c1be015087ac088098d96464d2189256c2749ff49bdf55779080f"
