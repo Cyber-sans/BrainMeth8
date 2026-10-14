@@ -1,6 +1,7 @@
 # Improved Mobs 1.16.0.b / NeoForge 1.21.1
 # Keep default difficulty growth, AI strength, mob equipment and attributes.
 # Raise only the progression ceiling from 250 to 400.
+# Upstream equipment chance formulas still plateau at 250; no gear tuning here.
 # Change only destructive behaviour added by Improved Mobs.
 # These names/groups are from the upstream 1.21 NeoForge ConfigSpecs.
 
