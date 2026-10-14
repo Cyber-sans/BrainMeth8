@@ -46,8 +46,8 @@ modpack {
     }
     extras {
       display-name: "Extras"
-      description: "Optional particles, animation, cosmetic effects, and extra interface features."
-      selection: OPTIONAL
+      description: "Preselected cosmetic particles, animations, and extra interface features; can be deselected."
+      selection: RECOMMENDED
       from-server: []
       exclude: ["**/.*", "**/.*/**", "**/*.{tmp,disabled,bak}"]
       editable: []
