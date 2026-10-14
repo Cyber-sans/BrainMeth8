@@ -18,6 +18,7 @@ python3 ./scripts/prepare-audio-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-qol-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-ui-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-falling-leaves.py --runtime-root "$ROOT/.pack-runtime"
+python3 ./scripts/prepare-client-extras.py --runtime-root "$ROOT/.pack-runtime"
 ./scripts/validate.sh
 
 if [[ -f .env ]]; then
