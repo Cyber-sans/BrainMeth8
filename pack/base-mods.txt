@@ -152,4 +152,6 @@ https://modrinth.com/mod/entitytexturefeatures/version/HOizEpC7
 https://modrinth.com/mod/bosses-of-mass-destruction-forge/version/snhDYBxP
 
 # Wither: Reincarnated 1.0.5 (NeoForge 1.21.1), mechanical Wither overhaul.
+# Important: destructive first phase and fiery skull explosions; arena away from builds.
+# Config offers health/speed/attack damage/cooldowns, not a verified no-grief toggle.
 https://modrinth.com/mod/wither-reincarnated/version/6d4I4VPO
