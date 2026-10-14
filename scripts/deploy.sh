@@ -21,6 +21,10 @@ python3 ./scripts/prepare-falling-leaves.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-client-extras.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-effectual.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-particle-rain.py --runtime-root "$ROOT/.pack-runtime"
+# Generated Packwiz metadata can inherit a restrictive umask (e.g. 0600).
+# nginx serves this directory as a different user; make files world-readable
+# and directories traversable before validating and starting containers.
+chmod -R a+rX "$ROOT/.pack-runtime"
 ./scripts/validate.sh
 
 if [[ -f .env ]]; then
