@@ -22,6 +22,7 @@ python3 scripts/verify-game-rules.py
 python3 scripts/verify-improved-mobs.py
 python3 scripts/verify-dragonfight.py
 python3 scripts/verify-bomd.py
+python3 scripts/verify-knocker.py
 python3 scripts/verify-wither-reincarnated.py
 docker compose config -q
 
