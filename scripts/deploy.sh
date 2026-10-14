@@ -13,6 +13,7 @@ if [[ "$TARGET" == "prod" ]]; then
   echo "Blocked: 1.21.1 migration is test-only. Do not downgrade production." >&2
   exit 2
 fi
+python3 ./scripts/prepare-pack-v5.py --pack-root "$ROOT/pack" --runtime-root "$ROOT/.pack-runtime"
 ./scripts/validate.sh
 
 if [[ -f .env ]]; then
@@ -86,7 +87,7 @@ mkdir -p "$(dirname "$KNOCKER_CONFIG_DEST")"
 cp "$KNOCKER_CONFIG_SOURCE" "$KNOCKER_CONFIG_DEST"
 
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
-python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/pack" --data-root "$DATA_DIR"
+python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 
 docker compose --profile "$TARGET" pull
 docker compose --profile "$TARGET" up -d --remove-orphans
