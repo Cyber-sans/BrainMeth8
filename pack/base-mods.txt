@@ -133,4 +133,4 @@ https://modrinth.com/mod/deeperdarker/version/TuD0Zvi3
 # End terrain, no Better End Island.
 https://modrinth.com/datapack/nullscape/version/dHJAVX8s
 # Selective, non-retroactive blocking of DnT Photosynthesis and Wax Wings.
-https://modrinth.com/mod/enchantment-disabler/version/3.4.1%2B1.21.1-neoforge
+https://modrinth.com/mod/enchantment-disabler/version/Uxs8QN2P
