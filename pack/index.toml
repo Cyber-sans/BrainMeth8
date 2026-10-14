@@ -22,7 +22,7 @@ hash = "d5ca8b2af2ca7b36ad488db9c6a3956327fabafdba33db8b4752ea941d29267f"
 
 [[files]]
 file = "curseforge-mods.txt"
-hash = "2f0728d3efbc2e850a39d850cd5481ad51bd69a6c0d9f35e188b8964d0da2429"
+hash = "5e9293b9f104a087d5e2cfd06c3354483d93d2d344c8884baa6ff554bb285cfa"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -322,6 +322,16 @@ metafile = true
 [[files]]
 file = "mods/incendium.pw.toml"
 hash = "22b76d770cd9bb5bfc3a60134620c14af2899cd6704b04d50e12ae89f11c7319"
+metafile = true
+
+[[files]]
+file = "mods/indexor-ledger.pw.toml"
+hash = "21a0b1b854db21c62c3dcff4e04b99b0d5f7ab4c9564787d6f497e8faeca2c31"
+metafile = true
+
+[[files]]
+file = "mods/inventory-backups.pw.toml"
+hash = "1cbc21b77dd3a9e2d22b4f1c0ef6c640bbb658a412afbcefe2986c82b2205abe"
 metafile = true
 
 [[files]]
@@ -681,4 +691,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "c2aeccd4eab3b1cfd17ace401607dd3e7b21e37675ebed2599bd34783643f93a"
+hash = "6db566f29e9962fc9b665f6d04a7540a59d8edb30e2d2a39f37d3f4a8cacb6d9"

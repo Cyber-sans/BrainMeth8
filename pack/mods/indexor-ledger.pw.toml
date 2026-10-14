@@ -1,0 +1,12 @@
+name = "Indexor"
+filename = "Indexor_neoforge-1.0.3.jar"
+side = "server"
+[download]
+hash-format = "sha1"
+hash = "84df6c7993f21e85ef7a196f4d746283d39c498b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8750617
+project-id = 1423454
