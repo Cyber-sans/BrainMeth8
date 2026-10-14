@@ -1,0 +1,66 @@
+{
+  "descBrainmeth": "Exceptional but fair: difficulty scales with Hard mode and party size. Keep regeneration, lightning, mechanics, skill reward and manageable adds. Crystal death spawns Endermites, not insomnia Phantoms.",
+  "dragonDifficulty": {
+    "dragonDifficulty": 5
+  },
+  "crystalRespawnTimeModifier": {
+    "crystalRespawnTimeModifier": 1.3
+  },
+  "doEndCrystalRespawn": {
+    "doEndCrystalRespawn": true
+  },
+  "crystalMeleeKillDamage": {
+    "crystalMeleeKillDamage": 15
+  },
+  "crystalPotionOnDeath": {
+    "crystalPotionOnDeath": true
+  },
+  "lightningExplosionDensity": {
+    "lightningExplosionDensity": 1
+  },
+  "disableLightning": {
+    "disableLightning": false
+  },
+  "antiflightAbility": {
+    "antiflightAbility": true
+  },
+  "explosionImmunity": {
+    "explosionImmunity": true
+  },
+  "dragonHealthModifier": {
+    "dragonHealthModifier": 1
+  },
+  "dragonDamageModifier": {
+    "dragonDamageModifier": 1.1
+  },
+  "mobSpawnAmountModifier": {
+    "mobSpawnAmountModifier": 0.85
+  },
+  "dragonXPModifier": {
+    "dragonXPModifier": 1
+  },
+  "lightningSoundVolumeModifier": {
+    "lightningSoundVolumeModifier": 0.6
+  },
+  "printDragonPhases": {
+    "printDragonPhases": false
+  },
+  "disableDragonAreaSpawns": {
+    "disableDragonAreaSpawns": true
+  },
+  "spawnoncrystaldestroy": {
+    "spawnoncrystaldestroy": [
+      "minecraft:endermite"
+    ]
+  },
+  "spawnoncrystalrespawn": {
+    "spawnoncrystalrespawn": [
+      "minecraft:blaze"
+    ]
+  },
+  "spawnwhilelanded": {
+    "spawnwhilelanded": [
+      "minecraft:enderman"
+    ]
+  }
+}
