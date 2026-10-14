@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Stage the explicit Packwiz client payload into AutoModpack's host-modpack area.
 
-Only Packwiz entries marked client or both are published to clients.\nEssential is mandatory, Recommended is preselected, Extras is opt-in. Server-only
+Only Packwiz entries marked client or both are published to clients.
+Essential is mandatory, Recommended is preselected, Extras is opt-in. Server-only
 mods stay in /data/mods for NeoForge but never enter AutoModpack's client pack.
 """
 from __future__ import annotations
@@ -66,9 +67,11 @@ def main() -> int:
         "just-zoom",
         "lambdynamiclights",
         "lithium",
+        "modernfix",
         "moreculling",
         "mouse-tweaks",
         "mru",
+        "particle-core",
         "presence-footsteps",
         "reeses-sodium-options",
         "rei",
