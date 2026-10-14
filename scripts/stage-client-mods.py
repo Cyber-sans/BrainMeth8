@@ -36,6 +36,7 @@ def main() -> int:
     base = data_root / "automodpack" / "host-modpack"
     visuals = {"3dskinlayers", "chat-heads", "chatanimation", "not-enough-animations", "visuality-forge", "wavey-capes"}
     ambience = {"ambientsounds", "sound-physics-remastered", "sounds", "presence-footsteps", "mru", "yacl"}
+    quality_of_life = {"better-stats", "eating-animation", "groovy-mod-loader", "tcdcommons"}
     def group_for(meta: Path) -> str:
         name = meta.name.removesuffix(".pw.toml")
         return "visuals" if name in visuals else ("ambience" if name in ambience else "main")
