@@ -142,3 +142,8 @@ https://modrinth.com/mod/improved-mobs/version/bgyn3PYl
 https://modrinth.com/datapack/geophilic/version/FdVH8Irc
 # Nether terrain/structure expansion, version 5.4.4 supports 1.21.1.
 https://modrinth.com/datapack/incendium/version/7mVvV9Th
+
+# Approved client-side graphics options and entity resource-pack features.
+sodium-extra
+https://modrinth.com/mod/reeses-sodium-options/version/mc1.21.1-2.2.3%2Bneoforge
+https://modrinth.com/mod/entitytexturefeatures/version/HOizEpC7
