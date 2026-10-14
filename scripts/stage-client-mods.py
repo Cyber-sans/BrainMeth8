@@ -100,7 +100,6 @@ def main() -> int:
         "legendary-tooltips",
         "midnightlib",
         "not-enough-animations",
-        "particle-rain",
         "polytone",
         "screenshot-to-clipboard",
         "tcdcommons",
