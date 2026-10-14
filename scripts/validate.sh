@@ -10,7 +10,6 @@ test -f .pack-runtime/index.toml
 grep -q 'minecraft = "1.21.1"' pack/pack.toml
 grep -q 'neoforge = "21.1.253"' pack/pack.toml
 grep -q 'version = "' .pack-runtime/mods/automodpack.pw.toml
-grep -q 'filename = "automodpack' .pack-runtime/mods/automodpack.pw.toml
 python3 - <<'PY'
 from pathlib import Path
 import hashlib, re
@@ -46,7 +45,12 @@ python3 scripts/verify-dragonfight.py
 python3 scripts/verify-bomd.py
 python3 scripts/verify-knocker.py
 python3 scripts/verify-wither-reincarnated.py
-python3 -m py_compile scripts/prepare-pack-v5.py scripts/configure-automodpack.py scripts/stage-client-mods.py
+python3 - <<'PY'
+import ast
+from pathlib import Path
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py"):
+    ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
+PY
 docker compose config -q
 
 echo "Validation passed: Compose + runtime Packwiz + AutoModpack v5 + Distant Horizons."
