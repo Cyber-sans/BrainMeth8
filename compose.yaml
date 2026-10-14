@@ -74,7 +74,7 @@ services:
     volumes:
       - neoforge-installer:/installer
 
-  # Serves the Packwiz definition only on the private Docker network.
+  # Serves the hash-verified runtime Packwiz definition on the private Docker network.
   # This lets the GitHub repository remain private.
   packwiz:
     image: nginx:1.27-alpine
@@ -82,7 +82,7 @@ services:
     labels:
       com.centurylinklabs.watchtower.enable: "false"
     volumes:
-      - ./pack:/usr/share/nginx/html:ro
+      - ./.pack-runtime:/usr/share/nginx/html:ro
     networks:
       - brainmeth
     healthcheck:
