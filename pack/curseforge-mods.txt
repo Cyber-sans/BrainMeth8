@@ -2,3 +2,6 @@
 # Savage Ender Dragon 5.0: NeoForge 1.21.1 (2026-09-28), required Cupboard dependency.
 # Official page: https://www.curseforge.com/minecraft/mc-mods/savage-ender-dragon/files/9003375
 523327:9003375
+# Raids:Enhanced 1.0.2 NeoForge 1.21.1 (client + server); latest stable release.
+# https://www.curseforge.com/minecraft/mc-mods/raids-enhanced/files/7676063
+1467121:7676063
