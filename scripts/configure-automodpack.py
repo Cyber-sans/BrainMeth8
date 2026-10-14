@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write Brainmeth's AutoModpack 5 server.conf with required and recommended groups.
+"""Write Brainmeth's AutoModpack 5 server.conf with three tiered client groups.
 
 Packwiz server-only mods are intentionally NOT sourced from the server's /mods.
 Only verified client/both Packwiz jars under host-modpack/<group>/ are published.
@@ -23,8 +23,8 @@ modpack {
   name: "Brainmeth"
   General {
     main {
-      display-name: "Brainmeth Core"
-      description: "Required gameplay, libraries, performance, and interface mods."
+      display-name: "Essential"
+      description: "Required gameplay content, shared functionality and core dependencies."
       selection: REQUIRED
       from-server: [kubejs/**, emotes/*]
       exclude: [kubejs/server_scripts/**, "**/.*", "**/.*/**", "**/*.{tmp,disabled,bak}"]
@@ -33,11 +33,9 @@ modpack {
       requires: []
       breaks-with: []
     }
-  }
-  Enhancements {
-    visuals {
-      display-name: "Visual Enhancements"
-      description: "Recommended cosmetic effects and player animations."
+    recommended {
+      display-name: "Recommended"
+      description: "Performance, Distant Horizons, useful interface tools, and widely useful client enhancements."
       selection: RECOMMENDED
       from-server: []
       exclude: ["**/.*", "**/.*/**", "**/*.{tmp,disabled,bak}"]
@@ -46,18 +44,19 @@ modpack {
       requires: [main]
       breaks-with: []
     }
-    ambience {
-      display-name: "Ambient Audio"
-      description: "Recommended extra ambient and environmental sounds."
-      selection: RECOMMENDED
+    extras {
+      display-name: "Extras"
+      description: "Optional particles, animation, cosmetic effects, and extra interface features."
+      selection: OPTIONAL
       from-server: []
       exclude: ["**/.*", "**/.*/**", "**/*.{tmp,disabled,bak}"]
       editable: []
       auto-exclude-server-side-mods: DISABLED
-      requires: [main]
+      requires: [main, recommended]
       breaks-with: []
     }
   }
+
 }
 """
 
@@ -71,7 +70,7 @@ def main() -> int:
     config = root / "server.conf"
     if not config.exists() or config.read_text(encoding="utf-8") != CONFIG:
         config.write_text(CONFIG, encoding="utf-8")
-    print(f"Configured AutoModpack 5: {config} (HOLEPUNCH; core + two recommended groups)")
+    print(f"Configured AutoModpack 5: {config} (HOLEPUNCH; Essential + Recommended + Extras)")
     return 0
 
 
