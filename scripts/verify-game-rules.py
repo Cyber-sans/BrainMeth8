@@ -62,11 +62,24 @@ load_commands = [line.strip() for line in (root / "data/brainmeth/function/load.
 assert load_commands == ["gamerule doInsomnia false", "minecartspeed 4", "function brainmeth:lobby/init"], load_commands
 assert read("data/minecraft/tags/function/tick.json")["values"] == ["brainmeth:lobby/tick"]
 lobby = root / "data/brainmeth/function/lobby"
-for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel"):
+for name in ("init", "build", "tick", "locked", "start", "countdown_begin", "countdown_5", "countdown_4", "countdown_3", "countdown_2", "countdown_1", "release", "open", "cancel", "parkour_finish"):
     assert (lobby / f"{name}.mcfunction").is_file(), name
 assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction").read_text()
 assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
-assert "fill -10 199 -10 10 207 10 minecraft:air" in (lobby / "open.mcfunction").read_text()
+assert "fill -24 199 -24 24 211 24 minecraft:air" in (lobby / "open.mcfunction").read_text()
+assert "fill -24 212 -24 24 224 24 minecraft:air" in (lobby / "open.mcfunction").read_text()
+assert "unless score #layout bm_launch matches 2" in (lobby / "init.mcfunction").read_text()
+assert "scoreboard players set #layout bm_launch 2" in (lobby / "build.mcfunction").read_text()
+assert "scoreboard players add @s bm_parkour 1" in (lobby / "parkour_finish.mcfunction").read_text()
+assert "function brainmeth:lobby/parkour_finish" in (lobby / "tick.mcfunction").read_text()
+# Every fill in the build and cleanup must fit the vanilla 32768-block limit.
+import re
+for name in ("build", "open"):
+    commands = (lobby / f"{name}.mcfunction").read_text()
+    for match in re.finditer(r"\\bfill (-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) minecraft:", commands):
+        a = list(map(int, match.groups()))
+        volume = (abs(a[3] - a[0]) + 1) * (abs(a[4] - a[1]) + 1) * (abs(a[5] - a[2]) + 1)
+        assert volume <= 32768, (name, a, volume)
 assert "unless entity @s[x=-9,y=201,z=-9,dx=18,dy=5,dz=18]" in (lobby / "locked.mcfunction").read_text()
 assert "if score #state bm_launch matches 0" in (lobby / "tick.mcfunction").read_text()
 print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecarts 4x; gated launch lobby.")
