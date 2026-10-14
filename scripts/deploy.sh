@@ -20,6 +20,7 @@ python3 ./scripts/prepare-ui-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-falling-leaves.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-client-extras.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-effectual.py --runtime-root "$ROOT/.pack-runtime"
+python3 ./scripts/prepare-particle-rain.py --runtime-root "$ROOT/.pack-runtime"
 ./scripts/validate.sh
 
 if [[ -f .env ]]; then
