@@ -6,7 +6,7 @@ hash = "25344f5bcaaad4a758bfac2fbccb4cced0013d85b393c13c330ab8cb22f3263e"
 
 [[files]]
 file = "base-mods.txt"
-hash = "0797b111d2651db9f02e9f9c34cbb260e0104b7f8e3cc341d21dcf7b9bdfbfa1"
+hash = "41ee0714c3167569a36ad7da469867f00072fef46f89e850f70c16b4e15abf0d"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -580,6 +580,11 @@ hash = "8938f081f5e4cc48c66fe447c59171879a209bcd45080f11e5142e95dfd87279"
 metafile = true
 
 [[files]]
+file = "mods/wither-reincarnated.pw.toml"
+hash = "ab14535eb6ec93d74a256d6c27c011fb878c1192917fe275a3a207bf9c59b341"
+metafile = true
+
+[[files]]
 file = "mods/yungs-api.pw.toml"
 hash = "720e144cd4506275e0ce52465c05cdb4e857ca3f757b910201bd25fd7fdbca62"
 metafile = true
@@ -636,4 +641,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "a588d18432457e5ad0a4f55495d326997f37c29b6a9a2a87d0e4d2cee50162aa"
+hash = "32d916a6226d59f2932099b3e5eafd2a37e6bf65cf94182065eb5b58500eed29"
