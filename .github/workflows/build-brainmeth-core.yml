@@ -41,6 +41,7 @@ jobs:
           [[ ${#found[@]} -eq 1 && -s "${found[0]}" ]]
           cp "${found[0]}" server-mods/brainmeth-core.jar
           unzip -t server-mods/brainmeth-core.jar > /dev/null
+          python3 scripts/check-brainmeth-jar.py server-mods/brainmeth-core.jar
           sha256sum server-mods/brainmeth-core.jar
           git add server-mods/brainmeth-core.jar
           if git diff --cached --quiet; then
