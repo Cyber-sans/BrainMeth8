@@ -34,4 +34,6 @@ Before launch (state 0), newly joined players are confined in Adventure mode (pr
 
 **Validation**: `python3 scripts/verify-lobby.py` checks the generated structural blocks, closed glass walls/roof, stage-by-stage reachability (including height), open PvP floor, spawn handling and cleanup. Run the server and **visually test** a full parkour lap, a PvP death/respawn between two players, and the release cleanup before considering it production-ready; static checks cannot prove live multiplayer behavior.
 
+**Live smoke test** after starting the staged Minecraft server: `bash scripts/smoke-test-lobby.sh` checks 10 actual world blocks, the build state and the server's PvP property over RCON. It does not harm players or the world. Rejoin with `/function brainmeth:lobby/enter` if your staff bypass tag is set.
+
 **Production safety**: the current migration branch explicitly blocks `./scripts/deploy.sh prod`, because the existing live production world is still on Minecraft 26.2. This datapack is designed for both the staging world and eventual migrated production, but **must not be installed onto the existing 26.2 production world** or used to reset a world that is already launched.
