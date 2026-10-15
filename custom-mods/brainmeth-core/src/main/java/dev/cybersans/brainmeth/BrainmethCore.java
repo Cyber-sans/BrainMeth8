@@ -194,6 +194,15 @@ public final class BrainmethCore {
         if (launchEpoch == null) return;
         if (++ticks % 20 != 0) return;
 
+        // Another existing launch path (legacy /function brainmeth:lobby/start,
+        // /release, or an external admin) may have opened the same world.
+        // The scoreboard is authoritative; never keep an obsolete bossbar.
+        if (!isWaiting(server)) {
+            LOGGER.info("Lobby released by another mechanism; clearing scheduled countdown");
+            if (deleteSchedule(server)) clearInMemory();
+            return;
+        }
+
         long now = Instant.now().getEpochSecond();
         long remaining = launchEpoch - now;
         if (remaining <= 0) {
