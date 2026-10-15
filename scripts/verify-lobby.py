@@ -116,6 +116,20 @@ for x in range(-4,5):
     for z in range(-4,5):
         assert blocks.get((x,201,z), "minecraft:air") == "minecraft:air", (x,z,"PvP arena obstructed")
 
+# Require a genuinely sealed glass atrium, not a few decorative blocks.
+wall_blocks = {"minecraft:cyan_stained_glass", "minecraft:polished_blackstone_bricks", "minecraft:oxidized_copper"}
+glass_count = 0
+for y in range(201, 226):
+    for n in range(-24, 25):
+        for pos in {(-24,y,n), (24,y,n), (n,y,-24), (n,y,24)}:
+            assert blocks.get(pos) in wall_blocks, ("missing wall", pos, blocks.get(pos))
+            glass_count += blocks[pos] == "minecraft:cyan_stained_glass"
+assert glass_count > 3500, ("not enough visible glass", glass_count)
+for x in range(-24, 25):
+    for z in range(-24, 25):
+        assert blocks.get((x,199,z)) == "minecraft:barrier", ("hole in safety floor", x,z)
+        assert blocks.get((x,226,z)) in ("minecraft:light_blue_stained_glass", "minecraft:sea_lantern"), ("hole in roof", x,z)
+
 for y in (199, 201, 210, 212, 225, 226):
     assert any(("fill -24 " + str(y)) in l or (" 24 " + str(y)) in l or (" " + str(y) + " 24") in l for l in release.splitlines()) or y in (201,210,225)
 
