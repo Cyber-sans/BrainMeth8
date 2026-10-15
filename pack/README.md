@@ -52,29 +52,23 @@ production without a successful clean-client test.
 
 Audio pack update: runtime Packwiz removes Drip Sounds and pins Sounds 2.4.18 LTS, Presence Footsteps (NeoForge), MRU, and YACL for Minecraft 1.21.1. All four new mods are client-only and placed in the recommended Ambient Audio group. Exact Modrinth file hashes are verified during staging. No server-only mods are sent to clients.
 
-## First-run resource packs
+## Resource-pack defaults — temporarily disabled
 
-Brainmeth distributes `rules/client-config/defaultoptions-common.toml` through
-AutoModpack's **Essential/main** client configuration at
-`host-modpack/main/config/defaultoptions-common.toml`.
-The already-installed Default Options client mod reads
-`config/defaultoptions-common.toml` and enables the 13 selected internal
-resource-pack IDs shown in the pack-author screenshot, including the three
-voice-chat icon styles, Naturalist spawn eggs, Continuity glass fixes, Vinery
-foliage, Vanilla Backport animations, Supplementaries ropes, Moonlight
-resources, Eating Animations compatibility, and the Minecraft base packs.
-Priority order matches the selected column.
+Default Options client config distribution was **rolled back** after causing an
+AutoModpack restart/update loop: every restart offered the same
+`config/defaultoptions-common.toml` update (778→888 bytes). Default Options
+uses Balm config handling and may rewrite the TOML locally; synchronising this
+file directly is unsuitable for the current client arrangement.
 
-Default Options applies these IDs once using its own journal. Never ship
-`options.txt` or `defaultoptions.journal.json`: normal user changes must
-remain possible. A user who has already had resource-pack defaults applied
-may need to enable new selections manually. Optional cosmetic mods omitted
-by the user can make their built-in resource packs unavailable; Default Options
-will skip missing IDs rather than crash. Note that the three voice-chat icon
-styles overlap, but their order matches the provided selected list.
+`scripts/stage-client-mods.py` removes only the previously published
+`automodpack/host-modpack/main/config/defaultoptions-common.toml` file.
+The mod itself stays installed. The user's own client config is not modified.
 
-Validate the staged file with `python3 scripts/verify-resource-packs.py` and,
-after deployment, compare the synced client config with
-`rules/client-config/defaultoptions-common.toml`. Check the selected packs on
-a clean 1.21.1 client after AutoModpack has synchronized; this is not
-guaranteed by the static tests.
+The desired internal resource-pack IDs remain documented in
+`rules/client-config/defaultoptions-common.toml` but are **not distributed**
+until a restart-safe opt-in/bootstrap mechanism has been validated on a fresh
+client. Existing client resource packs can still be enabled manually.
+
+After deployment, AutoModpack must publish a fresh pack generation (usually
+automatic when the server restarts). A client may see one final removal update;
+subsequent restarts must not offer the same change repeatedly.
