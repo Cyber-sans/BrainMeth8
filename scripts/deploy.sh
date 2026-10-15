@@ -105,6 +105,9 @@ cp "$KNOCKER_CONFIG_SOURCE" "$KNOCKER_CONFIG_DEST"
 # Remove the stale server-only jar before restarting NeoForge. Packwiz no longer
 # lists it, and deletion is limited to this exact mod's filename.
 rm -f "$DATA_DIR/mods/minecartspeed-neoforge-1.21.1.jar"
+# Remove only the previously broken custom launch mod before reinstallation.
+# The validated runtime Packwiz manifest reinstalls the newly built JAR.
+rm -f "$DATA_DIR/mods/brainmeth-core.jar"
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 
