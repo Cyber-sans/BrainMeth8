@@ -23,6 +23,9 @@ python3 ./scripts/prepare-falling-leaves.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-client-extras.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-effectual.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-no-chat-restrictions.py --runtime-root "$ROOT/.pack-runtime"
+# Required only for 1.21.1; no schedule is created on install.
+# Github Actions commits the server-side mod JAR for simple git pull deployment.
+python3 ./scripts/prepare-brainmeth-core.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-core.jar"
 # Generated Packwiz metadata can inherit a restrictive umask (e.g. 0600).
 # nginx serves this directory as a different user; make files world-readable
 # and directories traversable before validating and starting containers.
