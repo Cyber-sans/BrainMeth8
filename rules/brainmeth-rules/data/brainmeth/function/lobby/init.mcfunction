@@ -2,6 +2,7 @@
 scoreboard objectives add bm_launch dummy
 scoreboard objectives add bm_parkour dummy
 scoreboard objectives add bm_course dummy
+scoreboard objectives add bm_bonus dummy
 # Released worlds stay released after restart; missing state means not launched.
 execute unless score #state bm_launch matches 0..1 run scoreboard players set #state bm_launch 0
 # Keep the 49x49 build footprint loaded before any /fill or /setblock runs.
