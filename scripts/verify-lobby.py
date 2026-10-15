@@ -40,7 +40,7 @@ assert "minecraft:saturation" not in locked
 assert "spreadplayers 0 0 4 35 false @a[tag=bm_lobby]" in release
 assert "spawnpoint @s ~ ~ ~" in release and "spawnpoint @s ~ ~ ~" in read("escape")
 assert "tag @s remove bm_staff" in enter and "tp @s 0 201 0" in enter
-assert "scores={bm_course=1..}" in tick and "bm_course 0" in read("parkour_finish")
+assert "scores={bm_course=1}" in tick and "bm_course 0" in read("parkour_finish")
 assert 'PVP: "true"' in (root / "compose.yaml").read_text()
 
 fill_re = re.compile(
