@@ -1,0 +1,23 @@
+# Brainmeth client defaults for Default Options 21.1.8 (NeoForge 1.21.1).
+# The list is Minecraft's resource-pack repository IDs in bottom-to-top priority.
+# Matches all resource packs visible in the selected column of the reference screenshot.
+# The vanilla/base mod resource packs are included for completeness.
+# Default Options applies this selection ONCE and records it in its journal;
+# players retain control afterward. Do not distribute defaultoptions.journal.json.
+defaultDifficulty = "NORMAL"
+lockDifficulty = false
+defaultResourcePacks = [
+  "vanilla",
+  "mod_resources",
+  "eatinganimations_compat",
+  "moonlight:merged_pack",
+  "supplementaries:darker_ropes",
+  "vanillabackport:freshly_animated",
+  "vinery:bushy_leaves",
+  "continuity:default",
+  "continuity:glass_pane_culling_fix",
+  "naturalist:custom_spawn_eggs",
+  "black_icons",
+  "classic_icons",
+  "white_icons",
+]
