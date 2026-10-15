@@ -227,19 +227,15 @@ def main() -> int:
             )
         tmp_path.replace(dest)
 
-    # Default Options applies selected built-in mod resource packs once per fresh client.
-    # AutoModpack publishes this as a normal client config, not an options.txt override.
-    # Keep it in the Essential group so the defaults are present independently of
-    # the optional cosmetic/performance groups. Missing optional packs are skipped
-    # by Default Options and can still be toggled by players.
-    defaults_source = Path(__file__).resolve().parents[1] / "rules" / "client-config" / "defaultoptions-common.toml"
-    defaults_target = base / "main" / "config" / "defaultoptions-common.toml"
-    defaults_target.parent.mkdir(parents=True, exist_ok=True)
-    if not defaults_source.is_file():
-        raise FileNotFoundError(f"Missing curated Brainmeth resource pack defaults: {defaults_source}")
-    if not defaults_target.is_file() or defaults_target.read_bytes() != defaults_source.read_bytes():
-        shutil.copy2(defaults_source, defaults_target)
-    print("Staged Default Options resource-pack selection for fresh Minecraft clients.")
+    # Default Options/Balm rewrites its own common TOML on the client.
+    # Publishing it with AutoModpack caused a persistent 778B -> 888B
+    # restart/update loop. Remove only this previously staged file;
+    # leave other client configs, mods and user preferences untouched.
+    legacy_defaults = base / "main" / "config" / "defaultoptions-common.toml"
+    if legacy_defaults.exists():
+        legacy_defaults.unlink()
+        print("Removed looping Default Options client config from AutoModpack payload.")
+    # Never delete the user's own client-side config file here.
 
     state_file.write_text(json.dumps({name: spec["group"] for name, spec in sorted(wanted.items())}, indent=2) + "\n")
     print(f"Staged {len(wanted)} Packwiz client/both mod(s) across AutoModpack v5 groups.")
