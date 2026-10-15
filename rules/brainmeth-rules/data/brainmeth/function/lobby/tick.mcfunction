@@ -5,6 +5,8 @@ execute if score #state bm_launch matches 0 in minecraft:overworld if loaded -24
 execute if score #state bm_launch matches 0 in minecraft:overworld if loaded -24 205 -24 if loaded -24 205 24 if loaded 24 205 -24 if loaded 24 205 24 if score #layout bm_launch matches 3 unless block -18 201 -18 minecraft:cyan_concrete run scoreboard players set #layout bm_launch 0
 execute if score #state bm_launch matches 0 in minecraft:overworld if loaded -24 205 -24 if loaded -24 205 24 if loaded 24 205 -24 if loaded 24 205 24 if score #layout bm_launch matches 3 unless block -7 222 -19 minecraft:gold_block run scoreboard players set #layout bm_launch 0
 execute if score #state bm_launch matches 0 in minecraft:overworld if loaded -24 205 -24 if loaded -24 205 24 if loaded 24 205 -24 if loaded 24 205 24 unless score #layout bm_launch matches 3 run function brainmeth:lobby/build
+# Upgrade signage in-place on already-built v3 lobbies; never clear or rebuild the room for text changes.
+execute if score #state bm_launch matches 0 if score #layout bm_launch matches 3 in minecraft:overworld if loaded 0 205 0 unless score #signage bm_launch matches 1 run function brainmeth:lobby/signage
 execute if score #state bm_launch matches 0 if score #layout bm_launch matches 3 run function brainmeth:lobby/locked
 # Checkpoint is reached by walking on the elevated gold platform, not standing on the floor below.
 execute if score #state bm_launch matches 0 in minecraft:overworld as @a[tag=bm_lobby,x=-9,y=214,z=3,dx=2,dy=1,dz=2] run scoreboard players set @s bm_course 1
