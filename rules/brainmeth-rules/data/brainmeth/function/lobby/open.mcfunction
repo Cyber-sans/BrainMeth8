@@ -21,3 +21,4 @@ execute in minecraft:overworld run fill -24 220 -24 24 226 24 minecraft:air
 execute in minecraft:overworld run forceload remove -24 -24 24 24
 scoreboard players set #layout bm_launch 0
 scoreboard players set #built bm_launch 0
+scoreboard players set #bonus bm_launch 0
