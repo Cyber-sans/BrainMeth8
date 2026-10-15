@@ -1,10 +1,10 @@
 {
-  "descBrainmeth": "Exceptional but fair: difficulty scales with Hard mode and party size. Keep regeneration, lightning, mechanics, skill reward and manageable adds. Crystal death spawns Endermites, not insomnia Phantoms.",
+  "descBrainmeth": "Raid-boss tuning for four coordinated, near-max-geared players on Hard: additive player scaling plus higher dragon health/damage and faster crystal respawns. Keep lightning, anti-flight, and crystal-melee counterplay; avoid excessive mob-add spam.",
   "dragonDifficulty": {
-    "dragonDifficulty": 6
+    "dragonDifficulty": 7
   },
   "crystalRespawnTimeModifier": {
-    "crystalRespawnTimeModifier": 1.3
+    "crystalRespawnTimeModifier": 1.15
   },
   "doEndCrystalRespawn": {
     "doEndCrystalRespawn": true
@@ -28,13 +28,13 @@
     "explosionImmunity": true
   },
   "dragonHealthModifier": {
-    "dragonHealthModifier": 1
+    "dragonHealthModifier": 1.2
   },
   "dragonDamageModifier": {
-    "dragonDamageModifier": 1.1
+    "dragonDamageModifier": 1.2
   },
   "mobSpawnAmountModifier": {
-    "mobSpawnAmountModifier": 0.85
+    "mobSpawnAmountModifier": 0.9
   },
   "dragonXPModifier": {
     "dragonXPModifier": 1
