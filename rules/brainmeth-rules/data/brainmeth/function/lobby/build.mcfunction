@@ -148,6 +148,8 @@ execute in minecraft:overworld run setblock -3 222 -19 minecraft:magenta_concret
 execute in minecraft:overworld run setblock -3 221 -19 minecraft:sea_lantern
 execute in minecraft:overworld run fill -8 222 -20 -6 222 -18 minecraft:gold_block
 execute in minecraft:overworld run setblock -7 221 -19 minecraft:sea_lantern
+# Expert bonus route, then the only floating sign.
+function brainmeth:lobby/bonus
 # One restrained lobby title; refresh any old signs after a deploy without a structural rebuild.
 function brainmeth:lobby/signage
 # Mark ready ONLY if structural witnesses exist. Tick will reconstruct if any disappear.
