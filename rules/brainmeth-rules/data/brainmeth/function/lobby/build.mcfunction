@@ -134,12 +134,14 @@ execute in minecraft:overworld run setblock 12 219 -4 minecraft:magenta_concrete
 execute in minecraft:overworld run setblock 12 218 -4 minecraft:sea_lantern
 execute in minecraft:overworld run setblock 9 220 -6 minecraft:magenta_concrete
 execute in minecraft:overworld run setblock 9 219 -6 minecraft:sea_lantern
-execute in minecraft:overworld run setblock 6 220 -9 minecraft:magenta_concrete
-execute in minecraft:overworld run setblock 6 219 -9 minecraft:sea_lantern
-execute in minecraft:overworld run setblock 3 221 -12 minecraft:magenta_concrete
-execute in minecraft:overworld run setblock 3 220 -12 minecraft:sea_lantern
-execute in minecraft:overworld run setblock 0 221 -15 minecraft:magenta_concrete
-execute in minecraft:overworld run setblock 0 220 -15 minecraft:sea_lantern
+execute in minecraft:overworld run setblock 7 220 -9 minecraft:magenta_concrete
+execute in minecraft:overworld run setblock 7 219 -9 minecraft:sea_lantern
+execute in minecraft:overworld run setblock 5 221 -12 minecraft:magenta_concrete
+execute in minecraft:overworld run setblock 5 220 -12 minecraft:sea_lantern
+execute in minecraft:overworld run setblock 3 221 -15 minecraft:magenta_concrete
+execute in minecraft:overworld run setblock 3 220 -15 minecraft:sea_lantern
+execute in minecraft:overworld run setblock 0 222 -17 minecraft:magenta_concrete
+execute in minecraft:overworld run setblock 0 221 -17 minecraft:sea_lantern
 execute in minecraft:overworld run setblock -3 222 -18 minecraft:magenta_concrete
 execute in minecraft:overworld run setblock -3 221 -18 minecraft:sea_lantern
 execute in minecraft:overworld run fill -8 222 -20 -6 222 -18 minecraft:gold_block
@@ -151,4 +153,4 @@ execute in minecraft:overworld run summon minecraft:text_display -18 205 -19 {Ta
 execute in minecraft:overworld run summon minecraft:text_display -8 216 4 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"CHECKPOINT  →  MAGENTA COURSE","color":"light_purple","bold":true}'}
 execute in minecraft:overworld run summon minecraft:text_display -7 225 -19 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"FINISH  •  COMPLETE A LAP","color":"gold","bold":true}'}
 # Mark ready ONLY if structural witnesses exist. Tick will reconstruct if any disappear.
-execute in minecraft:overworld if block 0 200 0 minecraft:sea_lantern if block -24 205 0 minecraft:cyan_stained_glass if block 0 226 0 minecraft:light_blue_stained_glass if block -18 201 -18 minecraft:cyan_concrete if block -7 222 -19 minecraft:sea_lantern run scoreboard players set #layout bm_launch 3
+execute in minecraft:overworld if block 0 200 0 minecraft:sea_lantern if block -24 205 5 minecraft:cyan_stained_glass if block 0 226 0 minecraft:light_blue_stained_glass if block -18 201 -18 minecraft:cyan_concrete if block -7 222 -19 minecraft:gold_block run scoreboard players set #layout bm_launch 3
