@@ -51,3 +51,30 @@ production without a successful clean-client test.
 
 
 Audio pack update: runtime Packwiz removes Drip Sounds and pins Sounds 2.4.18 LTS, Presence Footsteps (NeoForge), MRU, and YACL for Minecraft 1.21.1. All four new mods are client-only and placed in the recommended Ambient Audio group. Exact Modrinth file hashes are verified during staging. No server-only mods are sent to clients.
+
+## First-run resource packs
+
+Brainmeth distributes `rules/client-config/defaultoptions-common.toml` through
+AutoModpack's **Essential/main** client configuration at
+`host-modpack/main/config/defaultoptions-common.toml`.
+The already-installed Default Options client mod reads
+`config/defaultoptions-common.toml` and enables the 13 selected internal
+resource-pack IDs shown in the pack-author screenshot, including the three
+voice-chat icon styles, Naturalist spawn eggs, Continuity glass fixes, Vinery
+foliage, Vanilla Backport animations, Supplementaries ropes, Moonlight
+resources, Eating Animations compatibility, and the Minecraft base packs.
+Priority order matches the selected column.
+
+Default Options applies these IDs once using its own journal. Never ship
+`options.txt` or `defaultoptions.journal.json`: normal user changes must
+remain possible. A user who has already had resource-pack defaults applied
+may need to enable new selections manually. Optional cosmetic mods omitted
+by the user can make their built-in resource packs unavailable; Default Options
+will skip missing IDs rather than crash. Note that the three voice-chat icon
+styles overlap, but their order matches the provided selected list.
+
+Validate the staged file with `python3 scripts/verify-resource-packs.py` and,
+after deployment, compare the synced client config with
+`rules/client-config/defaultoptions-common.toml`. Check the selected packs on
+a clean 1.21.1 client after AutoModpack has synchronized; this is not
+guaranteed by the static tests.
