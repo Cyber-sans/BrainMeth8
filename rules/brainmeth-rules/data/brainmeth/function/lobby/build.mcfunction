@@ -148,11 +148,7 @@ execute in minecraft:overworld run setblock -3 222 -19 minecraft:magenta_concret
 execute in minecraft:overworld run setblock -3 221 -19 minecraft:sea_lantern
 execute in minecraft:overworld run fill -8 222 -20 -6 222 -18 minecraft:gold_block
 execute in minecraft:overworld run setblock -7 221 -19 minecraft:sea_lantern
-# Floating wayfinding uses display entities only; parkour blocks never form an impassable ceiling.
-execute in minecraft:overworld run summon minecraft:text_display 0 205 0 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"BRAINMETH  |  GLASS ARENA","color":"aqua","bold":true}'}
-execute in minecraft:overworld run summon minecraft:text_display 0 203 -7 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"PVP ENABLED  •  FISTS + PARKOUR","color":"yellow","bold":true}'}
-execute in minecraft:overworld run summon minecraft:text_display -18 205 -19 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"START  →  CYAN COURSE","color":"green","bold":true}'}
-execute in minecraft:overworld run summon minecraft:text_display -8 216 4 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"CHECKPOINT  →  MAGENTA COURSE","color":"light_purple","bold":true}'}
-execute in minecraft:overworld run summon minecraft:text_display -7 225 -19 {Tags:["bm_lobby_decor"],billboard:"center",background:0,see_through:1b,text:'{"text":"FINISH  •  COMPLETE A LAP","color":"gold","bold":true}'}
+# One restrained lobby title; refresh any old signs after a deploy without a structural rebuild.
+function brainmeth:lobby/signage
 # Mark ready ONLY if structural witnesses exist. Tick will reconstruct if any disappear.
 execute in minecraft:overworld if block 0 200 0 minecraft:sea_lantern if block -24 205 5 minecraft:cyan_stained_glass if block 0 226 0 minecraft:light_blue_stained_glass if block -18 201 -18 minecraft:cyan_concrete if block -7 222 -19 minecraft:gold_block run scoreboard players set #layout bm_launch 3
