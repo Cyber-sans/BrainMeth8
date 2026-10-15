@@ -31,3 +31,12 @@ jobs:
           python3 scripts/verify-game-rules.py
           python3 scripts/verify-resource-packs.py
           python3 -m py_compile scripts/stage-client-mods.py scripts/verify-lobby.py scripts/verify-game-rules.py scripts/verify-resource-packs.py
+      - name: Check AutoModpack physically stages client resource-pack defaults
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          mkdir -p "$tmp/pack/mods" "$tmp/data"
+          python3 scripts/stage-client-mods.py --pack-root "$tmp/pack" --data-root "$tmp/data"
+          cmp rules/client-config/defaultoptions-common.toml "$tmp/data/automodpack/host-modpack/main/config/defaultoptions-common.toml"
+
