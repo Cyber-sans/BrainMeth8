@@ -12,8 +12,8 @@ root = Path(__file__).resolve().parents[1]
 config = json.loads((root / "rules/server-config/dragonfight.json").read_text())
 assert config["descBrainmeth"]
 expected = {
-    "dragonDifficulty": 6,
-    "crystalRespawnTimeModifier": 1.3,
+    "dragonDifficulty": 7,
+    "crystalRespawnTimeModifier": 1.15,
     "doEndCrystalRespawn": True,
     "crystalMeleeKillDamage": 15.0,
     "crystalPotionOnDeath": True,
@@ -21,9 +21,9 @@ expected = {
     "disableLightning": False,
     "antiflightAbility": True,
     "explosionImmunity": True,
-    "dragonHealthModifier": 1.0,
-    "dragonDamageModifier": 1.1,
-    "mobSpawnAmountModifier": 0.85,
+    "dragonHealthModifier": 1.2,
+    "dragonDamageModifier": 1.2,
+    "mobSpawnAmountModifier": 0.9,
     "dragonXPModifier": 1.0,
     "lightningSoundVolumeModifier": 0.6,
     "printDragonPhases": False,
@@ -51,4 +51,4 @@ mods = (root / "pack/curseforge-mods.txt").read_text()
 assert "523327:9003375" in mods
 sides = json.loads((root / "pack/side-overrides.json").read_text())
 assert {"savage-ender-dragon", "cupboard"} <= set(sides["server"])
-print("Savage Ender Dragon configuration validated: Hard + player scaling, tough mechanics, fair windows.")
+print("Savage Ender Dragon configuration validated: Hard four-player raid tuning, player scaling, strong mechanics.")
