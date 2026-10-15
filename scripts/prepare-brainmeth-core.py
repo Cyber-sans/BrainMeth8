@@ -8,6 +8,8 @@ import argparse
 import hashlib
 import re
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 def sha(data: bytes) -> str:
@@ -29,6 +31,9 @@ def main() -> None:
     with source.open("rb") as f:
         if f.read(4) != b"PK\x03\x04":
             raise SystemExit("Invalid compiled Brainmeth launch JAR signature")
+
+    # A valid ZIP alone is insufficient: NeoForge requires FML loader metadata.
+    subprocess.run([sys.executable, str(Path(__file__).with_name("check-brainmeth-jar.py")), str(source)], check=True)
 
     blob = source.read_bytes()
     digest = sha(blob)
