@@ -27,7 +27,7 @@ def main() -> None:
             "Wait for the GitHub Action 'Build Brainmeth server launch mod' to succeed, then git pull again."
         )
     with source.open("rb") as f:
-        if f.read(4) != b"PK\\x03\\x04":
+        if f.read(4) != b"PK\x03\x04":
             raise SystemExit("Invalid compiled Brainmeth launch JAR signature")
 
     blob = source.read_bytes()
