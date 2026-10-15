@@ -130,6 +130,46 @@ for x in range(-24, 25):
         assert blocks.get((x,199,z)) == "minecraft:barrier", ("hole in safety floor", x,z)
         assert blocks.get((x,226,z)) in ("minecraft:light_blue_stained_glass", "minecraft:sea_lantern"), ("hole in roof", x,z)
 
+# The optional expert extension starts at the original gold finish.
+# Parse its exact generated geometry and enforce jump limits without requiring
+# an arbitrary full-lobby rebuild: /lobby/bonus upgrades existing glass rooms.
+bonus = read("bonus")
+assert "function brainmeth:lobby/bonus" in build
+assert "unless score #bonus bm_launch matches 1 run function brainmeth:lobby/bonus" in tick
+assert 'scoreboard objectives add bm_bonus dummy' in init
+assert 'function brainmeth:lobby/parkour_standard' in tick
+assert 'scores={bm_course=2}' in tick
+assert 'scoreboard players add @s bm_parkour 1' in read("parkour_standard")
+assert 'scoreboard players add @s bm_bonus 1' in read("parkour_finish")
+assert "scoreboard players set #bonus bm_launch 1" in bonus
+orange_stage = re.compile(r"^execute in minecraft:overworld run setblock (-?\d+) (-?\d+) (-?\d+) minecraft:(orange_concrete|red_concrete)$")
+hard_stages = []
+for line in bonus.splitlines():
+    match = orange_stage.fullmatch(line)
+    if match:
+        x, y, z = map(int, match.groups()[:3])
+        assert -22 <= x <= 22 and -22 <= z <= 22 and 221 <= y <= 223, (x, y, z)
+        assert blocks.get((x, y, z), "minecraft:air") == "minecraft:air", ("overlaps original stage", x, y, z)
+        assert blocks.get((x, y + 1, z), "minecraft:air") == "minecraft:air", ("blocked headroom", x, y, z)
+        assert blocks.get((x, y + 2, z), "minecraft:air") == "minecraft:air", ("blocked headroom", x, y, z)
+        hard_stages.append((x, y, z))
+assert len(hard_stages) == 21 and hard_stages[0] == (-4, 223, -19)
+assert hard_stages[-1] == (14, 223, 19)
+assert "fill 11 223 18 12 223 19 minecraft:emerald_block" in bonus
+
+# First jump from the 3x3 gold finish; last jump onto the emerald platform.
+hard_path = [(-7, 222, -19), *hard_stages, (12, 223, 19)]
+for n, ((x0,y0,z0), (x1,y1,z1)) in enumerate(zip(hard_path,hard_path[1:]),1):
+    rise = y1 - y0
+    distance = math.hypot(x1-x0,z1-z0)
+    assert -1 <= rise <= 1, (n, rise, "inaccessible rise/drop")
+    assert distance <= (3.5 if rise > 0 else 3.75), (n, distance, "expert jump too long")
+# Completion requires earlier gold checkpoint + original magenta finish.
+assert "scores={bm_course=1}" in tick and "scores={bm_course=2}" in tick
+assert "x=11,y=224,z=18" in tick
+assert "scoreboard players set @s bm_course 2" in read("parkour_standard")
+assert "scoreboard players set @s bm_course 0" in read("parkour_finish")
+
 for y in (199, 201, 210, 212, 225, 226):
     assert any(("fill -24 " + str(y)) in l or (" 24 " + str(y)) in l or (" " + str(y) + " 24") in l for l in release.splitlines()) or y in (201,210,225)
 
@@ -143,4 +183,4 @@ assert '"text":"Brainmeth Lobby"' in signage, "Incorrect title"
 assert "kill @e[type=minecraft:text_display,tag=bm_lobby_decor]" in signage, "Old signs not removed"
 assert build.count("summon minecraft:text_display") == 0, "No stray signs in build function"
 
-print(f"Lobby validated: enclosed glass atrium; {len(stages)} reachable parkour stages; PvP enabled; checkpoint, respawn and cleanup present.")
+print(f"Lobby validated: glass atrium; {len(stages)} standard and {len(hard_stages)} expert jumps; PvP, checkpoints, respawn and cleanup present.")
