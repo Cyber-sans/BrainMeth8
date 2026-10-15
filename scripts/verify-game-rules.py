@@ -65,7 +65,7 @@ lobby = root / "data/brainmeth/function/lobby"
 for name in ("init", "build", "tick", "locked", "start", "countdown_begin",
              "countdown_5", "countdown_4", "countdown_3", "countdown_2",
              "countdown_1", "release", "open", "cancel", "parkour_finish",
-             "escape", "enter", "signage"):
+             "escape", "enter", "signage", "bonus", "parkour_standard"):
     assert (lobby / f"{name}.mcfunction").is_file(), name
 assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction").read_text() or "unless score #state bm_launch matches 0..1" in (lobby / "init.mcfunction").read_text()
 assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
