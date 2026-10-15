@@ -37,3 +37,26 @@ Before launch (state 0), newly joined players are confined in Adventure mode (pr
 **Live smoke test** after starting the staged Minecraft server: `bash scripts/smoke-test-lobby.sh` checks 10 actual world blocks, the build state and the server's PvP property over RCON. It does not harm players or the world. Rejoin with `/function brainmeth:lobby/enter` if your staff bypass tag is set.
 
 **Production safety**: the current migration branch explicitly blocks `./scripts/deploy.sh prod`, because the existing live production world is still on Minecraft 26.2. This datapack is designed for both the staging world and eventual migrated production, but **must not be installed onto the existing 26.2 production world** or used to reset a world that is already launched.
+
+## Real-time scheduled in-game launch (server mod)
+
+The NeoForge server-only `brainmeth_core` mod provides intuitive **OP-only**
+commands: `/launch schedule 2026-10-16 18:00`,
+`/launch status`, `/launch reschedule 2026-10-17 18:00`,
+`/launch cancel` and `/launch now`.
+
+This uses the **Europe/London real-world clock**, keeps a bossbar countdown
+and saves the deadline to the world so Minecraft releases everyone unattended
+even after a server restart. It runs the existing `brainmeth:lobby/release`
+datapack function, not a second implementation. There is **no preset
+scheduled time**, and deployment **does not start a countdown**.
+
+The binary is compiled by the `Build Brainmeth server launch mod` GitHub
+Action, committed to `server-mods/brainmeth-core.jar`, and inserted into the
+internal Packwiz runtime as a verified server-only mod. Run the
+`smoke-test-launch.sh` script after deploying and starting the test server.
+This script only checks `/launch status`; it never schedules or releases.
+
+The current migration deploy script deliberately blocks `prod` because the
+existing production server is **26.2**, not NeoForge 1.21.1. Apply to migrated
+production only after the full test-server acceptance checks pass.
