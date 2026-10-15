@@ -1,7 +1,7 @@
 {
   "descBrainmeth": "Exceptional but fair: difficulty scales with Hard mode and party size. Keep regeneration, lightning, mechanics, skill reward and manageable adds. Crystal death spawns Endermites, not insomnia Phantoms.",
   "dragonDifficulty": {
-    "dragonDifficulty": 5
+    "dragonDifficulty": 6
   },
   "crystalRespawnTimeModifier": {
     "crystalRespawnTimeModifier": 1.3
