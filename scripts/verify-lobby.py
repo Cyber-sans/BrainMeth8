@@ -134,5 +134,13 @@ for y in (199, 201, 210, 212, 225, 226):
     assert any(("fill -24 " + str(y)) in l or (" 24 " + str(y)) in l or (" " + str(y) + " 24") in l for l in release.splitlines()) or y in (201,210,225)
 
 assert "forceload add -24 -24 24 24" in init and "forceload remove -24 -24 24 24" in release
-assert build.count("summon minecraft:text_display") >= 4
+signage = read("signage")
+assert "function brainmeth:lobby/signage" in build, "New builds must use centralized signage"
+assert "function brainmeth:lobby/signage" in tick, "Existing lobbies must update signage without a rebuild"
+assert "unless score #signage bm_launch matches 1" in tick, "Refresh signs only once"
+assert signage.count("summon minecraft:text_display") == 1, "Exactly one lobby label must exist"
+assert '"text":"Brainmeth Lobby"' in signage, "Incorrect title"
+assert "kill @e[type=minecraft:text_display,tag=bm_lobby_decor]" in signage, "Old signs not removed"
+assert build.count("summon minecraft:text_display") == 0, "No stray signs in build function"
+
 print(f"Lobby validated: enclosed glass atrium; {len(stages)} reachable parkour stages; PvP enabled; checkpoint, respawn and cleanup present.")
