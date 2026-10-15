@@ -51,6 +51,7 @@ grep -q 'itzg/minecraft-server:java21' compose.yaml
 python3 scripts/verify-client-groups.py --pack-root .pack-runtime
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-lobby.py
+python3 scripts/verify-resource-packs.py
 python3 scripts/verify-launch.py
 python3 scripts/verify-improved-mobs.py
 python3 scripts/verify-dragonfight.py
@@ -60,7 +61,7 @@ python3 scripts/verify-wither-reincarnated.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "disable-minecart-speed.py", "verify-client-groups.py", "prepare-brainmeth-core.py", "verify-launch.py", "verify-lobby.py"):
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "disable-minecart-speed.py", "verify-client-groups.py", "verify-resource-packs.py", "verify-lobby.py", "prepare-brainmeth-core.py", "verify-launch.py", "verify-lobby.py"):
     ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
 PY
 docker compose config -q
