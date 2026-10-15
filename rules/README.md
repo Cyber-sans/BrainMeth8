@@ -21,7 +21,7 @@ If another mod/datapack replaces `minecraft:mending`, inspect datapack order.
 ## Brainmeth glass launch lounge (1.21.1 staging)
 
 The shared datapack defines a self-contained **49×49 glass atrium in the overworld sky at Y=200–226**.
-It has an open, illuminated PvP floor and a contiguous **34-stage cyan/gold/magenta parkour course**, with a checkpoint and a lap counter. The wall, roof, floor and both parkour endpoints are checked on tick so that a stale "built" scoreboard cannot hide missing blocks. The four corner chunks are explicitly loaded before the build.
+It has an open, illuminated PvP floor and a contiguous **34-stage cyan/gold/magenta parkour course**, followed by an optional **21-jump orange/red expert section** along the glass perimeter. The normal gold finish earns a regular lap and unlocks the expert route; the emerald finish earns a separate expert completion. Both paths have their own counters. The wall, roof, floor and both parkour endpoints are checked on tick so that a stale "built" scoreboard cannot hide missing blocks. The four corner chunks are explicitly loaded before the build.
 
 Before launch (state 0), newly joined players are confined in Adventure mode (preventing block breaking but not punching or parkour). They have Strength II and **no Resistance/invulnerability**; PvP is enabled in Compose. Their respawn point is set in the glass arena, so PvP deaths return them there. On release, players are dispersed to the surface, switched to Survival, their Strength and temporary lobby tags are removed, their spawnpoints are reset at their new position, and only the high sky atrium is dismantled. The release state persists on restart.
 
@@ -60,3 +60,21 @@ This script only checks `/launch status`; it never schedules or releases.
 The current migration deploy script deliberately blocks `prod` because the
 existing production server is **26.2**, not NeoForge 1.21.1. Apply to migrated
 production only after the full test-server acceptance checks pass.
+
+### Expert parkour rollout
+
+`lobby/bonus.mcfunction` installs the 21 single-block jumps in-place when the
+lobby is still waiting, even if the glass room was built by the previous version.
+It does not clear or rebuild the room, and adds **no floating signage**.
+
+The original cyan→magenta→gold course counts as a normal lap when the player
+arrives at the old gold finish; stay on that finish to enter the orange route.
+The emerald platform counts as an expert completion and returns the player to
+the start. Falling off and returning to the starting pad resets course progress
+so the normal route can be replayed. The expert section alternates short height
+changes and precise diagonal jumps, but each jump remains inside checked
+sprint-jump limits. The finished path stays below the glass roof.
+
+`python3 scripts/verify-lobby.py` checks both routes, the floor and the glass
+enclosure. The new GitHub Actions workflow checks these without connecting to
+production. A real in-game lap and PvP/respawn test remain necessary.
