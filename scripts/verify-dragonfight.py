@@ -12,7 +12,7 @@ root = Path(__file__).resolve().parents[1]
 config = json.loads((root / "rules/server-config/dragonfight.json").read_text())
 assert config["descBrainmeth"]
 expected = {
-    "dragonDifficulty": 5,
+    "dragonDifficulty": 6,
     "crystalRespawnTimeModifier": 1.3,
     "doEndCrystalRespawn": True,
     "crystalMeleeKillDamage": 15.0,
