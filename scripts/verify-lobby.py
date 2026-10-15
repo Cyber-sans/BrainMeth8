@@ -45,14 +45,14 @@ assert 'PVP: "true"' in (root / "compose.yaml").read_text()
 
 fill_re = re.compile(
     r"^execute in minecraft:overworld run fill "
-    r"(-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) (-?\\d+) "
+    r"(-?\d+) (-?\d+) (-?\d+) (-?\d+) (-?\d+) (-?\d+) "
     r"(minecraft:[a-z0-9_]+)(?: (outline|hollow|keep|destroy|replace))?$"
 )
 set_re = re.compile(
     r"^execute in minecraft:overworld run setblock "
-    r"(-?\\d+) (-?\\d+) (-?\\d+) (minecraft:[a-z0-9_]+)$"
+    r"(-?\d+) (-?\d+) (-?\d+) (minecraft:[a-z0-9_]+)$"
 )
-# See Python raw-string regex note: the matching groups below use literal -?\\d.
+# See Python raw-string regex note: the matching groups below use literal -?\d.
 blocks = {}
 stages = []
 for line in build.splitlines():
