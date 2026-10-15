@@ -29,9 +29,7 @@ assert ids == expected, "Resource pack priorities do not match the screenshot (b
 assert data["lockDifficulty"] is False
 assert not (root / "rules/client-config/defaultoptions.journal.json").exists()
 stage = (root / "scripts/stage-client-mods.py").read_text(encoding="utf-8")
-assert 'base / "main" / "config" / "defaultoptions-common.toml"' in stage
-assert 'shutil.copy2(defaults_source, defaults_target)' in stage
-assert 'rules" / "client-config" / "defaultoptions-common.toml"' in stage
-assert (root / "pack/mods/default-options.pw.toml").exists()
-# The config stays a client preference: first-run selection, not an always-on server lock.
-print("Resource-pack defaults validated: 13 screenshot-selected pack IDs in the Essential client configuration.")
+assert 'legacy_defaults.unlink()' in stage, "Legacy config must be removed to break update loop"
+assert 'shutil.copy2(defaults_source, defaults_target)' not in stage, "Do not reintroduce AutoModpack restart loop"
+print("Resource pack IDs preserved as future reference; broken client config delivery disabled.")
+print("AutoModpack loop regression check passed: rewritten Default Options config is NOT distributed.")
