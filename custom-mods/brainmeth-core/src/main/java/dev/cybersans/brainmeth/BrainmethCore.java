@@ -236,13 +236,13 @@ public final class BrainmethCore {
     }
 
     private static boolean isWaiting(MinecraftServer server) {
-        try {
-            CommandSourceStack source = server.createCommandSourceStack().withPermission(4).withSuppressedOutput();
-            return server.getCommands().performPrefixedCommand(source, "execute if score #state bm_launch matches 0") > 0;
-        } catch (Exception ex) {
-            LOGGER.error("Could not query Brainmeth lobby state", ex);
-            return false;
-        }
+        // Minecraft 1.21.1 command execution is void; read the persistent
+        // datapack scoreboard directly, without issuing probe commands.
+        net.minecraft.world.scores.Objective objective = server.getScoreboard().getObjective("bm_launch");
+        if (objective == null) return false;
+        net.minecraft.world.scores.ReadOnlyScoreInfo state = server.getScoreboard().getPlayerScoreInfo(
+            net.minecraft.world.scores.ScoreHolder.forNameOnly("#state"), objective);
+        return state != null && state.value() == 0;
     }
 
     private static boolean release(MinecraftServer server) {
