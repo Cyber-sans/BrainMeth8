@@ -37,16 +37,19 @@ assert "gamemode adventure @a[tag=bm_lobby,gamemode=!adventure]" in locked
 assert "effect give @a[tag=bm_lobby] minecraft:strength 3 1 true" in locked
 assert "minecraft:resistance 2 4" not in locked
 assert "minecraft:saturation" not in locked
-assert "spreadplayers 0 0 4 35 false @a[tag=bm_lobby]" in release
+assert "spreadplayers 200 200 8 32 false @a[tag=bm_lobby]" in release
 # Regression: release must remove all pieces of the sky arena BEFORE
 # spreadplayers finds the highest safe surface and saves personal spawnpoints.
 # Otherwise it can place players on the Y=226 roof and preserve a sky respawn.
-scatter_at = release.index("spreadplayers 0 0 4 35 false @a[tag=bm_lobby]")
+scatter_at = release.index("spreadplayers 200 200 8 32 false @a[tag=bm_lobby]")
 spawn_at = release.index("spawnpoint @s ~ ~ ~")
 for low, high in ((199, 205), (206, 212), (213, 219), (220, 226)):
     cleanup = f"fill -24 {low} -24 24 {high} 24 minecraft:air"
     assert release.index(cleanup) < scatter_at, ("sky arena cleaned too late", cleanup)
 assert scatter_at < spawn_at, "Respawn point must be saved after surface teleport"
+assert "tag @a[tag=bm_lobby_seen,x=-24,y=190" in tick, "Already-released players must be rescued"
+assert "spreadplayers 200 200 8 32 false @a[tag=bm_launch_rescue]" in tick
+assert "spawnpoint @s ~ ~ ~" in tick, "Rescued spawnpoints must be reset"
 assert "spawnpoint @s ~ ~ ~" in release and "spawnpoint @s ~ ~ ~" in read("escape")
 assert "tag @s remove bm_staff" in enter and "tp @s 0 201 0" in enter
 assert "scores={bm_course=1}" in tick and "bm_course 0" in read("parkour_finish")
