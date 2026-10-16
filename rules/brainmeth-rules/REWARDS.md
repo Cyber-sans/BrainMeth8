@@ -1,4 +1,4 @@
-# Brainmeth bounty rewards — batches 1, 2, 3, 4 and 5 (test branch only)
+# Brainmeth bounty rewards — batches 1, 2, 3, 4, 5 and 6 (test branch only)
 
 All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
@@ -32,6 +32,15 @@ Run on the Minecraft test server (as an operator):
 - /loot give @p loot brainmeth:rewards/uncommon/summoning_bow
 - /loot give @p loot brainmeth:rewards/uncommon/tree_of_life
 - /loot give @p loot brainmeth:rewards/uncommon/orbital_strike_gun
+- /loot give @p loot brainmeth:rewards/uncommon/crystal_ball
+- /loot give @p loot brainmeth:rewards/uncommon/kill_switch
+- /loot give @p loot brainmeth:rewards/uncommon/cognitohazard_book
+- /loot give @p loot brainmeth:rewards/uncommon/crown_of_nothing
+- /loot give @p loot brainmeth:rewards/uncommon/fake_death_certificate
+- /loot give @p loot brainmeth:rewards/uncommon/butlers_bell
+- /loot give @p loot brainmeth:rewards/uncommon/book_of_wisdom
+- /loot give @p loot brainmeth:rewards/uncommon/replicating_cake
+- /loot give @p loot brainmeth:rewards/uncommon/manifesto
 
 ## Magic flow
 
@@ -176,3 +185,53 @@ wish list, subject to obtaining the required audio rights.
 
 No new mod, resource pack, recipes or Bountiful reward tables are installed
 by Batch 5. These remain separate future work.
+
+## Batch 6 — special rewards and collectibles
+
+- **Crystal Ball**: Hold it and run `/crystalball send PlayerName your message`.
+  Works for online players immediately, offline players on their next login.
+  The receiver sees a large on-screen title/subtitle and a copy in chat.
+  Up to 120 characters; 3 real hours between uses. Pending messages persist
+  in `world/brainmeth-crystal-messages.json` (8/player, 256 overall).
+- **Kill Switch**: Single-use stone button; on test only, gives players 10
+  seconds warning then executes the vanilla `stop` command. Docker's
+  `restart: unless-stopped` brings the Minecraft container back. The test
+  container alone sets `BRAINMETH_ALLOW_KILLSWITCH=true`. This mechanism
+  MUST be tested only on the isolated test server.
+- **Cognitohazard**: Written book, signed by 文. Opening it kills the reader.
+- **Crown of Nothing**: Wearable golden helmet with empty attribute modifiers
+  (zero bonus armour), plus a server-side text display bearing the title
+  "King of Absolutely Nothing" below the wearer's name.
+- **Fake Death Certificate**: Paper, reusable; right-click broadcasts one
+  of eight fake death messages globally, without changing life or inventory.
+  Five-second anti-spam cooldown.
+- **Butler's Bell**: Summons an invulnerable, non-trading nitwit villager
+  named Mr. Deeds who follows its owner for five minutes. 24 real-hour
+  cooldown per bell. The NPC is removed when its owner logs out.
+- **Book of Wisdom**: Paper. Each use broadcasts one of the **94 exact**
+  user-provided fortune messages as a message from Wanda, with Reddit
+  username credits removed. One use per real hour.
+- **Replicating Cake**: Place the named cake; it regenerates after all
+  seven slices are eaten. If left untouched for a real 24-hour period it
+  creates a second cake on a valid adjacent block. Clones also replicate,
+  and there is no total lifetime cap. It refuses to load chunks or replace
+  other blocks. Persistent state is in `world/brainmeth-replicating-cakes.json`.
+  Processing is rate limited so it cannot scan every cake on every tick.
+- **The Communist Manifesto**: One bounty reward yields **four signed written
+  books**, attributed to Marx & Engels, preserving the entire Samuel Moore
+  1888 English translation, sourced from the public-domain GITenberg
+  copy of Project Gutenberg #61. The 295 readable pages require four
+  volumes because Minecraft limits individual written books to 100 pages.
+
+### Batch 6 gameplay checks
+
+Test /loot administration, Crystal Ball cross-login delivery and restart
+persistence, the Kill Switch stop/restart sequence on **test only**, immediate
+book death, crown hologram (including removal/disconnect/relogin), Mr. Deeds
+following and expiry, Wanda's cooldown, the cake's final-slice restoration
+and one-day cloning, and the order/readability of all four Manifesto volumes.
+Only Java compilation and offline catalogue validation are automated;
+**in-game behaviour is not yet verified**.
+
+The generic rare music disc was already removed from the roadmap in Batch 5;
+only the two specifically requested custom-song discs remain planned.
