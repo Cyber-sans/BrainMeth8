@@ -1,4 +1,4 @@
-# Brainmeth bounty rewards — batches 1, 2 and 3 (test branch only)
+# Brainmeth bounty rewards — batches 1, 2, 3 and 4 (test branch only)
 
 All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
@@ -26,6 +26,11 @@ Run on the Minecraft test server (as an operator):
 - /loot give @p loot brainmeth:rewards/uncommon/splash_vanishing
 - /loot give @p loot brainmeth:rewards/uncommon/splash_coronavirus
 - /loot give @p loot brainmeth:rewards/uncommon/fake_tnt
+- /loot give @p loot brainmeth:rewards/uncommon/naughty_shovel
+- /loot give @p loot brainmeth:rewards/uncommon/time_traveller_watch
+- /loot give @p loot brainmeth:rewards/uncommon/mild_inconvenience_staff
+- /loot give @p loot brainmeth:rewards/uncommon/summoning_bow
+- /loot give @p loot brainmeth:rewards/uncommon/tree_of_life
 
 ## Magic flow
 
@@ -85,3 +90,45 @@ Verify potion expiry after logout and restart, item stacks for splash potions,
 safe teleport/no chunk generation, anti-duplication Creative restrictions,
 TNT response to redstone and flint/steel, and fake TNT recovery.
 Never activate these rewards in production until validated. No Bountiful entries yet.
+
+
+## Batch 4 — weapons, pranks, rewinds and the colossal Tree of Life
+
+All five remain **admin-only** and are not yet available through normal survival
+or Bountiful. No additional mod dependency or client download is needed.
+
+- Naughty Shovel: iron shovel branded "Slavery I" (custom lore/behaviour rather
+  than a global enchantment registry); hitting another player forces their
+  server-side crouch pose for 20 real seconds. Two charges, one regains every
+  six real hours. Normal PvP rules apply.
+- Time Traveller's Pocket Watch: right-click to return to the position and
+  dimension from 15 real seconds before. Requires 15 seconds of online history;
+  checks loaded chunks, border and collision. One charge every six real hours;
+  an unsafe destination costs no charge. History resets after server restart.
+- Staff of Mild Inconvenience: right-click a player to rotate them 180 degrees.
+  3 stored uses; one use regenerates every 20 real minutes.
+- Summoning Bow: on striking a non-boss entity, teleports it to the archer in
+  the same dimension if the destination is collision-safe. Ordinary bow
+  durability is finite. Anvil repair is rejected; repair exploits must be
+  tested in-game, including Mending/combining.
+- Tree of Life: enchanted oak sapling; place it on a valid surface, then
+  right-click it with **64 bone meal in one stack** to grow the huge tree.
+  Approximate world footprint: ~78-block-wide leafy crown (radius 39) at
+  88 blocks above the ground with 24-block crown height in each direction,
+  reaching **~112 blocks** above the sapling, plus an enormous tapering
+  trunk about 10 blocks across at its base and thick branches.
+  The growth consumes all 64 bone meal once and then builds over many ticks,
+  at most 650 blocks per tick, without forcing unloaded chunks. Existing
+  solid structures are preserved and a clear core is required. Only one
+  growth can run at once. Progress and special saplings are stored in
+  \`world/brainmeth-life-trees.json\`, so an interrupted growth resumes
+  after server restart when the chunks are reloaded.
+  Natural sapling growth is suppressed until you give the full bone meal.
+  Height/space requirement: build up to 118 blocks above sapling.
+
+### Batch 4 in-game validation
+Test the shovels on another player, actual crouch visuals and expiration,
+offline charge recovery, watch cross-dimension/blocked rewind, staff direction,
+arrows and boss immunity, finite bow durability, and Tree of Life from
+planting through restart/resume and full giant generation. These Java builds
+are NOT substitutes for in-world testing. Do not deploy to production.

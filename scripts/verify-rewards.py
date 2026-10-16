@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–3)."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–4)."""
 from pathlib import Path
 import json
 
@@ -26,6 +26,11 @@ expected = {
     "uncommon/splash_vanishing": ("minecraft:splash_potion", 2, "splash_vanishing"),
     "uncommon/splash_coronavirus": ("minecraft:splash_potion", 3, "splash_coronavirus"),
     "uncommon/fake_tnt": ("minecraft:tnt", 3, "fake_tnt"),
+    "uncommon/naughty_shovel": ("minecraft:iron_shovel", 1, "naughty_shovel"),
+    "uncommon/time_traveller_watch": ("minecraft:clock", 1, "time_traveller_watch"),
+    "uncommon/mild_inconvenience_staff": ("minecraft:stick", 1, "mild_inconvenience_staff"),
+    "uncommon/summoning_bow": ("minecraft:bow", 1, "summoning_bow"),
+    "uncommon/tree_of_life": ("minecraft:oak_sapling", 1, "tree_of_life"),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -68,4 +73,18 @@ assert "10 * 60" in consumables and "CREATIVE_SECONDS = 2" in consumables
 assert "getGameModeForPlayer() != GameType.SURVIVAL" in consumables
 assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
-print("Reward batches 1-3 verified: 20 admin-only loot tables and all gameplay markers.")
+gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
+tree = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethTreeOfLife.java").read_text()
+for marker in ("naughty_shovel", "time_traveller_watch", "mild_inconvenience_staff", "summoning_bow"):
+    assert marker in gadgets, marker
+assert "CROUCH_UNTIL" in gadgets and "20);" in gadgets
+assert "HISTORY_LOOKBACK_MS = 15000L" in gadgets and "WATCH_COOLDOWN = 6 * 3600L" in gadgets
+assert "SHOVEL_REGEN = 6 * 3600L" in gadgets and "STAFF_REGEN = 20 * 60L" in gadgets
+assert "onArrowHit" in gadgets and "onAnvil" in gadgets
+assert "tree_of_life" in tree
+assert "HEIGHT = 96" in tree and "CROWN_RADIUS = 39" in tree and "CROWN_HEIGHT = 24" in tree
+assert "BUILD_BUDGET_PER_TICK = 650" in tree and "item.shrink(64)" in tree
+assert "CropGrowEvent.Pre.Result.DO_NOT_GROW" in tree
+assert "save(server)" in tree and "job.progress" in tree and "!level.hasChunkAt(at)" in tree
+assert "MAX_PLAN_BLOCKS = 190_000" in tree
+print("Reward batches 1-4 verified: 25 admin-only loot tables including giant Tree of Life.")
