@@ -118,7 +118,7 @@ python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-
 docker compose --profile "$TARGET" pull
 # Nginx bind mounts the runtime directory inode. Recreate it after atomic regeneration.
 docker compose --profile "$TARGET" up -d --force-recreate packwiz
-docker compose --profile "$TARGET" up -d --remove-orphans
+docker compose --profile "$TARGET" up -d
 
 # Pack/config changes are consumed during Minecraft startup, so every deploy
 # deliberately recreates the target server without bouncing shared services.
