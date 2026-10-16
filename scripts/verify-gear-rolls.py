@@ -8,6 +8,7 @@ root = Path(__file__).resolve().parent.parent
 core = root / "custom-mods/brainmeth-core/src/main"
 code = (core / "java/dev/cybersans/brainmeth/BrainmethGearRolls.java").read_text(encoding="utf-8")
 mixin = (core / "java/dev/cybersans/brainmeth/mixin/ItemCraftedByMixin.java").read_text(encoding="utf-8")
+quick_move = (core / "java/dev/cybersans/brainmeth/mixin/ItemCombinerQuickMoveMixin.java").read_text(encoding="utf-8")
 config = json.loads((core / "resources/brainmeth_core.mixins.json").read_text(encoding="utf-8"))
 mods_toml = (core / "templates/META-INF/neoforge.mods.toml").read_text(encoding="utf-8")
 
@@ -30,12 +31,16 @@ assert "MAX_ARMOUR_REDUCTION = 25" in code
 assert "item instanceof SwordItem || item instanceof AxeItem) return List.of(Stat.SHARPNESS)" in code
 assert "item instanceof ShovelItem || item instanceof HoeItem) return List.of(Stat.EFFICIENCY)" in code
 
-# Only crafting grids roll; trades, smithing and repairs do not.
+# Crafting grids and smithing upgrades roll; trades, anvils, trims and repairs do not.
 for guard in ("MerchantMenu", "ItemCombinerMenu", "CraftingContainer", "AnimalArmorItem",
-              "Tags.Blocks.ORES", "Enchantments.SILK_TOUCH", "getPrototype()"):
+              "Tags.Blocks.ORES", "Enchantments.SILK_TOUCH", "getPrototype()",
+              "SmithingMenu.BASE_SLOT", "onSmithed"):
     assert guard in code, guard
 assert 'method = "onCraftedBy"' in mixin and "BrainmethGearRolls.onCrafted" in mixin
-assert config["package"] == "dev.cybersans.brainmeth.mixin" and config["mixins"] == ["ItemCraftedByMixin"]
+assert 'method = "quickMoveStack"' in quick_move and "BrainmethGearRolls.onSmithed" in quick_move
+assert "getFreeSlot() < 0" in quick_move
+assert config["package"] == "dev.cybersans.brainmeth.mixin"
+assert config["mixins"] == ["ItemCombinerQuickMoveMixin", "ItemCraftedByMixin"]
 assert config["required"] is True
 assert '[[mixins]]\nconfig="${mod_id}.mixins.json"' in mods_toml
-print("Gear rolls verified: 5 tiers totalling 100%, 7 stats, crafting-only mixin hook.")
+print("Gear rolls verified: 5 tiers totalling 100%, 7 stats, crafting and smithing mixin hooks.")

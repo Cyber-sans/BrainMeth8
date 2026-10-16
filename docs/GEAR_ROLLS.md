@@ -1,20 +1,22 @@
 # Random gear stat rolls
 
-Implemented in `custom-mods/brainmeth-core` (`BrainmethGearRolls.java`, plus
-`mixin/ItemCraftedByMixin.java`). Server-only: the roll is stored in the item's
+Implemented in `custom-mods/brainmeth-core` (`BrainmethGearRolls.java`, plus the
+`ItemCraftedByMixin` and `ItemCombinerQuickMoveMixin` mixins). Server-only: the roll is stored in the item's
 custom data and shown as a lore line, so players need no extra client mod.
 
 ## When a roll happens
 - **Crafted** tools and armour roll once, when taken from a crafting grid
   (normal click or shift-click).
-- **Never rolled**: chest loot, mob drops, fishing, villager trades, and items
-  from creative or commands.
+- **Not rolled when obtained**: chest loot, mob drops, fishing, villager trades,
+  and items from creative or commands.
 - **Repairing** two tools in the crafting grid gives an unrolled result, so
   repair crafting can't be used to re-roll.
-- **Upgrading** rolled gear in a smithing table (diamond to netherite, or any
-  other smithing upgrade that changes the item) rolls again and **keeps the
-  better tier**. Unrolled gear (for example looted diamond armour) stays unrolled
-  when upgraded. Armour trims do not re-roll.
+- **Upgrading** in a smithing table (diamond to netherite, or any other smithing
+  upgrade that changes the item):
+  - unrolled gear, such as looted diamond armour, gets its first roll;
+  - rolled gear rolls again and **keeps the better tier**.
+  Armour trims never roll. Shift-clicking an upgrade with a full inventory does
+  nothing until there is room, so a roll can't be previewed and swapped out.
 - There is no other way to raise or re-roll a bonus.
 
 ## Tiers (every rollable item)
@@ -51,11 +53,13 @@ custom data and shown as a lore line, so players need no extra client mod.
 ## Tests before production
 1. Craft each tool type and an armour piece, by clicking and by shift-clicking;
    every one should get a roll (most with a lore line).
-2. Take tools from chests, villagers and `/give`; none should roll.
+2. Take tools from chests, villagers and `/give`; none should roll until upgraded.
 3. Combine two damaged tools in the crafting grid; the result has no roll.
-4. Upgrade a rolled diamond pickaxe and a rolled diamond sword or axe to netherite;
+4. Upgrade a looted (unrolled) diamond piece to netherite by clicking and by
+   shift-clicking; both should roll. Trim a looted piece; it should not roll.
+5. Upgrade a rolled diamond pickaxe and a rolled diamond sword or axe to netherite;
    check the action-bar message, that the better tier is kept, and that the netherite
    weapon shows netherite damage (not diamond).
-5. Mine ores with a Legendary pickaxe and compare drop counts with a Plain one.
-6. Take fire, explosion, arrow and melee damage in rolled armour; check reductions
+6. Mine ores with a Legendary pickaxe and compare drop counts with a Plain one.
+7. Take fire, explosion, arrow and melee damage in rolled armour; check reductions
    and that the 25% cap holds.

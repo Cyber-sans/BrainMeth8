@@ -4,6 +4,7 @@
   "package": "dev.cybersans.brainmeth.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ItemCombinerQuickMoveMixin",
     "ItemCraftedByMixin"
   ],
   "injectors": {

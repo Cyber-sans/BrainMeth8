@@ -25,6 +25,7 @@ import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.inventory.ItemCombinerMenu;
 import net.minecraft.world.inventory.MerchantMenu;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.SmithingMenu;
 import net.minecraft.world.item.AnimalArmorItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
@@ -51,8 +52,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Random bonus stat rolled once when a tool or armour piece is crafted.
- * Chest loot, mob drops and trades never roll. Upgrading rolled gear in a smithing
- * table (e.g. to netherite) rolls again and keeps the better of the two.
+ * Chest loot, mob drops and trades never roll on their own. A smithing upgrade
+ * (e.g. to netherite) rolls unrolled gear, and re-rolls rolled gear keeping the better.
  * The roll is stored in custom data and shown as a lore line, so no client mod is needed.
  */
 @EventBusSubscriber(modid = BrainmethCore.MOD_ID)
@@ -181,10 +182,15 @@ public final class BrainmethGearRolls {
 
     /** Called from ItemCraftedByMixin whenever a player takes a crafted item. */
     public static void onCrafted(ItemStack stack, Level level, Player player) {
-        if (level.isClientSide() || player == null || stack.isEmpty() || read(stack) != null) return;
+        if (level.isClientSide() || player == null || stack.isEmpty()) return;
+        if (player.containerMenu instanceof SmithingMenu smithing) {
+            onSmithed(stack, smithing, player);
+            return;
+        }
+        if (read(stack) != null) return;
         List<Stat> stats = statsFor(stack);
         if (stats == null) return;
-        // Trades and smithing/anvil results also report as "crafted"; only crafting grids roll.
+        // Trades and anvil results also report as "crafted"; only crafting grids roll.
         if (player.containerMenu instanceof MerchantMenu || player.containerMenu instanceof ItemCombinerMenu) return;
         boolean craftingGrid = false;
         for (Slot slot : player.containerMenu.slots) {
@@ -197,10 +203,27 @@ public final class BrainmethGearRolls {
         apply(stack, roll(stats, player.getRandom()), null);
     }
 
+    /** A smithing result about to be taken. Upgrades (base item changes) roll; armour trims do not.
+     * Called on a normal take (ItemCraftedByMixin) and before a shift-click move
+     * (ItemCombinerQuickMoveMixin), while the result stack is still intact.
+     */
+    public static void onSmithed(ItemStack result, SmithingMenu menu, Player player) {
+        if (player.level().isClientSide() || result.isEmpty() || statsFor(result) == null) return;
+        Roll old = read(result);
+        if (old != null) {
+            upgrade(player, result, old);
+            return;
+        }
+        // Unrolled gear (for example looted diamond armour) rolls fresh when upgraded.
+        if (menu.getSlot(SmithingMenu.BASE_SLOT).getItem().is(result.getItem())) return;
+        Roll fresh = roll(statsFor(result), player.getRandom());
+        apply(result, fresh, null);
+        player.displayClientMessage(Component.literal("Upgrade roll: " +
+            (fresh.tier() == Tier.PLAIN ? "no bonus." : fresh.lore())), true);
+    }
+
     /** Smithing copies custom data, so an item id change means rolled gear was upgraded. */
-    private static void checkUpgrade(ServerPlayer player, ItemStack stack) {
-        Roll old = read(stack);
-        if (old == null) return;
+    private static void upgrade(Player player, ItemStack stack, Roll old) {
         String itemId = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
         if (itemId.equals(rolledItem(stack))) return;
         List<Stat> stats = statsFor(stack);
@@ -211,6 +234,12 @@ public final class BrainmethGearRolls {
         player.displayClientMessage(Component.literal("Upgrade re-roll: " +
             (kept == fresh ? "new roll kept! " : "original roll kept. ") +
             (kept.tier() == Tier.PLAIN ? "No bonus." : kept.lore())), true);
+    }
+
+    /** Fallback for rolled gear upgraded by anything other than a smithing table. */
+    private static void checkUpgrade(ServerPlayer player, ItemStack stack) {
+        Roll old = read(stack);
+        if (old != null) upgrade(player, stack, old);
     }
 
     @SubscribeEvent
