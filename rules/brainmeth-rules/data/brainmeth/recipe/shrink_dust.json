@@ -16,7 +16,7 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "minecraft:amethyst_shard"
+      "tag": "c:mushrooms"
     }
   ],
   "result": {

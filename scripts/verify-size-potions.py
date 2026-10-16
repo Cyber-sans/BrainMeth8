@@ -34,10 +34,10 @@ for marker, (source, base, chance, name) in drops.items():
     assert comps["minecraft:custom_data"] == {"brainmeth_reward": marker}
     assert comps["minecraft:item_name"]["text"] == name
 
-# Crafting: the marked material plus two vanilla items -> a marked brewing ingredient.
+# Crafting: the marked material, one vanilla item and any mushroom -> a marked brewing ingredient.
 recipes = {
-    "shrink_dust": ("minecraft:flint", "ant_mandible", {"minecraft:sugar", "minecraft:amethyst_shard"}, "minecraft:glowstone_dust"),
-    "growth_powder": ("minecraft:string", "giraffe_neck_hair", {"minecraft:bone_meal", "minecraft:glow_berries"}, "minecraft:redstone"),
+    "shrink_dust": ("minecraft:flint", "ant_mandible", [{"item": "minecraft:sugar"}, {"tag": "c:mushrooms"}], "minecraft:glowstone_dust"),
+    "growth_powder": ("minecraft:string", "giraffe_neck_hair", [{"item": "minecraft:bone_meal"}, {"tag": "c:mushrooms"}], "minecraft:redstone"),
 }
 for marker, (base, material, extras, result) in recipes.items():
     recipe = read(f"brainmeth/recipe/{marker}.json")
@@ -46,7 +46,7 @@ for marker, (base, material, extras, result) in recipes.items():
     assert first == {"type": "neoforge:components", "items": base,
                      "components": {"minecraft:custom_data": {"brainmeth_reward": material}},
                      "strict": False}, marker
-    assert {i["item"] for i in rest} == extras and len(rest) == 2
+    assert rest == extras, marker
     assert recipe["result"]["id"] == result and recipe["result"]["count"] == 1
     assert recipe["result"]["components"]["minecraft:custom_data"] == {"brainmeth_reward": marker}
 

@@ -303,8 +303,11 @@ Queen is a renewable mandible source. Giraffes breed with apples, golden
 apples or hay bales.
 
 **Crafting** (shapeless):
-- Shrink Dust = Ant Mandible + Sugar + Amethyst Shard (base: glowstone dust)
-- Growth Powder = Giraffe Neck Hair + Bone Meal + Glow Berries (base: redstone)
+- Shrink Dust = Ant Mandible + Sugar + any mushroom (base: glowstone dust)
+- Growth Powder = Giraffe Neck Hair + Bone Meal + any mushroom (base: redstone)
+
+"Any mushroom" is the `c:mushrooms` tag: Red and Brown Mushrooms, plus any
+mushrooms other mods add to that tag.
 
 **Brewing** (`BrainmethBrewing.java`):
 
