@@ -284,12 +284,14 @@ public final class BrainmethTreeOfLife {
         load(server);
         if (jobs.isEmpty()) return;
         TreeJob job = jobs.get(0);
-        ServerLevel level = server.getAllLevels().stream()
-            .filter(l -> dimension(l).equals(job.dimension)).findFirst().orElse(null);
+        ServerLevel level = null;
+        for (ServerLevel candidate : server.getAllLevels()) {
+            if (dimension(candidate).equals(job.dimension)) { level = candidate; break; }
+        }
         if (level == null) return;
         if (job.plan == null) job.plan = makePlan(job.root);
         int changes = 0, advanced = 0;
-        while (job.progress < job.plan.size() && changes < BUILD_BUDGET_PER_TICK) {
+        while (job.progress < job.plan.size() && changes < BUILD_BUDGET_PER_TICK && advanced < BUILD_BUDGET_PER_TICK * 2) {
             Placement entry = job.plan.get(job.progress);
             BlockPos at = BlockPos.of(entry.packed);
             if (!level.hasChunkAt(at)) break; // Pause until player loads area, no force-loading.
