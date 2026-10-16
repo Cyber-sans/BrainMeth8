@@ -1,0 +1,245 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:nyf_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:sirjain_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:sizableshrimp_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:tslat_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:silk_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:june_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:daniel_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:gamerpotion_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:joosh_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:rocris_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:geode_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:gamerpotion_plushie_rare",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:sirjain_plushie_rare",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:red_fox_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:snow_fox_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:fennec_fox_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:raccoon_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:red_panda_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:red_ruffed_lemur_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:capybara_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:dog_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:cat_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:dolphin_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:brown_rabbit_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:white_rabbit_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:frog_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:goose_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:duck_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:rubber_duck_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:robin_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:hummingbird_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:hippo_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:mouse_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:turtle_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:doe_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:reindeer_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:bear_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:koala_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:panda_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:lion_cub_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:elephant_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:monkey_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:seal_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:hedgehog_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:aye_aye_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:quokka_plushie",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perfectplushies:dumbo_blob_plushie",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

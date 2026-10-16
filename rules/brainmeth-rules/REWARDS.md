@@ -1,4 +1,4 @@
-# Brainmeth bounty rewards — batches 1, 2, 3, 4, 5 and 6 (test branch only)
+# Brainmeth bounty rewards — batches 1, 2, 3, 4, 5, 6 and 7 (test branch only)
 
 All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
@@ -41,6 +41,11 @@ Run on the Minecraft test server (as an operator):
 - /loot give @p loot brainmeth:rewards/uncommon/book_of_wisdom
 - /loot give @p loot brainmeth:rewards/uncommon/replicating_cake
 - /loot give @p loot brainmeth:rewards/uncommon/manifesto
+- /loot give @p loot brainmeth:rewards/uncommon/herobrine_head
+- /loot give @p loot brainmeth:rewards/uncommon/random_plushie
+- /loot give @p loot brainmeth:rewards/uncommon/random_trophy_set
+- /loot give @p loot brainmeth:rewards/uncommon/disc_flashing_lights
+- /loot give @p loot brainmeth:rewards/uncommon/disc_passionfruit
 
 ## Magic flow
 
@@ -235,3 +240,45 @@ Only Java compilation and offline catalogue validation are automated;
 
 The generic rare music disc was already removed from the roadmap in Batch 5;
 only the two specifically requested custom-song discs remain planned.
+
+## Batch 7 — collectible items and song-disc scaffolding
+
+- Herobrine's Head: vanilla player head with the known skin profile
+  `MHF_Herobrine`; Minecraft may resolve player textures asynchronously.
+- Random Plushie: ONE randomly chosen `perfectplushies:` item from
+  **47 verified source-registered plushies**, equally weighted.
+  This is one reward table/one Bountiful selection, NOT 47
+  separate reward entries. All named player and animal variants are included.
+- Random Trophy + Stand: ONE randomly selected vanilla-mob trophy from
+  **75 verified Trofers trophy definitions**. The winning
+  group yields a matching pre-loaded display base with its `trofers:trophy`
+  component, PLUS one spare empty display base of the same size/style.
+  This is one reward table/one Bountiful selection, NOT 75
+  separate entries. Stand types vary appropriately with mob size.
+  Trofers trophies already use a combined base+trophy item.
+- Kanye West – Flashing Lights, Drake – Passionfruit: distinct collectible
+  jukebox discs registered via `brainmeth:flashing_lights` and
+  `brainmeth:passionfruit` in `data/brainmeth/jukebox_song`.
+  **The copyrighted commercial sound recordings are NOT bundled**. Until
+  authorized recordings are supplied, the discs play vanilla Minecraft
+  placeholder tracks (Otherside and Wait). Their tooltips explicitly say
+  "placeholder audio". The registry and playable components are fully wired,
+  but audio replacement and client resource-pack distribution remain to do.
+  Do not advertise these items as containing the actual songs.
+
+Both collectible mods were installed during the earlier preparation; the
+existing acquisition lockdown (chests/archaeology, trader, random mob drops,
+advancement drops, stand crafting) is intentionally retained. Admin /loot
+is the only provided way to obtain these until Bountiful integration.
+
+### Tests before making the rewards available
+
+1. Test /loot give for both modded-table rolls and ensure the items exist.
+2. Place a plushie and each trophy-bearing display base. Confirm the trophy
+   is present immediately on the base and that the spare base matches.
+3. Obtain several rewards and confirm one random plushie or one trophy set
+   per roll, not all variants.
+4. Test Herobrine head skin resolves; verify discs play their clearly labelled
+   **placeholder** tracks and do not accidentally play real commercial audio.
+5. Confirm ordinary loot, drops, trader exchanges and stand recipes remain
+   blocked after a full test-world restart.

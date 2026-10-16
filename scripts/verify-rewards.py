@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–6)."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–7)."""
 from pathlib import Path
 import json
 
@@ -41,6 +41,11 @@ expected = {
     "uncommon/book_of_wisdom": ("minecraft:paper", 1, "book_of_wisdom"),
     "uncommon/replicating_cake": ("minecraft:cake", 1, "replicating_cake"),
     "uncommon/manifesto": ("minecraft:written_book", 4, "manifesto"),
+    "uncommon/herobrine_head": ("minecraft:player_head", 1, "herobrine_head"),
+    "uncommon/disc_flashing_lights": ("minecraft:music_disc_11", 1, "disc_flashing_lights"),
+    "uncommon/disc_passionfruit": ("minecraft:music_disc_wait", 1, "disc_passionfruit"),
+    "uncommon/random_plushie": ("perfectplushies:*", 1, None),
+    "uncommon/random_trophy_set": ("trofers:*", 2, None),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -49,6 +54,27 @@ for name, (base_item, amount, marker) in expected.items():
     assert data["type"] == "minecraft:generic"
     pools = data["pools"]
     assert len(pools) == 1
+    if name == "uncommon/random_plushie":
+        assert pools[0]["rolls"] == 1
+        entries = pools[0]["entries"]
+        assert len(entries) == 47
+        assert all(e["type"]=="minecraft:item" and e["name"].startswith("perfectplushies:")
+                   and e.get("weight",1)==1 for e in entries)
+        assert len({e["name"] for e in entries})==len(entries)
+        continue
+    if name == "uncommon/random_trophy_set":
+        assert pools[0]["rolls"] == 1
+        entries = pools[0]["entries"]
+        assert len(entries) == 75
+        for group in entries:
+            assert group["type"] == "minecraft:group" and group["weight"] == 1
+            pair = group["children"]
+            assert len(pair) == 2
+            assert pair[0]["type"] == pair[1]["type"] == "minecraft:item"
+            assert pair[0]["name"] == pair[1]["name"] and pair[0]["name"].startswith("trofers:")
+            assert pair[0]["functions"][0]["components"]["trofers:trophy"].startswith("trofers:")
+        assert len({g["children"][0]["functions"][0]["components"]["trofers:trophy"] for g in entries})==len(entries)
+        continue
     if name == "uncommon/manifesto":
         assert pools[0]["rolls"] == 1
         groups = pools[0]["entries"]
@@ -136,4 +162,16 @@ assert "REPLICATION_INTERVAL = 24 * 3600L" in cake
 assert "getFoodData().eat(2,0.1F)" in cake and "brainmeth-replicating-cakes.json" in cake
 assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in (root / "compose.yaml").read_text()
 assert not (base / "uncommon/rare_music_disc.json").exists()
-print("Reward batches 1-6 verified: 35 admin-only loot tables and complete Manifesto set.")
+for slug, original in (("flashing_lights","minecraft:music_disc.otherside"), ("passionfruit","minecraft:music_disc.wait")):
+    song_path = root / f"rules/brainmeth-rules/data/brainmeth/jukebox_song/{slug}.json"
+    song = json.loads(song_path.read_text())
+    assert song["sound_event"] == original, "Placeholder audio reference changed without a license check"
+    assert "PLACEHOLDER AUDIO" in song["description"]["text"]
+    assert song["length_in_seconds"] > 0 and 0 <= song["comparator_output"] <= 15
+    item = json.loads((base/f"uncommon/disc_{slug}.json").read_text())
+    playable = item["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:jukebox_playable"]
+    assert playable["song"] == f"brainmeth:{slug}"
+head_item = json.loads((base/"uncommon/herobrine_head.json").read_text())
+assert head_item["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:profile"]["name"]=="MHF_Herobrine"
+assert not any("rare_music_disc" in filename for filename in actual)
+print("Reward batches 1-7 verified: 40 top-level tables with 47 plushie choices and 75 paired trophies.")
