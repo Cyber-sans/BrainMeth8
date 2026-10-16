@@ -10,9 +10,9 @@ execute in minecraft:overworld run fill -24 199 -24 24 205 24 minecraft:air
 execute in minecraft:overworld run fill -24 206 -24 24 212 24 minecraft:air
 execute in minecraft:overworld run fill -24 213 -24 24 219 24 minecraft:air
 execute in minecraft:overworld run fill -24 220 -24 24 226 24 minecraft:air
-# Resolve spawn locations only after deleting the sky lounge; otherwise spreadplayers chooses its roof.
-execute in minecraft:overworld run spreadplayers 0 0 4 35 false @a[tag=bm_lobby]
-execute in minecraft:overworld as @a[tag=bm_staff,x=-24,y=199,z=-24,dx=48,dy=29,dz=48] run spreadplayers 0 0 4 35 false @s
+# Release away from the demolished lounge and its legacy sky respawnpoints.
+execute in minecraft:overworld run spreadplayers 200 200 8 32 false @a[tag=bm_lobby]
+execute in minecraft:overworld as @a[tag=bm_staff,x=-24,y=199,z=-24,dx=48,dy=29,dz=48] run spreadplayers 200 200 8 32 false @s
 execute as @a[tag=bm_lobby] at @s run spawnpoint @s ~ ~ ~
 gamemode survival @a[tag=bm_lobby]
 effect clear @a[tag=bm_lobby] minecraft:strength
