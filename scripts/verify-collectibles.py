@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify mandatory collectible mods and bounty-exclusive acquisition lockdown."""
 from __future__ import annotations
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -8,13 +9,22 @@ import sys
 import tempfile
 import tomllib
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--skip-runtime", action="store_true", help="Only test acquisition restrictions (offline CI)")
+args = parser.parse_args()
+
 ROOT = Path(__file__).resolve().parent.parent
 RUNTIME = ROOT / ".pack-runtime"
+
+if not args.skip_runtime:
+    assert RUNTIME.is_dir(), "Missing runtime Packwiz pack"
 
 for slug, filename in (
     ("perfect-plushies", "perfectplushies-neoforge-1.21.1-1.13.3.jar"),
     ("trofers", "trofers-neoforge-8.0.1.jar"),
 ):
+    if args.skip_runtime:
+        continue
     path = RUNTIME / "mods" / f"{slug}.pw.toml"
     assert path.is_file(), f"Missing collectible: {slug}"
     entry = tomllib.loads(path.read_text(encoding="utf-8"))
