@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "text": "Shrinking Potion",
+                  "italic": false,
+                  "color": "light_purple"
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "20% scale for 10 real minutes; time continues while offline.",
+                    "italic": false,
+                    "color": "gray"
+                  }
+                ],
+                "minecraft:custom_data": {
+                  "brainmeth_reward": "potion_shrink"
+                },
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:max_stack_size": 1,
+                "minecraft:potion_contents": {
+                  "potion": "minecraft:water"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–2)."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–3)."""
 from pathlib import Path
 import json
 
@@ -16,6 +16,16 @@ expected = {
     "uncommon/healing_grimoire": ("minecraft:book", 1, "healing_grimoire"),
     "uncommon/lightning_grimoire": ("minecraft:book", 1, "lightning_grimoire"),
     "uncommon/knockback_stick": ("minecraft:stick", 1, "knockback_stick"),
+    "uncommon/potion_everything": ("minecraft:potion", 1, "potion_everything"),
+    "uncommon/potion_shrink": ("minecraft:potion", 1, "potion_shrink"),
+    "uncommon/potion_grow": ("minecraft:potion", 1, "potion_grow"),
+    "uncommon/potion_creative": ("minecraft:potion", 1, "potion_creative"),
+    "uncommon/super_tnt": ("minecraft:tnt", 1, "super_tnt"),
+    "uncommon/ultimate_chorus_fruit": ("minecraft:chorus_fruit", 8, "ultimate_chorus_fruit"),
+    "uncommon/splash_binding": ("minecraft:splash_potion", 2, "splash_binding"),
+    "uncommon/splash_vanishing": ("minecraft:splash_potion", 2, "splash_vanishing"),
+    "uncommon/splash_coronavirus": ("minecraft:splash_potion", 3, "splash_coronavirus"),
+    "uncommon/fake_tnt": ("minecraft:tnt", 3, "fake_tnt"),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -23,16 +33,22 @@ for name, (base_item, amount, marker) in expected.items():
     data = json.loads((base / (name + ".json")).read_text(encoding="utf-8"))
     assert data["type"] == "minecraft:generic"
     pools = data["pools"]
-    assert len(pools) == 1 and pools[0]["rolls"] == 1
+    assert len(pools) == 1
+    rolls = amount if name in {"uncommon/splash_binding", "uncommon/splash_vanishing", "uncommon/splash_coronavirus"} else 1
+    assert pools[0]["rolls"] == rolls, name
     entries = pools[0]["entries"]
     assert len(entries) == 1 and entries[0]["name"] == base_item
     functions = entries[0].get("functions", [])
     counts = [fn["count"] for fn in functions if fn["function"] == "minecraft:set_count"]
-    assert counts == ([] if amount == 1 else [amount]), name
+    assert counts == ([] if rolls > 1 or amount == 1 else [amount]), name
     comps = [fn["components"] for fn in functions if fn["function"] == "minecraft:set_components"]
     if marker:
         assert len(comps) == 1 and comps[0]["minecraft:custom_data"]["brainmeth_reward"] == marker
-        assert comps[0]["minecraft:max_stack_size"] == 1
+        if base_item in {"minecraft:potion", "minecraft:splash_potion"}:
+            assert comps[0]["minecraft:max_stack_size"] == 1
+            assert comps[0]["minecraft:potion_contents"] == {"potion": "minecraft:water"}
+        if name in {"uncommon/poo", "uncommon/firework_grimoire", "uncommon/rain_grimoire", "uncommon/levitation_grimoire", "uncommon/healing_grimoire", "uncommon/lightning_grimoire", "uncommon/knockback_stick"}:
+            assert comps[0]["minecraft:max_stack_size"] == 1
         if marker == "knockback_stick":
             assert comps[0]["minecraft:enchantments"]["levels"] == {"minecraft:knockback": 5}
     else:
@@ -45,4 +61,11 @@ for seconds in ("10 * 60", "24 * 60 * 60", "3 * 60 * 60", "10 * 60"):
     assert seconds in code
 assert "extinguishing_grimoire" not in code and "repulsion_grimoire" not in code
 assert "PendingLightning" in code and "hoverAboveTerrain" in code and "healNearby" in code
-print("Reward batches 1+2 verified: 10 admin-only tables, Knockback V, three new wand mechanics.")
+consumables = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethConsumables.java").read_text()
+for marker in ("potion_everything", "potion_shrink", "potion_grow", "potion_creative", "super_tnt", "ultimate_chorus_fruit", "splash_binding", "splash_vanishing", "splash_coronavirus", "fake_tnt"):
+    assert marker in consumables, marker
+assert "10 * 60" in consumables and "CREATIVE_SECONDS = 2" in consumables
+assert "getGameModeForPlayer() != GameType.SURVIVAL" in consumables
+assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
+assert "MAX_FAKE_BLOCKS = 256" in consumables
+print("Reward batches 1-3 verified: 20 admin-only loot tables and all gameplay markers.")

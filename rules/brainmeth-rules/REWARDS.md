@@ -1,4 +1,4 @@
-# Brainmeth bounty rewards — batches 1 and 2 (test branch only)
+# Brainmeth bounty rewards — batches 1, 2 and 3 (test branch only)
 
 All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
@@ -16,6 +16,16 @@ Run on the Minecraft test server (as an operator):
 - /loot give @p loot brainmeth:rewards/uncommon/healing_grimoire
 - /loot give @p loot brainmeth:rewards/uncommon/lightning_grimoire
 - /loot give @p loot brainmeth:rewards/uncommon/knockback_stick
+- /loot give @p loot brainmeth:rewards/uncommon/potion_everything
+- /loot give @p loot brainmeth:rewards/uncommon/potion_shrink
+- /loot give @p loot brainmeth:rewards/uncommon/potion_grow
+- /loot give @p loot brainmeth:rewards/uncommon/potion_creative
+- /loot give @p loot brainmeth:rewards/uncommon/super_tnt
+- /loot give @p loot brainmeth:rewards/uncommon/ultimate_chorus_fruit
+- /loot give @p loot brainmeth:rewards/uncommon/splash_binding
+- /loot give @p loot brainmeth:rewards/uncommon/splash_vanishing
+- /loot give @p loot brainmeth:rewards/uncommon/splash_coronavirus
+- /loot give @p loot brainmeth:rewards/uncommon/fake_tnt
 
 ## Magic flow
 
@@ -49,3 +59,29 @@ rewards available through Bountiful.
 Do not deploy to production. The 1.21.1 branch is isolated from 26.2.
 
 The Extinguishing Grimoire has been removed from the design. The old Repulsion Grimoire has been replaced by the directly awarded Knockback Stick V. Do not add normal loot/drop/crafting recipes for these items before Bountiful integration.
+
+## Batch 3 — uncommon consumables
+
+- Potion of Everything: a fixed selection of beneficial effects for 3 minutes, plus instant heal/saturation.
+- Shrinking Potion: sets player size to 0.2x for **10 real minutes**.
+- Growing Potion: sets player size to 2x for **10 real minutes**.
+- Creative Potion: **2 real seconds**, granting flight and invulnerability without switching
+  gamemode or unlocking Creative inventory. No infinite blocks/items; slow falling for 8 seconds after.
+- Compressed TNT: delayed explosion energy equivalent to ten ordinary TNT blocks;
+  explosion radius scales as the cube root of energy, rather than multiplying radius by ten.
+- Ultimate Chorus Fruit x8: each use samples safe, *currently loaded* destinations
+  within a 1000-block radius. An unsuccessful search does not consume a fruit or generate chunks.
+- Splash Potion of Binding x2: applies Binding to worn armour on splash.
+- Splash Potion of Vanishing x2: applies Vanishing to worn armour on splash.
+- Splash Potion of Coronavirus x3: Nausea, Hunger, Oozing and Weakness for 8 minutes on splash.
+- Fake TNT x3: placed TNT is tracked in the world file `brainmeth-fake-tnt.json`.
+  When primed it fizzles instead of exploding, then becomes a TNT block again.
+  Priming via flint, redstone or other explosions should be checked in-game.
+
+### In-game verification
+
+Test all consumables in the isolated 1.21.1 test world with `/loot give`.
+Verify potion expiry after logout and restart, item stacks for splash potions,
+safe teleport/no chunk generation, anti-duplication Creative restrictions,
+TNT response to redstone and flint/steel, and fake TNT recovery.
+Never activate these rewards in production until validated. No Bountiful entries yet.
