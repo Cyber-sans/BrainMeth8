@@ -45,6 +45,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -219,10 +220,11 @@ public final class BrainmethConsumables {
 
     private static boolean teleportToLoadedSafeLocation(ServerLevel level, ServerPlayer player) {
         BlockPos source = player.blockPosition();
-        for (int attempt = 0; attempt < 96; attempt++) {
+        for (int attempt = 0; attempt < 144; attempt++) {
             // Sample a uniformly random point within a disk radius of 1,000.
             double angle = level.random.nextDouble() * (Math.PI * 2);
-            double r = Math.sqrt(level.random.nextDouble()) * 1000.0;
+            // Prefer all loaded destinations first, then fall back to nearby loaded chunks.
+            double r = Math.sqrt(level.random.nextDouble()) * (attempt < 96 ? 1000.0 : 160.0);
             int x = source.getX() + (int) Math.round(Math.cos(angle) * r);
             int z = source.getZ() + (int) Math.round(Math.sin(angle) * r);
             // Never generate chunks just for a teleport: that stalls shared servers.
@@ -330,6 +332,15 @@ public final class BrainmethConsumables {
     }
 
     @SubscribeEvent
+    public static void onBlockBroken(BlockEvent.BreakEvent event) {
+        if (event.isCanceled() || !(event.getLevel() instanceof ServerLevel level)) return;
+        ensureTntLoaded(level.getServer());
+        Set<Long> positions = fakeBlocks.get(level.dimension().location().toString());
+        if (positions != null && positions.remove(event.getPos().asLong()))
+            saveFakeBlocks(level.getServer());
+    }
+
+    @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
         if (!(event.getLevel() instanceof ServerLevel level) ||
             !(event.getEntity() instanceof PrimedTnt tnt)) return;
@@ -421,8 +432,12 @@ public final class BrainmethConsumables {
                 ServerLevel level = (ServerLevel) tnt.level();
                 BlockPos original = BlockPos.of(tnt.getPersistentData().getLong("brainmeth_original_pos"));
                 tnt.discard();
-                if (level.getBlockState(original).canBeReplaced()) {
-                    level.setBlock(original, Blocks.TNT.defaultBlockState(), 3);
+                if (level.getBlockState(original).canBeReplaced()
+                    && level.setBlock(original, Blocks.TNT.defaultBlockState(), 3)) {
+                    // The same fake TNT remains harmless when primed repeatedly.
+                    fakeBlocks.computeIfAbsent(level.dimension().location().toString(),
+                        k -> new HashSet<>()).add(original.asLong());
+                    saveFakeBlocks(level.getServer());
                 }
                 level.playSound(null, original, SoundEvents.NOTE_BLOCK_PLING.value(), SoundSource.BLOCKS, 1.0f, 1.25f);
                 fake.remove();
