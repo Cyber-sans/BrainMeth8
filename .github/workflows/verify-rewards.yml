@@ -8,6 +8,12 @@ on:
       - 'rules/brainmeth-rules/data/brainmeth/loot_table/rewards/**'
       - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java'
       - 'scripts/verify-rewards.py'
+      - 'scripts/verify-bounties.py'
+      - 'scripts/configure-bountiful.py'
+      - 'rules/brainmeth-rules/data/bountiful/**'
+      - 'rules/brainmeth-rules/data/brainmeth/loot_table/bounties/**'
+      - 'rules/brainmeth-rules/data/brainmeth/loot_table/rewards/rare/**'
+      - 'rules/brainmeth-rules/data/brainmeth/recipe/four_calamities_seal.json'
       - '.github/workflows/verify-rewards.yml'
   workflow_dispatch:
 
@@ -26,3 +32,4 @@ jobs:
         run: |
           python3 -m py_compile scripts/verify-rewards.py
           python3 scripts/verify-rewards.py
+          python3 scripts/verify-bounties.py

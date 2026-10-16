@@ -68,6 +68,8 @@ mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
 # No natural plushie/trophy/stand acquisition before custom bounty integration.
 python3 ./scripts/lock-collectibles.py --data-root "$DATA_DIR"
+# Install the single Brainmeth bounty decree and keep default Bountiful pools out.
+python3 ./scripts/configure-bountiful.py --data-root "$DATA_DIR"
 
 # Keep targeted DnT enchantment bans on the server, without disabling other enchants.
 # The enchantment-disabler mod reads this config at startup.

@@ -147,18 +147,6 @@
         {
           "type": "minecraft:loot_table",
           "value": "brainmeth:rewards/uncommon/random_trophy_set"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "brainmeth:rewards/uncommon/random_plushie"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "brainmeth:rewards/uncommon/random_trophy_set"
-        },
-        {
-          "type": "minecraft:loot_table",
-          "value": "brainmeth:rewards/uncommon/manifesto"
         }
       ]
     }
