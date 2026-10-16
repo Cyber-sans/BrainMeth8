@@ -26,7 +26,9 @@ variants = {
 }
 loot_modifiers = read("data/neoforge/loot_modifiers/global_loot_modifiers.json")
 assert loot_modifiers["replace"] is False
-assert set(loot_modifiers["entries"]) == {f"brainmeth:membranes_{k}" for k in variants}
+# Size-potion mob drops are checked in detail by verify-size-potions.py.
+assert set(loot_modifiers["entries"]) == {f"brainmeth:membranes_{k}" for k in variants} | {
+    "brainmeth:ant_mandible", "brainmeth:giraffe_neck_hair"}
 for key, (source, chance, low, high) in variants.items():
     modifier = read(f"data/brainmeth/loot_modifiers/membranes_{key}.json")
     assert modifier["type"] == "neoforge:add_table"

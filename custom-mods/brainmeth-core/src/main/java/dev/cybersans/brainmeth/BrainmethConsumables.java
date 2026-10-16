@@ -62,7 +62,8 @@ import java.util.Map;
 import java.util.Set;
 
 /** Batch-3 reward abilities, all attached to server-verified custom-data tags.
- * No survival recipes or natural drops exist; Bountiful wiring is separate.
+ * Reward items have no survival recipes or natural drops; Bountiful wiring is separate.
+ * Brewable size potions (BrainmethBrewing) reuse the same scale handling.
  */
 @EventBusSubscriber(modid = BrainmethCore.MOD_ID)
 public final class BrainmethConsumables {
@@ -104,7 +105,7 @@ public final class BrainmethConsumables {
             }
             case "potion_shrink", "potion_grow" -> {
                 if (item.is(Items.POTION)) {
-                    beginScale(player, kind.equals("potion_shrink") ? 0.2D : 2.0D);
+                    beginScale(player, kind.equals("potion_shrink") ? 0.2D : 2.0D, SCALE_SECONDS);
                     finishBottle(player, item);
                     used = true;
                 }
@@ -128,7 +129,14 @@ public final class BrainmethConsumables {
                     used = true;
                 }
             }
-            default -> { return; } // Splash potions must use vanilla projectile throwing.
+            default -> {
+                // Brewed size potions (BrainmethBrewing). Splash potions use vanilla throwing.
+                BrainmethBrewing.Brew brew = BrainmethBrewing.BREWS.get(kind);
+                if (brew == null || !item.is(Items.POTION)) return;
+                beginScale(player, brew.scale(), brew.seconds());
+                finishBottle(player, item);
+                used = true;
+            }
         }
         if (used) {
             event.setCancellationResult(InteractionResult.SUCCESS);
@@ -161,15 +169,15 @@ public final class BrainmethConsumables {
         player.displayClientMessage(Component.literal("EVERYTHING. (Only the nice bits.)").withStyle(ChatFormatting.GOLD), true);
     }
 
-    private static void beginScale(ServerPlayer player, double scale) {
-        long expiry = now() + SCALE_SECONDS;
+    private static void beginScale(ServerPlayer player, double scale, long seconds) {
+        long expiry = now() + seconds;
         CompoundTag data = player.getPersistentData();
         data.putLong(SCALE_END, expiry);
         data.putDouble(SCALE_AMOUNT, scale);
         updateScale(player, expiry, scale);
-        player.displayClientMessage(Component.literal(
-            scale < 1 ? "You are now one-fifth normal size for 10 minutes." :
-                        "You are now twice normal size for 10 minutes."), true);
+        player.displayClientMessage(Component.literal("You are now " +
+            BrainmethBrewing.sizeText(scale).toLowerCase() + " normal size for " +
+            BrainmethBrewing.durationText(seconds) + "."), true);
     }
 
     private static void updateScale(ServerPlayer player, long expiry, double scale) {

@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "minecraft:flint",
+      "components": {
+        "minecraft:custom_data": {
+          "brainmeth_reward": "ant_mandible"
+        }
+      },
+      "strict": false
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    }
+  ],
+  "result": {
+    "id": "minecraft:glowstone_dust",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Shrink Dust",
+        "italic": false,
+        "color": "light_purple"
+      },
+      "minecraft:lore": [
+        {
+          "text": "Brew with an Awkward Potion.",
+          "italic": false,
+          "color": "gray"
+        },
+        {
+          "text": "Makes Potions of Minor Shrinking.",
+          "italic": false,
+          "color": "gray"
+        }
+      ],
+      "minecraft:custom_data": {
+        "brainmeth_reward": "shrink_dust"
+      },
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+}
