@@ -16,7 +16,7 @@ require-modpack: true
 accepted-loaders: [neoforge]
 advertise-versions-to-sync: true
 self-updater: false
-connection-mode: HOLEPUNCH
+connection-mode: MAGIC
 validate-secrets: true
 
 modpack {
@@ -70,7 +70,7 @@ def main() -> int:
     config = root / "server.conf"
     if not config.exists() or config.read_text(encoding="utf-8") != CONFIG:
         config.write_text(CONFIG, encoding="utf-8")
-    print(f"Configured AutoModpack 5: {config} (HOLEPUNCH; Essential + Recommended + Extras)")
+    print(f"Configured AutoModpack 5: {config} (MAGIC; Essential + Recommended + Extras)")
     return 0
 
 
