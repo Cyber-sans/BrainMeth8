@@ -44,6 +44,7 @@ expected = {
     "uncommon/herobrine_head": ("minecraft:player_head", 1, "herobrine_head"),
     "uncommon/disc_flashing_lights": ("minecraft:music_disc_11", 1, "disc_flashing_lights"),
     "uncommon/disc_passionfruit": ("minecraft:music_disc_wait", 1, "disc_passionfruit"),
+    "rare/king_of_brainmeth_crown": ("minecraft:netherite_helmet", 1, "king_of_brainmeth_crown"),
     "uncommon/random_plushie": ("perfectplushies:*", 1, None),
     "uncommon/random_trophy_set": ("trofers:*", 2, None),
 }

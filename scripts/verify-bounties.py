@@ -79,7 +79,7 @@ for key in tiers["rare"][1]:
     assert data["pools"][0]["entries"][0]["value"]=="brainmeth:rewards/uncommon/"+key
 assert "king_of_brainmeth_crown" not in (e["value"] for e in rare_pool)
 assert "kill_switch" not in (e["value"] for e in rare_pool)
-crown=json.loads((rl/"../rewards/rare/king_of_brainmeth_crown.json").resolve().read_text())
+crown=json.loads((rl/"rewards/rare/king_of_brainmeth_crown.json").read_text())
 assert crown["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:custom_data"]["brainmeth_reward"]=="king_of_brainmeth_crown"
 java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
 assert "DRAGON_EGG_CLAIMS" in java and "dragon_egg" in java and "kill_switch" in java

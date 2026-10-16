@@ -34,7 +34,7 @@ public final class BrainmethBountyDelivery {
                     .then(Commands.argument("reward",StringArgumentType.word())
                         .executes(ctx -> grant(ctx.getSource().getServer(),
                             StringArgumentType.getString(ctx,"player"),
-                            StringArgumentType.getString(ctx,"reward"))))));
+                            StringArgumentType.getString(ctx,"reward")))))));
     }
 
     private static int grant(MinecraftServer server,String name,String id) {
