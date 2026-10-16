@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bosses_of_mass_destruction:ancient_anima"
+    },
+    {
+      "item": "bosses_of_mass_destruction:blazing_eye"
+    },
+    {
+      "item": "bosses_of_mass_destruction:obsidian_heart"
+    },
+    {
+      "item": "bosses_of_mass_destruction:void_thorn"
+    }
+  ],
+  "result": {
+    "id": "minecraft:nether_star",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Seal of the Four Calamities",
+        "color": "dark_purple",
+        "italic": false
+      },
+      "minecraft:custom_data": {
+        "brainmeth_bounty": "four_calamities_seal"
+      },
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+}

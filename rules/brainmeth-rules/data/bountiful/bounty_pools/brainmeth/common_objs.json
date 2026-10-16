@@ -1,0 +1,258 @@
+{
+  "weightMult": 1,
+  "content": {
+    "chrysalis": {
+      "type": "item",
+      "content": "naturalist:chrysalis",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 2000,
+      "name": "Chrysalis Collector",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "snail_shell": {
+      "type": "item",
+      "content": "naturalist:snail_shell",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 2000,
+      "name": "A Slow Discovery",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "lizard_tail": {
+      "type": "item",
+      "content": "naturalist:lizard_tail",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 10,
+        "max": 10
+      },
+      "unitWorth": 600,
+      "name": "A Tail to Tell",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "red_savanna_grape": {
+      "type": "item",
+      "content": "vinery:red_savanna_grape",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 32,
+        "max": 32
+      },
+      "unitWorth": 187.5,
+      "name": "Savanna Vineyard",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "dark_cherry": {
+      "type": "item",
+      "content": "vinery:dark_cherry",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 32,
+        "max": 32
+      },
+      "unitWorth": 187.5,
+      "name": "Dark Cherry Orchard",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "coffee_beans": {
+      "type": "item",
+      "content": "herbalbrews:coffee_beans",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 32,
+        "max": 32
+      },
+      "unitWorth": 187.5,
+      "name": "Coffee Plantation",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "dried_oolong_tea": {
+      "type": "item",
+      "content": "herbalbrews:dried_oolong_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 16,
+        "max": 16
+      },
+      "unitWorth": 375,
+      "name": "Oolong Processing",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "flax": {
+      "type": "item",
+      "content": "supplementaries:flax",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 64,
+        "max": 64
+      },
+      "unitWorth": 93.75,
+      "name": "Textile Mill",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "rope": {
+      "type": "item",
+      "content": "supplementaries:rope",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 32,
+        "max": 32
+      },
+      "unitWorth": 187.5,
+      "name": "Rope Factory",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "snort_pottery_sherd": {
+      "type": "item",
+      "content": "minecraft:snort_pottery_sherd",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 2000,
+      "name": "Snort Archaeologist",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "resin_clump": {
+      "type": "item",
+      "content": "minecraft:resin_clump",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 64,
+        "max": 64
+      },
+      "unitWorth": 93.75,
+      "name": "Pale Forest Resin",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    }
+  }
+}

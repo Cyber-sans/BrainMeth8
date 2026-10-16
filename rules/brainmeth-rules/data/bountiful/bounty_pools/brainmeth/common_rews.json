@@ -1,0 +1,304 @@
+{
+  "weightMult": 1,
+  "content": {
+    "cherry_wood": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_cherry_wood",
+      "name": "Cherry Wood Shipment",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "mangrove_timber": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_mangrove_timber",
+      "name": "Mangrove Timber",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "warped_timber": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_warped_timber",
+      "name": "Warped Timber",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "crimson_timber": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_crimson_timber",
+      "name": "Crimson Timber",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "pale_oak": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_pale_oak",
+      "name": "Pale Oak Shipment",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "calcite": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_calcite",
+      "name": "Calcite Shipment",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "terracotta_palette": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_terracotta_palette",
+      "name": "Terracotta Palette",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "copper_construction": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_copper_construction",
+      "name": "Copper Construction",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "lanterns": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_lanterns",
+      "name": "Lantern Shipment",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "mushroom_architecture": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_mushroom_architecture",
+      "name": "Mushroom Architecture",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "landscaper": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_landscaper",
+      "name": "Landscaper's Crate",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "mudbricks": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_mudbricks",
+      "name": "Mudbrick Shipment",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "decorated_pots": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% common_decorated_pots",
+      "name": "Pottery Workshop",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 6000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    }
+  }
+}

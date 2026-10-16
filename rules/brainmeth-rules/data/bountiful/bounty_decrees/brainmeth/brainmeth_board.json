@@ -1,0 +1,19 @@
+{
+  "name": "Brainmeth Community Bounties",
+  "objectives": [
+    "common_objs",
+    "uncommon_objs",
+    "rare_objs",
+    "special_objs"
+  ],
+  "rewards": [
+    "common_rews",
+    "uncommon_rews",
+    "rare_rews",
+    "special_rews"
+  ],
+  "linkedProfessions": [],
+  "canSpawn": true,
+  "canWanderBuy": false,
+  "canReveal": true
+}

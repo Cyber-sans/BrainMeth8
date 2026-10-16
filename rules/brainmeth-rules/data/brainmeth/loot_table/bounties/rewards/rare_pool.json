@@ -1,0 +1,166 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/poo"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/firework_grimoire"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/rain_grimoire"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/levitation_grimoire"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/healing_grimoire"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/lightning_grimoire"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/knockback_stick"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/potion_everything"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/potion_shrink"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/potion_grow"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/potion_creative"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/super_tnt"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/ultimate_chorus_fruit"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/splash_binding"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/splash_vanishing"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/splash_coronavirus"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/fake_tnt"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/naughty_shovel"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/time_traveller_watch"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/mild_inconvenience_staff"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/summoning_bow"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/tree_of_life"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/orbital_strike_gun"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/crystal_ball"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/cognitohazard_book"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/crown_of_nothing"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/fake_death_certificate"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/butlers_bell"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/book_of_wisdom"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/replicating_cake"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/manifesto"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/herobrine_head"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/disc_flashing_lights"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/disc_passionfruit"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/random_plushie"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/random_trophy_set"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/random_plushie"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/random_trophy_set"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/manifesto"
+        }
+      ]
+    }
+  ]
+}

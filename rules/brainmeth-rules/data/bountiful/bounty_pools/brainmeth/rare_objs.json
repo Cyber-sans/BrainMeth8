@@ -1,0 +1,171 @@
+{
+  "weightMult": 1.45,
+  "content": {
+    "ancient_anima": {
+      "type": "item",
+      "content": "bosses_of_mass_destruction:ancient_anima",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Remains of the Night Lich",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "blazing_eye": {
+      "type": "item",
+      "content": "bosses_of_mass_destruction:blazing_eye",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Burning Fist of the Gauntlet",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "obsidian_heart": {
+      "type": "item",
+      "content": "bosses_of_mass_destruction:obsidian_heart",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Heart of the Obsidilith",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "void_thorn": {
+      "type": "item",
+      "content": "bosses_of_mass_destruction:void_thorn",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Last Flower of the Void",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "heart_of_the_deep": {
+      "type": "item",
+      "content": "deeperdarker:heart_of_the_deep",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Warden's Heart",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "four_calamities": {
+      "type": "item",
+      "content": "minecraft:nether_star",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "The Four Calamities",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "components": {
+        "minecraft:custom_data": {
+          "brainmeth_bounty": "four_calamities_seal"
+        }
+      }
+    },
+    "nether_star": {
+      "type": "item",
+      "content": "minecraft:nether_star",
+      "rarity": "RARE",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 15000,
+      "name": "The Wither Hunter",
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    }
+  }
+}

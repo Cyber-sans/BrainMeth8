@@ -1,0 +1,373 @@
+{
+  "weightMult": 1.9,
+  "content": {
+    "sponges": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_sponges",
+      "name": "Sponge Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "powered_rails": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_powered_rails",
+      "name": "Powered Rail Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "blue_ice": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_blue_ice",
+      "name": "Blue Ice Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "sea_lanterns": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_sea_lanterns",
+      "name": "Sea Lantern Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "froglights": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_froglights",
+      "name": "Froglight Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "end_rods": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_end_rods",
+      "name": "End Rod Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "shroomlights": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_shroomlights",
+      "name": "Shroomlight Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "gilded_blackstone": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_gilded_blackstone",
+      "name": "Gilded Blackstone",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "crying_obsidian": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_crying_obsidian",
+      "name": "Crying Obsidian",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "dark_prismarine": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_dark_prismarine",
+      "name": "Dark Prismarine",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "quartz": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_quartz",
+      "name": "Quartz Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "coral": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_coral",
+      "name": "Coral Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "shellstone": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_shellstone",
+      "name": "Ancient Shellstone",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "ore_display": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_ore_display",
+      "name": "Rare Ore Display",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "copper_masterwork": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_copper_masterwork",
+      "name": "Copper Masterwork",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "spore_blossom": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% uncommon_spore_blossom",
+      "name": "Spore Blossom Shipment",
+      "rarity": "UNCOMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 13000,
+      "markers": [
+        "uncommon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    }
+  }
+}

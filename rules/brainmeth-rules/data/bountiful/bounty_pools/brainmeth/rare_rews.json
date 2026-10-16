@@ -1,0 +1,833 @@
+{
+  "weightMult": 1.45,
+  "content": {
+    "poo": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_poo",
+      "name": "Poo",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "firework_grimoire": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_firework_grimoire",
+      "name": "Firework Grimoire",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "rain_grimoire": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_rain_grimoire",
+      "name": "Rain Grimoire",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "levitation_grimoire": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_levitation_grimoire",
+      "name": "Levitation Grimoire",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "healing_grimoire": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_healing_grimoire",
+      "name": "Healing Grimoire",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "lightning_grimoire": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_lightning_grimoire",
+      "name": "Lightning Grimoire",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "knockback_stick": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_knockback_stick",
+      "name": "Knockback Stick",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "potion_everything": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_everything",
+      "name": "Potion Everything",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "potion_shrink": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_shrink",
+      "name": "Potion Shrink",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "potion_grow": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_grow",
+      "name": "Potion Grow",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "potion_creative": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_creative",
+      "name": "Potion Creative",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "super_tnt": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_super_tnt",
+      "name": "Super Tnt",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "ultimate_chorus_fruit": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_ultimate_chorus_fruit",
+      "name": "Ultimate Chorus Fruit",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "splash_binding": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_binding",
+      "name": "Splash Binding",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "splash_vanishing": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_vanishing",
+      "name": "Splash Vanishing",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "splash_coronavirus": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_coronavirus",
+      "name": "Splash Coronavirus",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "fake_tnt": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_fake_tnt",
+      "name": "Fake Tnt",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "naughty_shovel": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_naughty_shovel",
+      "name": "Naughty Shovel",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "time_traveller_watch": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_time_traveller_watch",
+      "name": "Time Traveller Watch",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "mild_inconvenience_staff": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_mild_inconvenience_staff",
+      "name": "Mild Inconvenience Staff",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "summoning_bow": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_summoning_bow",
+      "name": "Summoning Bow",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "tree_of_life": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_tree_of_life",
+      "name": "Tree Of Life",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "orbital_strike_gun": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_orbital_strike_gun",
+      "name": "Orbital Strike Gun",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "crystal_ball": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_crystal_ball",
+      "name": "Crystal Ball",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "cognitohazard_book": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_cognitohazard_book",
+      "name": "Cognitohazard Book",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "crown_of_nothing": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_crown_of_nothing",
+      "name": "Crown Of Nothing",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "fake_death_certificate": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_fake_death_certificate",
+      "name": "Fake Death Certificate",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "butlers_bell": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_butlers_bell",
+      "name": "Butlers Bell",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "book_of_wisdom": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_book_of_wisdom",
+      "name": "Book Of Wisdom",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "replicating_cake": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_replicating_cake",
+      "name": "Replicating Cake",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "manifesto": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_manifesto",
+      "name": "Manifesto",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "herobrine_head": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_herobrine_head",
+      "name": "Herobrine Head",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "disc_flashing_lights": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_disc_flashing_lights",
+      "name": "Disc Flashing Lights",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "disc_passionfruit": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_disc_passionfruit",
+      "name": "Disc Passionfruit",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "random_plushie": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_random_plushie",
+      "name": "Random Plushie",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "random_trophy_set": {
+      "type": "command",
+      "content": "brainmethbounty grant %PLAYER_NAME% rare_random_trophy_set",
+      "name": "Random Trophy Set",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "rare"
+      ],
+      "forbidMarkers": [
+        "common",
+        "uncommon",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    }
+  }
+}
