@@ -227,12 +227,17 @@ public final class BrainmethOddities {
             if(old!=null)old.discard();
             Display.TextDisplay d=EntityType.TEXT_DISPLAY.create(player.serverLevel());
             if(d==null)return;
-            d.setText(Component.literal("King of Absolutely Nothing").withStyle(ChatFormatting.GOLD));
-            d.setBillboardConstraints(Display.BillboardConstraints.CENTER);
+            // Vanilla TextDisplay setters are private in 1.21.1; use its
+            // data-component command after spawning rather than reflection.
             d.setNoGravity(true);
             d.setInvulnerable(true);
             d.getPersistentData().putUUID(CROWN_MARKER,id);
             player.serverLevel().addFreshEntity(d);
+            player.serverLevel().getServer().getCommands().performPrefixedCommand(
+                player.serverLevel().getServer().createCommandSourceStack()
+                    .withPermission(4).withSuppressedOutput(),
+                "data merge entity " + d.getUUID()
+                    + " {text:'{\\\"text\\\":\\\"King of Absolutely Nothing\\\",\\\"color\\\":\\\"gold\\\"}',billboard:1b,background:0,see_through:1b}");
             crowns.put(id,d);
             old=d;
         }
