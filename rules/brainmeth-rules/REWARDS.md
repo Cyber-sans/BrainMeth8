@@ -1,6 +1,6 @@
 # Brainmeth bounty rewards — batches 1, 2, 3, 4, 5, 6 and 7 (test branch only)
 
-All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
+All reward entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
 refer to these later. Rewards use vanilla items so brainmeth-core stays server-only
 and AutoModpack does not need new assets for this batch.
@@ -282,3 +282,64 @@ is the only provided way to obtain these until Bountiful integration.
    **placeholder** tracks and do not accidentally play real commercial audio.
 5. Confirm ordinary loot, drops, trader exchanges and stand recipes remain
    blocked after a full test-world restart.
+
+## Brewable size potions (survival, not bounty rewards)
+
+Unlike the admin-only rewards above, these are obtainable in normal survival play.
+The 10-minute Shrinking / Growing reward potions are unchanged and stay
+bounty-only; the brewable versions are weaker or shorter.
+
+**Mob drops** (player kills only; added with NeoForge loot modifiers, so
+Naturalist's own tables are untouched):
+
+| Mob | Drop | Chance | Base item |
+|---|---|---|---|
+| Ant (Naturalist) | Ant Mandible | 18% | flint |
+| Giraffe (Naturalist) | Giraffe Neck Hair | 15% | string |
+
+Ants live in Ant Hills (jungle and savanna). Breaking a hill's queen block
+drops a Queen Ant, which plants a fresh hill with new ants anywhere, so one
+Queen is a renewable mandible source. Giraffes breed with apples, golden
+apples or hay bales.
+
+**Crafting** (shapeless):
+- Shrink Dust = Ant Mandible + Sugar + any mushroom (base: glowstone dust)
+- Growth Powder = Giraffe Neck Hair + Bone Meal + any mushroom (base: redstone)
+
+"Any mushroom" is the `c:mushrooms` tag: Red and Brown Mushrooms, plus any
+mushrooms other mods add to that tag.
+
+**Brewing** (`BrainmethBrewing.java`):
+
+| Input | Ingredient | Result |
+|---|---|---|
+| Awkward Potion | Shrink Dust | Minor Shrinking: 0.5x, 3 min |
+| Minor Shrinking | Redstone | Minor Shrinking: 0.5x, 8 min |
+| Minor Shrinking | Glowstone Dust | Strong Shrinking: 0.2x, 90 s |
+| Awkward Potion | Growth Powder | Minor Growing: 1.5x, 3 min |
+| Minor Growing | Redstone | Minor Growing: 1.5x, 8 min |
+| Minor Growing | Glowstone Dust | Strong Growing: 2x, 90 s |
+| Any size potion | Fermented Spider Eye | The opposite size, same tier |
+
+Design notes:
+- Materials and dusts are renamed vanilla items with a `brainmeth_reward`
+  custom-data marker, so brainmeth-core stays server-only. Crafting recipes match
+  the marker with the `neoforge:components` ingredient; plain flint, string,
+  glowstone or redstone cannot be used in place of the custom items.
+- Glowstone and redstone are vanilla brewing ingredients, so clients without
+  brainmeth-core still let players place Shrink Dust / Growth Powder in a stand.
+- Brewed potions use a Thick Potion base with a custom colour. Thick has no vanilla
+  mixes, so only the Brainmeth recipes apply; NeoForge checks custom recipes
+  before vanilla ones. Adding gunpowder or dragon's breath turns one into a
+  plain Splash/Lingering Thick Potion and loses the size effect (no splash
+  versions exist yet).
+- Drinking uses the same real-time scale timer as the reward potions: it keeps
+  counting offline, ends on death, and a new size potion replaces the current one.
+
+### Tests before enabling on production
+1. Kill ants and giraffes; confirm only player kills drop the materials, at about
+   the listed rates, and that other Naturalist drops still appear.
+2. Craft Shrink Dust and Growth Powder; confirm plain flint/string do not work.
+3. Brew every row of the table, including the Fermented Spider Eye flips, and
+   confirm plain glowstone/redstone/awkward potions still brew normally.
+4. Drink each potion; check size, duration, logout/restart persistence and death.

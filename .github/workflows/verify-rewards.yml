@@ -9,6 +9,14 @@ on:
       - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java'
       - 'scripts/verify-rewards.py'
       - 'scripts/verify-bounties.py'
+      - 'scripts/verify-size-potions.py'
+      - 'scripts/verify-game-rules.py'
+      - 'rules/brainmeth-rules/data/brainmeth/loot_table/entities/**'
+      - 'rules/brainmeth-rules/data/brainmeth/loot_modifiers/**'
+      - 'rules/brainmeth-rules/data/brainmeth/recipe/**'
+      - 'rules/brainmeth-rules/data/neoforge/loot_modifiers/**'
+      - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBrewing.java'
+      - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethConsumables.java'
       - 'scripts/configure-bountiful.py'
       - 'rules/brainmeth-rules/data/bountiful/**'
       - 'rules/brainmeth-rules/data/brainmeth/loot_table/bounties/**'
@@ -33,3 +41,5 @@ jobs:
           python3 -m py_compile scripts/verify-rewards.py
           python3 scripts/verify-rewards.py
           python3 scripts/verify-bounties.py
+          python3 scripts/verify-size-potions.py
+          python3 scripts/verify-game-rules.py

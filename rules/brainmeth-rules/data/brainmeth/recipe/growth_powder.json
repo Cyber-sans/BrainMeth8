@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "minecraft:string",
+      "components": {
+        "minecraft:custom_data": {
+          "brainmeth_reward": "giraffe_neck_hair"
+        }
+      },
+      "strict": false
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "tag": "c:mushrooms"
+    }
+  ],
+  "result": {
+    "id": "minecraft:redstone",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Growth Powder",
+        "italic": false,
+        "color": "green"
+      },
+      "minecraft:lore": [
+        {
+          "text": "Brew with an Awkward Potion.",
+          "italic": false,
+          "color": "gray"
+        },
+        {
+          "text": "Makes Potions of Minor Growing.",
+          "italic": false,
+          "color": "gray"
+        }
+      ],
+      "minecraft:custom_data": {
+        "brainmeth_reward": "growth_powder"
+      },
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+}
