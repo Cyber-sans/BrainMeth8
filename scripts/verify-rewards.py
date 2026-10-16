@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth batch-1 admin-only reward loot tables."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–2)."""
 from pathlib import Path
 import json
 
@@ -12,6 +12,10 @@ expected = {
     "uncommon/poo": ("minecraft:mud", 1, "poo"),
     "uncommon/firework_grimoire": ("minecraft:book", 1, "firework_grimoire"),
     "uncommon/rain_grimoire": ("minecraft:book", 1, "rain_grimoire"),
+    "uncommon/levitation_grimoire": ("minecraft:book", 1, "levitation_grimoire"),
+    "uncommon/healing_grimoire": ("minecraft:book", 1, "healing_grimoire"),
+    "uncommon/lightning_grimoire": ("minecraft:book", 1, "lightning_grimoire"),
+    "uncommon/knockback_stick": ("minecraft:stick", 1, "knockback_stick"),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -29,12 +33,16 @@ for name, (base_item, amount, marker) in expected.items():
     if marker:
         assert len(comps) == 1 and comps[0]["minecraft:custom_data"]["brainmeth_reward"] == marker
         assert comps[0]["minecraft:max_stack_size"] == 1
+        if marker == "knockback_stick":
+            assert comps[0]["minecraft:enchantments"]["levels"] == {"minecraft:knockback": 5}
     else:
         assert not comps, name
 
 code = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java").read_text()
-for marker in ("firework_grimoire", "rain_grimoire", "firework_wand", "rain_wand"):
+for marker in ("firework_grimoire", "rain_grimoire", "levitation_grimoire", "healing_grimoire", "lightning_grimoire", "firework_wand", "rain_wand", "levitation_wand", "healing_wand", "lightning_wand"):
     assert marker in code
-for seconds in ("10 * 60", "24 * 60 * 60"):
+for seconds in ("10 * 60", "24 * 60 * 60", "3 * 60 * 60", "10 * 60"):
     assert seconds in code
-print("Batch-1 rewards validated: 6 admin-only tables, distinct magic markers, real-time recharge.")
+assert "extinguishing_grimoire" not in code and "repulsion_grimoire" not in code
+assert "PendingLightning" in code and "hoverAboveTerrain" in code and "healNearby" in code
+print("Reward batches 1+2 verified: 10 admin-only tables, Knockback V, three new wand mechanics.")
