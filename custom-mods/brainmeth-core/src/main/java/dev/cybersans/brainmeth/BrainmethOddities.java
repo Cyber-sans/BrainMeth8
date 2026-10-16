@@ -207,6 +207,7 @@ public final class BrainmethOddities {
     }
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
+        if(event.getLevel() instanceof ServerLevel joinedLevel) load(joinedLevel.getServer());
         Entity entity=event.getEntity();
         if(entity instanceof Villager v&&v.getPersistentData().hasUUID(BUTLER_MARKER)) {
             butlers.put(v.getPersistentData().getUUID(BUTLER_MARKER),v);
@@ -237,7 +238,7 @@ public final class BrainmethOddities {
                 player.serverLevel().getServer().createCommandSourceStack()
                     .withPermission(4).withSuppressedOutput(),
                 "data merge entity " + d.getUUID()
-                    + " {text:'{\\\"text\\\":\\\"King of Absolutely Nothing\\\",\\\"color\\\":\\\"gold\\\"}',billboard:1b,background:0,see_through:1b}");
+                    + " {text:'{\\\"text\\\":\\\"King of Absolutely Nothing\\\",\\\"color\\\":\\\"gold\\\"}',billboard:\"center\",background:0,see_through:1b}");
             crowns.put(id,d);
             old=d;
         }
