@@ -7,7 +7,14 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
@@ -21,9 +28,12 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Bounty-only magic using tagged vanilla items. No client mod or recipes required.
@@ -35,6 +45,27 @@ public final class BrainmethRewards {
     private static final String MARKER = "brainmeth_reward";
     private static final long FIREWORK_REGEN_SECONDS = 10 * 60;
     private static final long RAIN_REGEN_SECONDS = 24 * 60 * 60;
+    private static final long LEVITATION_REGEN_SECONDS = 60 * 60;
+    private static final long HEALING_REGEN_SECONDS = 60 * 60;
+    private static final long LIGHTNING_REGEN_SECONDS = 3 * 60 * 60;
+    private static final long LEVITATION_DURATION_SECONDS = 10 * 60;
+    private static final String HOVER_END_KEY = "brainmeth_hover_end_epoch";
+    private static final int HEAL_RADIUS_BLOCKS = 8 * 16;
+    private static MinecraftServer queuedServer;
+    private static final List<PendingLightning> lightningQueue = new ArrayList<>();
+
+    private static final class PendingLightning {
+        final ServerLevel level;
+        final BlockPos pos;
+        int remaining = 6;
+        long nextTick;
+
+        PendingLightning(ServerLevel level, BlockPos pos) {
+            this.level = level;
+            this.pos = pos;
+            this.nextTick = level.getGameTime();
+        }
+    }
 
     private BrainmethRewards() {}
 
@@ -47,7 +78,7 @@ public final class BrainmethRewards {
         ItemStack held = event.getItemStack();
         String kind = kind(held);
         switch (kind) {
-            case "firework_grimoire", "rain_grimoire" -> {
+            case "firework_grimoire", "rain_grimoire", "levitation_grimoire", "healing_grimoire", "lightning_grimoire" -> {
                 if (held.is(Items.BOOK)) enchantStick(player, held, kind);
             }
             case "rain_wand" -> {
@@ -57,6 +88,38 @@ public final class BrainmethRewards {
                     } else if (spendCharge(player, held, 1, RAIN_REGEN_SECONDS, "Rain Wand")) {
                         level.setWeatherParameters(0, 12000, true, false);
                         player.displayClientMessage(Component.literal("The heavens have opened."), true);
+                    }
+                }
+            }
+            case "levitation_wand" -> {
+                if (held.is(Items.STICK)) {
+                    long now = Instant.now().getEpochSecond();
+                    long previousEnd = player.getPersistentData().getLong(HOVER_END_KEY);
+                    if (previousEnd > now) {
+                        player.displayClientMessage(Component.literal("Already floating for another "
+                            + (previousEnd - now) + " seconds."), true);
+                    } else if (spendCharge(player, held, 3, LEVITATION_REGEN_SECONDS, "Levitation Wand")) {
+                        player.getPersistentData().putLong(HOVER_END_KEY, now + LEVITATION_DURATION_SECONDS);
+                        player.displayClientMessage(Component.literal("You hover one block above the ground for 10 minutes."), true);
+                    }
+                }
+            }
+            case "healing_wand" -> {
+                if (held.is(Items.STICK) && spendCharge(player, held, 1, HEALING_REGEN_SECONDS, "Healing Wand")) {
+                    int healed = healNearby(level, player);
+                    player.displayClientMessage(Component.literal("Fully healed " + healed + " nearby player(s)."), true);
+                }
+            }
+            case "lightning_wand" -> {
+                if (held.is(Items.STICK)) {
+                    HitResult hit = player.pick(64.0, 0.0F, false);
+                    if (!(hit instanceof BlockHitResult target) || hit.getType() != HitResult.Type.BLOCK) {
+                        player.displayClientMessage(Component.literal("Look at a block within 64 blocks."), true);
+                    } else if (lightningQueue.size() >= 8) {
+                        player.displayClientMessage(Component.literal("Too many lightning volleys active; try again."), true);
+                    } else if (spendCharge(player, held, 3, LIGHTNING_REGEN_SECONDS, "Lightning Wand")) {
+                        lightningQueue.add(new PendingLightning(level, target.getBlockPos().above()));
+                        player.displayClientMessage(Component.literal("Six lightning strikes incoming!"), true);
                     }
                 }
             }
@@ -94,11 +157,32 @@ public final class BrainmethRewards {
             player.displayClientMessage(Component.literal("Carry an ordinary stick to enchant it."), true);
             return;
         }
-        boolean fireworks = kind.equals("firework_grimoire");
-        String name = fireworks ? "Firework Wand" : "Rain Wand";
-        String wandKind = fireworks ? "firework_wand" : "rain_wand";
-        int capacity = fireworks ? 10 : 1;
-        long interval = fireworks ? FIREWORK_REGEN_SECONDS : RAIN_REGEN_SECONDS;
+        final String name, wandKind;
+        final int capacity;
+        final long interval;
+        switch (kind) {
+            case "firework_grimoire" -> {
+                name = "Firework Wand"; wandKind = "firework_wand";
+                capacity = 10; interval = FIREWORK_REGEN_SECONDS;
+            }
+            case "rain_grimoire" -> {
+                name = "Rain Wand"; wandKind = "rain_wand";
+                capacity = 1; interval = RAIN_REGEN_SECONDS;
+            }
+            case "levitation_grimoire" -> {
+                name = "Levitation Wand"; wandKind = "levitation_wand";
+                capacity = 3; interval = LEVITATION_REGEN_SECONDS;
+            }
+            case "healing_grimoire" -> {
+                name = "Healing Wand"; wandKind = "healing_wand";
+                capacity = 1; interval = HEALING_REGEN_SECONDS;
+            }
+            case "lightning_grimoire" -> {
+                name = "Lightning Wand"; wandKind = "lightning_wand";
+                capacity = 3; interval = LIGHTNING_REGEN_SECONDS;
+            }
+            default -> { return; }
+        }
 
         ItemStack wand = new ItemStack(Items.STICK);
         wand.set(DataComponents.ITEM_NAME, Component.literal(name).withStyle(ChatFormatting.LIGHT_PURPLE));
@@ -168,8 +252,21 @@ public final class BrainmethRewards {
     }
 
     private static void refreshLore(ItemStack wand, String display, int charges, int capacity, long interval) {
-        String recharge = interval == RAIN_REGEN_SECONDS ? "24 real hours" : "10 real minutes";
-        String use = display.equals("Firework Wand") ? "Left-click a block for 10 fireworks" : "Right-click to summon 10 minutes of rain";
+        String recharge = switch (display) {
+            case "Firework Wand" -> "10 real minutes";
+            case "Rain Wand" -> "24 real hours";
+            case "Levitation Wand", "Healing Wand" -> "1 real hour";
+            case "Lightning Wand" -> "3 real hours";
+            default -> "unknown";
+        };
+        String use = switch (display) {
+            case "Firework Wand" -> "Left-click a block for 10 fireworks";
+            case "Rain Wand" -> "Right-click to summon 10 minutes of rain";
+            case "Levitation Wand" -> "Right-click to hover above terrain for 10 minutes";
+            case "Healing Wand" -> "Right-click to heal players within 8 chunks";
+            case "Lightning Wand" -> "Right-click a targeted block for 6 lightning strikes";
+            default -> "Unknown wand";
+        };
         wand.set(DataComponents.LORE, new ItemLore(List.of(
             Component.literal(use).withStyle(ChatFormatting.GRAY),
             Component.literal("Charges: " + charges + "/" + capacity).withStyle(ChatFormatting.AQUA),
@@ -189,5 +286,77 @@ public final class BrainmethRewards {
             double z = target.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * 3.0;
             level.addFreshEntity(new FireworkRocketEntity(level, x, y, z, rocket));
         }
+    }
+
+    /** Eight chunks = 128 blocks, spherical range, same dimension only. */
+    private static int healNearby(ServerLevel level, ServerPlayer caster) {
+        int healed = 0;
+        for (ServerPlayer target : level.getServer().getPlayerList().getPlayers()) {
+            if (target.level() != level || !target.isAlive() || target.isSpectator()) continue;
+            if (target.distanceToSqr(caster) <= HEAL_RADIUS_BLOCKS * HEAL_RADIUS_BLOCKS) {
+                target.setHealth(target.getMaxHealth());
+                healed++;
+            }
+        }
+        return healed;
+    }
+
+    @SubscribeEvent
+    public static void onServerTick(ServerTickEvent.Post event) {
+        MinecraftServer server = event.getServer();
+        if (queuedServer != server) {
+            lightningQueue.clear();
+            queuedServer = server;
+        }
+        for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+            long end = player.getPersistentData().getLong(HOVER_END_KEY);
+            if (end == 0) continue;
+            if (end <= Instant.now().getEpochSecond() || !player.isAlive()) {
+                player.getPersistentData().remove(HOVER_END_KEY);
+                continue;
+            }
+            hoverAboveTerrain(player);
+        }
+        Iterator<PendingLightning> it = lightningQueue.iterator();
+        while (it.hasNext()) {
+            PendingLightning pending = it.next();
+            if (pending.level.getGameTime() < pending.nextTick) continue;
+            LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(pending.level);
+            if (bolt != null) {
+                bolt.moveTo(pending.pos.getX() + 0.5, pending.pos.getY(),
+                            pending.pos.getZ() + 0.5);
+                pending.level.addFreshEntity(bolt);
+            }
+            pending.remaining--;
+            pending.nextTick = pending.level.getGameTime() + 8; // visibly separated strikes
+            if (pending.remaining == 0) it.remove();
+        }
+    }
+
+    /** Avoid allowing free flight: follow the collision surface one metre below the feet.
+     *  Keep the player's horizontal velocity and respect normal collision checks.
+     *  No persistent no-gravity flag is set, so logout or expiry cannot strand a player.
+     */
+    private static void hoverAboveTerrain(ServerPlayer player) {
+        if (player.isPassenger() || player.isFallFlying() || player.isSpectator()
+            || player.getAbilities().flying) return;
+        ServerLevel level = player.serverLevel();
+        Vec3 from = player.position().add(0.0, 0.25, 0.0);
+        Vec3 to = from.add(0.0, -12.0, 0.0);
+        BlockHitResult ground = level.clip(new ClipContext(
+            from, to, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, player));
+        Vec3 motion = player.getDeltaMovement();
+        double vertical;
+        if (ground.getType() == HitResult.Type.BLOCK) {
+            double desiredY = ground.getLocation().y + 1.0;
+            double error = desiredY - player.getY();
+            vertical = Math.max(-0.26, Math.min(0.26, error * 0.26 + 0.0784));
+        } else {
+            // Over deep drops, descend slowly until solid ground is located.
+            vertical = -0.10;
+        }
+        player.setDeltaMovement(motion.x, vertical, motion.z);
+        player.fallDistance = 0.0F;
+        player.hurtMarked = true;
     }
 }
