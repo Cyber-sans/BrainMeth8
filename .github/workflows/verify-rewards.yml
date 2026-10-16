@@ -1,0 +1,28 @@
+name: Verify Brainmeth reward catalogue
+
+on:
+  push:
+    branches:
+      - migration/neoforge-1.21.1
+    paths:
+      - 'rules/brainmeth-rules/data/brainmeth/loot_table/rewards/**'
+      - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java'
+      - 'scripts/verify-rewards.py'
+      - '.github/workflows/verify-rewards.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate loot tables and reward identifiers
+        run: |
+          python3 -m py_compile scripts/verify-rewards.py
+          python3 scripts/verify-rewards.py
