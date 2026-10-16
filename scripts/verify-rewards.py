@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–5)."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–6)."""
 from pathlib import Path
 import json
 
@@ -32,6 +32,15 @@ expected = {
     "uncommon/summoning_bow": ("minecraft:bow", 1, "summoning_bow"),
     "uncommon/tree_of_life": ("minecraft:oak_sapling", 1, "tree_of_life"),
     "uncommon/orbital_strike_gun": ("minecraft:crossbow", 1, "orbital_strike_gun"),
+    "uncommon/crystal_ball": ("minecraft:ender_eye", 1, "crystal_ball"),
+    "uncommon/kill_switch": ("minecraft:stone_button", 1, "kill_switch"),
+    "uncommon/cognitohazard_book": ("minecraft:written_book", 1, "cognitohazard_book"),
+    "uncommon/crown_of_nothing": ("minecraft:golden_helmet", 1, "crown_of_nothing"),
+    "uncommon/fake_death_certificate": ("minecraft:paper", 1, "fake_death_certificate"),
+    "uncommon/butlers_bell": ("minecraft:bell", 1, "butlers_bell"),
+    "uncommon/book_of_wisdom": ("minecraft:paper", 1, "book_of_wisdom"),
+    "uncommon/replicating_cake": ("minecraft:cake", 1, "replicating_cake"),
+    "uncommon/manifesto": ("minecraft:written_book", 4, "manifesto"),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -40,6 +49,23 @@ for name, (base_item, amount, marker) in expected.items():
     assert data["type"] == "minecraft:generic"
     pools = data["pools"]
     assert len(pools) == 1
+    if name == "uncommon/manifesto":
+        assert pools[0]["rolls"] == 1
+        groups = pools[0]["entries"]
+        assert len(groups) == 1 and groups[0]["type"] == "minecraft:group"
+        volumes = groups[0]["children"]
+        assert len(volumes) == 4
+        all_pages = []
+        for number, volume in enumerate(volumes, 1):
+            assert volume["name"] == "minecraft:written_book"
+            comp = volume["functions"][0]["components"]
+            assert comp["minecraft:custom_data"]["volume"] == number
+            book = comp["minecraft:written_book_content"]
+            assert book["author"] == "Marx & Engels" and len(book["pages"]) <= 100
+            all_pages.extend(book["pages"])
+        assert len(all_pages) > 250
+        assert "WORKING MEN OF ALL COUNTRIES" in "".join(json.loads(page)["text"] for page in all_pages)
+        continue
     rolls = amount if name in {"uncommon/splash_binding", "uncommon/splash_vanishing", "uncommon/splash_coronavirus"} else 1
     assert pools[0]["rolls"] == rolls, name
     entries = pools[0]["entries"]
@@ -96,4 +122,18 @@ assert "state.hasBlockEntity()" in orbital and "state.getDestroySpeed(level, pos
 assert "getGameTime() < strike.impactTick" in orbital and "if (strike.shooter.equals(shooter.getUUID()))" in orbital
 assert "level.explode(" not in orbital and "level.addFreshEntity(" not in orbital
 assert not any("rare_music_disc" in filename for filename in actual)
-print("Reward batches 1-5 verified: 26 admin-only loot tables including orbital gun.")
+oddities = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOddities.java").read_text()
+wisdom = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethWisdom.java").read_text()
+cake = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethReplicatingCake.java").read_text()
+for key in ("crystal_ball", "kill_switch", "cognitohazard_book", "crown_of_nothing", "fake_death_certificate", "butlers_bell", "manifesto"):
+    assert key in oddities, key
+assert "BRAINMETH_ALLOW_KILLSWITCH" in oddities and '"stop"' in oddities
+assert "ClientboundSetTitleTextPacket" in oddities and "brainmeth-crystal-messages.json" in oddities
+assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
+assert "A fresh start will put you on your way." in wisdom and "Nothing is exactly as it seems." in wisdom
+assert "Wanda" in wisdom and "now+3600L" in wisdom
+assert "REPLICATION_INTERVAL = 24 * 3600L" in cake
+assert "getFoodData().eat(2,0.1F)" in cake and "brainmeth-replicating-cakes.json" in cake
+assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in (root / "compose.yaml").read_text()
+assert not (base / "uncommon/rare_music_disc.json").exists()
+print("Reward batches 1-6 verified: 35 admin-only loot tables and complete Manifesto set.")
