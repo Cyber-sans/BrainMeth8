@@ -23,6 +23,8 @@ python3 ./scripts/prepare-falling-leaves.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-client-extras.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-effectual.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-no-chat-restrictions.py --runtime-root "$ROOT/.pack-runtime"
+# Both collectible mods are mandatory; pinned jar hashes generated for runtime Packwiz.
+python3 ./scripts/prepare-collectibles.py --runtime-root "$ROOT/.pack-runtime"
 # Required only for 1.21.1; no schedule is created on install.
 # Github Actions commits the server-side mod JAR for simple git pull deployment.
 python3 ./scripts/prepare-brainmeth-core.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-core.jar"
@@ -64,6 +66,8 @@ DATAPACK_DEST="$DATA_DIR/world/datapacks/brainmeth-rules"
 mkdir -p "$DATA_DIR/world/datapacks"
 mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
+# No natural plushie/trophy/stand acquisition before custom bounty integration.
+python3 ./scripts/lock-collectibles.py --data-root "$DATA_DIR"
 
 # Keep targeted DnT enchantment bans on the server, without disabling other enchants.
 # The enchantment-disabler mod reads this config at startup.
