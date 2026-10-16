@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "text": "Cognitohazard",
+                  "color": "light_purple",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Signed by 文. Opening this book kills the reader.",
+                    "color": "gray",
+                    "italic": false
+                  }
+                ],
+                "minecraft:custom_data": {
+                  "brainmeth_reward": "cognitohazard_book"
+                },
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:max_stack_size": 1,
+                "minecraft:written_book_content": {
+                  "title": "Cognitohazard",
+                  "author": "文",
+                  "generation": 0,
+                  "pages": [
+                    "{\"text\":\"You should not have opened this book.\"}"
+                  ],
+                  "resolved": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
