@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install our single custom Bountiful board catalogue on the isolated test world."""
+"""Install our single custom Bountiful board catalogue on the selected isolated 1.21.1 world."""
 import argparse
 import json
 from pathlib import Path
@@ -30,7 +30,7 @@ bounty.update({
 board=current.setdefault("board",{})
 board["updateFrequencySecs"]=900
 # Deliberately do not enable global board state. Avoid interfering with
-# unrelated test-world boards, and let every local board share the catalogue.
+# unrelated world boards, and let every local board share the catalogue.
 board["globalBoardState"]=False
 path.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n")
 print("Installed Brainmeth-only Bountiful settings: one objective, one reward, no expiry, 15m refresh.")

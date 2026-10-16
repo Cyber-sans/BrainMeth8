@@ -9,12 +9,10 @@ if [[ "$TARGET" != "test" && "$TARGET" != "prod" ]]; then
   exit 2
 fi
 
-if [[ "$TARGET" == "prod" ]]; then
-  echo "Blocked: 1.21.1 migration is test-only. Do not downgrade production." >&2
-  exit 2
-fi
+# Production is supported exclusively in its dedicated 1.21.1 data directory.
+# The level.dat + version marker guard below prevents accidental 26.2 downgrades.
 python3 ./scripts/prepare-pack-v5.py --pack-root "$ROOT/pack" --runtime-root "$ROOT/.pack-runtime"
-# TEMP: quarantine Minecart Speed on test while investigating its watchdog hang.
+# TEMP: quarantine Minecart Speed on 1.21.1 until its watchdog hang is resolved.
 python3 ./scripts/disable-minecart-speed.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-audio-mods.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-qol-mods.py --runtime-root "$ROOT/.pack-runtime"
@@ -86,7 +84,7 @@ mkdir -p "$(dirname "$IMPROVED_MOBS_CONFIG_DEST")"
 cp "$IMPROVED_MOBS_CONFIG_SOURCE" "$IMPROVED_MOBS_CONFIG_DEST"
 
 # Savage Ender Dragon (Cupboard): JSON config is read at server startup.
-# Keep on the isolated 1.21.1 test server; originals remain unchanged.
+# Used by the separate 1.21.1 test and production instances.
 DRAGONFIGHT_CONFIG_SOURCE="$ROOT/rules/server-config/dragonfight.json"
 DRAGONFIGHT_CONFIG_DEST="$DATA_DIR/config/dragonfight.json"
 mkdir -p "$(dirname "$DRAGONFIGHT_CONFIG_DEST")"

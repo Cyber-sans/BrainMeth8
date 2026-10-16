@@ -12,7 +12,8 @@ root = Path(__file__).resolve().parents[1]
 source = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethCore.java").read_text()
 deploy = (root / "scripts/deploy.sh").read_text()
 assert 'if [[ "$TARGET" == "prod" ]]; then' in deploy
-assert "Blocked: 1.21.1 migration is test-only" in deploy
+assert "1.21.1 migration is test-only" not in deploy
+assert "existing world lacks 1.21.1 marker" in deploy
 assert 'scripts/prepare-brainmeth-core.py' in deploy
 for token in (
     'ZoneId.of("Europe/London")',
