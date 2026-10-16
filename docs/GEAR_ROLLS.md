@@ -32,8 +32,8 @@ custom data and shown as a lore line, so players need no extra client mod.
 | Item | Stat | Fine | Superior | Exquisite | Legendary |
 |---|---|---|---|---|---|
 | Pickaxe | Fortune: chance per ore drop of +1 extra item | 3% | 5% | 7% | 10% |
-| Sword | Sharpness: attack damage | +2% | +3% | +5% | +8% |
-| Axe, shovel, hoe | Efficiency: mining speed | +3% | +5% | +7% | +10% |
+| Sword, axe | Sharpness: attack damage | +2% | +3% | +5% | +8% |
+| Shovel, hoe | Efficiency: mining speed | +3% | +5% | +7% | +10% |
 | Armour | Protection: all damage | 1% | 2% | 3% | 4% |
 | Armour | Fire Protection: fire damage | 2% | 4% | 6% | 8% |
 | Armour | Blast Protection: explosion damage | 2% | 4% | 6% | 8% |
@@ -45,7 +45,7 @@ custom data and shown as a lore line, so players need no extra client mod.
 - Fortune bonus applies only to blocks in the `c:ores` tag and only to their
   products (raw iron, diamonds...), never to the ore block itself, and not with
   Silk Touch. It stacks with real Fortune.
-- Sword and mining-speed bonuses use vanilla attributes, so they also appear in
+- Sharpness and Efficiency bonuses use vanilla attributes, so they also appear in
   the normal "When in Main Hand" tooltip.
 
 ## Tests before production
@@ -53,9 +53,9 @@ custom data and shown as a lore line, so players need no extra client mod.
    every one should get a roll (most with a lore line).
 2. Take tools from chests, villagers and `/give`; none should roll.
 3. Combine two damaged tools in the crafting grid; the result has no roll.
-4. Upgrade a rolled diamond pickaxe and a rolled diamond sword to netherite; check
-   the action-bar message, that the better tier is kept, and that the netherite
-   sword shows netherite damage (not diamond).
+4. Upgrade a rolled diamond pickaxe and a rolled diamond sword or axe to netherite;
+   check the action-bar message, that the better tier is kept, and that the netherite
+   weapon shows netherite damage (not diamond).
 5. Mine ores with a Legendary pickaxe and compare drop counts with a Plain one.
 6. Take fire, explosion, arrow and melee damage in rolled armour; check reductions
    and that the 25% cap holds.

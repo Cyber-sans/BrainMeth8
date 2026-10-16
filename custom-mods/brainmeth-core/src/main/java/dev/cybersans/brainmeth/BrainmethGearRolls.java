@@ -109,9 +109,8 @@ public final class BrainmethGearRolls {
     private static List<Stat> statsFor(ItemStack stack) {
         Item item = stack.getItem();
         if (item instanceof PickaxeItem) return List.of(Stat.FORTUNE);
-        if (item instanceof SwordItem) return List.of(Stat.SHARPNESS);
-        if (item instanceof AxeItem || item instanceof ShovelItem || item instanceof HoeItem)
-            return List.of(Stat.EFFICIENCY);
+        if (item instanceof SwordItem || item instanceof AxeItem) return List.of(Stat.SHARPNESS);
+        if (item instanceof ShovelItem || item instanceof HoeItem) return List.of(Stat.EFFICIENCY);
         if (item instanceof ArmorItem && !(item instanceof AnimalArmorItem)) return ARMOUR_STATS;
         return null;
     }

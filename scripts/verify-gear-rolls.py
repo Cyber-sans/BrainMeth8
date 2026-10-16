@@ -26,6 +26,9 @@ for name, values in stats.items():
     assert len(values) == 4 and values == sorted(set(values)) and values[-1] <= 10, (name, values)
 assert stats["FORTUNE"] == [3, 5, 7, 10]
 assert "MAX_ARMOUR_REDUCTION = 25" in code
+# Swords and axes roll Sharpness; shovels and hoes roll Efficiency.
+assert "item instanceof SwordItem || item instanceof AxeItem) return List.of(Stat.SHARPNESS)" in code
+assert "item instanceof ShovelItem || item instanceof HoeItem) return List.of(Stat.EFFICIENCY)" in code
 
 # Only crafting grids roll; trades, smithing and repairs do not.
 for guard in ("MerchantMenu", "ItemCombinerMenu", "CraftingContainer", "AnimalArmorItem",
