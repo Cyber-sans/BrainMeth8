@@ -251,7 +251,7 @@ only the two specifically requested custom-song discs remain planned.
   separate reward entries. All named player and animal variants are included.
 - Random Trophy + Stand: ONE randomly selected vanilla-mob trophy from
   **75 verified Trofers trophy definitions**. The winning
-  group yields a matching pre-loaded display base with its `trofers:trophy`
+  nested loot table yields a matching pre-loaded display base with its `trofers:trophy`
   component, PLUS one spare empty display base of the same size/style.
   This is one reward table/one Bountiful selection, NOT 75
   separate entries. Stand types vary appropriately with mob size.

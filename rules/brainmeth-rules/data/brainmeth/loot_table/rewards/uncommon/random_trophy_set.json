@@ -5,2554 +5,3529 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:allay"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:axolotl"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:bat"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:bee"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:blaze"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:breeze"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:camel"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:cat"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:cave_spider"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:chicken"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:cod"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:cow"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:creeper"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:dolphin"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:donkey"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:drowned"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:elder_guardian"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra large pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:enderman"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:endermite"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:evoker"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:fox"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:frog"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:ghast"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:glow_squid"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:goat"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:guardian"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:hoglin"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:horse"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:husk"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:iron_golem"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra large pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:llama"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:magma_cube"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:mooshroom"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:mule"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:ocelot"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:panda"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:parrot"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:phantom"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:pig"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:piglin"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:piglin_brute"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:medium_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra medium pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:pillager"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:polar_bear"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:pufferfish"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:rabbit"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:ravager"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra large pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:salmon"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:sheep"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:shulker"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:silverfish"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:skeleton"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:skeleton_horse"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:slime"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:sniffer"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:snow_golem"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:spider"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:squid"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:stray"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:strider"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:tadpole"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:trader_llama"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:tropical_fish"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:turtle"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:vex"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:villager"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:vindicator"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:wandering_trader"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:warden"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:large_pillar",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra large pillar display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:witch"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:wither_skeleton"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:wolf"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:zoglin"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:zombie"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:zombie_villager"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:group",
-          "weight": 1,
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "trofers:trophy": "trofers:zombified_piglin"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "trofers:small_plate",
-              "functions": [
-                {
-                  "function": "minecraft:set_components",
-                  "components": {
-                    "minecraft:item_name": {
-                      "text": "Extra small plate display stand",
-                      "italic": false,
-                      "color": "gray"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:allay"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:axolotl"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:bat"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:bee"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:blaze"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:breeze"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:camel"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:cat"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:cave_spider"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:chicken"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:cod"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:cow"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:creeper"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:dolphin"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:donkey"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:drowned"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:elder_guardian"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra large pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:enderman"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:endermite"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:evoker"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:fox"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:frog"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:ghast"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:glow_squid"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:goat"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:guardian"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:hoglin"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:horse"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:husk"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:iron_golem"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra large pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:llama"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:magma_cube"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:mooshroom"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:mule"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:ocelot"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:panda"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:parrot"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:phantom"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:pig"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:piglin"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:piglin_brute"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:medium_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra medium pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:pillager"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:polar_bear"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:pufferfish"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:rabbit"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:ravager"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra large pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:salmon"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:sheep"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:shulker"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:silverfish"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:skeleton"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:skeleton_horse"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:slime"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:sniffer"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:snow_golem"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:spider"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:squid"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:stray"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:strider"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:tadpole"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:trader_llama"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:tropical_fish"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:turtle"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:vex"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:villager"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:vindicator"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:wandering_trader"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:warden"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:large_pillar",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra large pillar display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:witch"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:wither_skeleton"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:wolf"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:zoglin"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:zombie"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:zombie_villager"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": {
+            "type": "minecraft:generic",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "trofers:trophy": "trofers:zombified_piglin"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "trofers:small_plate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:item_name": {
+                            "text": "Extra small plate display stand",
+                            "italic": false,
+                            "color": "gray"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
         }
       ]
     }

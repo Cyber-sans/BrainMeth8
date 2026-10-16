@@ -66,14 +66,21 @@ for name, (base_item, amount, marker) in expected.items():
         assert pools[0]["rolls"] == 1
         entries = pools[0]["entries"]
         assert len(entries) == 75
-        for group in entries:
-            assert group["type"] == "minecraft:group" and group["weight"] == 1
-            pair = group["children"]
-            assert len(pair) == 2
+        selected_trophies = set()
+        for nested in entries:
+            assert nested["type"] == "minecraft:loot_table" and nested["weight"] == 1
+            assert nested["value"]["type"] == "minecraft:generic"
+            inner_pools = nested["value"]["pools"]
+            assert len(inner_pools)==2
+            assert [p["rolls"] for p in inner_pools] == [1, 1]
+            pair = [p["entries"][0] for p in inner_pools]
+            assert all(len(p["entries"]) == 1 for p in inner_pools)
             assert pair[0]["type"] == pair[1]["type"] == "minecraft:item"
             assert pair[0]["name"] == pair[1]["name"] and pair[0]["name"].startswith("trofers:")
-            assert pair[0]["functions"][0]["components"]["trofers:trophy"].startswith("trofers:")
-        assert len({g["children"][0]["functions"][0]["components"]["trofers:trophy"] for g in entries})==len(entries)
+            trophy_id = pair[0]["functions"][0]["components"]["trofers:trophy"]
+            assert trophy_id.startswith("trofers:") and trophy_id not in selected_trophies
+            selected_trophies.add(trophy_id)
+        assert len(selected_trophies) == len(entries)
         continue
     if name == "uncommon/manifesto":
         assert pools[0]["rolls"] == 1
