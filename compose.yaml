@@ -158,6 +158,7 @@ services:
     environment:
       <<: *minecraft-environment
       MOTD: "Brainmeth TEST"
+      BRAINMETH_ALLOW_KILLSWITCH: "true"
       MAX_PLAYERS: "4"
       MEMORY: "${TEST_MEMORY:-3G}"
     ports:
