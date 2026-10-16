@@ -1,0 +1,30 @@
+name: Verify collectible bounty exclusivity
+
+on:
+  push:
+    branches:
+      - migration/neoforge-1.21.1
+    paths:
+      - 'scripts/prepare-collectibles.py'
+      - 'scripts/lock-collectibles.py'
+      - 'scripts/verify-collectibles.py'
+      - 'scripts/deploy.sh'
+      - '.github/workflows/verify-collectibles.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check collectible scripts and acquisition lockdown
+        run: |
+          python3 -m py_compile scripts/prepare-collectibles.py scripts/lock-collectibles.py scripts/verify-collectibles.py
+          python3 scripts/verify-collectibles.py --skip-runtime
+          bash -n scripts/deploy.sh
