@@ -19,6 +19,8 @@ execute if score #state bm_launch matches 0 in minecraft:overworld as @a[tag=bm_
 execute if score #state bm_launch matches 0 in minecraft:overworld as @a[tag=bm_lobby,scores={bm_course=2},x=11,y=224,z=18,dx=1,dy=1,dz=1] run function brainmeth:lobby/parkour_finish
 # Once the player returns to the start, reset the expert unlock for a fresh normal lap.
 execute if score #state bm_launch matches 0 in minecraft:overworld as @a[tag=bm_lobby,scores={bm_course=2},x=-19,y=202,z=-19,dx=2,dy=1,dz=2] run scoreboard players set @s bm_course 0
+# Recover players stranded above the cleared lobby after older launch code ran.
+execute if score #state bm_launch matches 1 in minecraft:overworld as @a[tag=bm_lobby,x=-24,y=199,z=-24,dx=48,dy=128,dz=48] run spreadplayers 0 0 4 35 false @s
 # Persisted pre-launch spawnpoints are reset when a player returns after launch.
 execute if score #state bm_launch matches 1 as @a[tag=bm_lobby] at @s if dimension minecraft:overworld if entity @s[x=-24,y=199,z=-24,dx=48,dy=29,dz=48] in minecraft:overworld run spreadplayers 0 0 4 35 false @s
 execute if score #state bm_launch matches 1 as @a[tag=bm_lobby] at @s run spawnpoint @s ~ ~ ~
