@@ -1,4 +1,4 @@
-# Brainmeth bounty rewards — batches 1, 2, 3 and 4 (test branch only)
+# Brainmeth bounty rewards — batches 1, 2, 3, 4 and 5 (test branch only)
 
 All entries are deliberately **admin-only** loot tables; no recipes, mob drops,
 advancements or naturally generated chest references are added. Bountiful will
@@ -31,6 +31,7 @@ Run on the Minecraft test server (as an operator):
 - /loot give @p loot brainmeth:rewards/uncommon/mild_inconvenience_staff
 - /loot give @p loot brainmeth:rewards/uncommon/summoning_bow
 - /loot give @p loot brainmeth:rewards/uncommon/tree_of_life
+- /loot give @p loot brainmeth:rewards/uncommon/orbital_strike_gun
 
 ## Magic flow
 
@@ -132,3 +133,46 @@ offline charge recovery, watch cross-dimension/blocked rewind, staff direction,
 arrows and boss immunity, finite bow durability, and Tree of Life from
 planting through restart/resume and full giant generation. These Java builds
 are NOT substitutes for in-world testing. Do not deploy to production.
+
+
+## Batch 5 — one-block orbital strike
+
+Super TNT and Fake TNT were implemented in Batch 3, and the giant Tree of
+Life was implemented in Batch 4. The only outstanding Batch-5 feature was
+the Orbital Strike Gun.
+
+- Orbital Strike Gun: a uniquely named/enchantment-glowing vanilla crossbow,
+  functioning as a remote-designation weapon using server-side particles and
+  sounds. Aim and right-click to mark one block within 128 blocks.
+- After a 45-tick windup a dramatic END_ROD pillar, FLASH, ELECTRIC_SPARK,
+  smoke and thunder occur at the target. The strike removes **one block**,
+  with **no explosion or drops**. It never intentionally damages entities.
+- One use every **10 real minutes**, per-item cooldown stored in its
+  custom-data component. Invalid targets do not use the charge.
+- Unloaded chunks are never force-loaded. The gun refuses unbreakable blocks,
+  liquids, block entities/inventories, and interactions forbidden by basic
+  world permissions; the target is revalidated at impact. It prevents multiple
+  simultaneous strikes from a player and caps world-wide active strikes at 8.
+- Client-side appearance is the vanilla crossbow; the sky beam and impact
+  effects are custom server visuals. A bespoke sci-fi model would require an
+  additional client resource pack and is not part of this batch.
+
+### Live-test checklist
+Check right-clicking a block and aiming in air, 128-block range, one-block
+destruction, protected blocks and containers, cooldown across relog/restart,
+no drops or extra entity damage, and the 45-tick warning effects.
+
+## Remaining planned unusual rewards
+
+The generic **rare music disc has been removed from the roadmap**, per
+request. The two specifically requested custom music discs remain on the
+wish list, subject to obtaining the required audio rights.
+
+- Herobrine Head; Kanye West "Flashing Lights" disc; Drake "Passionfruit" disc.
+- Random Perfect Plushies collectible; random Trofers trophy plus its stand.
+- Cognitohazard Book (signed by 文); Crown of Nothing; Communist Manifesto.
+- Fake Death Certificate; Butler's Bell (Mr. Deeds); Book of Wisdom (Wanda);
+  Replicating Cake; Crystal Ball; single-use server restart Kill Switch.
+
+No new mod, resource pack, recipes or Bountiful reward tables are installed
+by Batch 5. These remain separate future work.

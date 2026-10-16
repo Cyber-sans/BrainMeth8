@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:crossbow",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "text": "Orbital Strike Gun",
+                  "color": "light_purple",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "A terrifying orbital laser that removes exactly ONE block.",
+                    "color": "gray",
+                    "italic": false
+                  },
+                  {
+                    "text": "Aim and right-click | 128 block range | 10 min recharge",
+                    "color": "aqua",
+                    "italic": false
+                  }
+                ],
+                "minecraft:custom_data": {
+                  "brainmeth_reward": "orbital_strike_gun"
+                },
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:max_stack_size": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

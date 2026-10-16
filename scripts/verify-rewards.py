@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–4)."""
+"""Offline validation for Brainmeth admin-only reward loot tables (batches 1–5)."""
 from pathlib import Path
 import json
 
@@ -31,6 +31,7 @@ expected = {
     "uncommon/mild_inconvenience_staff": ("minecraft:stick", 1, "mild_inconvenience_staff"),
     "uncommon/summoning_bow": ("minecraft:bow", 1, "summoning_bow"),
     "uncommon/tree_of_life": ("minecraft:oak_sapling", 1, "tree_of_life"),
+    "uncommon/orbital_strike_gun": ("minecraft:crossbow", 1, "orbital_strike_gun"),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -87,4 +88,12 @@ assert "BUILD_BUDGET_PER_TICK = 650" in tree and "item.shrink(64)" in tree
 assert "CropGrowEvent.Pre.Result.DO_NOT_GROW" in tree
 assert "save(server)" in tree and "job.progress" in tree and "!level.hasChunkAt(at)" in tree
 assert "MAX_PLAN_BLOCKS = 190_000" in tree
-print("Reward batches 1-4 verified: 25 admin-only loot tables including giant Tree of Life.")
+orbital = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOrbitalGun.java").read_text()
+assert "orbital_strike_gun" in orbital
+assert "RANGE = 128" in orbital and "RECHARGE_SECONDS = 10 * 60" in orbital
+assert "MAX_ACTIVE_STRIKES = 8" in orbital and "level.destroyBlock(strike.target, false, shooter)" in orbital
+assert "state.hasBlockEntity()" in orbital and "state.getDestroySpeed(level, pos) < 0" in orbital
+assert "getGameTime() < strike.impactTick" in orbital and "if (strike.shooter.equals(shooter.getUUID()))" in orbital
+assert "level.explode(" not in orbital and "level.addFreshEntity(" not in orbital
+assert not any("rare_music_disc" in filename for filename in actual)
+print("Reward batches 1-5 verified: 26 admin-only loot tables including orbital gun.")
