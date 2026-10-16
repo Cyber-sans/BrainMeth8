@@ -3,7 +3,7 @@
   "content": {
     "dragon_egg": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% dragon_egg",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" dragon_egg",
       "name": "Dragon Egg Returned + One-Time Rare Reward",
       "rarity": "RARE",
       "amount": {
@@ -26,7 +26,7 @@
     },
     "king_crown": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% king_of_brainmeth_crown",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" king_of_brainmeth_crown",
       "name": "KING OF BRAINMETH CROWN",
       "rarity": "RARE",
       "amount": {
@@ -49,7 +49,7 @@
     },
     "kill_switch": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% kill_switch",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" kill_switch",
       "name": "THE SERVER KILL SWITCH",
       "rarity": "RARE",
       "amount": {

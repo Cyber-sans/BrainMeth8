@@ -33,7 +33,7 @@ for group in ("common","uncommon","rare","special"):
             assert set(value["forbidMarkers"])==set(kinds)-{marker}
             assert value["type"]==("item" if role=="obj" else "command")
             if role=="rew":
-                assert value["content"].startswith("brainmethbounty grant %PLAYER_NAME% ")
+                assert value["content"].startswith('brainmethbounty grant "%PLAYER_NAME%" ')
             if role=="obj":
                 assert ":" in value["content"]
 # Every initial reward has at least one matching objective, and vice versa.

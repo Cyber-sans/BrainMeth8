@@ -30,7 +30,7 @@ public final class BrainmethBountyDelivery {
         event.getDispatcher().register(Commands.literal("brainmethbounty")
             .requires(source -> source.hasPermission(4))
             .then(Commands.literal("grant")
-                .then(Commands.argument("player",StringArgumentType.word())
+                .then(Commands.argument("player",StringArgumentType.string())
                     .then(Commands.argument("reward",StringArgumentType.word())
                         .executes(ctx -> grant(ctx.getSource().getServer(),
                             StringArgumentType.getString(ctx,"player"),

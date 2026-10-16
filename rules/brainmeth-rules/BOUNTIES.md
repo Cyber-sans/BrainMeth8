@@ -81,7 +81,7 @@ reward (grimoires, potions, gadgets, unique collectibles, discs with
 placeholder audio, etc.) except the reserved Kill Switch and new
 King of Brainmeth Crown; ordinary building supplies are not here.
 Named individual reward entries run as server-authorised
-`brainmethbounty grant %PLAYER_NAME% rare_<reward_id>` commands;
+`brainmethbounty grant "%PLAYER_NAME%" rare_<reward_id>` commands;
 they invoke existing private admin-only loot tables. Non-op players
 cannot invoke that command.
 

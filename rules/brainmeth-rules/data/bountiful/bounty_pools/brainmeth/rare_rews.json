@@ -3,7 +3,7 @@
   "content": {
     "poo": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_poo",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_poo",
       "name": "Poo",
       "rarity": "RARE",
       "amount": {
@@ -26,7 +26,7 @@
     },
     "firework_grimoire": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_firework_grimoire",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_firework_grimoire",
       "name": "Firework Grimoire",
       "rarity": "RARE",
       "amount": {
@@ -49,7 +49,7 @@
     },
     "rain_grimoire": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_rain_grimoire",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_rain_grimoire",
       "name": "Rain Grimoire",
       "rarity": "RARE",
       "amount": {
@@ -72,7 +72,7 @@
     },
     "levitation_grimoire": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_levitation_grimoire",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_levitation_grimoire",
       "name": "Levitation Grimoire",
       "rarity": "RARE",
       "amount": {
@@ -95,7 +95,7 @@
     },
     "healing_grimoire": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_healing_grimoire",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_healing_grimoire",
       "name": "Healing Grimoire",
       "rarity": "RARE",
       "amount": {
@@ -118,7 +118,7 @@
     },
     "lightning_grimoire": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_lightning_grimoire",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_lightning_grimoire",
       "name": "Lightning Grimoire",
       "rarity": "RARE",
       "amount": {
@@ -141,7 +141,7 @@
     },
     "knockback_stick": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_knockback_stick",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_knockback_stick",
       "name": "Knockback Stick",
       "rarity": "RARE",
       "amount": {
@@ -164,7 +164,7 @@
     },
     "potion_everything": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_everything",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_potion_everything",
       "name": "Potion Everything",
       "rarity": "RARE",
       "amount": {
@@ -187,7 +187,7 @@
     },
     "potion_shrink": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_shrink",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_potion_shrink",
       "name": "Potion Shrink",
       "rarity": "RARE",
       "amount": {
@@ -210,7 +210,7 @@
     },
     "potion_grow": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_grow",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_potion_grow",
       "name": "Potion Grow",
       "rarity": "RARE",
       "amount": {
@@ -233,7 +233,7 @@
     },
     "potion_creative": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_potion_creative",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_potion_creative",
       "name": "Potion Creative",
       "rarity": "RARE",
       "amount": {
@@ -256,7 +256,7 @@
     },
     "super_tnt": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_super_tnt",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_super_tnt",
       "name": "Super Tnt",
       "rarity": "RARE",
       "amount": {
@@ -279,7 +279,7 @@
     },
     "ultimate_chorus_fruit": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_ultimate_chorus_fruit",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_ultimate_chorus_fruit",
       "name": "Ultimate Chorus Fruit",
       "rarity": "RARE",
       "amount": {
@@ -302,7 +302,7 @@
     },
     "splash_binding": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_binding",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_splash_binding",
       "name": "Splash Binding",
       "rarity": "RARE",
       "amount": {
@@ -325,7 +325,7 @@
     },
     "splash_vanishing": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_vanishing",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_splash_vanishing",
       "name": "Splash Vanishing",
       "rarity": "RARE",
       "amount": {
@@ -348,7 +348,7 @@
     },
     "splash_coronavirus": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_splash_coronavirus",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_splash_coronavirus",
       "name": "Splash Coronavirus",
       "rarity": "RARE",
       "amount": {
@@ -371,7 +371,7 @@
     },
     "fake_tnt": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_fake_tnt",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_fake_tnt",
       "name": "Fake Tnt",
       "rarity": "RARE",
       "amount": {
@@ -394,7 +394,7 @@
     },
     "naughty_shovel": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_naughty_shovel",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_naughty_shovel",
       "name": "Naughty Shovel",
       "rarity": "RARE",
       "amount": {
@@ -417,7 +417,7 @@
     },
     "time_traveller_watch": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_time_traveller_watch",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_time_traveller_watch",
       "name": "Time Traveller Watch",
       "rarity": "RARE",
       "amount": {
@@ -440,7 +440,7 @@
     },
     "mild_inconvenience_staff": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_mild_inconvenience_staff",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_mild_inconvenience_staff",
       "name": "Mild Inconvenience Staff",
       "rarity": "RARE",
       "amount": {
@@ -463,7 +463,7 @@
     },
     "summoning_bow": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_summoning_bow",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_summoning_bow",
       "name": "Summoning Bow",
       "rarity": "RARE",
       "amount": {
@@ -486,7 +486,7 @@
     },
     "tree_of_life": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_tree_of_life",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_tree_of_life",
       "name": "Tree Of Life",
       "rarity": "RARE",
       "amount": {
@@ -509,7 +509,7 @@
     },
     "orbital_strike_gun": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_orbital_strike_gun",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_orbital_strike_gun",
       "name": "Orbital Strike Gun",
       "rarity": "RARE",
       "amount": {
@@ -532,7 +532,7 @@
     },
     "crystal_ball": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_crystal_ball",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_crystal_ball",
       "name": "Crystal Ball",
       "rarity": "RARE",
       "amount": {
@@ -555,7 +555,7 @@
     },
     "cognitohazard_book": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_cognitohazard_book",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_cognitohazard_book",
       "name": "Cognitohazard Book",
       "rarity": "RARE",
       "amount": {
@@ -578,7 +578,7 @@
     },
     "crown_of_nothing": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_crown_of_nothing",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_crown_of_nothing",
       "name": "Crown Of Nothing",
       "rarity": "RARE",
       "amount": {
@@ -601,7 +601,7 @@
     },
     "fake_death_certificate": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_fake_death_certificate",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_fake_death_certificate",
       "name": "Fake Death Certificate",
       "rarity": "RARE",
       "amount": {
@@ -624,7 +624,7 @@
     },
     "butlers_bell": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_butlers_bell",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_butlers_bell",
       "name": "Butlers Bell",
       "rarity": "RARE",
       "amount": {
@@ -647,7 +647,7 @@
     },
     "book_of_wisdom": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_book_of_wisdom",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_book_of_wisdom",
       "name": "Book Of Wisdom",
       "rarity": "RARE",
       "amount": {
@@ -670,7 +670,7 @@
     },
     "replicating_cake": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_replicating_cake",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_replicating_cake",
       "name": "Replicating Cake",
       "rarity": "RARE",
       "amount": {
@@ -693,7 +693,7 @@
     },
     "manifesto": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_manifesto",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_manifesto",
       "name": "Manifesto",
       "rarity": "RARE",
       "amount": {
@@ -716,7 +716,7 @@
     },
     "herobrine_head": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_herobrine_head",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_herobrine_head",
       "name": "Herobrine Head",
       "rarity": "RARE",
       "amount": {
@@ -739,7 +739,7 @@
     },
     "disc_flashing_lights": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_disc_flashing_lights",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_disc_flashing_lights",
       "name": "Disc Flashing Lights",
       "rarity": "RARE",
       "amount": {
@@ -762,7 +762,7 @@
     },
     "disc_passionfruit": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_disc_passionfruit",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_disc_passionfruit",
       "name": "Disc Passionfruit",
       "rarity": "RARE",
       "amount": {
@@ -785,7 +785,7 @@
     },
     "random_plushie": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_random_plushie",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_random_plushie",
       "name": "Random Plushie",
       "rarity": "RARE",
       "amount": {
@@ -808,7 +808,7 @@
     },
     "random_trophy_set": {
       "type": "command",
-      "content": "brainmethbounty grant %PLAYER_NAME% rare_random_trophy_set",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_random_trophy_set",
       "name": "Random Trophy Set",
       "rarity": "RARE",
       "amount": {
