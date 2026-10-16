@@ -50,6 +50,7 @@ grep -q 'itzg/minecraft-server:java21' compose.yaml
 # Verify server-side datapack payload before any server is started.
 python3 scripts/verify-client-groups.py --pack-root .pack-runtime
 python3 scripts/verify-collectibles.py
+python3 scripts/verify-rewards.py
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-lobby.py
 python3 scripts/verify-resource-packs.py
