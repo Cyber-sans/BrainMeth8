@@ -39,7 +39,8 @@ public final class BrainmethReplicatingCake {
     private static final Map<String,Map<Long,Long>> cakes = new HashMap<>();
     private static MinecraftServer loadedServer;
     private static int ticks;
-    private static int cursor;
+    private record CakeKey(String dimension,long packed) {}
+    private static final Deque<CakeKey> rotation=new ArrayDeque<>();
     private BrainmethReplicatingCake(){}
     private static long now(){return Instant.now().getEpochSecond();}
     private static String dim(ServerLevel level){return level.dimension().location().toString();}
@@ -71,6 +72,7 @@ public final class BrainmethReplicatingCake {
             if(level.setBlock(target,Blocks.CAKE.defaultBlockState(),3)) {
                 cakes.computeIfAbsent(dim(level),k->new HashMap<>())
                     .put(target.asLong(),now()+REPLICATION_INTERVAL);
+                rotation.addLast(new CakeKey(dim(level),target.asLong()));
                 save(level.getServer());
                 held.shrink(1);
                 player.displayClientMessage(Component.literal(
@@ -95,33 +97,33 @@ public final class BrainmethReplicatingCake {
         if(!(event.getLevel() instanceof ServerLevel level))return;
         load(level.getServer());
         Map<Long,Long> map=cakes.get(dim(level));
-        if(map!=null&&map.remove(event.getPos().asLong())!=null)save(level.getServer());
+        if(map!=null&&map.remove(event.getPos().asLong())!=null) {
+            rotation.removeIf(key->key.dimension().equals(dim(level))&&key.packed()==event.getPos().asLong());
+            save(level.getServer());
+        }
     }
     @SubscribeEvent
     public static void onTick(ServerTickEvent.Post event) {
         MinecraftServer server=event.getServer();
         load(server);
         if(++ticks%20!=0)return;
-        // Construct a bounded batch of references. No O(N) full-world scan per tick.
-        int total=cakes.values().stream().mapToInt(Map::size).sum();
-        if(total==0)return;
-        int offset=Math.floorMod(cursor,total);
-        List<Map.Entry<String,Map.Entry<Long,Long>>> selected=new ArrayList<>();
-        int traversed=0;
-        for(var area:cakes.entrySet()) {
-            for(var entry:area.getValue().entrySet()) {
-                if(traversed>=offset&&selected.size()<CAKES_CHECKED_PER_SECOND)
-                    selected.add(Map.entry(area.getKey(),Map.entry(entry.getKey(),entry.getValue())));
-                traversed++;
+        // O(20) bounded round-robin rotation, independent of total cake count.
+        // Unlike scanning every cake each second, this scales to large colonies.
+        if(rotation.isEmpty())return;
+        List<CakeKey> selected=new ArrayList<>();
+        for(int i=0;i<CAKES_CHECKED_PER_SECOND && !rotation.isEmpty();i++) {
+            CakeKey key=rotation.pollFirst();
+            if(cakes.getOrDefault(key.dimension(),Map.of()).containsKey(key.packed())) {
+                selected.add(key);
+                rotation.addLast(key);
             }
         }
-        if(selected.isEmpty()) {cursor=0;return;}
-        cursor=(offset+selected.size())%Math.max(total,1);
         boolean dirty=false;
-        for(var info:selected) {
-            String dimension=info.getKey();
-            long packed=info.getValue().getKey();
-            long reproduceAfter=info.getValue().getValue();
+        for(CakeKey info:selected) {
+            String dimension=info.dimension();
+            long packed=info.packed();
+            Long reproduceAfter=cakes.getOrDefault(dimension,Map.of()).get(packed);
+            if(reproduceAfter==null)continue;
             if(now()<reproduceAfter)continue;
             ServerLevel level=null;
             for(ServerLevel candidate:server.getAllLevels())
@@ -131,6 +133,7 @@ public final class BrainmethReplicatingCake {
             if(!level.hasChunkAt(source))continue;
             if(!level.getBlockState(source).is(Blocks.CAKE)) {
                 cakes.get(dimension).remove(packed);
+                rotation.remove(info);
                 dirty=true;continue;
             }
             // Seek adjacent safe placement, avoiding player constructions and
@@ -144,6 +147,7 @@ public final class BrainmethReplicatingCake {
                 if(level.setBlock(at,Blocks.CAKE.defaultBlockState(),3)) {
                     cakes.computeIfAbsent(dimension,k->new HashMap<>())
                         .put(at.asLong(),now()+REPLICATION_INTERVAL);
+                    rotation.addLast(new CakeKey(dimension,at.asLong()));
                     cakes.get(dimension).put(packed,now()+REPLICATION_INTERVAL);
                     dirty=true;
                     break;
@@ -157,14 +161,18 @@ public final class BrainmethReplicatingCake {
     }
     private static void load(MinecraftServer server) {
         if(loadedServer==server)return;
-        loadedServer=server;cakes.clear();cursor=0;ticks=0;
+        loadedServer=server;cakes.clear();rotation.clear();ticks=0;
         if(!Files.isRegularFile(file(server)))return;
         try(var reader=Files.newBufferedReader(file(server),StandardCharsets.UTF_8)) {
             JsonObject object=JsonParser.parseReader(reader).getAsJsonObject();
             for(String dim:object.keySet()) {
                 Map<Long,Long> area=new HashMap<>();
                 JsonObject items=object.getAsJsonObject(dim);
-                for(String key:items.keySet())area.put(Long.parseLong(key),items.get(key).getAsLong());
+                for(String key:items.keySet()) {
+                    long packed=Long.parseLong(key);
+                    area.put(packed,items.get(key).getAsLong());
+                    rotation.addLast(new CakeKey(dim,packed));
+                }
                 cakes.put(dim,area);
             }
         }catch(Exception ex){org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
