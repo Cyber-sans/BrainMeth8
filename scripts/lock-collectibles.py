@@ -77,7 +77,17 @@ def main() -> None:
         for shape in ("plate", "pillar"):
             (recipe / f"{size}_{shape}.json").write_text(json.dumps(NEVER_LOAD) + "\n", encoding="utf-8")
 
-    # This is the authoritative safeguard even if a client/server AutoConfig\n    # layout changes: Trofers custom entity-drop codecs accept an empty map.\n    entity_drops = pack / "data/trofers/trofers/entity_drops"\n    entity_drops.mkdir(parents=True, exist_ok=True)\n    for name in ("vanilla", "ad_astra", "alexsmobs", "quark", "tconstruct", "thermal"):\n        (entity_drops / f"{name}_trophies.json").write_text(\n            json.dumps({"conditions": [], "trophy_base": "trofers:small_plate", "trophies": {}}) + "\\n",\n            encoding="utf-8",\n        )\n\n    config = data / "config"
+    # Deny all trophy entity drops independently of the AutoConfig file location.
+    # Trofers' data-driven drop codec accepts an empty trophy map.
+    entity_drops = pack / "data/trofers/trofers/entity_drops"
+    entity_drops.mkdir(parents=True, exist_ok=True)
+    for name in ("vanilla", "ad_astra", "alexsmobs", "quark", "tconstruct", "thermal"):
+        (entity_drops / f"{name}_trophies.json").write_text(
+            json.dumps({"conditions": [], "trophy_base": "trofers:small_plate", "trophies": {}}) + "\n",
+            encoding="utf-8",
+        )
+
+    config = data / "config"
     config.mkdir(parents=True, exist_ok=True)
 
     # Trofers uses AutoConfig PartitioningSerializer, General config in
