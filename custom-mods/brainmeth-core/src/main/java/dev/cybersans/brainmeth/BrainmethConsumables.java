@@ -111,9 +111,8 @@ public final class BrainmethConsumables {
             }
             case "potion_creative" -> {
                 if (item.is(Items.POTION)) {
-                    if (player.gameMode.getGameModeForPlayer() != GameType.SURVIVAL) {
-                    } else if (player.getPersistentData().getLong(CREATIVE_END) > now()) {
-                    } else {
+                    if (player.gameMode.getGameModeForPlayer() == GameType.SURVIVAL
+                        && player.getPersistentData().getLong(CREATIVE_END) <= now()) {
                         startCreativeBurst(player);
                         finishBottle(player, item);
                     }
