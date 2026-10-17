@@ -167,7 +167,8 @@ assert "displayClientMessage" not in orbital
 patched = (root/"scripts/build-precision-railgun.py").read_text()
 assert 'PIN = "76e3379fe14f44e2738e50674440e59797fa809f"' in patched
 assert 'level.destroyBlock(strike.pos(), false, shooter)' in patched
-assert 'level.explode(' not in patched and 'setBlockAndUpdate' not in patched.split('NETWORK = ')[0].split('MANAGER = ')[1]
+manager_source = patched.split('MANAGER = r"""', 1)[1].split('"""', 1)[0]
+assert 'level.explode(' not in manager_source and 'setBlockAndUpdate' not in manager_source
 assert 'shooter.pick(MAX_RANGE' in patched and 'getCooldowns().isOnCooldown' in patched
 assert 'recipe.unlink()' in patched and 'addToCreativeTab' in patched
 prep = (root/"scripts/prepare-precision-railgun.py").read_text()
