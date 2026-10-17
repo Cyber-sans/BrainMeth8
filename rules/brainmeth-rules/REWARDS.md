@@ -186,7 +186,7 @@ wish list, subject to obtaining the required audio rights.
 - Random Perfect Plushies collectible; random combined Trofers trophy/display item.
 - Cognitohazard Book (signed by 文); Crown of Nothing; Communist Manifesto.
 - Fake Death Certificate; Butler's Bell (Mr. Deeds); Book of Wisdom (Wanda);
-  Replicating Cake; Crystal Ball; single-use server restart Kill Switch.
+  disguised regenerating Cake; Crystal Ball; single-use server restart Kill Switch.
 
 No new mod, resource pack, recipes or Bountiful reward tables are installed
 by Batch 5. These remain separate future work.
