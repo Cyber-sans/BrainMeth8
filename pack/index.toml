@@ -10,7 +10,7 @@ hash = "40f5c31c37f520ab2df629dd2e14fc482db86050703e3bad9c9147ac67076929"
 
 [[files]]
 file = "base-mods.txt"
-hash = "7b6432aec0b5cd6b401f2f3a3a966816f9c850d53cfdfe8c6ae03b3ab0dcab48"
+hash = "b5e6d8b8df285aeb1df2e18d4196e010248ccac1bad8913f78d4ffd654a22499"
 
 [[files]]
 file = "config/DistantHorizons.toml"
@@ -150,7 +150,7 @@ metafile = true
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "98606421ea5db9672c952d91113b08b32fc4012016d4847f42b3f60467b836a7"
+hash = "b084dae7bbc94e129e4e93d19898a7f04f44c43902b2663e28e6d7dbc346817d"
 metafile = true
 
 [[files]]
@@ -300,7 +300,7 @@ metafile = true
 
 [[files]]
 file = "mods/fzzy-config.pw.toml"
-hash = "4641c8c527cda767a6c429efbf3ca8726e79c817b73cb240f522bcdd723a7ec9"
+hash = "58bf7bd827e47f5bd80e9b51b931bfca08e311d02cbc95cd80ff2bf4fcc98ea1"
 metafile = true
 
 [[files]]
@@ -375,7 +375,7 @@ metafile = true
 
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
-hash = "02018ac1767259f32056b302c7c6f03511089d87e833670b49d4f37e016a9837"
+hash = "29621c823875b39352a29ba26032fd1f9c3621277e7864e7c99b24294f6365bd"
 metafile = true
 
 [[files]]
@@ -405,7 +405,7 @@ metafile = true
 
 [[files]]
 file = "mods/lmd.pw.toml"
-hash = "c53e37e7e4933d7645b48db4b6c7210c929c3b917eebd910cc10dcbc2e9be58b"
+hash = "67666263da765d1f226d9b614581669d9b7bda861e8b36aaf23b9a61edfa4f79"
 metafile = true
 
 [[files]]
@@ -705,4 +705,4 @@ metafile = true
 
 [[files]]
 file = "side-overrides.json"
-hash = "9f8744187a836bab3dccf6468407a529c12d7e74e19b820b10f2814614a94ccf"
+hash = "9eaa059c5e1b80dff2efbbbafbbd31ab30c4d568407f05127fe554ec154208dc"
