@@ -13,7 +13,7 @@
     "special_rews"
   ],
   "linkedProfessions": [],
-  "canSpawn": true,
+  "canSpawn": false,
   "canWanderBuy": false,
-  "canReveal": true
+  "canReveal": false
 }
