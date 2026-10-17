@@ -28,10 +28,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
@@ -46,6 +48,7 @@ import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.BlockDropsEvent;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -319,13 +322,49 @@ public final class BrainmethConsumables {
         event.setCancellationResult(InteractionResult.SUCCESS);
     }
 
+    /**
+     * Creative breaks do not produce a BlockDropsEvent. Remove the registry
+     * entry here; survival drops are handled below after vanilla determines
+     * whether a block should drop an item at all.
+     */
     @SubscribeEvent
     public static void onBlockBroken(BlockEvent.BreakEvent event) {
-        if (event.isCanceled() || !(event.getLevel() instanceof ServerLevel level)) return;
+        if (event.isCanceled() || !(event.getLevel() instanceof ServerLevel level)
+            || !(event.getPlayer() instanceof ServerPlayer player)
+            || !player.getAbilities().instabuild) return;
         ensureTntLoaded(level.getServer());
         Set<Long> positions = fakeBlocks.get(level.dimension().location().toString());
         if (positions != null && positions.remove(event.getPos().asLong()))
             saveFakeBlocks(level.getServer());
+    }
+
+    /**
+     * Placed TNT blocks have no item data. Restore the fake identity on their
+     * normal vanilla drops so breaking/replacing the block never turns it into
+     * real, explosive TNT. Mutating drops (instead of generating new ones)
+     * respects doTileDrops and other mods' loot changes.
+     */
+    @SubscribeEvent
+    public static void onFakeTntDrops(BlockDropsEvent event) {
+        ServerLevel level = event.getLevel();
+        ensureTntLoaded(level.getServer());
+        Set<Long> positions = fakeBlocks.get(level.dimension().location().toString());
+        if (positions == null || !positions.remove(event.getPos().asLong())) return;
+        saveFakeBlocks(level.getServer());
+        if (!event.getState().is(Blocks.TNT)) return;
+        for (ItemEntity drop : event.getDrops()) {
+            ItemStack stack = drop.getItem();
+            if (!stack.is(Items.TNT)) continue;
+            CompoundTag tag = new CompoundTag();
+            tag.putString(REWARD, "fake_tnt");
+            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+            stack.set(DataComponents.ITEM_NAME,
+                Component.literal("Fake TNT").withStyle(ChatFormatting.LIGHT_PURPLE));
+            stack.set(DataComponents.LORE, new ItemLore(List.of(
+                Component.literal("A prank TNT block. Prime normally, fizzle, and return to a TNT block.")
+                    .withStyle(ChatFormatting.GRAY))));
+            stack.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
+        }
     }
 
     @SubscribeEvent
