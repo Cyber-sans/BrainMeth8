@@ -72,6 +72,35 @@ rewards; prior natural acquisition locks remain in place. The named
 specials do not appear in the 36-option ordinary Rare reward pool.
 The original Crown of Nothing remains in that ordinary Rare pool.
 
+## Mystery rewards
+
+Brainmeth contracts display only **??? Common Reward** or
+**??? Legendary Reward**. The exact prize is **not chosen when the bounty
+is created**; its identity is drawn exclusively by the server during
+redemption and the player receives the actual item(s) in their inventory.
+
+- **Common:** both Common and Uncommon objective tiers draw from their
+  respective building-resource shipment pools (13 and 16 choices).
+- **Legendary:** ordinary Rare objectives draw from the 35-choice pool
+  of custom prizes.
+- **Exclusive Legendary:** the SirJain plushie and Warden trophy still
+  redeem for their exclusive Crown and Kill Switch. Dragon Egg rewards
+  are still one-time per player, with the egg always returned.
+- Normal, unmodified Bountiful decrees still display their ordinary
+  rewards. Only the Brainmeth reward data uses mystery labels.
+
+The bounty metadata carries opaque identifiers like `mystery_common`
+and `mystery_legendary`, never the specific item. Even examining a
+bounty's command payload should not reveal its eventual prize. The
+server dispatches a random nested loot table on redemption. Loot tables
+and reward grant permissions remain server-side; the in-world delivery
+items are unchanged.
+
+Existing bounty items generated before this update may retain their
+old preview data. Generate new contracts after deploying and refreshing
+the board, then test redemption with a non-operator account before
+treating this feature as verified.
+
 ## Rewards
 
 **Common (13 shipments):** cherry logs + saplings (64+4),
