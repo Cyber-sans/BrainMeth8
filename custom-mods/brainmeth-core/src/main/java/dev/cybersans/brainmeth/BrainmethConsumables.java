@@ -112,9 +112,7 @@ public final class BrainmethConsumables {
             case "potion_creative" -> {
                 if (item.is(Items.POTION)) {
                     if (player.gameMode.getGameModeForPlayer() != GameType.SURVIVAL) {
-                        player.displayClientMessage(Component.literal("Only usable in Survival mode."), true);
                     } else if (player.getPersistentData().getLong(CREATIVE_END) > now()) {
-                        player.displayClientMessage(Component.literal("Creative burst already active."), true);
                     } else {
                         startCreativeBurst(player);
                         finishBottle(player, item);
@@ -158,7 +156,6 @@ public final class BrainmethConsumables {
         for (Holder<MobEffect> effect : positive) player.addEffect(new MobEffectInstance(effect, 20 * 180, 0));
         player.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 1));
         player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 1, 0));
-        player.displayClientMessage(Component.literal("EVERYTHING. (Only the nice bits.)").withStyle(ChatFormatting.GOLD), true);
     }
 
     private static void beginScale(ServerPlayer player, double scale) {
@@ -167,9 +164,6 @@ public final class BrainmethConsumables {
         data.putLong(SCALE_END, expiry);
         data.putDouble(SCALE_AMOUNT, scale);
         updateScale(player, expiry, scale);
-        player.displayClientMessage(Component.literal(
-            scale < 1 ? "You are now one-fifth normal size for 10 minutes." :
-                        "You are now twice normal size for 10 minutes."), true);
     }
 
     private static void updateScale(ServerPlayer player, long expiry, double scale) {
@@ -201,7 +195,6 @@ public final class BrainmethConsumables {
         player.getAbilities().flying = true;
         player.getAbilities().invulnerable = true;
         player.onUpdateAbilities();
-        player.displayClientMessage(Component.literal("CREATIVE POWER: 2 seconds (inventory stays Survival)"), true);
     }
 
     private static void stopCreativeBurst(ServerPlayer player) {
@@ -240,12 +233,9 @@ public final class BrainmethConsumables {
                 player.teleportTo(level, x + 0.5, top.getY(), z + 0.5,
                                   player.getYRot(), player.getXRot());
                 player.fallDistance = 0.0F;
-                player.displayClientMessage(Component.literal("The fruit has transported you somewhere strange."), true);
                 return true;
             }
         }
-        player.displayClientMessage(Component.literal(
-            "No safe loaded destination found within 1000 blocks. No fruit consumed."), true);
         return false;
     }
 
@@ -305,7 +295,6 @@ public final class BrainmethConsumables {
         ensureTntLoaded(level.getServer());
         if (kind.equals("fake_tnt")) {
             if (fakeBlockCount() >= MAX_FAKE_BLOCKS) {
-                player.displayClientMessage(Component.literal("Fake TNT world limit reached."), true);
                 event.setCanceled(true);
                 event.setCancellationResult(InteractionResult.FAIL);
                 return;
