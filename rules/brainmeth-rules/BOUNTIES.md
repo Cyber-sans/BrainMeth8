@@ -8,8 +8,14 @@ item is `bountiful:bountyboard`.
 
 ## Setup
 
-After `./scripts/deploy.sh test`, OP players can place a board
-(`/give @p bountiful:bountyboard`).
+After `./scripts/deploy.sh test`, **only OP players can place or break a board**
+(`/give @p bountiful:bountyboard`). Ordinary players can accept and redeem
+contracts at boards placed by an OP, but cannot place/break boards themselves.
+Board crafting is disabled in survival, and new village boards do not spawn.
+Previously generated village boards are inaccessible to non-OP players.
+The allowed locations are saved in `world/brainmeth-bounty-boards.json`;
+existing admin boards must be broken and placed once after the new guard
+is installed to become available to ordinary players.
 A pristine board generates the sole eligible `brainmeth_board` decree.
 If starting with an existing board, replace it or replace its old decree;
 old bounty papers do not auto-transform. Use `/bountiful reload` if
@@ -19,7 +25,9 @@ The installation edits only
 `/srv/minecraft/brainmeth/test-1211/config/bountiful/bountiful.json`:
 hides Bountiful's default decrees/pools (not our `brainmeth/` paths),
 sets one initial reward and one objective per paper, preserves local boards,
-disables timer expiry, and slows refreshes to 15 minutes. Bountiful
+disables timer expiry, disables village board generation, and slows refreshes
+to 15 minutes. Existing vanilla decree-bearing board items retain their NBT;
+use a fresh board after updating the config and restarting. Bountiful
 data matches tiers using marker/forbidMarkers in both directions; repRequired
 0 for all. The source mod's reputation **still changes weighting** on
 future papers, but nothing is gated behind a reputation threshold.
@@ -88,8 +96,10 @@ cannot invoke that command.
 ## Gameplay verification required
 
 This is not yet live tested. On the test server:
-1. Verify `bountiful-neoforge-8.0.0-beta.2.jar` is loaded and the
-   board produces only the Brainmeth decree.
+1. Verify `bountiful-neoforge-8.0.0-beta.2.jar` is loaded and a fresh
+   operator-placed board produces only the Brainmeth decree. Verify a non-OP
+   cannot place/break a board, cannot use a pre-existing village board,
+   and can use an OP-placed board across server restarts.
 2. Inspect Bountiful logs for invalid item IDs or invalid command
    entries; test all modded objectives before opening to players.
 3. Complete one Common and one Uncommon bounty; check quantities and
