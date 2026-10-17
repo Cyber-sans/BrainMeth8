@@ -29,27 +29,35 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.14.3'
-      - name: Compile dedicated-server launch mod
-        working-directory: custom-mods/brainmeth-core
-        run: gradle --no-daemon clean build
-      - name: Publish deterministic server-only jar into repository
+      # Rebuild on the latest remote revision before publishing. Binary JARs
+      # cannot be rebased reliably if another run has updated the same file.
+      - name: Compile and publish latest server-only mod
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p server-mods
-          found=(custom-mods/brainmeth-core/build/libs/brainmeth_core-*.jar)
-          [[ ${#found[@]} -eq 1 && -s "${found[0]}" ]]
-          cp "${found[0]}" server-mods/brainmeth-core.jar
-          unzip -t server-mods/brainmeth-core.jar > /dev/null
-          python3 scripts/check-brainmeth-jar.py server-mods/brainmeth-core.jar
-          sha256sum server-mods/brainmeth-core.jar
-          git add server-mods/brainmeth-core.jar
-          if git diff --cached --quiet; then
-            echo "Mod jar unchanged."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Build Brainmeth server-only launch mod"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push origin HEAD:"${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git checkout -B "${GITHUB_REF_NAME}" "origin/${GITHUB_REF_NAME}"
+            (cd custom-mods/brainmeth-core && gradle --no-daemon clean build)
+            mkdir -p server-mods
+            found=(custom-mods/brainmeth-core/build/libs/brainmeth_core-*.jar)
+            [[ ${#found[@]} -eq 1 && -s "${found[0]}" ]]
+            cp "${found[0]}" server-mods/brainmeth-core.jar
+            unzip -t server-mods/brainmeth-core.jar >/dev/null
+            python3 scripts/check-brainmeth-jar.py server-mods/brainmeth-core.jar
+            sha256sum server-mods/brainmeth-core.jar
+            git add server-mods/brainmeth-core.jar
+            if git diff --cached --quiet; then
+              echo "Mod JAR already matches latest branch."
+              exit 0
+            fi
+            git commit -m "Build Brainmeth server-only launch mod"
+            if git push origin HEAD:"${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Concurrent branch update; rebuilding from latest revision (attempt $attempt)."
+          done
+          echo "Unable to publish JAR after three retries" >&2
+          exit 1
