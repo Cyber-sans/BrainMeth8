@@ -31,7 +31,7 @@ expected = {
     "uncommon/mild_inconvenience_staff": ("minecraft:stick", 1, "mild_inconvenience_staff"),
     "uncommon/summoning_bow": ("minecraft:bow", 1, "summoning_bow"),
     "uncommon/tree_of_life": ("minecraft:oak_sapling", 1, "tree_of_life"),
-    "uncommon/orbital_strike_gun": ("minecraft:crossbow", 1, "orbital_strike_gun"),
+    "uncommon/orbital_strike_gun": ("orbital_railgun:orbital_railgun", 1, "orbital_strike_gun"),
     "uncommon/crystal_ball": ("minecraft:ender_eye", 1, "crystal_ball"),
     "uncommon/kill_switch": ("minecraft:stone_button", 1, "kill_switch"),
     "uncommon/cognitohazard_book": ("minecraft:written_book", 1, "cognitohazard_book"),
@@ -162,6 +162,19 @@ assert "renderImpact(strike)" in orbital and "ParticleTypes.EXPLOSION_EMITTER" i
 assert "level.destroyBlock(strike.target, false, shooter)" in orbital
 assert "level.explode(" not in orbital and "message(shooter" not in orbital
 assert "displayClientMessage" not in orbital
+# New 1.21.1 cinematic railgun is a pinned, MIT-licensed fork with a server-only
+# one-block precision strike; legacy crossbow implementation is not rewarded.
+patched = (root/"scripts/build-precision-railgun.py").read_text()
+assert 'PIN = "76e3379fe14f44e2738e50674440e59797fa809f"' in patched
+assert 'level.destroyBlock(strike.pos(), false, shooter)' in patched
+assert 'level.explode(' not in patched and 'setBlockAndUpdate' not in patched.split('NETWORK = ')[0].split('MANAGER = ')[1]
+assert 'shooter.pick(MAX_RANGE' in patched and 'getCooldowns().isOnCooldown' in patched
+assert 'recipe.unlink()' in patched and 'addToCreativeTab' in patched
+prep = (root/"scripts/prepare-precision-railgun.py").read_text()
+assert 'side = "both"' in prep and 'brainmeth-precision-railgun.jar' in prep
+deploy = (root/"scripts/deploy.sh").read_text()
+assert "prepare-precision-railgun.py" in deploy
+
 # Preserve actual reward payloads and critical restart notice, not generic status messages.
 oddities = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOddities.java").read_text()
 wisdom = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethWisdom.java").read_text()
