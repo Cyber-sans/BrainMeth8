@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/cherry_wood"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/mangrove_timber"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/warped_timber"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/crimson_timber"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/pale_oak"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/calcite"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/terracotta_palette"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/copper_construction"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/lanterns"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/mushroom_architecture"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/landscaper"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/mudbricks"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/decorated_pots"
+        }
+      ]
+    }
+  ]
+}
