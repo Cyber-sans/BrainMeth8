@@ -1,0 +1,74 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/sponges"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/powered_rails"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/blue_ice"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/sea_lanterns"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/froglights"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/end_rods"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/shroomlights"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/gilded_blackstone"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/crying_obsidian"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/dark_prismarine"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/quartz"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/coral"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/shellstone"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/ore_display"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/copper_masterwork"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/uncommon/spore_blossom"
+        }
+      ]
+    }
+  ]
+}
