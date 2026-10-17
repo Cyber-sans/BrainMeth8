@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "One timed explosion, with the energy of 10 TNT.",
+                    "text": "One timed explosion, with the energy of 20 TNT.",
                     "italic": false,
                     "color": "gray"
                   }
