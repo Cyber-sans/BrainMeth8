@@ -275,6 +275,8 @@ only the two specifically requested custom-song discs remain planned.
   untouched, outside the repository. This is pending in-game client testing
   and requires permission to distribute the recording to players.
   Passionfruit still uses Minecraft's Wait placeholder, clearly labelled.
+  **Passionfruit is temporarily excluded from all Bountiful prize pools**;
+  its admin-only testing loot table and jukebox scaffolding are retained for later.
 
 Both collectible mods were installed during the earlier preparation; the
 existing acquisition lockdown (chests/archaeology, trader, random mob drops,
