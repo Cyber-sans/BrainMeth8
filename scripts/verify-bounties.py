@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Bountiful's Brainmeth-only reward catalogue and tier isolation."""
+"""Validate admin-issued Brainmeth decrees and reward tier isolation."""
 import json
 from pathlib import Path
 
@@ -9,7 +9,7 @@ rl=root/"rules/brainmeth-rules/data/brainmeth/loot_table"
 decree=json.loads((dp/"bounty_decrees/brainmeth/brainmeth_board.json").read_text())
 assert decree["objectives"]==["common_objs","uncommon_objs","rare_objs","special_objs"]
 assert decree["rewards"]==["common_rews","uncommon_rews","rare_rews","special_rews"]
-assert decree["canSpawn"] and not decree["canWanderBuy"]
+assert not decree["canSpawn"] and not decree["canReveal"] and not decree["canWanderBuy"]
 kinds=("common","uncommon","rare","dragon","plushie","trophy")
 expected_counts={"common":(11,13),"uncommon":(13,16),"rare":(7,35),"special":(3,3)}
 tiers={}
@@ -88,12 +88,9 @@ java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/Bra
 assert "DRAGON_EGG_CLAIMS" in java and "dragon_egg" in java and "kill_switch" in java
 config_script=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config_script and 'bounty_decrees/bountiful/*' in config_script
-assert 'board["villageGenFrequency"]=0.0' in config_script
-board_recipe=json.loads((dp/"recipe/bountyboard.json").read_text())
-assert board_recipe["key"]=={"B":"minecraft:barrier"}
-guard=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").read_text()
-assert "onPlace(BlockEvent.EntityPlaceEvent" in guard
-assert "onBreak(BlockEvent.BreakEvent" in guard
-assert "onUse(PlayerInteractEvent.RightClickBlock" in guard
-assert "isAuthorised(level, event.getPos())" in guard
+# Normal Bountiful boards, crafting, village spawning and default decrees remain available.
+assert 'board["villageGenFrequency"]=1.0' in config_script
+assert 'if p not in previous_brainmeth_exclusions' in config_script
+assert not (dp/"recipe/bountyboard.json").exists()
+assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
 print("Brainmeth Bountiful verified: 11 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
