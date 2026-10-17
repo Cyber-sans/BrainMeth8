@@ -198,24 +198,8 @@ public final class BrainmethOddities {
                 level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(message),false);
             }
             case "butlers_bell" -> {
-                if(!item.is(Items.BELL))break;
-                Villager existing=butlers.get(player.getUUID());
-                if(existing!=null&&existing.isAlive()) {
-                    break;
-                }
-                if(!recharge(player,item,"butler_ready",ONE_DAY,"Butler's Bell"))break;
-                Villager butler=EntityType.VILLAGER.create(level);
-                if(butler==null)break;
-                butler.setVillagerData(new VillagerData(VillagerType.PLAINS,VillagerProfession.NITWIT,1));
-                butler.setCustomName(Component.literal("Mr. Deeds"));
-                butler.setCustomNameVisible(true);
-                butler.setInvulnerable(true);
-                butler.getPersistentData().putUUID(BUTLER_MARKER,player.getUUID());
-                butler.getPersistentData().putLong(BUTLER_EXPIRY,now()+300L);
-                butler.moveTo(player.getX()+1.0,player.getY(),player.getZ()+1.0,
-                    player.getYRot(),0);
-                level.addFreshEntity(butler);
-                butlers.put(player.getUUID(),butler);
+                if (!item.is(Items.BELL)) break;
+                summonButler(player, level, item);
             }
             case "manifesto" -> {
                 // Written book opens with normal vanilla UI; never cancel the item use.
@@ -228,6 +212,46 @@ public final class BrainmethOddities {
             event.setCanceled(true);
         }
     }
+    /**
+     * Intercept block-targeted use as well as air use. Without this handler a
+     * Minecraft bell uses its BlockItem placement path instead of summoning.
+     */
+    @SubscribeEvent
+    public static void onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (event.getHand() != InteractionHand.MAIN_HAND
+            || !(event.getEntity() instanceof ServerPlayer player)
+            || !(event.getLevel() instanceof ServerLevel level)) return;
+        ItemStack bell = event.getItemStack();
+        if (!bell.is(Items.BELL) || !kind(bell).equals("butlers_bell")) return;
+        summonButler(player, level, bell);
+        event.setCancellationResult(InteractionResult.SUCCESS);
+        event.setCanceled(true);
+    }
+
+    private static void summonButler(ServerPlayer player, ServerLevel level, ItemStack bell) {
+        Villager existing = butlers.get(player.getUUID());
+        if (existing != null && existing.isAlive()) return;
+        CustomData data = bell.get(DataComponents.CUSTOM_DATA);
+        if (data == null || data.copyTag().getLong("butler_ready") > now()) return;
+
+        Villager butler = EntityType.VILLAGER.create(level);
+        if (butler == null) return;
+        butler.setVillagerData(new VillagerData(VillagerType.PLAINS, VillagerProfession.NITWIT, 1));
+        butler.setCustomName(Component.literal("Mr. Deeds"));
+        butler.setCustomNameVisible(true);
+        butler.setInvulnerable(true);
+        butler.getPersistentData().putUUID(BUTLER_MARKER, player.getUUID());
+        butler.getPersistentData().putLong(BUTLER_EXPIRY, now() + 300L);
+        // Spawn at the owner's feet, which are known to be in a loaded,
+        // navigable area. Offsetting by (+1,+1) can spawn inside a wall.
+        butler.moveTo(player.getX(), player.getY(), player.getZ(), player.getYRot(), 0);
+        if (!level.addFreshEntity(butler)) return;
+
+        butlers.put(player.getUUID(), butler);
+        // Charge only after a successful spawn; never waste the daily use.
+        recharge(player, bell, "butler_ready", ONE_DAY, "Butler's Bell");
+    }
+
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
         if(event.getLevel() instanceof ServerLevel joinedLevel) load(joinedLevel.getServer());
