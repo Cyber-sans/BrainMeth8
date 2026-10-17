@@ -42,12 +42,19 @@ public final class BrainmethBountyDelivery {
         ServerPlayer target=server.getPlayerList().getPlayerByName(name);
         if(target==null)return 0;
         String loot;
-        if(id.startsWith("common_"))loot="brainmeth:bounties/rewards/common/"+id.substring(7);
+        // Mystery labels carry no actual prize IDs to the client. The
+        // server chooses the shipment at the instant of redemption.
+        if(id.equals("mystery_common"))loot="brainmeth:bounties/rewards/common_pool";
+        else if(id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/uncommon_pool";
+        else if(id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/rare_pool";
+        else if(id.equals("mystery_plushie"))loot="brainmeth:rewards/rare/king_of_brainmeth_crown";
+        else if(id.equals("mystery_trophy"))loot="brainmeth:rewards/uncommon/kill_switch";
+        else if(id.startsWith("common_"))loot="brainmeth:bounties/rewards/common/"+id.substring(7);
         else if(id.startsWith("uncommon_"))loot="brainmeth:bounties/rewards/uncommon/"+id.substring(9);
         else if(id.startsWith("rare_"))loot="brainmeth:bounties/rewards/rare/"+id.substring(5);
         else if(id.equals("king_of_brainmeth_crown"))loot="brainmeth:rewards/rare/king_of_brainmeth_crown";
         else if(id.equals("kill_switch"))loot="brainmeth:rewards/uncommon/kill_switch";
-        else if(id.equals("dragon_egg")) {
+        else if(id.equals("dragon_egg") || id.equals("mystery_dragon")) {
             load(server);
             boolean first=DRAGON_EGG_CLAIMS.add(target.getUUID());
             if(first){save(server);loot(server,name,"brainmeth:bounties/rewards/rare_pool");}
@@ -62,6 +69,8 @@ public final class BrainmethBountyDelivery {
             return 1;
         } else return 0;
         loot(server,name,loot);
+        if(id.startsWith("mystery_"))
+            target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
         return 1;
     }
 
