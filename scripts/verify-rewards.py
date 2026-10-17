@@ -148,7 +148,7 @@ assert "getGameModeForPlayer() == GameType.SURVIVAL" in consumables
 assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
-for timed_file in ("BrainmethRewards.java", "BrainmethOddities.java", "BrainmethGadgets.java", "BrainmethOrbitalGun.java", "BrainmethWisdom.java"):
+for timed_file in ("BrainmethRewards.java", "BrainmethGadgets.java", "BrainmethOrbitalGun.java", "BrainmethWisdom.java"):
     source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/timed_file).read_text()
     assert "displayClientMessage" not in source, timed_file
     assert "seconds to next charge" not in source and "ready in " not in source, timed_file
@@ -161,6 +161,8 @@ oddities = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainme
 wisdom = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethWisdom.java").read_text()
 assert "showTitle(online,message)" in oddities and "KILL SWITCH! Restarting" in oddities
 assert "A Whisper from Beyond" in oddities and '"<Wanda> "' in wisdom
+assert "player.displayClientMessage" not in oddities
+assert "Crystal message sent to" not in oddities
 tree = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethTreeOfLife.java").read_text()
 for marker in ("naughty_shovel", "time_traveller_watch", "mild_inconvenience_staff", "summoning_bow"):
     assert marker in gadgets, marker
