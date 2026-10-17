@@ -282,7 +282,7 @@ public final class BrainmethOrbitalGun {
             50, 2.0, 1.0, 2.0, 0.05);
         level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_THUNDER,
             SoundSource.BLOCKS, 2.0F, 0.75F);
-        level.playSound(null, pos, SoundEvents.GENERIC_EXPLODE,
+        level.playSound(null, pos, SoundEvents.GENERIC_EXPLODE.value(),
             SoundSource.BLOCKS, 2.0F, 0.7F);
     }
 
