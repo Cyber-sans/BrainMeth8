@@ -147,6 +147,13 @@ assert "the energy of 20 TNT." in (base/"uncommon/super_tnt.json").read_text()
 assert "getGameModeForPlayer() == GameType.SURVIVAL" in consumables
 assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
+assert "onFakeTntDrops(BlockDropsEvent event)" in consumables
+assert 'tag.putString(REWARD, "fake_tnt")' in consumables
+assert "DataComponents.ITEM_NAME" in consumables and "DataComponents.LORE" in consumables
+assert "DataComponents.ENCHANTMENT_GLINT_OVERRIDE" in consumables
+assert "for (ItemEntity drop : event.getDrops())" in consumables
+assert 'A prank TNT block. Prime normally, fizzle' in (base/"uncommon/fake_tnt.json").read_text()
+
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
 for timed_file in ("BrainmethRewards.java", "BrainmethGadgets.java", "BrainmethOrbitalGun.java", "BrainmethWisdom.java"):
     source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/timed_file).read_text()
@@ -217,6 +224,11 @@ assert "showTitle(player,m.body())" in oddities
 assert "Message from "+chr(34)+"+sender" not in oddities
 assert 'sender+": "+body' not in oddities
 assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
+assert "onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event)" in oddities
+assert "summonButler(player, level, bell)" in oddities
+assert 'if (!level.addFreshEntity(butler)) return;' in oddities
+assert 'recharge(player, bell, "butler_ready", ONE_DAY' in oddities
+
 assert "A fresh start will put you on your way." in wisdom and "Nothing is exactly as it seems." in wisdom
 assert "Wanda" in wisdom and "now+3600L" in wisdom
 assert "SLICE_REGEN_SECONDS = 10 * 60L" in cake
