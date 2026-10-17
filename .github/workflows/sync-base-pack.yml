@@ -97,4 +97,19 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Sync Brainmeth base Packwiz mods"
-          git push
+          # Human/API commits may land while Packwiz resolves dependencies.
+          # Rebase the generated metadata on the latest branch before pushing.
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            if ! git rebase "origin/$GITHUB_REF_NAME"; then
+              git rebase --abort
+              echo "Packwiz metadata conflicts with newer changes; rerun sync." >&2
+              exit 1
+            fi
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Unable to push Packwiz metadata after three attempts." >&2
+          exit 1
