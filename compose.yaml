@@ -100,6 +100,8 @@ services:
     environment:
       <<: *minecraft-environment
       MOTD: "${MOTD:-Brainmeth}"
+      # Allow the rare Warden Trophy reward to perform a graceful 10s restart.
+      BRAINMETH_ALLOW_KILLSWITCH: "true"
     ports:
       - "${MC_PORT_PROD:-25587}:25565/tcp"
       - "${VOICE_PORT_PROD:-25586}:24454/udp"
