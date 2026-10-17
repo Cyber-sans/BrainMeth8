@@ -170,6 +170,7 @@ assert 'level.destroyBlock(strike.pos(), false, shooter)' in patched
 manager_source = patched.split('MANAGER = r"""', 1)[1].split('"""', 1)[0]
 assert 'level.explode(' not in manager_source and 'setBlockAndUpdate' not in manager_source
 assert 'shooter.pick(MAX_RANGE' in patched and 'getCooldowns().isOnCooldown' in patched
+assert 'brainmeth_orbital_ready_epoch' in patched and 'now + 600' in patched
 assert 'recipe.unlink()' in patched and 'addToCreativeTab' in patched
 prep = (root/"scripts/prepare-precision-railgun.py").read_text()
 assert 'side = "both"' in prep and 'brainmeth-precision-railgun.jar' in prep
