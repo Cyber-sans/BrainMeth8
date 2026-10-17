@@ -185,11 +185,11 @@ assert "REPLICATION_INTERVAL" not in cake and "Direction.NORTH" not in cake
 assert "No special hint on placement" in cake
 assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in (root / "compose.yaml").read_text()
 assert not (base / "uncommon/rare_music_disc.json").exists()
-for slug, original in (("flashing_lights","minecraft:music_disc.otherside"), ("passionfruit","minecraft:music_disc.wait")):
+for slug, original in (("flashing_lights",{"sound_id":"brainmeth:flashing_lights"}), ("passionfruit","minecraft:music_disc.wait")):
     song_path = root / f"rules/brainmeth-rules/data/brainmeth/jukebox_song/{slug}.json"
     song = json.loads(song_path.read_text())
-    assert song["sound_event"] == original, "Placeholder audio reference changed without a license check"
-    assert "PLACEHOLDER AUDIO" in song["description"]["text"]
+    assert song["sound_event"] == original, "Incorrect jukebox sound event"
+    assert ("PLACEHOLDER AUDIO" in song["description"]["text"]) == (slug == "passionfruit")
     assert song["length_in_seconds"] > 0 and 0 <= song["comparator_output"] <= 15
     item = json.loads((base/f"uncommon/disc_{slug}.json").read_text())
     playable = item["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:jukebox_playable"]
