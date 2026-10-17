@@ -98,24 +98,20 @@ public final class BrainmethOrbitalGun {
             currentServer = level.getServer();
         }
         if (active.size() >= MAX_ACTIVE_STRIKES) {
-            message(shooter, "Orbital network busy; try again.");
             return;
         }
         for (Strike strike : active) {
             if (strike.shooter.equals(shooter.getUUID())) {
-                message(shooter, "Your orbital strike is still locking on.");
                 return;
             }
         }
 
         HitResult trace = shooter.pick(RANGE, 0.0F, false);
         if (!(trace instanceof BlockHitResult target) || trace.getType() != HitResult.Type.BLOCK) {
-            message(shooter, "Aim at a block no farther than 128 blocks.");
             return;
         }
         BlockPos pos = target.getBlockPos();
         if (!allowed(level, shooter, pos)) {
-            message(shooter, "No lock: protected, indestructible, or container block.");
             return;
         }
 
@@ -125,7 +121,6 @@ public final class BrainmethOrbitalGun {
         long now = Instant.now().getEpochSecond();
         long ready = tag.getLong("orbital_ready_epoch");
         if (ready > now) {
-            message(shooter, "Orbital Strike Gun: No uses left.");
             return;
         }
         tag.putLong("orbital_ready_epoch", now + RECHARGE_SECONDS);
@@ -134,11 +129,6 @@ public final class BrainmethOrbitalGun {
         level.playSound(null, pos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS, 1.2F, 0.55F);
         level.sendParticles(ParticleTypes.FLASH, pos.getX()+0.5, pos.getY()+1.3, pos.getZ()+0.5,
             4, 0.1, 0.2, 0.1, 0);
-        message(shooter, "ORBITAL STRIKE LOCKED. Calculating one (1) block...");
-    }
-
-    private static void message(ServerPlayer player, String message) {
-        player.displayClientMessage(Component.literal(message), true);
     }
 
     private static boolean allowed(ServerLevel level, ServerPlayer shooter, BlockPos pos) {
@@ -207,9 +197,7 @@ public final class BrainmethOrbitalGun {
                     15, 0.4, 0.4, 0.4, 0.03);
                 level.playSound(null, strike.target, SoundEvents.LIGHTNING_BOLT_THUNDER,
                     SoundSource.BLOCKS, 1.0F, 1.35F);
-                message(shooter, "Direct orbital hit. Exactly one block has been eliminated.");
             } else {
-                message(shooter, "The orbital strike fizzled. No block was removed.");
             }
         }
     }
