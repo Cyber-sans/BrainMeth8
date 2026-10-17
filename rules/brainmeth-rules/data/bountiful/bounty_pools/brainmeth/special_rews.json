@@ -3,8 +3,8 @@
   "content": {
     "dragon_egg": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" dragon_egg",
-      "name": "Dragon Egg Returned + One-Time Rare Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_dragon",
+      "name": "??? Legendary Reward",
       "rarity": "RARE",
       "amount": {
         "min": 1,
@@ -26,8 +26,8 @@
     },
     "king_crown": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" king_of_brainmeth_crown",
-      "name": "KING OF BRAINMETH CROWN",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie",
+      "name": "??? Legendary Reward",
       "rarity": "RARE",
       "amount": {
         "min": 1,
@@ -49,8 +49,8 @@
     },
     "kill_switch": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" kill_switch",
-      "name": "THE SERVER KILL SWITCH",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy",
+      "name": "??? Legendary Reward",
       "rarity": "RARE",
       "amount": {
         "min": 1,
