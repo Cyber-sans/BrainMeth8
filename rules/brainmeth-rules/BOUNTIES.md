@@ -1,36 +1,41 @@
-# Brainmeth Community Bounty Board — 1.21.1 TEST ONLY
+# Brainmeth Community Bounties — NeoForge 1.21.1
 
-The custom Bountiful 8.0.0-beta.2 decree is `brainmeth_board` and is the sole
-naturally available decree on a freshly configured TEST world. Decree and
-pool JSON are in `data/bountiful/bounty_decrees/brainmeth/` and
-`data/bountiful/bounty_pools/brainmeth/`. In-game board
-item is `bountiful:bountyboard`.
+Bountiful boards remain completely normal: players can craft, place, break,
+move and use them, and boards generate naturally in villages. Vanilla Bountiful
+decrees and contracts remain available. The **Brainmeth Community Bounties**
+decree is special: it never generates, reveals from blank decrees, or appears
+in wandering-trader offers. Only an operator can issue it.
 
-## Setup
+## Admin setup
 
-After `./scripts/deploy.sh test`, **only OP players can place or break a board**
-(`/give @p bountiful:bountyboard`). Ordinary players can accept and redeem
-contracts at boards placed by an OP, but cannot place/break boards themselves.
-Board crafting is disabled in survival, and new village boards do not spawn.
-Previously generated village boards are inaccessible to non-OP players.
-The allowed locations are saved in `world/brainmeth-bounty-boards.json`;
-existing admin boards must be broken and placed once after the new guard
-is installed to become available to ordinary players.
-A pristine board generates the sole eligible `brainmeth_board` decree.
-If starting with an existing board, replace it or replace its old decree;
-old bounty papers do not auto-transform. Use `/bountiful reload` if
-necessary, then inspect server logs for pool/command parse warnings.
+After deploying the updated datapack and config, use this operator-only
+Minecraft command to obtain a Brainmeth decree:
 
-The installation edits only
-`/srv/minecraft/brainmeth/test-1211/config/bountiful/bountiful.json`:
-hides Bountiful's default decrees/pools (not our `brainmeth/` paths),
-sets one initial reward and one objective per paper, preserves local boards,
-disables timer expiry, disables village board generation, and slows refreshes
-to 15 minutes. Existing vanilla decree-bearing board items retain their NBT;
-use a fresh board after updating the config and restarting. Bountiful
-data matches tiers using marker/forbidMarkers in both directions; repRequired
-0 for all. The source mod's reputation **still changes weighting** on
-future papers, but nothing is gated behind a reputation threshold.
+```mcfunction
+/give @s bountiful:decree[bountiful:decree_data={ids:["brainmeth_board"],rank:1}] 1
+```
+
+Place the decree into any ordinary Bountiful board's decree slot. That board
+can now generate Brainmeth contracts. No board-specific tagging or permissions
+are required. Boards without the special decree generate ordinary Bountiful
+contracts. If the board also has a vanilla decree, both types of contracts
+can appear, **without mixing their objectives/rewards** because
+`allowDecreeMixing=false`. Remove the ordinary decree if you want only
+Brainmeth contracts on that board.
+
+The custom decree JSON is at
+`data/bountiful/bounty_decrees/brainmeth/brainmeth_board.json` with
+`canSpawn=false`, `canReveal=false`, `canWanderBuy=false`.
+Its objective and reward pools are at `data/bountiful/bounty_pools/brainmeth/`.
+
+The `scripts/configure-bountiful.py --data-root <world data root>` script
+restores vanilla pool/decree loading if an older Brainmeth-only configuration
+had excluded them, restores village board generation, and preserves our
+one-objective/one-reward, no-expiry and 15-minute-refresh settings. These
+settings are Bountiful-wide, not decree-specific. Restart Bountiful/server
+after config changes; already generated bounty papers are not retroactively
+changed. The admin `/give` syntax is based on Bountiful's decree component
+definition and still needs an in-game check.
 
 ## Objectives
 
@@ -95,23 +100,17 @@ cannot invoke that command.
 
 ## Gameplay verification required
 
-This is not yet live tested. On the test server:
-1. Verify `bountiful-neoforge-8.0.0-beta.2.jar` is loaded and a fresh
-   operator-placed board produces only the Brainmeth decree. Verify a non-OP
-   cannot place/break a board, cannot use a pre-existing village board,
-   and can use an OP-placed board across server restarts.
-2. Inspect Bountiful logs for invalid item IDs or invalid command
-   entries; test all modded objectives before opening to players.
-3. Complete one Common and one Uncommon bounty; check quantities and
-   absence of items from other tiers.
-4. Generate/test a Rare objective and claim custom loot.
-5. Check the four-drop seal recipe, dragon egg return and persistent
-   one-time grant across server restarts.
-6. Test a Rare SirJain plushie hand-in => crown, and a Warden trophy
-   stand hand-in => Kill Switch; ensure no alternative rewards for
-   those two hand-ins.
-7. **Do not activate the Kill Switch outside the isolated test
-   container**. The test compose flag alone enables controlled restart.
+1. Confirm vanilla boards can be crafted, placed, broken and used by non-OP
+   players, and village boards still appear in newly generated villages.
+2. Confirm new boards produce normal vanilla decrees and never Brainmeth
+   decrees; blank crafted decrees must never reveal Brainmeth.
+3. As an OP, run the `/give` command above, inspect the named Brainmeth
+   decree, insert it into a normal board and wait for fresh custom contracts.
+4. Confirm a board with both a vanilla and Brainmeth decree never mixes
+   their objective/reward pools.
+5. Complete Common, Uncommon, Rare and special hand-ins; check item quantities,
+   reward isolation and persistent one-time Dragon Egg claim.
+6. **Do not activate the Kill Switch outside an isolated test container.**
 
 IMPORTANT: Bountiful 8.0.0-beta.2 has publicly reported
 NeoForge villager/board NPE and server hangs when bounties are redeemed
