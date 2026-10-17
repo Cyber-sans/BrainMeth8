@@ -3,8 +3,8 @@
   "content": {
     "cherry_wood": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_cherry_wood",
-      "name": "Cherry Wood Shipment",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -26,8 +26,8 @@
     },
     "mangrove_timber": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_mangrove_timber",
-      "name": "Mangrove Timber",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -49,8 +49,8 @@
     },
     "warped_timber": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_warped_timber",
-      "name": "Warped Timber",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -72,8 +72,8 @@
     },
     "crimson_timber": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_crimson_timber",
-      "name": "Crimson Timber",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -95,8 +95,8 @@
     },
     "pale_oak": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_pale_oak",
-      "name": "Pale Oak Shipment",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -118,8 +118,8 @@
     },
     "calcite": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_calcite",
-      "name": "Calcite Shipment",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -141,8 +141,8 @@
     },
     "terracotta_palette": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_terracotta_palette",
-      "name": "Terracotta Palette",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -164,8 +164,8 @@
     },
     "copper_construction": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_copper_construction",
-      "name": "Copper Construction",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -187,8 +187,8 @@
     },
     "lanterns": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_lanterns",
-      "name": "Lantern Shipment",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -210,8 +210,8 @@
     },
     "mushroom_architecture": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_mushroom_architecture",
-      "name": "Mushroom Architecture",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -233,8 +233,8 @@
     },
     "landscaper": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_landscaper",
-      "name": "Landscaper's Crate",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -256,8 +256,8 @@
     },
     "mudbricks": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_mudbricks",
-      "name": "Mudbrick Shipment",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -279,8 +279,8 @@
     },
     "decorated_pots": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" common_decorated_pots",
-      "name": "Pottery Workshop",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
