@@ -41,7 +41,7 @@ public final class BrainmethOrbitalGun {
     private static final String KIND = "orbital_strike_gun";
     private static final long RECHARGE_SECONDS = 10 * 60;
     private static final int RANGE = 128;
-    private static final int WINDUP_TICKS = 45;
+    private static final int WINDUP_TICKS = 200; // Ten-second cinematic lock, charge, and descent.
     private static final int MAX_ACTIVE_STRIKES = 8;
     private static final List<Strike> active = new ArrayList<>();
     private static MinecraftServer currentServer;
@@ -52,13 +52,15 @@ public final class BrainmethOrbitalGun {
         final BlockState originalState;
         final UUID shooter;
         final long impactTick;
+        final long startTick;
 
         Strike(ServerLevel level, BlockPos target, BlockState state, UUID shooter) {
             this.level = level;
             this.target = target.immutable();
             this.originalState = state;
             this.shooter = shooter;
-            this.impactTick = level.getGameTime() + WINDUP_TICKS;
+            this.startTick = level.getGameTime();
+            this.impactTick = startTick + WINDUP_TICKS;
         }
     }
 
@@ -159,19 +161,7 @@ public final class BrainmethOrbitalGun {
                     iterator.remove(); // Never force-load chunks.
                     continue;
                 }
-                // Visible pillar descending from the sky while the satellite targets.
-                double x = strike.target.getX() + 0.5;
-                double z = strike.target.getZ() + 0.5;
-                double foot = strike.target.getY() + 0.75;
-                double top = Math.min(level.getMaxBuildHeight() - 4, foot + 96);
-                for (int i = 0; i <= 16; i++) {
-                    double y = foot + (top - foot) * i / 16.0;
-                    level.sendParticles(ParticleTypes.END_ROD, x, y, z,
-                        1, 0.09, 0.30, 0.09, 0.01);
-                }
-                if (level.getGameTime() % 10 == 0)
-                    level.playSound(null, strike.target, SoundEvents.BEACON_AMBIENT,
-                        SoundSource.BLOCKS, 0.45F, 0.55F);
+                renderCharge(strike);
                 continue;
             }
             iterator.remove();
@@ -179,26 +169,121 @@ public final class BrainmethOrbitalGun {
             if (shooter == null || shooter.level() != level ||
                 !allowed(level, shooter, strike.target) ||
                 !level.getBlockState(strike.target).equals(strike.originalState)) {
-                if (shooter != null) message(shooter, "Satellite aborted: the target changed or is now unsafe.");
                 continue;
             }
 
             // No explosion, fire, entity damage or loot. Just one block is removed.
             boolean destroyed = level.destroyBlock(strike.target, false, shooter);
             if (destroyed) {
-                level.sendParticles(ParticleTypes.FLASH, strike.target.getX()+0.5,
-                    strike.target.getY()+0.5, strike.target.getZ()+0.5,
-                    3, 0.1, 0.1, 0.1, 0);
-                level.sendParticles(ParticleTypes.ELECTRIC_SPARK, strike.target.getX()+0.5,
-                    strike.target.getY()+0.5, strike.target.getZ()+0.5,
-                    120, 0.7, 1.0, 0.7, 0.08);
-                level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, strike.target.getX()+0.5,
-                    strike.target.getY()+0.6, strike.target.getZ()+0.5,
-                    15, 0.4, 0.4, 0.4, 0.03);
-                level.playSound(null, strike.target, SoundEvents.LIGHTNING_BOLT_THUNDER,
-                    SoundSource.BLOCKS, 1.0F, 1.35F);
-            } else {
+                renderImpact(strike);
             }
         }
     }
+    /**
+     * Purely cosmetic orbital strike: no explosions, projectile damage, fire, block
+     * updates, forced chunk loads or client-side mod requirements. A ten-second
+     * sequence with a rotating targeting reticle, growing electrical charge,
+     * vertical sky beam and descending projectile. The impact destroys one block.
+     */
+    private static void renderCharge(Strike strike) {
+        ServerLevel level = strike.level;
+        int age = (int) (level.getGameTime() - strike.startTick);
+        double x = strike.target.getX() + 0.5;
+        double y = strike.target.getY() + 0.55;
+        double z = strike.target.getZ() + 0.5;
+        double sky = Math.min(level.getMaxBuildHeight() - 3, y + 80);
+        double phase = age * 0.075;
+
+        // Rotating double-ring reticle: visible for the entire lock-on.
+        for (int i = 0; i < 16; i++) {
+            double angle = Math.PI * 2 * i / 16 + phase;
+            double outer = 2.6 + 0.28 * Math.sin(age * 0.09);
+            level.sendParticles(ParticleTypes.ELECTRIC_SPARK,
+                x + Math.cos(angle) * outer, y + 0.12,
+                z + Math.sin(angle) * outer, 1, 0, 0, 0, 0);
+            if (i % 2 == 0) {
+                double innerAngle = -angle;
+                level.sendParticles(ParticleTypes.END_ROD,
+                    x + Math.cos(innerAngle) * 1.25, y + 0.35,
+                    z + Math.sin(innerAngle) * 1.25, 1, 0, 0, 0, 0);
+            }
+        }
+
+        // Acquisition (0-3s): pulses and distant beacon hum.
+        if (age < 60) {
+            if (age % 12 == 0) {
+                level.sendParticles(ParticleTypes.FLASH, x, y + 0.4, z,
+                    1, 0, 0, 0, 0);
+                level.playSound(null, strike.target, SoundEvents.BEACON_AMBIENT,
+                    SoundSource.BLOCKS, 1.1F, 0.55F + age / 220.0F);
+            }
+            return;
+        }
+
+        // Charging (3-7s): thickening sky-to-ground column and crackling.
+        if (age < 140) {
+            double strength = (age - 60) / 80.0;
+            for (int i = 0; i < 24; i++) {
+                double h = y + (sky - y) * i / 23.0;
+                double wobble = 0.10 + 0.30 * (1.0 - strength);
+                double angle = phase * 2 + i * 2.39996;
+                level.sendParticles(ParticleTypes.END_ROD,
+                    x + Math.cos(angle) * wobble, h,
+                    z + Math.sin(angle) * wobble, 1, 0, 0, 0, 0);
+            }
+            if (age % 8 == 0) {
+                level.sendParticles(ParticleTypes.ELECTRIC_SPARK, x, y + 1, z,
+                    20, 1.4, 1.1, 1.4, 0.06);
+                level.playSound(null, strike.target, SoundEvents.RESPAWN_ANCHOR_CHARGE,
+                    SoundSource.BLOCKS, 1.2F, 0.65F + (float) strength * 0.7F);
+            }
+            return;
+        }
+
+        // Final three seconds: brilliant projectile descends from the sky.
+        double descent = (age - 140) / 60.0;
+        double head = sky - (sky - y) * descent * descent;
+        for (int i = 0; i < 22; i++) {
+            double h = y + (sky - y) * i / 21.0;
+            level.sendParticles(ParticleTypes.END_ROD, x, h, z,
+                1, 0.06, 0.06, 0.06, 0);
+        }
+        level.sendParticles(ParticleTypes.FLASH, x, head, z, 1, 0, 0, 0, 0);
+        level.sendParticles(ParticleTypes.ELECTRIC_SPARK, x, head, z,
+            18, 0.45, 0.7, 0.45, 0.07);
+        level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, x, head, z,
+            10, 0.25, 0.6, 0.25, 0.015);
+        if (age % 10 == 0) {
+            level.playSound(null, strike.target, SoundEvents.BEACON_ACTIVATE,
+                SoundSource.BLOCKS, 1.3F, 0.75F + (float) descent);
+        }
+        if (age >= 188) {
+            level.sendParticles(ParticleTypes.ELECTRIC_SPARK, x, y + 0.6, z,
+                35, 2.2, 0.6, 2.2, 0.1);
+        }
+    }
+
+    private static void renderImpact(Strike strike) {
+        ServerLevel level = strike.level;
+        BlockPos pos = strike.target;
+        double x = pos.getX() + 0.5;
+        double y = pos.getY() + 0.5;
+        double z = pos.getZ() + 0.5;
+        // Huge *visual* detonation; no Minecraft explosion entity is spawned.
+        level.sendParticles(ParticleTypes.EXPLOSION_EMITTER, x, y, z,
+            1, 0, 0, 0, 0);
+        level.sendParticles(ParticleTypes.FLASH, x, y, z,
+            4, 0.4, 0.4, 0.4, 0);
+        level.sendParticles(ParticleTypes.ELECTRIC_SPARK, x, y, z,
+            170, 3.5, 2.0, 3.5, 0.12);
+        level.sendParticles(ParticleTypes.END_ROD, x, y, z,
+            90, 3.0, 3.0, 3.0, 0.09);
+        level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, y, z,
+            50, 2.0, 1.0, 2.0, 0.05);
+        level.playSound(null, pos, SoundEvents.LIGHTNING_BOLT_THUNDER,
+            SoundSource.BLOCKS, 2.0F, 0.75F);
+        level.playSound(null, pos, SoundEvents.GENERIC_EXPLODE,
+            SoundSource.BLOCKS, 2.0F, 0.7F);
+    }
+
 }
