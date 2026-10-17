@@ -65,6 +65,11 @@ jobs:
             packwiz --meta-folder mods curseforge add --addon-id "$addon_id" --file-id "$file_id" -y
           done < curseforge-mods.txt
 
+          # Some later dependency resolutions upgrade Almanac beyond the
+          # pinned NeoForge 21.1.253 compatibility range. Enforce its
+          # compatible version after resolving all base mods.
+          packwiz --meta-folder mods modrinth add https://modrinth.com/mod/almanac/version/cHGan9fQ -y
+
           python ../scripts/apply-packwiz-sides.py
           packwiz refresh
           packwiz list -v
