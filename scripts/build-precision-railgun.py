@@ -86,6 +86,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.neoforge.network.PacketDistributor;
+import java.time.Instant;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
@@ -105,6 +106,8 @@ public final class OrbitalRailgunNetwork {
             ItemStack held = shooter.getMainHandItem();
             if (!held.is(OrbitalRailgunItems.ORBITAL_RAILGUN.get())) return;
             if (shooter.getCooldowns().isOnCooldown(OrbitalRailgunItems.ORBITAL_RAILGUN.get())) return;
+            long now = Instant.now().getEpochSecond();
+            if (shooter.getPersistentData().getLong("brainmeth_orbital_ready_epoch") > now) return;
 
             // Never trust the target in a client packet. Recompute server-side.
             HitResult hit = shooter.pick(MAX_RANGE, 0.0F, false);
@@ -123,6 +126,7 @@ public final class OrbitalRailgunNetwork {
                 || OrbitalRailgunStrikeManager.activeStrikes.stream()
                     .anyMatch(s -> s.shooter().equals(shooter.getUUID()))) return;
 
+            shooter.getPersistentData().putLong("brainmeth_orbital_ready_epoch", now + 600);
             OrbitalRailgunItems.ORBITAL_RAILGUN.get().shoot(shooter);
             shooter.serverLevel().playSound(null, pos,
                 OrbitalRailgunSounds.RAILGUN_SHOOT.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
