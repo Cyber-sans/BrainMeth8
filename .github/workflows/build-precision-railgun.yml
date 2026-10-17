@@ -32,6 +32,7 @@ jobs:
           (cd "$RUNNER_TEMP/brainmeth-railgun" && gradle --no-daemon clean build)
           mapfile -t jars < <(find "$RUNNER_TEMP/brainmeth-railgun/build/libs" -maxdepth 1 -name '*.jar' ! -name '*sources*' | sort)
           [[ ${#jars[@]} -eq 1 ]] || { printf 'Unexpected JAR list: %s\n' "${jars[*]}"; exit 1; }
+          (cd "$RUNNER_TEMP/brainmeth-railgun" && zip -q "${jars[0]}" LICENSE)
           unzip -t "${jars[0]}" >/dev/null
           unzip -p "${jars[0]}" META-INF/neoforge.mods.toml | grep -q 'orbital_railgun'
           mkdir -p server-mods
