@@ -106,8 +106,8 @@ public final class BrainmethRewards {
             }
             case "rain_wand" -> {
                 if (held.is(Items.STICK)) {
-                    if (!level.dimension().equals(Level.OVERWORLD)) {
-                    } else if (spendCharge(player, held, 1, RAIN_REGEN_SECONDS, "Rain Wand")) {
+                    if (level.dimension().equals(Level.OVERWORLD)
+                        && spendCharge(player, held, 1, RAIN_REGEN_SECONDS, "Rain Wand")) {
                         level.setWeatherParameters(0, 12000, true, false);
                     }
                 }
@@ -116,8 +116,8 @@ public final class BrainmethRewards {
                 if (held.is(Items.STICK)) {
                     long now = Instant.now().getEpochSecond();
                     long previousEnd = player.getPersistentData().getLong(HOVER_END_KEY);
-                    if (previousEnd > now) {
-                    } else if (spendCharge(player, held, 3, LEVITATION_REGEN_SECONDS, "Levitation Wand")) {
+                    if (previousEnd <= now
+                        && spendCharge(player, held, 3, LEVITATION_REGEN_SECONDS, "Levitation Wand")) {
                         player.getPersistentData().putLong(HOVER_END_KEY, now + LEVITATION_DURATION_SECONDS);
                     }
                 }
@@ -130,9 +130,9 @@ public final class BrainmethRewards {
             case "lightning_wand" -> {
                 if (held.is(Items.STICK)) {
                     HitResult hit = player.pick(64.0, 0.0F, false);
-                    if (!(hit instanceof BlockHitResult target) || hit.getType() != HitResult.Type.BLOCK) {
-                    } else if (lightningQueue.size() >= 8) {
-                    } else if (spendCharge(player, held, 3, LIGHTNING_REGEN_SECONDS, "Lightning Wand")) {
+                    if (hit instanceof BlockHitResult target && hit.getType() == HitResult.Type.BLOCK
+                        && lightningQueue.size() < 8
+                        && spendCharge(player, held, 3, LIGHTNING_REGEN_SECONDS, "Lightning Wand")) {
                         lightningQueue.add(new PendingLightning(level, target.getBlockPos().above()));
                     }
                 }
