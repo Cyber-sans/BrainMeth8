@@ -11,7 +11,7 @@ assert decree["objectives"]==["common_objs","uncommon_objs","rare_objs","special
 assert decree["rewards"]==["common_rews","uncommon_rews","rare_rews","special_rews"]
 assert decree["canSpawn"] and not decree["canWanderBuy"]
 kinds=("common","uncommon","rare","dragon","plushie","trophy")
-expected_counts={"common":(11,13),"uncommon":(13,16),"rare":(7,36),"special":(3,3)}
+expected_counts={"common":(11,13),"uncommon":(13,16),"rare":(7,35),"special":(3,3)}
 tiers={}
 for group in ("common","uncommon","rare","special"):
     p=dp/"bounty_pools/brainmeth"
@@ -50,7 +50,7 @@ for marker in kinds:
                 not bool(set(obj["forbidMarkers"])&set(rew["markers"]))
                 and not bool(set(rew["forbidMarkers"])&set(obj["markers"])))
             for pool in tiers.values() for rew in pool[1].values())
-assert len(tiers["rare"][1])==36,len(tiers["rare"][1])
+assert len(tiers["rare"][1])==35,len(tiers["rare"][1])
 assert "kill_switch" not in tiers["rare"][1] and "king_of_brainmeth_crown" not in tiers["rare"][1]
 assert tiers["special"][0]["rare_plushie"]["content"]=="perfectplushies:sirjain_plushie_rare"
 ward=tiers["special"][0]["warden_trophy"]
@@ -72,7 +72,10 @@ for tier in ("common","uncommon"):
         assert all(entry["type"]=="minecraft:item" and entry["name"].count(":")==1
                    for p in payload["pools"] for entry in p["entries"])
 rare_pool=json.loads((rl/"bounties/rewards/rare_pool.json").read_text())["pools"][0]["entries"]
-assert len(rare_pool)==36 and len({e["value"] for e in rare_pool})==36
+assert len(rare_pool)==35 and len({e["value"] for e in rare_pool})==35
+assert "disc_passionfruit" not in tiers["rare"][1]
+assert all("disc_passionfruit" not in e["value"] for e in rare_pool)
+assert not (rl/"bounties/rewards/rare/disc_passionfruit.json").exists()
 for key in tiers["rare"][1]:
     target=rl/"bounties/rewards/rare"/(key+".json")
     data=json.loads(target.read_text())
@@ -85,4 +88,4 @@ java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/Bra
 assert "DRAGON_EGG_CLAIMS" in java and "dragon_egg" in java and "kill_switch" in java
 config_script=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config_script and 'bounty_decrees/bountiful/*' in config_script
-print("Brainmeth Bountiful verified: 11 Common, 13 Uncommon, 10 Rare challenges; 65 reward options, tier isolation and exclusive crown/switch.")
+print("Brainmeth Bountiful verified: 11 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
