@@ -217,12 +217,18 @@ by Batch 5. These remain separate future work.
 - **Book of Wisdom**: Paper. Each use broadcasts one of the **94 exact**
   user-provided fortune messages as a message from Wanda, with Reddit
   username credits removed. One use per real hour.
-- **Replicating Cake**: Place the named cake; it regenerates after all
-  seven slices are eaten. If left untouched for a real 24-hour period it
-  creates a second cake on a valid adjacent block. Clones also replicate,
-  and there is no total lifetime cap. It refuses to load chunks or replace
-  other blocks. Persistent state is in `world/brainmeth-replicating-cakes.json`.
-  Processing is rate limited so it cannot scan every cake on every tick.
+- **Regenerating Cake** (reward ID remains `replicating_cake` for compatibility):
+  The item looks exactly like an ordinary Cake: no custom name, lore, glint or
+  placement hint. Once placed, six slices can be eaten, leaving the final
+  slice permanently uneatable. It then locks and restores one slice every
+  10 real minutes, returning to full after one real hour; no eating during
+  regeneration. No new cakes are created, and breaking the block destroys
+  the special cake forever (no drop). Regeneration is wall-clock based and
+  survives restarts and chunk unloads without loading new chunks.
+  State is saved in `world/brainmeth-replicating-cakes.json` (v2).
+  Existing v1 clone timers are discarded on migration, and the old file
+  is retained as `world/brainmeth-replicating-cakes.v1-backup.json`.
+  Processing is rate limited to 20 registered cakes per second.
 - **The Communist Manifesto**: One bounty reward yields **four signed written
   books**, attributed to Marx & Engels, preserving the entire Samuel Moore
   1888 English translation, sourced from the public-domain GITenberg
@@ -234,8 +240,8 @@ by Batch 5. These remain separate future work.
 Test /loot administration, Crystal Ball cross-login delivery and restart
 persistence, the Kill Switch stop/restart sequence on **test only**, immediate
 book death, crown hologram (including removal/disconnect/relogin), Mr. Deeds
-following and expiry, Wanda's cooldown, the cake's final-slice restoration
-and one-day cloning, and the order/readability of all four Manifesto volumes.
+following and expiry, Wanda's cooldown, the cake's locked final slice, one-hour staged regeneration,
+no-cloning rule and permanent break loss, and the order/readability of all four Manifesto volumes.
 Only Java compilation and offline catalogue validation are automated;
 **in-game behaviour is not yet verified**.
 
