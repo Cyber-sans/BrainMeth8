@@ -156,6 +156,12 @@ for silent_file in ("BrainmethConsumables.java", "BrainmethTreeOfLife.java"):
     source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/silent_file).read_text()
     assert "displayClientMessage" not in source, silent_file
 assert "Returned to where you were" not in gadgets
+orbital = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOrbitalGun.java").read_text()
+assert "WINDUP_TICKS = 200" in orbital and "renderCharge(strike)" in orbital
+assert "renderImpact(strike)" in orbital and "ParticleTypes.EXPLOSION_EMITTER" in orbital
+assert "level.destroyBlock(strike.target, false, shooter)" in orbital
+assert "level.explode(" not in orbital and "message(shooter" not in orbital
+assert "displayClientMessage" not in orbital
 # Preserve actual reward payloads and critical restart notice, not generic status messages.
 oddities = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOddities.java").read_text()
 wisdom = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethWisdom.java").read_text()
