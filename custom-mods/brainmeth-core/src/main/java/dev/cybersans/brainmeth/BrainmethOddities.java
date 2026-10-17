@@ -5,6 +5,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
@@ -18,6 +19,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerData;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -25,13 +27,17 @@ import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.storage.LevelResource;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.BlockDropsEvent;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -56,6 +62,10 @@ public final class BrainmethOddities {
     };
     private static final Map<String,List<Message>> inbox = new HashMap<>();
     private static final Map<UUID,Villager> butlers = new HashMap<>();
+    // Dimension -> placed bell position -> real-world epoch when it is ready again.
+    private static final Map<String,Map<Long,Long>> placedBells = new HashMap<>();
+    private static final Map<UUID,PendingBell> pendingBellPlacements = new HashMap<>();
+    private record PendingBell(String dimension, long tick, long readyEpoch) {}
     private static final Map<UUID,Display.TextDisplay> crowns = new HashMap<>();
     private static MinecraftServer loadedServer;
     private static long restartAtTick = -1;
@@ -160,15 +170,9 @@ public final class BrainmethOddities {
         if (!(event.getEntity() instanceof ServerPlayer player)
             || !(event.getLevel() instanceof ServerLevel level)) return;
         ItemStack item=event.getItemStack();
-        if (event.getHand() != InteractionHand.MAIN_HAND) {
-            // Offhand bells must also summon, never fall back to vanilla use.
-            if (item.is(Items.BELL) && kind(item).equals("butlers_bell")) {
-                summonButler(player, level, item);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
-            }
-            return;
-        }
+        // The Butler's Bell only works as a placed, rung block, never in the hand.
+        if (item.is(Items.BELL) && kind(item).equals("butlers_bell")) return;
+        if (event.getHand() != InteractionHand.MAIN_HAND) return;
         String k=kind(item);
         boolean handled=true;
         switch(k) {
@@ -205,10 +209,6 @@ public final class BrainmethOddities {
                 String message=player.getName().getString()+" "+endings[level.random.nextInt(endings.length)];
                 level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(message),false);
             }
-            case "butlers_bell" -> {
-                if (!item.is(Items.BELL)) break;
-                summonButler(player, level, item);
-            }
             case "manifesto" -> {
                 // Written book opens with normal vanilla UI; never cancel the item use.
                 handled=false;
@@ -221,42 +221,158 @@ public final class BrainmethOddities {
         }
     }
     /**
-     * Intercept block-targeted use as well as air use. Without this handler a
-     * Minecraft bell uses its BlockItem placement path instead of summoning.
+     * A special bell places using vanilla's normal BellBlockItem behaviour.
+     * The subsequent EntityPlaceEvent records its position and cooldown.
+     * Ringing that particular placed bell (with any item or an empty hand)
+     * summons Mr. Deeds. Ordinary bells are unaffected.
      */
     @SubscribeEvent
     public static void onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!(event.getEntity() instanceof ServerPlayer player)
             || !(event.getLevel() instanceof ServerLevel level)) return;
-        ItemStack bell = event.getItemStack();
-        if (!bell.is(Items.BELL) || !kind(bell).equals("butlers_bell")) return;
-        summonButler(player, level, bell);
-        event.setCancellationResult(InteractionResult.SUCCESS);
-        event.setCanceled(true);
+        load(level.getServer());
+        String dimension = level.dimension().location().toString();
+        long pos = event.getPos().asLong();
+        Map<Long,Long> bells = placedBells.get(dimension);
+        if (level.getBlockState(event.getPos()).is(Blocks.BELL)
+            && bells != null && bells.containsKey(pos)) {
+            // Do not cancel: vanilla must still ring the actual bell.
+            if (event.getHand() == InteractionHand.MAIN_HAND) {
+                summonButler(player, level, event.getPos());
+            }
+            return;
+        }
+        ItemStack held = event.getItemStack();
+        if (!held.is(Items.BELL) || !kind(held).equals("butlers_bell")) return;
+        CustomData data = held.get(DataComponents.CUSTOM_DATA);
+        long ready = data == null ? 0L : data.copyTag().getLong("butler_ready");
+        pendingBellPlacements.put(player.getUUID(),
+            new PendingBell(dimension, level.getGameTime(), ready));
+        // Do not cancel: vanilla placement checks block support and protection.
     }
 
-    private static void summonButler(ServerPlayer player, ServerLevel level, ItemStack bell) {
+    @SubscribeEvent
+    public static void onBellPlaced(BlockEvent.EntityPlaceEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)
+            || !(event.getLevel() instanceof ServerLevel level)
+            || !event.getPlacedBlock().is(Blocks.BELL)) return;
+        PendingBell pending = pendingBellPlacements.remove(player.getUUID());
+        if (pending == null || pending.tick() != level.getGameTime()
+            || !pending.dimension().equals(level.dimension().location().toString())) return;
+        load(level.getServer());
+        placedBells.computeIfAbsent(pending.dimension(), k -> new HashMap<>())
+            .put(event.getPos().asLong(), pending.readyEpoch());
+        savePlacedBells(level.getServer());
+    }
+
+    @SubscribeEvent
+    public static void onBellBroken(BlockEvent.BreakEvent event) {
+        if (event.isCanceled() || !(event.getLevel() instanceof ServerLevel level)
+            || !event.getState().is(Blocks.BELL)
+            || !event.getPlayer().getAbilities().instabuild) return;
+        load(level.getServer());
+        Map<Long,Long> bells = placedBells.get(level.dimension().location().toString());
+        if (bells != null && bells.remove(event.getPos().asLong()) != null)
+            savePlacedBells(level.getServer());
+    }
+
+    @SubscribeEvent
+    public static void onBellDrops(BlockDropsEvent event) {
+        if (!event.getState().is(Blocks.BELL)) return;
+        ServerLevel level = event.getLevel();
+        load(level.getServer());
+        Map<Long,Long> bells = placedBells.get(level.dimension().location().toString());
+        if (bells == null) return;
+        Long ready = bells.remove(event.getPos().asLong());
+        if (ready == null) return;
+        savePlacedBells(level.getServer());
+        for (ItemEntity drop : event.getDrops()) {
+            ItemStack item = drop.getItem();
+            if (!item.is(Items.BELL)) continue;
+            CompoundTag tag = new CompoundTag();
+            tag.putString(MARKER, "butlers_bell");
+            tag.putLong("butler_ready", ready);
+            item.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+            item.set(DataComponents.ITEM_NAME,
+                Component.literal("The Butler's Bell").withStyle(ChatFormatting.LIGHT_PURPLE));
+            item.set(DataComponents.LORE, new ItemLore(List.of(
+                Component.literal("Place and ring to summon Mr. Deeds for five minutes; once per real day.")
+                    .withStyle(ChatFormatting.GRAY))));
+            item.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
+            item.set(DataComponents.MAX_STACK_SIZE, 1);
+        }
+    }
+
+    private static void summonButler(ServerPlayer player, ServerLevel level, BlockPos bellPos) {
+        Map<Long,Long> bells = placedBells.get(level.dimension().location().toString());
+        if (bells == null) return;
+        Long ready = bells.get(bellPos.asLong());
+        if (ready == null || ready > now()) return;
         Villager existing = butlers.get(player.getUUID());
         if (existing != null && existing.isAlive()) return;
-        CustomData data = bell.get(DataComponents.CUSTOM_DATA);
-        if (data == null || data.copyTag().getLong("butler_ready") > now()) return;
 
         Villager butler = EntityType.VILLAGER.create(level);
         if (butler == null) return;
-        butler.setVillagerData(new VillagerData(VillagerType.PLAINS, VillagerProfession.NITWIT, 1));
+        butler.setVillagerData(new VillagerData(VillagerType.PLAINS,VillagerProfession.NITWIT,1));
         butler.setCustomName(Component.literal("Mr. Deeds"));
         butler.setCustomNameVisible(true);
         butler.setInvulnerable(true);
         butler.getPersistentData().putUUID(BUTLER_MARKER, player.getUUID());
         butler.getPersistentData().putLong(BUTLER_EXPIRY, now() + 300L);
-        // Spawn at the owner's feet, which are known to be in a loaded,
-        // navigable area. Offsetting by (+1,+1) can spawn inside a wall.
         butler.moveTo(player.getX(), player.getY(), player.getZ(), player.getYRot(), 0);
         if (!level.addFreshEntity(butler)) return;
 
         butlers.put(player.getUUID(), butler);
-        // Charge only after a successful spawn; never waste the daily use.
-        recharge(player, bell, "butler_ready", ONE_DAY, "Butler's Bell");
+        // Cooldown belongs to the placed bell, and follows it when picked up.
+        bells.put(bellPos.asLong(), now() + ONE_DAY);
+        savePlacedBells(level.getServer());
+    }
+
+    private static Path placedBellsPath(MinecraftServer server) {
+        return server.getWorldPath(LevelResource.ROOT).resolve("brainmeth-butler-bells.json");
+    }
+
+    private static void loadPlacedBells(MinecraftServer server) {
+        placedBells.clear();
+        Path file = placedBellsPath(server);
+        if (!Files.isRegularFile(file)) return;
+        try (var reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+            for (String dimension : root.keySet()) {
+                Map<Long,Long> entries = new HashMap<>();
+                JsonObject positions = root.getAsJsonObject(dimension);
+                for (String packed : positions.keySet()) {
+                    entries.put(Long.parseLong(packed), positions.get(packed).getAsLong());
+                }
+                placedBells.put(dimension, entries);
+            }
+        } catch (Exception ex) {
+            org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
+                .error("Cannot load Butler's Bell positions", ex);
+        }
+    }
+
+    private static void savePlacedBells(MinecraftServer server) {
+        JsonObject root = new JsonObject();
+        placedBells.forEach((dimension, positions) -> {
+            JsonObject entries = new JsonObject();
+            positions.forEach((pos, ready) -> entries.addProperty(Long.toString(pos), ready));
+            root.add(dimension, entries);
+        });
+        Path file = placedBellsPath(server);
+        Path tmp = file.resolveSibling(file.getFileName() + ".tmp");
+        try {
+            Files.writeString(tmp, root.toString() + "\n", StandardCharsets.UTF_8);
+            try {
+                Files.move(tmp, file, StandardCopyOption.REPLACE_EXISTING,
+                    StandardCopyOption.ATOMIC_MOVE);
+            } catch (java.nio.file.AtomicMoveNotSupportedException ex) {
+                Files.move(tmp, file, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException ex) {
+            org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
+                .error("Cannot save Butler's Bell positions", ex);
+        }
     }
 
     @SubscribeEvent
@@ -355,8 +471,9 @@ public final class BrainmethOddities {
     }
     private static void load(MinecraftServer server) {
         if(loadedServer==server)return;
-        inbox.clear();butlers.clear();crowns.clear();ticks=0;restartAtTick=-1;
+        inbox.clear();butlers.clear();crowns.clear();pendingBellPlacements.clear();ticks=0;restartAtTick=-1;
         loadedServer=server;
+        loadPlacedBells(server);
         if(!Files.isRegularFile(path(server)))return;
         try(var reader=Files.newBufferedReader(path(server),StandardCharsets.UTF_8)) {
             JsonObject object=JsonParser.parseReader(reader).getAsJsonObject();
