@@ -44,7 +44,6 @@
     "betterf3",
     "chat-heads",
     "client-tweaks",
-    "cloth-config",
     "controlling",
     "crash-assistant",
     "default-options",
@@ -52,12 +51,10 @@
     "enchantment-descriptions",
     "entityculling",
     "fast-ip-ping",
-    "fzzy-config",
     "immediatelyfast",
     "inventory-essentials",
     "iris",
     "just-zoom",
-    "kotlin-for-forge",
     "lambdynamiclights",
     "moreculling",
     "mouse-tweaks",
@@ -121,6 +118,9 @@
     "nirvana",
     "macaws-holidays",
     "the-knocker",
-    "naturalist"
+    "naturalist",
+    "cloth-config",
+    "fzzy-config",
+    "kotlin-for-forge"
   ]
 }
