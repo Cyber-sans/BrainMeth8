@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install our single custom Bountiful board catalogue on the selected isolated 1.21.1 world."""
+"""Configure Bountiful with vanilla boards and admin-issued Brainmeth decrees."""
 import argparse
 import json
 from pathlib import Path
@@ -15,10 +15,13 @@ if path.exists():
         "Bountiful config is not standard JSON; refusing to replace existing config") from exc
 else:current={}
 general=current.setdefault("general",{})
-# Keep base mod resources available for Bountiful, but exclude the regular
-# vanilla bounty pools/decrees. Our datapack files live in brainmeth/ paths.
-blocked=["bounty_pools/bountiful/*","bounty_decrees/bountiful/*"]
-general["dataPathsToExclude"]=sorted(set(general.get("dataPathsToExclude",[])+blocked))
+# Restore Bountiful's ordinary pools/decrees, including on worlds that
+# previously ran the Brainmeth-only configuration. Preserve other exclusions.
+previous_brainmeth_exclusions={"bounty_pools/bountiful/*","bounty_decrees/bountiful/*"}
+general["dataPathsToExclude"]=[
+    p for p in general.get("dataPathsToExclude",[])
+    if p not in previous_brainmeth_exclusions
+]
 bounty=current.setdefault("bounty",{})
 bounty.update({
     "initialCountPreference":{"min":1,"max":1},
@@ -29,11 +32,12 @@ bounty.update({
 })
 board=current.setdefault("board",{})
 board["updateFrequencySecs"]=900
-# Village boards would bypass the operator-only placement policy. Existing
-# village boards are made non-interactive to players by BrainmethBountyBoards.
-board["villageGenFrequency"]=0.0
+# Restore normal village board generation. Decree JSON (canSpawn=false,
+# canReveal=false, canWanderBuy=false) prevents random Brainmeth decrees.
+# The former operator-only board policy has been removed.
+board["villageGenFrequency"]=1.0
 # Deliberately do not enable global board state. Avoid interfering with
 # unrelated world boards, and let every local board share the catalogue.
 board["globalBoardState"]=False
 path.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n")
-print("Installed Brainmeth-only Bountiful settings: one objective, one reward, no expiry, 15m refresh, no village boards.")
+print("Configured normal Bountiful boards/decrees plus admin-only Brainmeth decree; one objective/reward, no expiry, 15m refresh.")
