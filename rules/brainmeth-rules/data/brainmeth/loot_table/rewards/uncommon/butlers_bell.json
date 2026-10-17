@@ -18,7 +18,12 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Summons Mr. Deeds for five minutes; one use per real day.",
+                    "text": "Place it, then ring it to summon Mr. Deeds for five minutes.",
+                    "color": "gray",
+                    "italic": false
+                  },
+                  {
+                    "text": "One summon per real day. Keeps its magic when picked up.",
                     "color": "gray",
                     "italic": false
                   }
