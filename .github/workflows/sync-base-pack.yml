@@ -76,7 +76,14 @@ jobs:
           bash -n scripts/validate.sh scripts/deploy.sh
           mkdir -p secrets
           printf 'ci-placeholder-only\n' > secrets/rcon_password.txt
-          bash scripts/validate.sh
+          # Full validate.sh requires .pack-runtime, generated only by deploy.sh.
+          # The base-pack CI rebuilds pack/, not the runtime, so validate the
+          # static files here and let deploy.sh run full runtime validation.
+          python3 scripts/verify-rewards.py
+          python3 scripts/verify-bounties.py
+          python3 scripts/verify-game-rules.py
+          python3 -m py_compile scripts/configure-bountiful.py
+          docker compose config -q
 
       - name: Commit generated Packwiz metadata
         shell: bash
