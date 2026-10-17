@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Single-use controlled TEST server restart with a ten-second warning.",
+                    "text": "Single-use server restart with a ten-second warning.",
                     "color": "gray",
                     "italic": false
                   }
