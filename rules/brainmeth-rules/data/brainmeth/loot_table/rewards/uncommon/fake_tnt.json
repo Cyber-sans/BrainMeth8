@@ -22,7 +22,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Three prank TNT blocks. Prime normally, fizzle, and return to a TNT block.",
+                    "text": "A prank TNT block. Prime normally, fizzle, and return to a TNT block.",
                     "italic": false,
                     "color": "gray"
                   }
