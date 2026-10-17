@@ -26,6 +26,8 @@ python3 ./scripts/prepare-collectibles.py --runtime-root "$ROOT/.pack-runtime"
 # Required only for 1.21.1; no schedule is created on install.
 # Github Actions commits the server-side mod JAR for simple git pull deployment.
 python3 ./scripts/prepare-brainmeth-core.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-core.jar"
+# Pinned MIT Orbital Railgun fork: both client/server, one-block-only impact.
+python3 ./scripts/prepare-precision-railgun.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-precision-railgun.jar"
 # Generated Packwiz metadata can inherit a restrictive umask (e.g. 0600).
 # nginx serves this directory as a different user; make files world-readable
 # and directories traversable before validating and starting containers.
@@ -115,6 +117,7 @@ rm -f "$DATA_DIR/mods/minecartspeed-neoforge-1.21.1.jar"
 # Remove only the previously broken custom launch mod before reinstallation.
 # The validated runtime Packwiz manifest reinstalls the newly built JAR.
 rm -f "$DATA_DIR/mods/brainmeth-core.jar"
+rm -f "$DATA_DIR/mods/brainmeth-precision-railgun.jar"
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
