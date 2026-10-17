@@ -317,7 +317,7 @@ public final class BrainmethConsumables {
                 item.shrink(1);
             }
         } else {
-            // A single timed bomb with ~10x TNT energy; power scales as cube root of energy.
+            // A single timed bomb with ~20x TNT energy; power scales as cube root of energy.
             PrimedTnt explosive = new PrimedTnt(level, target.getX() + 0.5,
                 target.getY(), target.getZ() + 0.5, player);
             explosive.setFuse(80);
@@ -451,7 +451,7 @@ public final class BrainmethConsumables {
                 ServerLevel level = (ServerLevel) tnt.level();
                 double x = tnt.getX(), y = tnt.getY(), z = tnt.getZ();
                 tnt.discard();
-                level.explode(null, x, y, z, (float)(4.0 * Math.cbrt(10)),
+                level.explode(null, x, y, z, (float)(4.0 * Math.cbrt(20)),
                               Level.ExplosionInteraction.TNT);
                 superTnt.remove();
             }
