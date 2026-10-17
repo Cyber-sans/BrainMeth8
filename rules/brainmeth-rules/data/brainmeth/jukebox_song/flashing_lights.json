@@ -1,8 +1,10 @@
 {
-  "sound_event": "minecraft:music_disc.otherside",
-  "description": {
-    "text": "Kanye West – Flashing Lights [PLACEHOLDER AUDIO]"
+  "sound_event": {
+    "sound_id": "brainmeth:flashing_lights"
   },
-  "length_in_seconds": 195,
+  "description": {
+    "text": "Kanye West – Flashing Lights"
+  },
+  "length_in_seconds": 237,
   "comparator_output": 14
 }
