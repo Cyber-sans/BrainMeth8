@@ -64,6 +64,9 @@ DATAPACK_DEST="$DATA_DIR/world/datapacks/brainmeth-rules"
 mkdir -p "$DATA_DIR/world/datapacks"
 mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
+# Minecraft 1.21.1 requires JSON-encoded text inside item-name/lore components.
+# This also preserves the live repair on every future deployment.
+python3 ./scripts/normalize-rule-components.py --pack "$DATAPACK_DEST"
 # No natural plushie/trophy/stand acquisition before custom bounty integration.
 python3 ./scripts/lock-collectibles.py --data-root "$DATA_DIR"
 # Install the single Brainmeth bounty decree and keep default Bountiful pools out.
