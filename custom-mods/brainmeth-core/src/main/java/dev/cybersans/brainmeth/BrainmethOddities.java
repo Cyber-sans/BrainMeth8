@@ -73,7 +73,6 @@ public final class BrainmethOddities {
         CompoundTag tag=existing.copyTag();
         long current=now(),next=tag.getLong(field);
         if(next>current) {
-            player.displayClientMessage(Component.literal(name+": No uses left."),true);
             return false;
         }
         tag.putLong(field,current+period);
@@ -123,7 +122,6 @@ public final class BrainmethOddities {
             inbox.computeIfAbsent(key,k->new ArrayList<>()).add(new Message(sender.getName().getString(),message));
             save(server);
         }
-        sender.displayClientMessage(Component.literal("Crystal message sent to "+username+"."),false);
         return 1;
     }
     private static Component colouredWhisper(String body) {
@@ -166,16 +164,13 @@ public final class BrainmethOddities {
         String k=kind(item);
         boolean handled=true;
         switch(k) {
-            case "crystal_ball" -> player.displayClientMessage(Component.literal(
-                "Hold the ball and type /crystalball send <player> <message>."),false);
+            case "crystal_ball" -> { /* Command usage is documented in the item lore. */ }
             case "kill_switch" -> {
                 if(!item.is(Items.STONE_BUTTON))break;
                 if(!"true".equalsIgnoreCase(System.getenv("BRAINMETH_ALLOW_KILLSWITCH"))) {
-                    player.displayClientMessage(Component.literal("Kill Switch disabled on this server."),false);
                     break;
                 }
                 if(restartAtTick>=0) {
-                    player.displayClientMessage(Component.literal("Restart already scheduled."),false);
                     break;
                 }
                 restartAtTick=level.getServer().getTickCount()+200L;
@@ -206,7 +201,6 @@ public final class BrainmethOddities {
                 if(!item.is(Items.BELL))break;
                 Villager existing=butlers.get(player.getUUID());
                 if(existing!=null&&existing.isAlive()) {
-                    player.displayClientMessage(Component.literal("Mr. Deeds is already on duty."),true);
                     break;
                 }
                 if(!recharge(player,item,"butler_ready",ONE_DAY,"Butler's Bell"))break;
@@ -222,7 +216,6 @@ public final class BrainmethOddities {
                     player.getYRot(),0);
                 level.addFreshEntity(butler);
                 butlers.put(player.getUUID(),butler);
-                player.displayClientMessage(Component.literal("Mr. Deeds is at your service. For 5 minutes."),true);
             }
             case "manifesto" -> {
                 // Written book opens with normal vanilla UI; never cancel the item use.
