@@ -296,7 +296,9 @@ public final class BrainmethOddities {
             item.set(DataComponents.ITEM_NAME,
                 Component.literal("The Butler's Bell").withStyle(ChatFormatting.LIGHT_PURPLE));
             item.set(DataComponents.LORE, new ItemLore(List.of(
-                Component.literal("Place and ring to summon Mr. Deeds for five minutes; once per real day.")
+                Component.literal("Place it, then ring it to summon Mr. Deeds for five minutes.")
+                    .withStyle(ChatFormatting.GRAY),
+                Component.literal("One summon per real day. Keeps its magic when picked up.")
                     .withStyle(ChatFormatting.GRAY))));
             item.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
             item.set(DataComponents.MAX_STACK_SIZE, 1);
