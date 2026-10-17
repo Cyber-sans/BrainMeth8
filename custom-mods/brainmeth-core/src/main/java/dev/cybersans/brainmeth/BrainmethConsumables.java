@@ -278,8 +278,9 @@ public final class BrainmethConsumables {
 
     @SubscribeEvent
     public static void onPlaceTnt(PlayerInteractEvent.RightClickBlock event) {
-        if (event.getHand() != InteractionHand.MAIN_HAND ||
-            !(event.getEntity() instanceof ServerPlayer player) ||
+        // Special TNT in either hand must never take vanilla's ordinary-TNT
+        // placement path, otherwise it could become genuinely explosive.
+        if (!(event.getEntity() instanceof ServerPlayer player) ||
             !(event.getLevel() instanceof ServerLevel level)) return;
         ItemStack item = event.getItemStack();
         String kind = kind(item);
