@@ -130,7 +130,7 @@ public final class BrainmethWisdom {
         long now=Instant.now().getEpochSecond();
         long ready=tag.getLong("wisdom_ready");
         if(ready>now) {
-            player.displayClientMessage(Component.literal("Wanda will speak again in "+(ready-now)+" seconds."),true);
+            player.displayClientMessage(Component.literal("Book of Wisdom: No uses left."),true);
             return;
         }
         tag.putLong("wisdom_ready",now+3600L);
