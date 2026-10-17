@@ -26,27 +26,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -68,27 +47,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:axolotl"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -120,27 +78,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -162,27 +99,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:bee"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -214,27 +130,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -256,27 +151,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:breeze"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -308,27 +182,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -350,27 +203,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:cat"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -402,27 +234,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -444,27 +255,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:chicken"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -496,27 +286,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -538,27 +307,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:cow"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -590,27 +338,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -632,27 +359,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:dolphin"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -684,27 +390,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -726,27 +411,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:drowned"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -778,27 +442,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:large_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra large pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -820,27 +463,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:enderman"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -872,27 +494,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -914,27 +515,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:evoker"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -966,27 +546,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1008,27 +567,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:frog"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1060,27 +598,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1102,27 +619,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:glow_squid"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1154,27 +650,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1196,27 +671,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:guardian"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1248,27 +702,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1290,27 +723,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:horse"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1342,27 +754,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1384,27 +775,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:iron_golem"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:large_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra large pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1436,27 +806,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1478,27 +827,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:magma_cube"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1530,27 +858,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1572,27 +879,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:mule"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1624,27 +910,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1666,27 +931,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:panda"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1718,27 +962,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1760,27 +983,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:phantom"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1812,27 +1014,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1854,27 +1035,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:piglin"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -1906,27 +1066,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:medium_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra medium pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -1948,27 +1087,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:pillager"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2000,27 +1118,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2042,27 +1139,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:pufferfish"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2094,27 +1170,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2136,27 +1191,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:ravager"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:large_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra large pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2188,27 +1222,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2230,27 +1243,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:sheep"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2282,27 +1274,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2324,27 +1295,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:silverfish"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2376,27 +1326,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2418,27 +1347,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:skeleton_horse"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2470,27 +1378,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2512,27 +1399,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:sniffer"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2564,27 +1430,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2606,27 +1451,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:spider"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2658,27 +1482,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2700,27 +1503,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:stray"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2752,27 +1534,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2794,27 +1555,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:tadpole"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2846,27 +1586,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2888,27 +1607,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:tropical_fish"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -2940,27 +1638,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -2982,27 +1659,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:vex"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -3034,27 +1690,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3076,27 +1711,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:vindicator"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -3128,27 +1742,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3170,27 +1763,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:warden"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:large_pillar",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra large pillar display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -3222,27 +1794,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3264,27 +1815,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:wither_skeleton"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -3316,27 +1846,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3358,27 +1867,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:zoglin"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
@@ -3410,27 +1898,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3457,27 +1924,6 @@
                     ]
                   }
                 ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -3499,27 +1945,6 @@
                         "function": "minecraft:set_components",
                         "components": {
                           "trofers:trophy": "trofers:zombified_piglin"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "rolls": 1,
-                "entries": [
-                  {
-                    "type": "minecraft:item",
-                    "name": "trofers:small_plate",
-                    "functions": [
-                      {
-                        "function": "minecraft:set_components",
-                        "components": {
-                          "minecraft:item_name": {
-                            "text": "Extra small plate display stand",
-                            "italic": false,
-                            "color": "gray"
-                          }
                         }
                       }
                     ]
