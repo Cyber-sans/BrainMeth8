@@ -157,10 +157,18 @@ public final class BrainmethOddities {
     }
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickItem event) {
-        if(event.getHand()!=InteractionHand.MAIN_HAND
-            ||!(event.getEntity() instanceof ServerPlayer player)
-            ||!(event.getLevel() instanceof ServerLevel level))return;
+        if (!(event.getEntity() instanceof ServerPlayer player)
+            || !(event.getLevel() instanceof ServerLevel level)) return;
         ItemStack item=event.getItemStack();
+        if (event.getHand() != InteractionHand.MAIN_HAND) {
+            // Offhand bells must also summon, never fall back to vanilla use.
+            if (item.is(Items.BELL) && kind(item).equals("butlers_bell")) {
+                summonButler(player, level, item);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
+            return;
+        }
         String k=kind(item);
         boolean handled=true;
         switch(k) {
@@ -218,8 +226,7 @@ public final class BrainmethOddities {
      */
     @SubscribeEvent
     public static void onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (event.getHand() != InteractionHand.MAIN_HAND
-            || !(event.getEntity() instanceof ServerPlayer player)
+        if (!(event.getEntity() instanceof ServerPlayer player)
             || !(event.getLevel() instanceof ServerLevel level)) return;
         ItemStack bell = event.getItemStack();
         if (!bell.is(Items.BELL) || !kind(bell).equals("butlers_bell")) return;
