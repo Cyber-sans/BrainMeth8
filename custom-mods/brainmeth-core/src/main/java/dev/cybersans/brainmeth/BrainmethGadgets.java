@@ -79,8 +79,7 @@ public final class BrainmethGadgets {
             }
         }
         if (charges == 0) {
-            actor.displayClientMessage(Component.literal(label + " is recharging: "
-                + Math.max(1, recharge - (instant - anchor)) + " seconds to next charge."), true);
+            actor.displayClientMessage(Component.literal(label + ": No uses left."), true);
             return false;
         }
         if (charges == capacity) anchor = instant;
