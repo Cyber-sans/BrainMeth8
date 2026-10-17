@@ -79,15 +79,12 @@ public final class BrainmethGadgets {
             }
         }
         if (charges == 0) {
-            actor.displayClientMessage(Component.literal(label + ": No uses left."), true);
             return false;
         }
         if (charges == capacity) anchor = instant;
         data.putInt("charges", charges - 1);
         data.putLong("charge_anchor", anchor);
         item.set(DataComponents.CUSTOM_DATA, CustomData.of(data));
-        actor.displayClientMessage(Component.literal(label + " | "
-            + (charges - 1) + "/" + capacity + " charges"), true);
         return true;
     }
 
@@ -101,7 +98,6 @@ public final class BrainmethGadgets {
         if (!takeCharge(actor, item, 2, SHOVEL_REGEN, "Naughty Shovel")) return;
         victim.getPersistentData().putLong(CROUCH_UNTIL, now() + 20);
         victim.getPersistentData().putBoolean(WAS_FORCED, true);
-        victim.displayClientMessage(Component.literal("Naughty Shovel: crouch for 20 seconds!"), true);
     }
 
     @SubscribeEvent
@@ -116,7 +112,6 @@ public final class BrainmethGadgets {
         if (!takeCharge(actor, item, 3, STAFF_REGEN, "Staff of Mild Inconvenience")) return;
         target.teleportTo(target.serverLevel(), target.getX(), target.getY(), target.getZ(),
             target.getYRot() + 180.0F, target.getXRot());
-        target.displayClientMessage(Component.literal("You have been mildly inconvenienced."), true);
     }
 
     @SubscribeEvent
@@ -129,7 +124,6 @@ public final class BrainmethGadgets {
         event.setCancellationResult(InteractionResult.SUCCESS);
         ArrayDeque<Snapshot> snapshots = history.get(actor.getUUID());
         if (snapshots == null) {
-            actor.displayClientMessage(Component.literal("No history yet. Stay online for 15 seconds."), true);
             return;
         }
         long targetTime = System.currentTimeMillis() - HISTORY_LOOKBACK_MS;
@@ -138,7 +132,6 @@ public final class BrainmethGadgets {
             if (s.ms <= targetTime) chosen = s; else break;
         }
         if (chosen == null) {
-            actor.displayClientMessage(Component.literal("The watch needs 15 seconds of history."), true);
             return;
         }
         ServerLevel dest = chosen.level();
@@ -148,18 +141,15 @@ public final class BrainmethGadgets {
             !dest.hasChunkAt(block) || !dest.getWorldBorder().isWithinBounds(block) ||
             !dest.getBlockState(block).getFluidState().isEmpty() ||
             !dest.getBlockState(block.above()).getFluidState().isEmpty()) {
-            actor.displayClientMessage(Component.literal("Past destination unavailable or unsafe; no charge used."), true);
             return;
         }
         AABB bounds = actor.getBoundingBox().move(pos.subtract(actor.position()));
         if (!dest.noCollision(actor, bounds)) {
-            actor.displayClientMessage(Component.literal("Your past position is obstructed; no charge used."), true);
             return;
         }
         if (!takeCharge(actor, item, 1, WATCH_COOLDOWN, "Pocket Watch")) return;
         actor.teleportTo(dest, pos.x, pos.y, pos.z, chosen.yaw(), chosen.pitch());
         actor.fallDistance = 0.0F;
-        actor.displayClientMessage(Component.literal("Returned to where you were 15 seconds ago."), true);
     }
 
     @SubscribeEvent
