@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 import java.time.Instant;
@@ -53,6 +55,9 @@ public final class BrainmethRewards {
     private static final long HEALING_REGEN_SECONDS = 60 * 60;
     private static final long LIGHTNING_REGEN_SECONDS = 3 * 60 * 60;
     private static final long LEVITATION_DURATION_SECONDS = 10 * 60;
+    private static final double HOVER_HEIGHT_BLOCKS = 5.0;
+    private static final double HOVER_HORIZONTAL_BOOST = 1.6;
+    private static final double HOVER_MAX_HORIZONTAL_SPEED = 0.38;
     private static final String HOVER_END_KEY = "brainmeth_hover_end_epoch";
     private static final int HEAL_RADIUS_BLOCKS = 8 * 16;
     private static MinecraftServer queuedServer;
@@ -114,11 +119,10 @@ public final class BrainmethRewards {
                     long now = Instant.now().getEpochSecond();
                     long previousEnd = player.getPersistentData().getLong(HOVER_END_KEY);
                     if (previousEnd > now) {
-                        player.displayClientMessage(Component.literal("Already floating for another "
-                            + (previousEnd - now) + " seconds."), true);
+                        player.displayClientMessage(Component.literal("Already floating."), true);
                     } else if (spendCharge(player, held, 3, LEVITATION_REGEN_SECONDS, "Levitation Wand")) {
                         player.getPersistentData().putLong(HOVER_END_KEY, now + LEVITATION_DURATION_SECONDS);
-                        player.displayClientMessage(Component.literal("You hover one block above the ground for 10 minutes."), true);
+                        player.displayClientMessage(Component.literal("You hover five blocks above the ground for 10 minutes."), true);
                     }
                 }
             }
@@ -251,10 +255,9 @@ public final class BrainmethRewards {
             }
         }
         if (charges == 0) {
-            long remain = Math.max(1, interval - (now - anchor));
             saveCharges(wand, tag, 0, anchor, display, capacity, interval);
             player.displayClientMessage(Component.literal(
-                display + " is empty. Next charge in " + remain + " seconds."), true);
+                display + ": No uses left."), true);
             return false;
         }
         if (charges == capacity) anchor = now;
@@ -284,7 +287,7 @@ public final class BrainmethRewards {
         String use = switch (display) {
             case "Firework Wand" -> "Left-click a block for 20 fireworks";
             case "Rain Wand" -> "Right-click to summon 10 minutes of rain";
-            case "Levitation Wand" -> "Right-click to hover above terrain for 10 minutes";
+            case "Levitation Wand" -> "Right-click to hover 5 blocks above terrain for 10 minutes";
             case "Healing Wand" -> "Right-click to heal players within 8 chunks";
             case "Lightning Wand" -> "Right-click a targeted block for 6 lightning strikes";
             default -> "Unknown wand";
@@ -322,6 +325,16 @@ public final class BrainmethRewards {
             }
         }
         return healed;
+    }
+
+    /** One durability point per successful hit with the tagged Knockback Stick. */
+    @SubscribeEvent
+    public static void onKnockbackHit(LivingDamageEvent.Post event) {
+        if (!(event.getSource().getEntity() instanceof ServerPlayer attacker)) return;
+        ItemStack weapon = attacker.getMainHandItem();
+        if (weapon.is(Items.STICK) && kind(weapon).equals("knockback_stick")) {
+            weapon.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
+        }
     }
 
     @SubscribeEvent
@@ -368,7 +381,7 @@ public final class BrainmethRewards {
         }
     }
 
-    /** Avoid allowing free flight: follow the collision surface one metre below the feet.
+    /** Avoid allowing free flight: follow the collision surface five blocks below the feet.
      *  Keep the player's horizontal velocity and respect normal collision checks.
      *  No persistent no-gravity flag is set, so logout or expiry cannot strand a player.
      */
@@ -383,14 +396,23 @@ public final class BrainmethRewards {
         Vec3 motion = player.getDeltaMovement();
         double vertical;
         if (ground.getType() == HitResult.Type.BLOCK) {
-            double desiredY = ground.getLocation().y + 1.0;
+            double desiredY = ground.getLocation().y + HOVER_HEIGHT_BLOCKS;
             double error = desiredY - player.getY();
             vertical = Math.max(-0.26, Math.min(0.26, error * 0.26 + 0.0784));
         } else {
             // Over deep drops, descend slowly until solid ground is located.
             vertical = -0.10;
         }
-        player.setDeltaMovement(motion.x, vertical, motion.z);
+        // Air movement is naturally sluggish; amplify horizontal input but cap speed.
+        double horizontalX = motion.x * HOVER_HORIZONTAL_BOOST;
+        double horizontalZ = motion.z * HOVER_HORIZONTAL_BOOST;
+        double horizontalSpeed = Math.hypot(horizontalX, horizontalZ);
+        if (horizontalSpeed > HOVER_MAX_HORIZONTAL_SPEED) {
+            double scale = HOVER_MAX_HORIZONTAL_SPEED / horizontalSpeed;
+            horizontalX *= scale;
+            horizontalZ *= scale;
+        }
+        player.setDeltaMovement(horizontalX, vertical, horizontalZ);
         player.fallDistance = 0.0F;
         player.hurtMarked = true;
     }
