@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Enchants an ordinary stick. Float 1 block above terrain for 10 minutes.",
+                    "text": "Enchants an ordinary stick. Hover 5 blocks above terrain for 10 minutes, with faster movement.",
                     "italic": false,
                     "color": "gray"
                   }
