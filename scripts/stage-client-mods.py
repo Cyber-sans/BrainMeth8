@@ -198,16 +198,27 @@ def main() -> int:
         tmp_path = None
         for url in spec["urls"]:
             try:
-                req = urllib.request.Request(
-                    url,
-                    headers={"User-Agent": "Brainmeth-Packwiz-Client-Stager/1.0"},
-                )
-                with urllib.request.urlopen(req, timeout=60) as response, tempfile.NamedTemporaryFile(
-                    dir=target, delete=False
-                ) as tmp:
-                    tmp_path = Path(tmp.name)
-                    for chunk in iter(lambda: response.read(1024 * 1024), b""):
-                        tmp.write(chunk)
+                if url == f"http://packwiz/files/{filename}":
+                    # Local patched mod JARs are staged before nginx starts.
+                    # Never try to resolve Docker's internal 'packwiz' hostname
+                    # from the host, and never download the unsafe upstream JAR.
+                    local = pack_root / "files" / filename
+                    with local.open("rb") as source, tempfile.NamedTemporaryFile(
+                        dir=target, delete=False
+                    ) as tmp:
+                        tmp_path = Path(tmp.name)
+                        shutil.copyfileobj(source, tmp)
+                else:
+                    req = urllib.request.Request(
+                        url,
+                        headers={"User-Agent": "Brainmeth-Packwiz-Client-Stager/1.0"},
+                    )
+                    with urllib.request.urlopen(req, timeout=60) as response, tempfile.NamedTemporaryFile(
+                        dir=target, delete=False
+                    ) as tmp:
+                        tmp_path = Path(tmp.name)
+                        for chunk in iter(lambda: response.read(1024 * 1024), b""):
+                            tmp.write(chunk)
                 actual = digest(tmp_path, algo)
                 if actual != spec["hash"].lower():
                     raise RuntimeError(
