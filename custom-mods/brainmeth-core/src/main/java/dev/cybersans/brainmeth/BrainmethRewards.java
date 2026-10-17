@@ -107,10 +107,8 @@ public final class BrainmethRewards {
             case "rain_wand" -> {
                 if (held.is(Items.STICK)) {
                     if (!level.dimension().equals(Level.OVERWORLD)) {
-                        player.displayClientMessage(Component.literal("The Rain Wand only works in the Overworld."), true);
                     } else if (spendCharge(player, held, 1, RAIN_REGEN_SECONDS, "Rain Wand")) {
                         level.setWeatherParameters(0, 12000, true, false);
-                        player.displayClientMessage(Component.literal("The heavens have opened."), true);
                     }
                 }
             }
@@ -119,29 +117,23 @@ public final class BrainmethRewards {
                     long now = Instant.now().getEpochSecond();
                     long previousEnd = player.getPersistentData().getLong(HOVER_END_KEY);
                     if (previousEnd > now) {
-                        player.displayClientMessage(Component.literal("Already floating."), true);
                     } else if (spendCharge(player, held, 3, LEVITATION_REGEN_SECONDS, "Levitation Wand")) {
                         player.getPersistentData().putLong(HOVER_END_KEY, now + LEVITATION_DURATION_SECONDS);
-                        player.displayClientMessage(Component.literal("You hover five blocks above the ground for 10 minutes."), true);
                     }
                 }
             }
             case "healing_wand" -> {
                 if (held.is(Items.STICK) && spendCharge(player, held, 1, HEALING_REGEN_SECONDS, "Healing Wand")) {
-                    int healed = healNearby(level, player);
-                    player.displayClientMessage(Component.literal("Fully healed " + healed + " nearby player(s)."), true);
+                    healNearby(level, player);
                 }
             }
             case "lightning_wand" -> {
                 if (held.is(Items.STICK)) {
                     HitResult hit = player.pick(64.0, 0.0F, false);
                     if (!(hit instanceof BlockHitResult target) || hit.getType() != HitResult.Type.BLOCK) {
-                        player.displayClientMessage(Component.literal("Look at a block within 64 blocks."), true);
                     } else if (lightningQueue.size() >= 8) {
-                        player.displayClientMessage(Component.literal("Too many lightning volleys active; try again."), true);
                     } else if (spendCharge(player, held, 3, LIGHTNING_REGEN_SECONDS, "Lightning Wand")) {
                         lightningQueue.add(new PendingLightning(level, target.getBlockPos().above()));
-                        player.displayClientMessage(Component.literal("Six lightning strikes incoming!"), true);
                     }
                 }
             }
@@ -163,7 +155,6 @@ public final class BrainmethRewards {
         // Cancel ordinary mining while the enchanted stick is used as a wand.
         event.setCanceled(true);
         if (fireworkQueue.size() >= MAX_ACTIVE_FIREWORK_VOLLEYS) {
-            player.displayClientMessage(Component.literal("Too many firework volleys active; try again."), true);
             return;
         }
         if (!spendCharge(player, held, FIREWORK_CAPACITY, FIREWORK_REGEN_SECONDS, "Firework Wand")) return;
@@ -180,7 +171,6 @@ public final class BrainmethRewards {
             }
         }
         if (slot < 0) {
-            player.displayClientMessage(Component.literal("Carry an ordinary stick to enchant it."), true);
             return;
         }
         final String name, wandKind;
@@ -225,7 +215,6 @@ public final class BrainmethRewards {
         grimoire.shrink(1);
         if (!player.getInventory().add(wand)) player.drop(wand, false);
         player.containerMenu.broadcastChanges();
-        player.displayClientMessage(Component.literal(name + " created!"), true);
     }
 
     private static String kind(ItemStack stack) {
@@ -256,15 +245,11 @@ public final class BrainmethRewards {
         }
         if (charges == 0) {
             saveCharges(wand, tag, 0, anchor, display, capacity, interval);
-            player.displayClientMessage(Component.literal(
-                display + ": No uses left."), true);
             return false;
         }
         if (charges == capacity) anchor = now;
         charges--;
         saveCharges(wand, tag, charges, anchor, display, capacity, interval);
-        player.displayClientMessage(Component.literal(
-            display + ": " + charges + "/" + capacity + " charges remaining"), true);
         return true;
     }
 
