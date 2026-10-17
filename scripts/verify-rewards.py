@@ -144,7 +144,7 @@ for marker in ("potion_everything", "potion_shrink", "potion_grow", "potion_crea
 assert "10 * 60" in consumables and "CREATIVE_SECONDS = 2" in consumables
 assert "4.0 * Math.cbrt(20)" in consumables
 assert "the energy of 20 TNT." in (base/"uncommon/super_tnt.json").read_text()
-assert "getGameModeForPlayer() != GameType.SURVIVAL" in consumables
+assert "getGameModeForPlayer() == GameType.SURVIVAL" in consumables
 assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
