@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Right-click with a stick in inventory. 10 charges; +1 per 10 real minutes.",
+                    "text": "Enchant a stick: left-click blocks for 20 scattered fireworks. 6 charges; +1 per 10 real minutes.",
                     "italic": false,
                     "color": "gray"
                   }
