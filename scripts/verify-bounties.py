@@ -50,6 +50,42 @@ for marker in kinds:
                 not bool(set(obj["forbidMarkers"])&set(rew["markers"]))
                 and not bool(set(rew["forbidMarkers"])&set(obj["markers"])))
             for pool in tiers.values() for rew in pool[1].values())
+# Blind rewards: contracts expose only one of two visible labels and opaque
+# server commands; the real prize is drawn on redemption, never sent in
+# the preview. Preserve objective markers and special item exclusivity.
+mystery_aliases={
+    "common": "mystery_common", "uncommon": "mystery_uncommon",
+    "rare": "mystery_legendary",
+}
+for group,(objectives,prizes) in tiers.items():
+    for key,item in prizes.items():
+        expected_label = "??? Common Reward" if group in ("common","uncommon") else "??? Legendary Reward"
+        assert item["name"]==expected_label,(group,key,item["name"])
+        alias=(mystery_aliases[group] if group!="special" else {
+            "dragon_egg":"mystery_dragon",
+            "king_crown":"mystery_plushie",
+            "kill_switch":"mystery_trophy",
+        }[key])
+        assert item["content"] == f'brainmethbounty grant "%PLAYER_NAME%" {alias}', (group,key)
+for tier,expected_size in (("common",13),("uncommon",16),("rare",35)):
+    aggregate=json.loads((rl/"bounties/rewards"/(tier+"_pool.json")).read_text())
+    assert aggregate["type"]=="minecraft:generic"
+    pool=aggregate["pools"]
+    assert len(pool)==1 and pool[0]["rolls"]==1
+    entries=pool[0]["entries"]
+    assert len(entries)==expected_size,(tier,len(entries))
+    assert len({entry["value"] for entry in entries})==expected_size
+    assert all(entry["type"]=="minecraft:loot_table" for entry in entries)
+    expected_table=(
+        {"brainmeth:bounties/rewards/"+tier+"/"+key for key in tiers[tier][1]}
+        if tier in ("common","uncommon")
+        else {"brainmeth:rewards/uncommon/"+key for key in tiers["rare"][1]})
+    assert {entry["value"] for entry in entries}==expected_table, tier
+bridge=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
+for code in ("mystery_common","mystery_uncommon","mystery_legendary",
+             "mystery_dragon","mystery_plushie","mystery_trophy"):
+    assert code in bridge
+assert "Mystery reward revealed! Check your inventory." in bridge
 assert len(tiers["rare"][1])==35,len(tiers["rare"][1])
 assert "kill_switch" not in tiers["rare"][1] and "king_of_brainmeth_crown" not in tiers["rare"][1]
 assert tiers["special"][0]["rare_plushie"]["content"]=="perfectplushies:sirjain_plushie_rare"
