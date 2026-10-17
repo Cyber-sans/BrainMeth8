@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Knockback V on an otherwise ordinary stick.",
+                    "text": "Knockback V. Breaks after 100 successful hits.",
                     "italic": false,
                     "color": "gray"
                   }
@@ -33,7 +33,9 @@
                     "minecraft:knockback": 5
                   },
                   "show_in_tooltip": true
-                }
+                },
+                "minecraft:max_damage": 100,
+                "minecraft:damage": 0
               }
             }
           ]
