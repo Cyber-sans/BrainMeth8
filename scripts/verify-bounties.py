@@ -88,4 +88,12 @@ java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/Bra
 assert "DRAGON_EGG_CLAIMS" in java and "dragon_egg" in java and "kill_switch" in java
 config_script=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config_script and 'bounty_decrees/bountiful/*' in config_script
+assert 'board["villageGenFrequency"]=0.0' in config_script
+board_recipe=json.loads((dp/"recipe/bountyboard.json").read_text())
+assert board_recipe["key"]=={"B":"minecraft:barrier"}
+guard=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").read_text()
+assert "onPlace(BlockEvent.EntityPlaceEvent" in guard
+assert "onBreak(BlockEvent.BreakEvent" in guard
+assert "onUse(PlayerInteractEvent.RightClickBlock" in guard
+assert "isAuthorised(level, event.getPos())" in guard
 print("Brainmeth Bountiful verified: 11 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
