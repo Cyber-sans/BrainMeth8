@@ -49,6 +49,11 @@ public final class BrainmethOddities {
     private static final String BUTLER_MARKER = "brainmeth_butler_owner";
     private static final String BUTLER_EXPIRY = "brainmeth_butler_expiry";
     private static final String CROWN_MARKER = "brainmeth_crown_owner";
+    private static final ChatFormatting[] WHISPER_PALETTE = {
+        ChatFormatting.DARK_PURPLE, ChatFormatting.DARK_BLUE,
+        ChatFormatting.DARK_AQUA, ChatFormatting.DARK_RED,
+        ChatFormatting.DARK_GREEN
+    };
     private static final Map<String,List<Message>> inbox = new HashMap<>();
     private static final Map<UUID,Villager> butlers = new HashMap<>();
     private static final Map<UUID,Display.TextDisplay> crowns = new HashMap<>();
@@ -113,7 +118,7 @@ public final class BrainmethOddities {
             return 0;
         }
         if(!recharge(sender,ball,"crystal_ready",THREE_HOURS,"Crystal Ball"))return 0;
-        if(online!=null) showTitle(online,sender.getName().getString(),message);
+        if(online!=null) showTitle(online,message);
         else {
             inbox.computeIfAbsent(key,k->new ArrayList<>()).add(new Message(sender.getName().getString(),message));
             save(server);
@@ -121,11 +126,36 @@ public final class BrainmethOddities {
         sender.displayClientMessage(Component.literal("Crystal message sent to "+username+"."),false);
         return 1;
     }
-    private static void showTitle(ServerPlayer to,String sender,String body) {
+    private static Component colouredWhisper(String body) {
+        var result = Component.empty();
+        Random random = new Random();
+        int previous = -1;
+        // Iterate code points so Unicode characters are not split into invalid surrogate halves.
+        for (int offset = 0; offset < body.length();) {
+            int codePoint = body.codePointAt(offset);
+            offset += Character.charCount(codePoint);
+            String glyph = new String(Character.toChars(codePoint));
+            if (Character.isWhitespace(codePoint)) {
+                result.append(Component.literal(glyph));
+                continue;
+            }
+            int shade = random.nextInt(WHISPER_PALETTE.length);
+            if (shade == previous) shade = (shade + 1) % WHISPER_PALETTE.length;
+            previous = shade;
+            result.append(Component.literal(glyph).withStyle(WHISPER_PALETTE[shade]));
+        }
+        return result;
+    }
+
+    private static void showTitle(ServerPlayer to,String body) {
+        Component coloured = colouredWhisper(body);
         to.connection.send(new ClientboundSetTitlesAnimationPacket(10,100,20));
-        to.connection.send(new ClientboundSetTitleTextPacket(Component.literal("Message from "+sender).withStyle(ChatFormatting.LIGHT_PURPLE)));
-        to.connection.send(new ClientboundSetSubtitleTextPacket(Component.literal(body).withStyle(ChatFormatting.AQUA)));
-        to.sendSystemMessage(Component.literal("[Crystal Ball] "+sender+": "+body));
+        to.connection.send(new ClientboundSetTitleTextPacket(
+            Component.literal("A Whisper from Beyond").withStyle(ChatFormatting.DARK_PURPLE)));
+        to.connection.send(new ClientboundSetSubtitleTextPacket(coloured));
+        // Only the sender gets an acknowledgement; recipients see no attribution.
+        to.sendSystemMessage(Component.literal("[Crystal Ball] ")
+            .withStyle(ChatFormatting.DARK_GRAY).append(coloured.copy()));
     }
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickItem event) {
@@ -264,7 +294,7 @@ public final class BrainmethOddities {
         for(ServerPlayer player:server.getPlayerList().getPlayers()) {
             List<Message> waiting=inbox.remove(player.getGameProfile().getName().toLowerCase(Locale.ROOT));
             if(waiting!=null) {
-                for(Message m:waiting)showTitle(player,m.from(),m.body());
+                for(Message m:waiting)showTitle(player,m.body());
                 save(server);
             }
         }
