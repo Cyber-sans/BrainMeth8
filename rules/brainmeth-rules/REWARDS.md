@@ -54,8 +54,8 @@ stick somewhere in their inventory**. One ordinary stick and one grimoire
 are consumed, and a named enchanted stick is produced. Keep the wands: charges
 replenish while the player is logged out, based on wall-clock time, not ticks.
 
-- Firework Wand: left-click a block -> launches 10 fireworks. Up to 10 charges,
-  one charge every 600 real seconds.
+- Firework Wand: left-click a block -> launches 20 fireworks in four short waves
+  spread across an 8-block-wide area. Up to 6 charges, one charge every 600 real seconds.
 - Levitation Wand: right-click in air -> hovers one block above terrain for 10 real minutes. Charges: 3, +1 per real hour. Uses collision-aware movement and never enables unrestricted flying. The effect timer continues while offline.
 - Healing Wand: right-click in air -> restores full health to living, non-spectator players within 128 blocks (8 chunks), same dimension. Charges: 1, +1 per real hour.
 - Lightning Wand: look at a block within 64 blocks and right-click in air -> 6 lightning bolts strike its surface at 8-tick intervals. Charges: 3, +1 per 3 real hours.
@@ -183,7 +183,7 @@ request. The two specifically requested custom music discs remain on the
 wish list, subject to obtaining the required audio rights.
 
 - Herobrine Head; Kanye West "Flashing Lights" disc; Drake "Passionfruit" disc.
-- Random Perfect Plushies collectible; random Trofers trophy plus its stand.
+- Random Perfect Plushies collectible; random combined Trofers trophy/display item.
 - Cognitohazard Book (signed by 文); Crown of Nothing; Communist Manifesto.
 - Fake Death Certificate; Butler's Bell (Mr. Deeds); Book of Wisdom (Wanda);
   Replicating Cake; Crystal Ball; single-use server restart Kill Switch.
@@ -195,7 +195,8 @@ by Batch 5. These remain separate future work.
 
 - **Crystal Ball**: Hold it and run `/crystalball send PlayerName your message`.
   Works for online players immediately, offline players on their next login.
-  The receiver sees a large on-screen title/subtitle and a copy in chat.
+  The receiver sees an anonymous on-screen whisper and a copy in chat,
+  with each letter coloured from a dark palette; the sender is never shown.
   Up to 120 characters; 3 real hours between uses. Pending messages persist
   in `world/brainmeth-crystal-messages.json` (8/player, 256 overall).
 - **Kill Switch**: Single-use stone button; on test only, gives players 10
@@ -249,13 +250,11 @@ only the two specifically requested custom-song discs remain planned.
   **47 verified source-registered plushies**, equally weighted.
   This is one reward table/one Bountiful selection, NOT 47
   separate reward entries. All named player and animal variants are included.
-- Random Trophy + Stand: ONE randomly selected vanilla-mob trophy from
-  **75 verified Trofers trophy definitions**. The winning
-  nested loot table yields a matching pre-loaded display base with its `trofers:trophy`
-  component, PLUS one spare empty display base of the same size/style.
-  This is one reward table/one Bountiful selection, NOT 75
-  separate entries. Stand types vary appropriately with mob size.
-  Trofers trophies already use a combined base+trophy item.
+- Random Trophy: ONE randomly selected vanilla-mob trophy from
+  **75 verified Trofers trophy definitions**. Each roll yields a single
+  combined trophy-and-display-base item carrying the `trofers:trophy` component;
+  there is no separate spare stand. This is one reward table/one Bountiful
+  selection, NOT 75 separate entries. Base types vary with mob size.
 - Kanye West – Flashing Lights, Drake – Passionfruit: distinct collectible
   jukebox discs registered via `brainmeth:flashing_lights` and
   `brainmeth:passionfruit` in `data/brainmeth/jukebox_song`.
@@ -275,7 +274,7 @@ is the only provided way to obtain these until Bountiful integration.
 
 1. Test /loot give for both modded-table rolls and ensure the items exist.
 2. Place a plushie and each trophy-bearing display base. Confirm the trophy
-   is present immediately on the base and that the spare base matches.
+   is present immediately on its base and no duplicate stand is awarded.
 3. Obtain several rewards and confirm one random plushie or one trophy set
    per roll, not all variants.
 4. Test Herobrine head skin resolves; verify discs play their clearly labelled
