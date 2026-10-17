@@ -125,7 +125,7 @@ public final class BrainmethOrbitalGun {
         long now = Instant.now().getEpochSecond();
         long ready = tag.getLong("orbital_ready_epoch");
         if (ready > now) {
-            message(shooter, "Orbit recharging: " + (ready - now) + " seconds remaining.");
+            message(shooter, "Orbital Strike Gun: No uses left.");
             return;
         }
         tag.putLong("orbital_ready_epoch", now + RECHARGE_SECONDS);
