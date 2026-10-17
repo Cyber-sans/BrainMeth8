@@ -124,6 +124,16 @@ for name, (base_item, amount, marker) in expected.items():
     else:
         assert not comps, name
 
+# Kill Switch is intentionally enabled in both Minecraft services. The item
+# performs a 10-second broadcast and a graceful /stop; Compose restarts it.
+compose=(root/"compose.yaml").read_text()
+prod=compose.split("  minecraft-prod:",1)[1].split("  minecraft-backup:",1)[0]
+test=compose.split("  minecraft-test:",1)[1].split("\nnetworks:",1)[0]
+assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in prod
+assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in test
+assert "restart: unless-stopped" in compose
+assert 'KILL SWITCH! Restarting in 10 seconds.' in (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOddities.java").read_text()
+
 code = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java").read_text()
 for marker in ("firework_grimoire", "rain_grimoire", "levitation_grimoire", "healing_grimoire", "lightning_grimoire", "firework_wand", "rain_wand", "levitation_wand", "healing_wand", "lightning_wand"):
     assert marker in code
