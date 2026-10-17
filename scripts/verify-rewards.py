@@ -116,6 +116,7 @@ for name, (base_item, amount, marker) in expected.items():
             assert comps[0]["minecraft:max_stack_size"] == 1
         if marker == "knockback_stick":
             assert comps[0]["minecraft:enchantments"]["levels"] == {"minecraft:knockback": 5}
+            assert comps[0]["minecraft:max_damage"] == 100 and comps[0]["minecraft:damage"] == 0
         if marker == "replicating_cake":
             assert set(comps[0]) == {"minecraft:custom_data"}, (
                 "Special cake must be visually identical to ordinary Cake"
@@ -133,14 +134,23 @@ assert "PendingLightning" in code and "hoverAboveTerrain" in code and "healNearb
 assert "FIREWORK_CAPACITY = 6" in code and "FIREWORKS_PER_USE = 20" in code
 assert "FIREWORKS_PER_WAVE = 5" in code and "PendingFireworks" in code
 assert "Left-click a block for 20 fireworks" in code
+assert "HOVER_HEIGHT_BLOCKS = 5.0" in code and "HOVER_HORIZONTAL_BOOST = 1.6" in code
+assert "ground.getLocation().y + HOVER_HEIGHT_BLOCKS" in code
+assert "LivingDamageEvent.Post" in code and "weapon.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND)" in code
+assert "Next charge in" not in code and "Already floating for another" not in code
 consumables = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethConsumables.java").read_text()
 for marker in ("potion_everything", "potion_shrink", "potion_grow", "potion_creative", "super_tnt", "ultimate_chorus_fruit", "splash_binding", "splash_vanishing", "splash_coronavirus", "fake_tnt"):
     assert marker in consumables, marker
 assert "10 * 60" in consumables and "CREATIVE_SECONDS = 2" in consumables
+assert "4.0 * Math.cbrt(20)" in consumables
+assert "the energy of 20 TNT." in (base/"uncommon/super_tnt.json").read_text()
 assert "getGameModeForPlayer() != GameType.SURVIVAL" in consumables
 assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
+for timed_file in ("BrainmethRewards.java", "BrainmethOddities.java", "BrainmethGadgets.java", "BrainmethOrbitalGun.java", "BrainmethWisdom.java"):
+    source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/timed_file).read_text()
+    assert "No uses left." in source, timed_file
 tree = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethTreeOfLife.java").read_text()
 for marker in ("naughty_shovel", "time_traveller_watch", "mild_inconvenience_staff", "summoning_bow"):
     assert marker in gadgets, marker
