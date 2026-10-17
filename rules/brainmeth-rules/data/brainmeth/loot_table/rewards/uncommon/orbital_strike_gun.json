@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:crossbow",
+          "name": "orbital_railgun:orbital_railgun",
           "functions": [
             {
               "function": "minecraft:set_components",
@@ -18,12 +18,17 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "A terrifying orbital laser that removes exactly ONE block.",
+                    "text": "An orbital railgun with a terrifying 35-second buildup.",
                     "color": "gray",
                     "italic": false
                   },
                   {
-                    "text": "Aim and right-click | 128 block range | 10 min recharge",
+                    "text": "Full-screen targeting, sky beam, precision impact.",
+                    "color": "gray",
+                    "italic": false
+                  },
+                  {
+                    "text": "Exactly ONE block | 128-block range | 10-minute cooldown",
                     "color": "aqua",
                     "italic": false
                   }
