@@ -152,6 +152,7 @@ assert 'tag.putString(REWARD, "fake_tnt")' in consumables
 assert "DataComponents.ITEM_NAME" in consumables and "DataComponents.LORE" in consumables
 assert "DataComponents.ENCHANTMENT_GLINT_OVERRIDE" in consumables
 assert "for (ItemEntity drop : event.getDrops())" in consumables
+assert "Special TNT in either hand" in consumables
 assert 'A prank TNT block. Prime normally, fizzle' in (base/"uncommon/fake_tnt.json").read_text()
 
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
@@ -226,6 +227,7 @@ assert 'sender+": "+body' not in oddities
 assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
 assert "onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event)" in oddities
 assert "summonButler(player, level, bell)" in oddities
+assert "Offhand bells must also summon" in oddities
 assert 'if (!level.addFreshEntity(butler)) return;' in oddities
 assert 'recharge(player, bell, "butler_ready", ONE_DAY' in oddities
 
