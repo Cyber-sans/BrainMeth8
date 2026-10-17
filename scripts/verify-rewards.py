@@ -46,7 +46,7 @@ expected = {
     "uncommon/disc_passionfruit": ("minecraft:music_disc_wait", 1, "disc_passionfruit"),
     "rare/king_of_brainmeth_crown": ("minecraft:netherite_helmet", 1, "king_of_brainmeth_crown"),
     "uncommon/random_plushie": ("perfectplushies:*", 1, None),
-    "uncommon/random_trophy_set": ("trofers:*", 2, None),
+    "uncommon/random_trophy_set": ("trofers:*", 1, None),
 }
 actual = {str(p.relative_to(base)).removesuffix(".json") for p in base.rglob("*.json")}
 assert actual == set(expected), (actual, set(expected))
@@ -72,13 +72,12 @@ for name, (base_item, amount, marker) in expected.items():
             assert nested["type"] == "minecraft:loot_table" and nested["weight"] == 1
             assert nested["value"]["type"] == "minecraft:generic"
             inner_pools = nested["value"]["pools"]
-            assert len(inner_pools)==2
-            assert [p["rolls"] for p in inner_pools] == [1, 1]
-            pair = [p["entries"][0] for p in inner_pools]
-            assert all(len(p["entries"]) == 1 for p in inner_pools)
-            assert pair[0]["type"] == pair[1]["type"] == "minecraft:item"
-            assert pair[0]["name"] == pair[1]["name"] and pair[0]["name"].startswith("trofers:")
-            trophy_id = pair[0]["functions"][0]["components"]["trofers:trophy"]
+            assert len(inner_pools) == 1, "Trofers prizes already include their display stand"
+            assert inner_pools[0]["rolls"] == 1
+            assert len(inner_pools[0]["entries"]) == 1
+            trophy = inner_pools[0]["entries"][0]
+            assert trophy["type"] == "minecraft:item" and trophy["name"].startswith("trofers:")
+            trophy_id = trophy["functions"][0]["components"]["trofers:trophy"]
             assert trophy_id.startswith("trofers:") and trophy_id not in selected_trophies
             selected_trophies.add(trophy_id)
         assert len(selected_trophies) == len(entries)
@@ -127,6 +126,9 @@ for seconds in ("10 * 60", "24 * 60 * 60", "3 * 60 * 60", "10 * 60"):
     assert seconds in code
 assert "extinguishing_grimoire" not in code and "repulsion_grimoire" not in code
 assert "PendingLightning" in code and "hoverAboveTerrain" in code and "healNearby" in code
+assert "FIREWORK_CAPACITY = 6" in code and "FIREWORKS_PER_USE = 20" in code
+assert "FIREWORKS_PER_WAVE = 5" in code and "PendingFireworks" in code
+assert "Left-click a block for 20 fireworks" in code
 consumables = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethConsumables.java").read_text()
 for marker in ("potion_everything", "potion_shrink", "potion_grow", "potion_creative", "super_tnt", "ultimate_chorus_fruit", "splash_binding", "splash_vanishing", "splash_coronavirus", "fake_tnt"):
     assert marker in consumables, marker
@@ -163,6 +165,10 @@ for key in ("crystal_ball", "kill_switch", "cognitohazard_book", "crown_of_nothi
     assert key in oddities, key
 assert "BRAINMETH_ALLOW_KILLSWITCH" in oddities and '"stop"' in oddities
 assert "ClientboundSetTitleTextPacket" in oddities and "brainmeth-crystal-messages.json" in oddities
+assert "colouredWhisper" in oddities and "WHISPER_PALETTE" in oddities
+assert "showTitle(player,m.body())" in oddities
+assert "Message from "+chr(34)+"+sender" not in oddities
+assert 'sender+": "+body' not in oddities
 assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
 assert "A fresh start will put you on your way." in wisdom and "Nothing is exactly as it seems." in wisdom
 assert "Wanda" in wisdom and "now+3600L" in wisdom
@@ -182,4 +188,4 @@ for slug, original in (("flashing_lights","minecraft:music_disc.otherside"), ("p
 head_item = json.loads((base/"uncommon/herobrine_head.json").read_text())
 assert head_item["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:profile"]["name"]=="MHF_Herobrine"
 assert not any("rare_music_disc" in filename for filename in actual)
-print("Reward batches 1-7 verified: 40 top-level tables with 47 plushie choices and 75 paired trophies.")
+print("Reward batches 1-7 verified: 40 top-level tables with 47 plushie choices and 75 single combined trophies.")
