@@ -44,6 +44,10 @@ import java.util.Iterator;
 public final class BrainmethRewards {
     private static final String MARKER = "brainmeth_reward";
     private static final long FIREWORK_REGEN_SECONDS = 10 * 60;
+    private static final int FIREWORK_CAPACITY = 6;
+    private static final int FIREWORKS_PER_USE = 20;
+    private static final int FIREWORKS_PER_WAVE = 5;
+    private static final int MAX_ACTIVE_FIREWORK_VOLLEYS = 12;
     private static final long RAIN_REGEN_SECONDS = 24 * 60 * 60;
     private static final long LEVITATION_REGEN_SECONDS = 60 * 60;
     private static final long HEALING_REGEN_SECONDS = 60 * 60;
@@ -53,6 +57,7 @@ public final class BrainmethRewards {
     private static final int HEAL_RADIUS_BLOCKS = 8 * 16;
     private static MinecraftServer queuedServer;
     private static final List<PendingLightning> lightningQueue = new ArrayList<>();
+    private static final List<PendingFireworks> fireworkQueue = new ArrayList<>();
 
     private static final class PendingLightning {
         final ServerLevel level;
@@ -61,6 +66,19 @@ public final class BrainmethRewards {
         long nextTick;
 
         PendingLightning(ServerLevel level, BlockPos pos) {
+            this.level = level;
+            this.pos = pos;
+            this.nextTick = level.getGameTime();
+        }
+    }
+
+    private static final class PendingFireworks {
+        final ServerLevel level;
+        final BlockPos pos;
+        int remaining = FIREWORKS_PER_USE;
+        long nextTick;
+
+        PendingFireworks(ServerLevel level, BlockPos pos) {
             this.level = level;
             this.pos = pos;
             this.nextTick = level.getGameTime();
@@ -140,8 +158,12 @@ public final class BrainmethRewards {
         if (!held.is(Items.STICK) || !kind(held).equals("firework_wand")) return;
         // Cancel ordinary mining while the enchanted stick is used as a wand.
         event.setCanceled(true);
-        if (!spendCharge(player, held, 10, FIREWORK_REGEN_SECONDS, "Firework Wand")) return;
-        launchFireworks(level, event.getPos());
+        if (fireworkQueue.size() >= MAX_ACTIVE_FIREWORK_VOLLEYS) {
+            player.displayClientMessage(Component.literal("Too many firework volleys active; try again."), true);
+            return;
+        }
+        if (!spendCharge(player, held, FIREWORK_CAPACITY, FIREWORK_REGEN_SECONDS, "Firework Wand")) return;
+        fireworkQueue.add(new PendingFireworks(level, event.getPos()));
     }
 
     private static void enchantStick(ServerPlayer player, ItemStack grimoire, String kind) {
@@ -163,7 +185,7 @@ public final class BrainmethRewards {
         switch (kind) {
             case "firework_grimoire" -> {
                 name = "Firework Wand"; wandKind = "firework_wand";
-                capacity = 10; interval = FIREWORK_REGEN_SECONDS;
+                capacity = FIREWORK_CAPACITY; interval = FIREWORK_REGEN_SECONDS;
             }
             case "rain_grimoire" -> {
                 name = "Rain Wand"; wandKind = "rain_wand";
@@ -260,7 +282,7 @@ public final class BrainmethRewards {
             default -> "unknown";
         };
         String use = switch (display) {
-            case "Firework Wand" -> "Left-click a block for 10 fireworks";
+            case "Firework Wand" -> "Left-click a block for 20 fireworks";
             case "Rain Wand" -> "Right-click to summon 10 minutes of rain";
             case "Levitation Wand" -> "Right-click to hover above terrain for 10 minutes";
             case "Healing Wand" -> "Right-click to heal players within 8 chunks";
@@ -274,16 +296,17 @@ public final class BrainmethRewards {
         )));
     }
 
-    private static void launchFireworks(ServerLevel level, BlockPos target) {
+    private static void launchFireworks(ServerLevel level, BlockPos target, int count) {
         ItemStack rocket = new ItemStack(Items.FIREWORK_ROCKET);
         FireworkExplosion burst = new FireworkExplosion(
             FireworkExplosion.Shape.STAR, IntList.of(0xFF55CC, 0x55DDFF, 0xFFDD55),
             IntList.of(0xFFFFFF), true, true);
         rocket.set(DataComponents.FIREWORKS, new Fireworks(1, List.of(burst)));
-        for (int i = 0; i < 10; i++) {
-            double x = target.getX() + 0.5 + (level.random.nextDouble() - 0.5) * 3.0;
-            double y = target.getY() + 1.5;
-            double z = target.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * 3.0;
+        for (int i = 0; i < count; i++) {
+            // Scatter each wave over an 8-block-wide area, rather than a 3-block clump.
+            double x = target.getX() + 0.5 + (level.random.nextDouble() - 0.5) * 8.0;
+            double y = target.getY() + 1.5 + level.random.nextDouble() * 1.5;
+            double z = target.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * 8.0;
             level.addFreshEntity(new FireworkRocketEntity(level, x, y, z, rocket));
         }
     }
@@ -306,6 +329,7 @@ public final class BrainmethRewards {
         MinecraftServer server = event.getServer();
         if (queuedServer != server) {
             lightningQueue.clear();
+            fireworkQueue.clear();
             queuedServer = server;
         }
         for (ServerPlayer player : server.getPlayerList().getPlayers()) {
@@ -330,6 +354,17 @@ public final class BrainmethRewards {
             pending.remaining--;
             pending.nextTick = pending.level.getGameTime() + 8; // visibly separated strikes
             if (pending.remaining == 0) it.remove();
+        }
+        // Four waves of five fireworks, separated by 4 ticks (~0.2 seconds).
+        Iterator<PendingFireworks> fireworks = fireworkQueue.iterator();
+        while (fireworks.hasNext()) {
+            PendingFireworks pending = fireworks.next();
+            if (pending.level.getGameTime() < pending.nextTick) continue;
+            int count = Math.min(FIREWORKS_PER_WAVE, pending.remaining);
+            launchFireworks(pending.level, pending.pos, count);
+            pending.remaining -= count;
+            pending.nextTick = pending.level.getGameTime() + 4;
+            if (pending.remaining == 0) fireworks.remove();
         }
     }
 
