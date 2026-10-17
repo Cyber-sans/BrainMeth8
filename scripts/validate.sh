@@ -55,6 +55,7 @@ python3 scripts/verify-bounties.py
 python3 scripts/verify-game-rules.py
 python3 scripts/verify-lobby.py
 python3 scripts/verify-resource-packs.py
+python3 scripts/verify-private-music.py
 python3 scripts/verify-launch.py
 python3 scripts/verify-improved-mobs.py
 python3 scripts/verify-dragonfight.py
