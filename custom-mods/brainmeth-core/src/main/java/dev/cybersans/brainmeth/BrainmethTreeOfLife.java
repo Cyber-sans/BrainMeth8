@@ -97,15 +97,12 @@ public final class BrainmethTreeOfLife {
             if (allTracked() >= MAX_PENDING || !level.getWorldBorder().isWithinBounds(at) ||
                 !level.mayInteract(player, at) || !level.getBlockState(at).canBeReplaced() ||
                 !Blocks.OAK_SAPLING.defaultBlockState().canSurvive(level, at)) {
-                player.displayClientMessage(Component.literal("Cannot plant the Tree of Life here."), true);
                 return;
             }
             if (level.setBlock(at, Blocks.OAK_SAPLING.defaultBlockState(), 3)) {
                 saplings.computeIfAbsent(dimension(level), k -> new HashSet<>()).add(at.asLong());
                 save(level.getServer());
                 item.shrink(1);
-                player.displayClientMessage(Component.literal(
-                    "Tree of Life planted. Right-click it with a full stack (64) of bonemeal."), true);
             }
             return;
         }
@@ -115,26 +112,21 @@ public final class BrainmethTreeOfLife {
             if (!level.getBlockState(selected).is(Blocks.OAK_SAPLING)) {
                 saplings.get(dimension(level)).remove(selected.asLong());
                 save(level.getServer());
-                player.displayClientMessage(Component.literal("Sapling is no longer present."), true);
                 return;
             }
             if (item.getCount() < 64) {
-                player.displayClientMessage(Component.literal("The Tree of Life requires 64 bonemeal at once."), true);
                 return;
             }
             if (!jobs.isEmpty()) {
-                player.displayClientMessage(Component.literal("Another enormous tree is growing. Try after it finishes."), true);
                 return;
             }
             String problem = siteProblem(level, selected);
             if (problem != null) {
-                player.displayClientMessage(Component.literal("Cannot grow Tree of Life: " + problem), true);
                 return;
             }
             TreeJob job = new TreeJob(dimension(level), selected, 0);
             job.plan = makePlan(selected);
             if (job.plan.size() > MAX_PLAN_BLOCKS) {
-                player.displayClientMessage(Component.literal("Tree block limit exceeded; no bone meal spent."), true);
                 return;
             }
             jobs.add(job);
@@ -142,8 +134,6 @@ public final class BrainmethTreeOfLife {
             save(level.getServer());
             item.shrink(64);
             // Construction continues over many ticks; an interrupted build resumes from disk.
-            player.displayClientMessage(Component.literal(
-                "The Tree of Life awakens! About 114 blocks high, 78 blocks across."), false);
         }
     }
 
@@ -307,8 +297,6 @@ public final class BrainmethTreeOfLife {
         if (job.progress >= job.plan.size()) {
             jobs.remove(0);
             save(server);
-            server.getPlayerList().broadcastSystemMessage(
-                Component.literal("A Tree of Life has finished growing!"), false);
         } else if (advanced > 0 && ++tick % 20 == 0) {
             save(server); // Crash-resumable cursor, not a giant snapshot.
         }
