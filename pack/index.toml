@@ -45,7 +45,7 @@ metafile = true
 
 [[files]]
 file = "mods/almanac.pw.toml"
-hash = "a0fd96b1655c8130e48a2b959ae93831745758b7e4594dcb3d7ba14714da17e2"
+hash = "187b5984390db79c6f6336ea5971f5a0495f2b7f7e64caf12a495e880a4bff3a"
 metafile = true
 
 [[files]]
