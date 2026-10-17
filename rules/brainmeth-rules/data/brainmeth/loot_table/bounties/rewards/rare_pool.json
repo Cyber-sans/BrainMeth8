@@ -138,10 +138,6 @@
         },
         {
           "type": "minecraft:loot_table",
-          "value": "brainmeth:rewards/uncommon/disc_passionfruit"
-        },
-        {
-          "type": "minecraft:loot_table",
           "value": "brainmeth:rewards/uncommon/random_plushie"
         },
         {
