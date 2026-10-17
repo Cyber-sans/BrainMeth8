@@ -28,6 +28,11 @@
                     "italic": false
                   },
                   {
+                    "text": "Hold right-click to aim; left-click to fire.",
+                    "color": "gray",
+                    "italic": false
+                  },
+                  {
                     "text": "Exactly ONE block | 128-block range | 10-minute cooldown",
                     "color": "aqua",
                     "italic": false
