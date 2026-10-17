@@ -264,12 +264,17 @@ only the two specifically requested custom-song discs remain planned.
 - Kanye West – Flashing Lights, Drake – Passionfruit: distinct collectible
   jukebox discs registered via `brainmeth:flashing_lights` and
   `brainmeth:passionfruit` in `data/brainmeth/jukebox_song`.
-  **The copyrighted commercial sound recordings are NOT bundled**. Until
-  authorized recordings are supplied, the discs play vanilla Minecraft
-  placeholder tracks (Otherside and Wait). Their tooltips explicitly say
-  "placeholder audio". The registry and playable components are fully wired,
-  but audio replacement and client resource-pack distribution remain to do.
-  Do not advertise these items as containing the actual songs.
+  Flashing Lights uses the custom `brainmeth:flashing_lights` sound event
+  (inline `sound_id` definition), with a 237-second runtime. The recording
+  is **not committed to Git**. On deployment, `scripts/stage-private-music.py`
+  reads `/srv/minecraft/brainmeth/private-audio/flashing_lights.ogg`,
+  verifies OGG Vorbis, and creates an asset-only NeoForge `lowcodefml` JAR
+  in `automodpack/host-modpack/main/mods` (the required Essential client
+  group). The client loads the sound from the mod's built-in resources;
+  no manual resource-pack toggle is needed. The original recording remains
+  untouched, outside the repository. This is pending in-game client testing
+  and requires permission to distribute the recording to players.
+  Passionfruit still uses Minecraft's Wait placeholder, clearly labelled.
 
 Both collectible mods were installed during the earlier preparation; the
 existing acquisition lockdown (chests/archaeology, trader, random mob drops,
@@ -283,7 +288,9 @@ is the only provided way to obtain these until Bountiful integration.
    is present immediately on its base and no duplicate stand is awarded.
 3. Obtain several rewards and confirm one random plushie or one trophy set
    per roll, not all variants.
-4. Test Herobrine head skin resolves; verify discs play their clearly labelled
-   **placeholder** tracks and do not accidentally play real commercial audio.
+4. Test Herobrine head skin resolves; after a full deploy, verify Flashing
+   Lights plays the supplied private audio and Passionfruit plays its clearly
+   labelled placeholder. Verify AutoModpack installs the Essential audio mod
+   on a fresh client without manual resource-pack activation.
 5. Confirm ordinary loot, drops, trader exchanges and stand recipes remain
    blocked after a full test-world restart.
