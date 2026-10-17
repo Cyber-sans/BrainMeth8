@@ -73,7 +73,7 @@ public final class BrainmethOddities {
         CompoundTag tag=existing.copyTag();
         long current=now(),next=tag.getLong(field);
         if(next>current) {
-            player.displayClientMessage(Component.literal(name+" ready in "+(next-current)+" seconds."),true);
+            player.displayClientMessage(Component.literal(name+": No uses left."),true);
             return false;
         }
         tag.putLong(field,current+period);
