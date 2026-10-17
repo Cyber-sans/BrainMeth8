@@ -150,8 +150,17 @@ assert "MAX_FAKE_BLOCKS = 256" in consumables
 gadgets = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethGadgets.java").read_text()
 for timed_file in ("BrainmethRewards.java", "BrainmethOddities.java", "BrainmethGadgets.java", "BrainmethOrbitalGun.java", "BrainmethWisdom.java"):
     source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/timed_file).read_text()
-    assert "No uses left." in source, timed_file
+    assert "displayClientMessage" not in source, timed_file
     assert "seconds to next charge" not in source and "ready in " not in source, timed_file
+for silent_file in ("BrainmethConsumables.java", "BrainmethTreeOfLife.java"):
+    source = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth"/silent_file).read_text()
+    assert "displayClientMessage" not in source, silent_file
+assert "Returned to where you were" not in gadgets
+# Preserve actual reward payloads and critical restart notice, not generic status messages.
+oddities = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethOddities.java").read_text()
+wisdom = (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethWisdom.java").read_text()
+assert "showTitle(online,message)" in oddities and "KILL SWITCH! Restarting" in oddities
+assert "A Whisper from Beyond" in oddities and '"<Wanda> "' in wisdom
 tree = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethTreeOfLife.java").read_text()
 for marker in ("naughty_shovel", "time_traveller_watch", "mild_inconvenience_staff", "summoning_bow"):
     assert marker in gadgets, marker
