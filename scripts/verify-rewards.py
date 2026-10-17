@@ -116,6 +116,10 @@ for name, (base_item, amount, marker) in expected.items():
             assert comps[0]["minecraft:max_stack_size"] == 1
         if marker == "knockback_stick":
             assert comps[0]["minecraft:enchantments"]["levels"] == {"minecraft:knockback": 5}
+        if marker == "replicating_cake":
+            assert set(comps[0]) == {"minecraft:custom_data"}, (
+                "Special cake must be visually identical to ordinary Cake"
+            )
     else:
         assert not comps, name
 
@@ -172,8 +176,13 @@ assert 'sender+": "+body' not in oddities
 assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
 assert "A fresh start will put you on your way." in wisdom and "Nothing is exactly as it seems." in wisdom
 assert "Wanda" in wisdom and "now+3600L" in wisdom
-assert "REPLICATION_INTERVAL = 24 * 3600L" in cake
-assert "getFoodData().eat(2,0.1F)" in cake and "brainmeth-replicating-cakes.json" in cake
+assert "SLICE_REGEN_SECONDS = 10 * 60L" in cake
+assert "newBites >= 6" in cake and "nextSlice > 0L || bites >= 6" in cake
+assert "remainingBites == 0 ? 0L" in cake and "getFoodData().eat(2,0.1F)" in cake
+assert "brainmeth-replicating-cakes.json" in cake and 'root.addProperty("version",2)' in cake
+assert "brainmeth-replicating-cakes.v1-backup.json" in cake
+assert "REPLICATION_INTERVAL" not in cake and "Direction.NORTH" not in cake
+assert "No special hint on placement" in cake
 assert 'BRAINMETH_ALLOW_KILLSWITCH: "true"' in (root / "compose.yaml").read_text()
 assert not (base / "uncommon/rare_music_disc.json").exists()
 for slug, original in (("flashing_lights","minecraft:music_disc.otherside"), ("passionfruit","minecraft:music_disc.wait")):
