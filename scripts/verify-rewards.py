@@ -226,11 +226,21 @@ assert "Message from "+chr(34)+"+sender" not in oddities
 assert 'sender+": "+body' not in oddities
 assert "King of Absolutely Nothing" in oddities and "Mr. Deeds" in oddities
 assert "onBellUseOnBlock(PlayerInteractEvent.RightClickBlock event)" in oddities
-assert "summonButler(player, level, bell)" in oddities
-assert "Offhand bells must also summon" in oddities
+assert "onBellPlaced(BlockEvent.EntityPlaceEvent event)" in oddities
+assert "onBellDrops(BlockDropsEvent event)" in oddities
+assert "onBellBroken(BlockEvent.BreakEvent event)" in oddities
+assert 'pendingBellPlacements.put(player.getUUID()' in oddities
+assert 'summonButler(player, level, event.getPos())' in oddities
 assert 'if (!level.addFreshEntity(butler)) return;' in oddities
-assert 'recharge(player, bell, "butler_ready", ONE_DAY' in oddities
-
+assert 'bells.put(bellPos.asLong(), now() + ONE_DAY)' in oddities
+assert 'tag.putLong("butler_ready", ready)' in oddities
+assert 'item.set(DataComponents.CUSTOM_DATA, CustomData.of(tag))' in oddities
+assert 'brainmeth-butler-bells.json' in oddities
+assert 'savePlacedBells(level.getServer())' in oddities
+assert 'summonButler(player, level, item)' not in oddities
+bell_lore = json.loads((base/"uncommon/butlers_bell.json").read_text())["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:lore"]
+assert "Place it, then ring it" in bell_lore[0]["text"]
+assert "Keeps its magic when picked up." in bell_lore[1]["text"]
 assert "A fresh start will put you on your way." in wisdom and "Nothing is exactly as it seems." in wisdom
 assert "Wanda" in wisdom and "now+3600L" in wisdom
 assert "SLICE_REGEN_SECONDS = 10 * 60L" in cake
