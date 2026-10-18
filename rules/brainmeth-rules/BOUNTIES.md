@@ -39,9 +39,10 @@ definition and still needs an in-game check.
 
 ## Objectives
 
-**Common (11):** 3 Naturalist Chrysalises; 3 Snail Shells; 10 Lizard
-Tails; 32 Vinery Red Savanna Grapes; 32 Dark Cherries; 32 HerbalBrews
-Coffee Beans; 16 Dried Oolong Tea; 64 Supplementaries Flax; 32 Rope;
+**Common (13):** 3 Naturalist Chrysalises; 3 Snail Shells; 10 Lizard
+Tails; 12 Vinery Miss Lilitus Wines (Red Savanna); 8 Cherry Wines;
+12 HerbalBrews Coffees; 12 Oolong Teas; 8 Milk Coffees;
+8 Yerba Mate Teas; 64 Supplementaries Flax; 32 Rope;
 3 Snort Sherds; 64 Vanilla Backport Resin Clumps.
 
 **Uncommon (13):** 3 Deeper & Darker Soul Crystals; 16 Resonarium;
