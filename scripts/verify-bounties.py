@@ -203,6 +203,11 @@ assert "Mystery reward revealed! Check your inventory." in java
 assert "DRAGON_EGG_CLAIMS" not in java and "brainmeth-dragon-egg-claims" not in java
 assert '"give "+name+" minecraft:dragon_egg' not in java
 assert "dragon_egg" in java and "kill_switch" in java
+deployment=(root/"scripts/deploy.sh").read_text()
+assert "for obsolete in mything_objs.json mything_rews.json" in deployment
+assert "rm -f \"$BOUNTY_POOL_DEST/$obsolete\"" in deployment
+assert '"$OLD_REWARD_POOLS/uncommon_pool.json"' in deployment
+assert '"$OLD_REWARD_POOLS/rare_pool.json"' in deployment
 config=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config and 'bounty_decrees/bountiful/*' in config
 assert 'board["villageGenFrequency"]=1.0' in config

@@ -66,6 +66,18 @@ DATAPACK_DEST="$DATA_DIR/world/datapacks/brainmeth-rules"
 mkdir -p "$DATA_DIR/world/datapacks"
 mkdir -p "$DATAPACK_DEST"
 cp -a "$DATAPACK_SOURCE/." "$DATAPACK_DEST/"
+# Only retire superseded Brainmeth Bountiful files. Copying over a datapack
+# does not remove deleted files, so obsolete tier definitions would survive.
+BOUNTY_POOL_DEST="$DATAPACK_DEST/data/bountiful/bounty_pools/brainmeth"
+for obsolete in mything_objs.json mything_rews.json \
+                uncommon_objs.json uncommon_rews.json \
+                rare_objs.json rare_rews.json \
+                special_objs.json special_rews.json; do
+  rm -f "$BOUNTY_POOL_DEST/$obsolete"
+done
+OLD_REWARD_POOLS="$DATAPACK_DEST/data/brainmeth/loot_table/bounties/rewards"
+rm -f "$OLD_REWARD_POOLS/uncommon_pool.json" "$OLD_REWARD_POOLS/rare_pool.json"
+
 # Minecraft 1.21.1 requires JSON-encoded text inside item-name/lore components.
 # This also preserves the live repair on every future deployment.
 python3 ./scripts/normalize-rule-components.py --pack "$DATAPACK_DEST"
