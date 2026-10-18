@@ -70,98 +70,6 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "red_savanna_grape": {
-      "type": "item",
-      "content": "vinery:red_savanna_grape",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 32,
-        "max": 32
-      },
-      "unitWorth": 187.5,
-      "name": "Savanna Vineyard",
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "uncommon",
-        "rare",
-        "dragon",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "dark_cherry": {
-      "type": "item",
-      "content": "vinery:dark_cherry",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 32,
-        "max": 32
-      },
-      "unitWorth": 187.5,
-      "name": "Dark Cherry Orchard",
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "uncommon",
-        "rare",
-        "dragon",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "coffee_beans": {
-      "type": "item",
-      "content": "herbalbrews:coffee_beans",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 32,
-        "max": 32
-      },
-      "unitWorth": 187.5,
-      "name": "Coffee Plantation",
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "uncommon",
-        "rare",
-        "dragon",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "dried_oolong_tea": {
-      "type": "item",
-      "content": "herbalbrews:dried_oolong_tea",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 16,
-        "max": 16
-      },
-      "unitWorth": 375,
-      "name": "Oolong Processing",
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "uncommon",
-        "rare",
-        "dragon",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
     "flax": {
       "type": "item",
       "content": "supplementaries:flax",
@@ -241,6 +149,144 @@
       },
       "unitWorth": 93.75,
       "name": "Pale Forest Resin",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "lilitu_wine": {
+      "type": "item",
+      "content": "vinery:lilitu_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 12,
+        "max": 12
+      },
+      "unitWorth": 500,
+      "name": "Miss Lilitus Wine Cellar",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "cherry_wine": {
+      "type": "item",
+      "content": "vinery:cherry_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 750,
+      "name": "Cherry Winemaker",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "coffee": {
+      "type": "item",
+      "content": "herbalbrews:coffee",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 12,
+        "max": 12
+      },
+      "unitWorth": 500,
+      "name": "Coffee Roastery",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "oolong_tea": {
+      "type": "item",
+      "content": "herbalbrews:oolong_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 12,
+        "max": 12
+      },
+      "unitWorth": 500,
+      "name": "Oolong Tea Brewer",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "milk_coffee": {
+      "type": "item",
+      "content": "herbalbrews:milk_coffee",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 750,
+      "name": "Milk Coffee Brewer",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "uncommon",
+        "rare",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "yerba_mate_tea": {
+      "type": "item",
+      "content": "herbalbrews:yerba_mate_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 750,
+      "name": "Yerba Mate Brewer",
       "markers": [
         "common"
       ],
