@@ -119,6 +119,46 @@
         {
           "type": "minecraft:loot_table",
           "value": "brainmeth:bounties/rewards/uncommon/spore_blossom"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/builders_toolbelt"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/copper_restoration"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/mob_head"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/goat_horn"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/firework_display"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/enchanted_golden_apple"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/rabbit_banquet"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/saturation_stew"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/chorus_fruit"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/invisible_frames"
         }
       ]
     }

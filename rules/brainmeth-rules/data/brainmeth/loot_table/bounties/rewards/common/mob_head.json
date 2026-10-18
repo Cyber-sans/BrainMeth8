@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:creeper_head",
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:zombie_head",
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skeleton_skull",
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:piglin_head",
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wither_skeleton_skull",
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:dragon_head",
+          "functions": []
+        }
+      ]
+    }
+  ]
+}
