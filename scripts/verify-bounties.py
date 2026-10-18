@@ -135,7 +135,11 @@ expected_common={
         "sponges","powered_rails","blue_ice","sea_lanterns","froglights",
         "end_rods","shroomlights","gilded_blackstone","crying_obsidian",
         "dark_prismarine","quartz","coral","shellstone","ore_display",
-        "copper_masterwork","spore_blossom"))
+        "copper_masterwork","spore_blossom")),
+    *(f"brainmeth:bounties/rewards/common/{k}" for k in (
+        "builders_toolbelt","copper_restoration","mob_head","goat_horn",
+        "firework_display","enchanted_golden_apple","rabbit_banquet",
+        "saturation_stew","chorus_fruit","invisible_frames"))
 }
 expected_legendary={f"brainmeth:rewards/uncommon/{key}" for key,item
                     in leg_r["content"].items() if item["markers"]==["legendary"] and key!="dragon_egg"}
@@ -154,7 +158,45 @@ for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
         folder=loots/directory
         assert folder.is_dir()
         assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
-assert len(expected_common)==29 and len(expected_legendary)==35
+assert len(expected_common)==39 and len(expected_legendary)==35
+
+# Validate custom building tools, food, instruments and invisible frame metadata.
+extra=("builders_toolbelt","copper_restoration","mob_head","goat_horn",
+       "firework_display","enchanted_golden_apple","rabbit_banquet",
+       "saturation_stew","chorus_fruit","invisible_frames")
+assert len(extra)==10
+def reward_entries(key):
+    obj=json.loads((loots/"common"/(key+".json")).read_text())
+    assert obj["type"]=="minecraft:generic"
+    return obj,[entry for pool in obj["pools"] for entry in pool["entries"]]
+def components(entry):
+    d={}
+    for f in entry.get("functions",[]):
+        if f["function"]=="minecraft:set_components":
+            d.update(f["components"])
+    return d
+for name in extra:
+    tab,entries=reward_entries(name)
+    assert all(e["type"]=="minecraft:item" for e in entries)
+assert [e["name"] for e in reward_entries("builders_toolbelt")[1]]==[
+    "supplementaries:wrench","supplementaries:slingshot","supplementaries:rope_arrow"]
+assert [e["name"] for e in reward_entries("copper_restoration")[1]]==[
+    "supplementaries:soap","minecraft:honeycomb"]
+assert len(reward_entries("mob_head")[1])==6
+horns=reward_entries("goat_horn")[1]
+assert len(horns)==8 and len({components(x)["minecraft:instrument"] for x in horns})==8
+fire=reward_entries("firework_display")[1]
+assert len(fire)==3 and {components(x)["minecraft:fireworks"]["explosions"][0]["shape"] for x in fire}=={"star","creeper","burst"}
+assert reward_entries("enchanted_golden_apple")[1][0]["name"]=="minecraft:enchanted_golden_apple"
+assert reward_entries("rabbit_banquet")[0]["pools"][0]["rolls"]==4
+assert reward_entries("saturation_stew")[0]["pools"][0]["rolls"]==3
+assert components(reward_entries("saturation_stew")[1][0])["minecraft:suspicious_stew_effects"][0]["id"]=="minecraft:saturation"
+assert reward_entries("chorus_fruit")[1][0]["name"]=="minecraft:chorus_fruit"
+frames=reward_entries("invisible_frames")[1]
+assert [e["name"] for e in frames]==["minecraft:item_frame","minecraft:glow_item_frame"]
+for e in frames:
+    assert components(e)["minecraft:entity_data"]=={"id":e["name"],"Invisible":1}
+    assert "Invisible" in json.loads(components(e)["minecraft:item_name"])["text"]
 # Valuable nonrenewable or hard-to-farm shipments are smaller than
 # ordinary builder shipments; no single pool dominates the mystery draw.
 balanced_shipments={
