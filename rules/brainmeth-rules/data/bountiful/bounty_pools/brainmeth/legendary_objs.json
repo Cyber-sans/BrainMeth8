@@ -1,5 +1,5 @@
 {
-  "weightMult": 26.2,
+  "weightMult": 4,
   "content": {
     "ancient_anima": {
       "type": "item",
@@ -16,7 +16,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -38,7 +37,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -60,7 +58,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -82,7 +79,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -104,7 +100,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -126,7 +121,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -153,7 +147,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -171,63 +164,15 @@
       "unitWorth": 45000,
       "name": "Dragon's Legacy",
       "markers": [
-        "dragon"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "legendary",
         "plushie",
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 0.066
-    },
-    "rare_plushie": {
-      "type": "item",
-      "content": "perfectplushies:sirjain_plushie_rare",
-      "rarity": "RARE",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 45000,
-      "name": "Ultra-Rare SirJain Plushie",
-      "markers": [
-        "plushie"
-      ],
-      "forbidMarkers": [
-        "common",
-        "legendary",
-        "dragon",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 0.33
-    },
-    "warden_trophy": {
-      "type": "item",
-      "content": "trofers:large_pillar",
-      "rarity": "RARE",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 45000,
-      "name": "Warden Trophy and Display Stand",
-      "markers": [
-        "trophy"
-      ],
-      "forbidMarkers": [
-        "common",
-        "legendary",
-        "dragon",
-        "plushie"
-      ],
-      "repRequired": 0,
-      "weightMult": 0.33,
-      "components": {
-        "trofers:trophy": "trofers:warden"
-      }
+      "weightMult": 1
     }
   }
 }

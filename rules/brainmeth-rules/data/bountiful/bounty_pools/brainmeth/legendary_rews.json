@@ -1,5 +1,5 @@
 {
-  "weightMult": 21.54,
+  "weightMult": 4,
   "content": {
     "poo": {
       "type": "command",
@@ -16,7 +16,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -38,7 +37,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -60,7 +58,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -82,7 +79,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -104,7 +100,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -126,7 +121,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -148,7 +142,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -170,7 +163,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -192,7 +184,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -214,7 +205,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -236,7 +226,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -258,7 +247,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -280,7 +268,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -302,7 +289,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -324,7 +310,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -346,7 +331,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -368,7 +352,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -390,7 +373,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -412,7 +394,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -434,7 +415,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -456,7 +436,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -478,7 +457,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -500,7 +478,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -522,7 +499,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -544,7 +520,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -566,7 +541,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -588,7 +562,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -610,7 +583,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -632,7 +604,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -654,7 +625,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -676,7 +646,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -698,7 +667,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -720,7 +688,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -742,7 +709,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -764,7 +730,6 @@
       ],
       "forbidMarkers": [
         "common",
-        "dragon",
         "plushie",
         "trophy"
       ],
@@ -773,7 +738,7 @@
     },
     "dragon_egg": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_dragon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary",
       "name": "??? Legendary Reward",
       "rarity": "RARE",
       "amount": {
@@ -782,60 +747,15 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "dragon"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "legendary",
         "plushie",
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 0.066
-    },
-    "king_crown": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie",
-      "name": "??? Legendary Reward",
-      "rarity": "RARE",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 45000,
-      "markers": [
-        "plushie"
-      ],
-      "forbidMarkers": [
-        "common",
-        "legendary",
-        "dragon",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 0.33
-    },
-    "kill_switch": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy",
-      "name": "??? Legendary Reward",
-      "rarity": "RARE",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 45000,
-      "markers": [
-        "trophy"
-      ],
-      "forbidMarkers": [
-        "common",
-        "legendary",
-        "dragon",
-        "plushie"
-      ],
-      "repRequired": 0,
-      "weightMult": 0.33
+      "weightMult": 1
     }
   }
 }

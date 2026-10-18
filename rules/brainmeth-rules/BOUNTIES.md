@@ -58,63 +58,52 @@ after config changes; already generated bounty papers are not retroactively
 changed. The admin `/give` syntax is based on Bountiful's decree component
 definition and still needs an in-game check.
 
-## Objectives — exactly two tiers
+## Objectives — exactly three categories
 
-**Common (26):** Original 13 Common and 13 former Uncommon objectives are
-now one Common category, with the existing quantities kept pending a separate
-fairness review. Includes Naturalist drops, Supplementaries supplies,
-Vinery/HerbalBrews finished drinks, Deeper & Darker materials, and several
-challenging vanilla exploration items. There is no active Uncommon tier.
+**Common (26):** Former Common + Uncommon deliveries, unchanged quantities.
+The old Uncommon rarity is no longer an active Brainmeth category.
 
-**Legendary (10):** Seven regular high-difficulty challenges — Ancient Anima,
-Blazing Eye, Obsidian Heart, Void Thorn, Heart of the Deep, the crafted Four
-Calamities Seal, and 3 Nether Stars — plus three exclusive collectors:
-1 Dragon Egg, the SirJain Rare Plushie, and the Warden Trophy on its large
-pillar. Internally special collector entries have distinct matching markers
-so that the Crown, Kill Switch and one-time Dragon Egg exception cannot
-randomly be awarded to other Legendary objectives.
+**Legendary (8):** Ancient Anima, Blazing Eye, Obsidian Heart, Void Thorn,
+Heart of the Deep, the Four Calamities Seal, 3 Nether Stars, and **one
+Dragon Egg**. The Dragon Egg is an ordinary, repeatable Legendary delivery:
+it is consumed on redemption like other objectives, awards one random
+Legendary prize, and is not returned. There is no once-per-player limit.
+The legacy claim tracking file is ignored; existing `mystery_dragon`
+bounties now behave like any ordinary Legendary bounty.
 
-The Dragon Egg is returned on redemption, and the bonus prize is awarded
-only once per player (recorded in world/brainmeth-dragon-egg-claims.json).
-Only the rare SirJain plushie unlocks the King of Brainmeth Crown; only
-the correctly mounted Warden trophy unlocks the Kill Switch. The prizes
-themselves are not randomly included in the ordinary Legendary prize pool.
+**Mything (2):** A rare SirJain Plushie grants the **King of Brainmeth
+Crown**; a Warden Trophy mounted on its large pillar grants the **Kill
+Switch**. Each is guaranteed and unavailable from ordinary Legendary
+reward rolls. They are the sole non-operator sources. The intended label
+is **Mything**; Bountiful's built-in `EPIC` rarity (purple) is used to
+make these rarer than regular `RARE` (yellow) Legendary contracts.
 
-## Mystery rewards — exactly two pools
+## Rewards — exactly three Bountiful reward pools
 
-The decree references exactly two objective pools (`common_objs`,
-`legendary_objs`) and two reward pools (`common_rews`, `legendary_rews`).
-Contracts visibly offer only **??? Common Reward** or
-**??? Legendary Reward**. One reward is granted per completed contract.
-The concrete reward is drawn server-side **at redemption time**, not
-stored in the bounty preview.
+The decree references `common_objs`, `legendary_objs`, `mything_objs`
+and `common_rews`, `legendary_rews`, `mything_rews`.
+Only three labels appear: **??? Common Reward**,
+**??? Legendary Reward** and **??? Mything Reward**.
 
-- **Common:** all 26 objectives can match 29 building-resource shipment
-  entries, now drawing from one combined 29-outcome random loot table.
-  The existing relative work values (6000 and 13000) remain so that
-  more demanding Common objectives still have matching reward entries.
-- **Legendary:** seven regular challenges select one of 35 original
-  custom prizes. The three protected collector objectives use the same
-  Legendary reward POOL JSON with different matching markers; their
-  redemption commands retain their exclusive behaviour.
-- Previously-issued `mystery_uncommon` papers are redirected to the new
-  Common random loot table. Existing `mystery_legendary` and Dragon Egg
-  redemptions now target the renamed Legendary loot table.
+- Common: 26 delivery objectives and 29 random building shipments.
+- Legendary: 8 objectives and 35 random custom prizes.
+- Mything: 2 special objectives, each with one exclusive guaranteed prize.
 
-**Appearance target:** about half of new Brainmeth board contracts should
-be Legendary at initial (zero) reputation. Bountiful normalises entry
-weights by pool length, then applies rarity- and reputation-dependent
-weights. The Legendary reward pool multiplier is tuned to **21.54**
-against Common 1.0; protected specials stay relatively rare.
-This is a *generation weight target*, not a hard per-board quota.
-As board reputation increases the RARE rarity is less penalised, so the
-Legendary share may rise substantially. Calibrate in-game with realistic
-board reputation if a roughly even ratio must be maintained over time.
+Random prize selection occurs server-side on redemption. The Mything
+Bountiful pool uses the two protected fixed grant commands, not an extra
+random aggregate loot table. Legacy Uncommon deliveries still map to
+Common. Legacy Dragon Egg grants map to regular Legendary.
 
-Ordinary village Bountiful decrees remain unaffected. The board refresh
-interval remains 15 minutes; contracts do not expire, and players
-can take at most three Brainmeth contracts per Minecraft day
-(pickup-mixin behaviour still requires live validation).
+**Starter reputation appearance:** about **49.5% Common, 49.5% Legendary,
+1% Mything**. Based on Bountiful's actual initial reward-first selection,
+pool multipliers are respectively 1, 4 and 0.16, with built-in
+COMMON/RARE/EPIC rarities. Those probabilities **vary with reputation**:
+at higher reputation, Common becomes less likely under Bountiful's
+rarity-weighting scheme. This is a starting-board calibration, not a
+guaranteed per-board quota. Verify on an actual board before deployment.
+
+The 15-minute board refresh and the 3-bounties-taken-per-Minecraft-day
+quota are unchanged.
 
 ## Rewards
 
@@ -134,9 +123,7 @@ and 16 spore blossoms.
 
 **Legendary — 35 equally possible ordinary prizes:** existing grimoires,
 potions, gadgets, collectibles and custom music disc rewards, excluding the
-exclusive King of Brainmeth Crown and Kill Switch. The 3 protected
-collector challenges use fixed exceptional redemption behaviour, not
-the 35-prize lottery.
+exclusive King of Brainmeth Crown and Kill Switch. The two Mything challenges grant their unique prizes outside the random lottery.
 
 The 16 previously Uncommon shipment definitions remain under the legacy
 `bounties/rewards/uncommon/` loot table directory solely as item assets;
@@ -156,8 +143,8 @@ private paths. The only two random aggregate tables are
    decree, insert it into a normal board and wait for fresh custom contracts.
 4. Confirm a board with both a vanilla and Brainmeth decree never mixes
    their objective/reward pools.
-5. Complete Common, Legendary and protected collector hand-ins; check item quantities,
-   reward isolation and persistent one-time Dragon Egg claim.
+5. Complete Common, Legendary (including Dragon Egg) and Mything hand-ins; check
+   quantities, reward isolation, collector exclusivity and egg consumption.
 6. **Do not activate the Kill Switch outside an isolated test container.**
 
 IMPORTANT: Bountiful 8.0.0-beta.2 has publicly reported

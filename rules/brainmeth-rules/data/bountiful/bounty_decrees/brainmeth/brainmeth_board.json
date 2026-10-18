@@ -2,11 +2,13 @@
   "name": "Brainmeth Community Bounties",
   "objectives": [
     "common_objs",
-    "legendary_objs"
+    "legendary_objs",
+    "mything_objs"
   ],
   "rewards": [
     "common_rews",
-    "legendary_rews"
+    "legendary_rews",
+    "mything_rews"
   ],
   "linkedProfessions": [],
   "canSpawn": false,
