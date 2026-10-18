@@ -4,7 +4,7 @@
     "king_crown": {
       "type": "command",
       "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie",
-      "name": "??? Mything Reward",
+      "name": "??? Mythic Reward",
       "rarity": "EPIC",
       "amount": {
         "min": 1,
@@ -25,7 +25,7 @@
     "kill_switch": {
       "type": "command",
       "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy",
-      "name": "??? Mything Reward",
+      "name": "??? Mythic Reward",
       "rarity": "EPIC",
       "amount": {
         "min": 1,

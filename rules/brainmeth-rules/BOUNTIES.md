@@ -60,8 +60,45 @@ definition and still needs an in-game check.
 
 ## Objectives — exactly three categories
 
-**Common (26):** Former Common + Uncommon deliveries, unchanged quantities.
-The old Uncommon rarity is no longer an active Brainmeth category.
+**Common (26):** The former 13 Common and 13 Uncommon objectives have been
+one pool since the earlier merger. They are now **rebalanced** to require
+substantial interaction with crafting, farming, wildlife, advanced brewing,
+different dimensions, archaeology, difficult structures or boss-adjacent
+progression. The old 6000/13000 objective-and-reward worth split is gone:
+all Common entries now have Bountiful worth **16000**, regardless of source.
+This affects reward matching, not a promise of identical real-world playtime.
+
+### Current Common deliveries
+
+| Mod/content | Delivery amounts |
+|---|---|
+| Naturalist | 12 Chrysalises; 12 Snail Shells; 16 Lizard Tails; 192 Shellstone Bricks |
+| Supplementaries | 32 Sacks (crafted using 224 Flax + 32 String); 192 Rope; 2 Netherite Doors |
+| Vinery | 24 Miss Lilitus Wines; 24 Cherry Wines; 16 Chorus Wines |
+| HerbalBrews | 48 Coffees; 24 Oolong Teas; 24 Milk Coffees; 32 Yerba Mate Teas; 40 Rooibos Teas |
+| Deeper & Darker | 8 Soul Crystals; 48 Resonarium; 1 Temple Gloomsherd; 256 Echo Logs |
+| Vanilla/Backport | 1 Snort Pottery Sherd; 192 Resin Clumps; 1 Sniffer Egg; 1 Recovery Compass; 3 Ominous Trial Keys; 1 Pigstep Disc; 8 Creaking Hearts |
+
+The former easy **64 raw Flax** task is gone, replaced by crafted Sacks.
+Brewing tasks use finished drinks, not ingredient turn-ins.
+Unfarmable or scarce archaeology/exploration collectibles are deliberately
+**one** each rather than demanding multiple copies. Mass-producible materials
+require larger batches. Two Netherite Doors require Netherite Scrap and
+Gold Doors; their recipe on the Supplementaries 1.21.1 branch is one
+scrap + one gold door each. Exact difficulty will depend on existing
+farms, structure loot, and world progression, so these are a *first
+difficulty pass*, requiring in-game adjustment if one route dominates.
+
+### Common shipment balancing
+
+The combined 29-option Common reward catalogue is unchanged, with all
+entries using the same internal worth 16000 and equal random selection.
+Seven exceptionally valuable crates are reduced: Sponges **64→16**,
+Deepslate Emerald Ore **32→4**, Spore Blossoms **16→8**,
+Blue Ice **64→32**, Gilded Blackstone **64→32**,
+Pearlescent Froglights **64→32**, and Tube Coral Blocks **64→32**.
+Ordinary construction-resource shipments retain their earlier amounts.
+
 
 **Legendary (8):** Ancient Anima, Blazing Eye, Obsidian Heart, Void Thorn,
 Heart of the Deep, the Four Calamities Seal, 3 Nether Stars, and **one
@@ -71,31 +108,31 @@ Legendary prize, and is not returned. There is no once-per-player limit.
 The legacy claim tracking file is ignored; existing `mystery_dragon`
 bounties now behave like any ordinary Legendary bounty.
 
-**Mything (2):** A rare SirJain Plushie grants the **King of Brainmeth
+**Mythic (2):** A rare SirJain Plushie grants the **King of Brainmeth
 Crown**; a Warden Trophy mounted on its large pillar grants the **Kill
 Switch**. Each is guaranteed and unavailable from ordinary Legendary
 reward rolls. They are the sole non-operator sources. The intended label
-is **Mything**; Bountiful's built-in `EPIC` rarity (purple) is used to
+is **Mythic**; Bountiful's built-in `EPIC` rarity (purple) is used to
 make these rarer than regular `RARE` (yellow) Legendary contracts.
 
 ## Rewards — exactly three Bountiful reward pools
 
-The decree references `common_objs`, `legendary_objs`, `mything_objs`
-and `common_rews`, `legendary_rews`, `mything_rews`.
+The decree references `common_objs`, `legendary_objs`, `mythic_objs`
+and `common_rews`, `legendary_rews`, `mythic_rews`.
 Only three labels appear: **??? Common Reward**,
-**??? Legendary Reward** and **??? Mything Reward**.
+**??? Legendary Reward** and **??? Mythic Reward**.
 
 - Common: 26 delivery objectives and 29 random building shipments.
 - Legendary: 8 objectives and 35 random custom prizes.
-- Mything: 2 special objectives, each with one exclusive guaranteed prize.
+- Mythic: 2 special objectives, each with one exclusive guaranteed prize.
 
-Random prize selection occurs server-side on redemption. The Mything
+Random prize selection occurs server-side on redemption. The Mythic
 Bountiful pool uses the two protected fixed grant commands, not an extra
 random aggregate loot table. Legacy Uncommon deliveries still map to
 Common. Legacy Dragon Egg grants map to regular Legendary.
 
 **Starter reputation appearance:** about **49.5% Common, 49.5% Legendary,
-1% Mything**. Based on Bountiful's actual initial reward-first selection,
+1% Mythic**. Based on Bountiful's actual initial reward-first selection,
 pool multipliers are respectively 1, 4 and 0.16, with built-in
 COMMON/RARE/EPIC rarities. Those probabilities **vary with reputation**:
 at higher reputation, Common becomes less likely under Bountiful's
@@ -123,9 +160,9 @@ and 16 spore blossoms.
 
 **Legendary — 35 equally possible ordinary prizes:** existing grimoires,
 potions, gadgets, collectibles and custom music disc rewards, excluding the
-exclusive King of Brainmeth Crown and Kill Switch. The two Mything challenges grant their unique prizes outside the random lottery.
+exclusive King of Brainmeth Crown and Kill Switch. The two Mythic challenges grant their unique prizes outside the random lottery.
 
-The 16 previously Uncommon shipment definitions remain under the legacy
+The 16 formerly Uncommon shipment definitions remain under the legacy
 `bounties/rewards/uncommon/` loot table directory solely as item assets;
 there is NO active `uncommon_pool.json` or Uncommon Bountiful pool.
 The 35 previous Rare prize definitions similarly remain in their existing
@@ -143,7 +180,7 @@ private paths. The only two random aggregate tables are
    decree, insert it into a normal board and wait for fresh custom contracts.
 4. Confirm a board with both a vanilla and Brainmeth decree never mixes
    their objective/reward pools.
-5. Complete Common, Legendary (including Dragon Egg) and Mything hand-ins; check
+5. Complete Common, Legendary (including Dragon Egg) and Mythic hand-ins; check
    quantities, reward isolation, collector exclusivity and egg consumption.
 6. **Do not activate the Kill Switch outside an isolated test container.**
 

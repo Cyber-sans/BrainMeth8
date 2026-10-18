@@ -3,12 +3,12 @@
   "objectives": [
     "common_objs",
     "legendary_objs",
-    "mything_objs"
+    "mythic_objs"
   ],
   "rewards": [
     "common_rews",
     "legendary_rews",
-    "mything_rews"
+    "mythic_rews"
   ],
   "linkedProfessions": [],
   "canSpawn": false,
