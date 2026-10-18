@@ -78,6 +78,9 @@ done
 OLD_REWARD_POOLS="$DATAPACK_DEST/data/brainmeth/loot_table/bounties/rewards"
 rm -f "$OLD_REWARD_POOLS/uncommon_pool.json" "$OLD_REWARD_POOLS/rare_pool.json"
 
+# Preserve Better Days' smooth sleep warp, but slow its maximum from 110x to 40x.
+python3 ./scripts/configure-betterdays.py --data-root "$DATA_DIR"
+
 # Minecraft 1.21.1 requires JSON-encoded text inside item-name/lore components.
 # This also preserves the live repair on every future deployment.
 python3 ./scripts/normalize-rule-components.py --pack "$DATAPACK_DEST"
