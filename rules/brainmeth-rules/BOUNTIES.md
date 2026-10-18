@@ -91,8 +91,9 @@ difficulty pass*, requiring in-game adjustment if one route dominates.
 
 ### Common shipment balancing
 
-The combined 29-option Common reward catalogue is unchanged, with all
-entries using the same internal worth 16000 and equal random selection.
+The original 29 Common shipments are retained with internal worth 16000.
+The random prize table now offers 39 equally likely outcomes, including
+10 new non-block reward types.
 Seven exceptionally valuable crates are reduced: Sponges **64→16**,
 Deepslate Emerald Ore **32→4**, Spore Blossoms **16→8**,
 Blue Ice **64→32**, Gilded Blackstone **64→32**,
@@ -122,7 +123,8 @@ and `common_rews`, `legendary_rews`, `mythic_rews`.
 Only three labels appear: **??? Common Reward**,
 **??? Legendary Reward** and **??? Mythic Reward**.
 
-- Common: 26 delivery objectives and 29 random building shipments.
+- Common: 26 objectives, 39 equally likely mystery outcomes: 29 building
+  shipments and 10 specialist tools, collectibles and rare-food prizes.
 - Legendary: 8 objectives and 35 random custom prizes.
 - Mythic: 2 special objectives, each with one exclusive guaranteed prize.
 
@@ -144,7 +146,7 @@ quota are unchanged.
 
 ## Rewards
 
-**Common — 29 equally possible shipments:** cherry logs + saplings (64+4),
+**Common — 39 equally possible outcomes:** cherry logs + saplings (64+4),
 mangrove logs + roots (64+16), 64 warped stems, 64 crimson stems,
 pale oak logs + saplings (64+4), 64 calcite,
 32 cyan and 32 light-blue terracotta, 64 copper grates,
@@ -156,7 +158,36 @@ pale oak logs + saplings (64+4), 64 calcite,
 64 crying obsidian, 64 dark prismarine, 128 quartz blocks,
 64 tube coral blocks, 64 Naturalist shellstone bricks,
 32 deepslate emerald ore, 64 waxed oxidised copper,
-and 16 spore blossoms.
+and 8 spore blossoms.
+
+**Ten newly added non-block outcomes** (each 1-in-39 among Common prizes):
+
+- **Builder's Toolbelt:** 1 Supplementaries Wrench, 1 Slingshot and
+  12 Rope Arrows (rope charges included by the mod's item defaults).
+- **Copper Restoration Kit:** 32 Supplementaries Soap and 64 Honeycomb.
+- **Mob Head:** 1 random Creeper, Zombie, Skeleton, Piglin,
+  Wither Skeleton or Dragon head (uniform selection).
+- **Firework Display Kit:** 48 coloured explosive firework rockets:
+  16 each of star, Creeper and burst designs, with trails/twinkles.
+  These are for displays and may hurt users boosted with Elytra.
+- **Goat Horn:** 1 horn, selected uniformly from all eight vanilla
+  melodies, including four screaming-goat variants.
+- **Enchanted Golden Apple:** 1 rare uncraftable food.
+- **Rabbit Banquet:** 4 Rabbit Stews, generated as separate items.
+- **Saturation Stew:** 3 Suspicious Stews with the Saturation effect.
+- **Chorus Harvest:** 32 edible Chorus Fruits.
+- **Invisible Frame Collection:** 16 invisible standard Item Frames
+  and 8 invisible Glow Item Frames, each visibly named in inventory.
+  Custom `minecraft:entity_data` should make each frame invisible
+  when placed; test placement and drops on the live NeoForge 1.21.1 build.
+
+Each new outcome has **one** entry in the 39-way random aggregate table,
+regardless of the number of items or variants inside its contents.
+No extra mods are required. The original 29 Bountiful `common_rews`
+command entries remain unchanged to preserve Common/Legendary/Mythic
+board appearance odds; those commands all resolve the same aggregate
+Common prize table at redemption.
+
 
 **Legendary — 35 equally possible ordinary prizes:** existing grimoires,
 potions, gadgets, collectibles and custom music disc rewards, excluding the
