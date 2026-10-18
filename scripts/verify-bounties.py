@@ -11,7 +11,7 @@ assert decree["objectives"]==["common_objs","uncommon_objs","rare_objs","special
 assert decree["rewards"]==["common_rews","uncommon_rews","rare_rews","special_rews"]
 assert not decree["canSpawn"] and not decree["canReveal"] and not decree["canWanderBuy"]
 kinds=("common","uncommon","rare","dragon","plushie","trophy")
-expected_counts={"common":(11,13),"uncommon":(13,16),"rare":(7,35),"special":(3,3)}
+expected_counts={"common":(13,13),"uncommon":(13,16),"rare":(7,35),"special":(3,3)}
 tiers={}
 for group in ("common","uncommon","rare","special"):
     p=dp/"bounty_pools/brainmeth"
@@ -36,6 +36,21 @@ for group in ("common","uncommon","rare","special"):
                 assert value["content"].startswith('brainmethbounty grant "%PLAYER_NAME%" ')
             if role=="obj":
                 assert ":" in value["content"]
+# Require processed outputs from Vinery/HerbalBrews, not raw ingredients.
+finished={
+    "lilitu_wine":("vinery:lilitu_wine",12),
+    "cherry_wine":("vinery:cherry_wine",8),
+    "coffee":("herbalbrews:coffee",12),
+    "oolong_tea":("herbalbrews:oolong_tea",12),
+    "milk_coffee":("herbalbrews:milk_coffee",8),
+    "yerba_mate_tea":("herbalbrews:yerba_mate_tea",8),
+}
+for key,(item,quantity) in finished.items():
+    data=tiers["common"][0][key]
+    assert data["content"]==item and data["amount"]=={"min":quantity,"max":quantity},key
+for old in ("red_savanna_grape","dark_cherry","coffee_beans","dried_oolong_tea"):
+    assert old not in tiers["common"][0]
+assert tiers["uncommon"][0]["rooibos_tea"]["content"]=="herbalbrews:rooibos_tea"
 # Every initial reward has at least one matching objective, and vice versa.
 objectives={marker:[] for marker in kinds}
 rewards={marker:[] for marker in kinds}
@@ -129,4 +144,4 @@ assert 'board["villageGenFrequency"]=1.0' in config_script
 assert 'if p not in previous_brainmeth_exclusions' in config_script
 assert not (dp/"recipe/bountyboard.json").exists()
 assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
-print("Brainmeth Bountiful verified: 11 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
+print("Brainmeth Bountiful verified: 13 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
