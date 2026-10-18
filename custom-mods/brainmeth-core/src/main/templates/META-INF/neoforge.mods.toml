@@ -24,3 +24,6 @@ type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
+
+[[mixins]]
+config="brainmeth_core.mixins.json"
