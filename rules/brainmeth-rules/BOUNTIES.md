@@ -6,6 +6,27 @@ decrees and contracts remain available. The **Brainmeth Community Bounties**
 decree is special: it never generates, reveals from blank decrees, or appears
 in wandering-trader offers. Only an operator can issue it.
 
+## Contract pickup quota
+
+Each player may **take a maximum of three bounty papers from boards
+containing the Brainmeth Community Bounties decree per Minecraft day**,
+across all such boards. Ordinary Bountiful boards without that decree
+remain unrestricted. The quota counts **taking**, not completing:
+dropping or abandoning a contract does not refund the slot. Both normal
+clicking and shift-clicking are intercepted on the server before pickup;
+the fourth attempted pickup is rejected with a message. Failed transfers
+(e.g. an inventory with no space) should not consume quota. A fresh
+Minecraft day (world day-time crossing a multiple of 24000 ticks, including
+sleeping) resets the quota. Counts persist to
+`world/brainmeth-bounty-take-limits.json` across server restarts.
+
+This change adds a server-side Mixin to `brainmeth-core` targeting
+Bountiful's board inventory and must be tested in-game on the installed
+Bountiful version. Test: 3 normal pickups, fourth refused, shift-click
+refused, another Brainmeth board refused, ordinary board allowed, fresh
+day resets, reconnect/restart does not reset, inventory-full failed
+pickups do not count, and no bounties are lost when refusing a pickup.
+
 ## Admin setup
 
 After deploying the updated datapack and config, use this operator-only
