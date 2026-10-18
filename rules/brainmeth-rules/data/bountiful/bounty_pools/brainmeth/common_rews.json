@@ -289,7 +289,7 @@
     },
     "sponges": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -311,7 +311,7 @@
     },
     "powered_rails": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -333,7 +333,7 @@
     },
     "blue_ice": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -355,7 +355,7 @@
     },
     "sea_lanterns": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -377,7 +377,7 @@
     },
     "froglights": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -399,7 +399,7 @@
     },
     "end_rods": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -421,7 +421,7 @@
     },
     "shroomlights": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -443,7 +443,7 @@
     },
     "gilded_blackstone": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -465,7 +465,7 @@
     },
     "crying_obsidian": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -487,7 +487,7 @@
     },
     "dark_prismarine": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -509,7 +509,7 @@
     },
     "quartz": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -531,7 +531,7 @@
     },
     "coral": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -553,7 +553,7 @@
     },
     "shellstone": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -575,7 +575,7 @@
     },
     "ore_display": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -597,7 +597,7 @@
     },
     "copper_masterwork": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -619,7 +619,7 @@
     },
     "spore_blossom": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_uncommon",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
