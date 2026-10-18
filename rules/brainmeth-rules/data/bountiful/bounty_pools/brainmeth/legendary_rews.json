@@ -1,5 +1,5 @@
 {
-  "weightMult": 1.45,
+  "weightMult": 21.54,
   "content": {
     "poo": {
       "type": "command",
@@ -12,11 +12,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -35,11 +34,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -58,11 +56,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -81,11 +78,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -104,11 +100,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -127,11 +122,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -150,11 +144,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -173,11 +166,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -196,11 +188,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -219,11 +210,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -242,11 +232,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -265,11 +254,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -288,11 +276,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -311,11 +298,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -334,11 +320,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -357,11 +342,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -380,11 +364,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -403,11 +386,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -426,11 +408,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -449,11 +430,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -472,11 +452,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -495,11 +474,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -518,11 +496,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -541,11 +518,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -564,11 +540,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -587,11 +562,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -610,11 +584,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -633,11 +606,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -656,11 +628,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -679,11 +650,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -702,11 +672,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -725,11 +694,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -748,11 +716,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -771,11 +738,10 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -794,17 +760,82 @@
       },
       "unitWorth": 45000,
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
       ],
       "repRequired": 0,
       "weightMult": 1
+    },
+    "dragon_egg": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_dragon",
+      "name": "??? Legendary Reward",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "dragon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.066
+    },
+    "king_crown": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie",
+      "name": "??? Legendary Reward",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "plushie"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "dragon",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.33
+    },
+    "kill_switch": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy",
+      "name": "??? Legendary Reward",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "markers": [
+        "trophy"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "dragon",
+        "plushie"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.33
     }
   }
 }

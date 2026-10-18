@@ -45,8 +45,8 @@ public final class BrainmethBountyDelivery {
         // Mystery labels carry no actual prize IDs to the client. The
         // server chooses the shipment at the instant of redemption.
         if(id.equals("mystery_common"))loot="brainmeth:bounties/rewards/common_pool";
-        else if(id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/uncommon_pool";
-        else if(id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/rare_pool";
+        else if(id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/common_pool"; // Legacy papers
+        else if(id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/legendary_pool";
         else if(id.equals("mystery_plushie"))loot="brainmeth:rewards/rare/king_of_brainmeth_crown";
         else if(id.equals("mystery_trophy"))loot="brainmeth:rewards/uncommon/kill_switch";
         else if(id.startsWith("common_"))loot="brainmeth:bounties/rewards/common/"+id.substring(7);
@@ -57,7 +57,7 @@ public final class BrainmethBountyDelivery {
         else if(id.equals("dragon_egg") || id.equals("mystery_dragon")) {
             load(server);
             boolean first=DRAGON_EGG_CLAIMS.add(target.getUUID());
-            if(first){save(server);loot(server,name,"brainmeth:bounties/rewards/rare_pool");}
+            if(first){save(server);loot(server,name,"brainmeth:bounties/rewards/legendary_pool");}
             // Bountiful consumes the item objective; always return the unique
             // egg, even on repeat hand-ins. Reward only on the first completion.
             server.getCommands().performPrefixedCommand(

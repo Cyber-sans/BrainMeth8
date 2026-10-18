@@ -1,42 +1,55 @@
 #!/usr/bin/env python3
-"""Validate admin-issued Brainmeth decrees and reward tier isolation."""
+"""Validate the two Brainmeth bounty tiers, mystery prize pools and collector protection."""
 import json
 from pathlib import Path
 
 root=Path(__file__).resolve().parent.parent
 dp=root/"rules/brainmeth-rules/data/bountiful"
 rl=root/"rules/brainmeth-rules/data/brainmeth/loot_table"
+p=dp/"bounty_pools/brainmeth"
 decree=json.loads((dp/"bounty_decrees/brainmeth/brainmeth_board.json").read_text())
-assert decree["objectives"]==["common_objs","uncommon_objs","rare_objs","special_objs"]
-assert decree["rewards"]==["common_rews","uncommon_rews","rare_rews","special_rews"]
-assert not decree["canSpawn"] and not decree["canReveal"] and not decree["canWanderBuy"]
-kinds=("common","uncommon","rare","dragon","plushie","trophy")
-expected_counts={"common":(13,13),"uncommon":(13,16),"rare":(7,35),"special":(3,3)}
-tiers={}
-for group in ("common","uncommon","rare","special"):
-    p=dp/"bounty_pools/brainmeth"
-    objs=json.loads((p/(group+"_objs.json")).read_text())["content"]
-    rews=json.loads((p/(group+"_rews.json")).read_text())["content"]
-    if group!="rare":
-        assert len(objs)==expected_counts[group][0],(group,len(objs))
-    else:
-        assert len(objs)==expected_counts[group][0]
-    tiers[group]=(objs,rews)
-    for role,items in (("obj",objs),("rew",rews)):
-        for key,value in items.items():
-            assert value["amount"]["min"]==value["amount"]["max"]
-            assert value["amount"]["min"]>=1 and value["unitWorth"]>0
-            assert value.get("repRequired",0)==0
-            assert len(value["markers"])==1
-            marker=value["markers"][0]
-            assert marker in kinds
-            assert set(value["forbidMarkers"])==set(kinds)-{marker}
-            assert value["type"]==("item" if role=="obj" else "command")
-            if role=="rew":
-                assert value["content"].startswith('brainmethbounty grant "%PLAYER_NAME%" ')
-            if role=="obj":
-                assert ":" in value["content"]
-# Require processed outputs from Vinery/HerbalBrews, not raw ingredients.
+assert decree["objectives"]==["common_objs","legendary_objs"]
+assert decree["rewards"]==["common_rews","legendary_rews"]
+assert not any(decree[k] for k in ("canSpawn","canReveal","canWanderBuy"))
+assert {f.name for f in p.glob("*.json")}=={
+    "common_objs.json","common_rews.json","legendary_objs.json","legendary_rews.json"
+}
+read=lambda name: json.loads((p/name).read_text())
+com_o,com_r=read("common_objs.json"),read("common_rews.json")
+leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
+assert (len(com_o["content"]),len(com_r["content"]))==(26,29)
+assert (len(leg_o["content"]),len(leg_r["content"]))==(10,38)
+kinds={"common","legendary","dragon","plushie","trophy"}
+for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r)}.items():
+    for role,pool in (("obj",objs),("rew",rews)):
+        for key,item in pool["content"].items():
+            assert item["type"]==("item" if role=="obj" else "command"),(tier,role,key)
+            assert item["amount"]["min"]==item["amount"]["max"]>=1
+            assert item["unitWorth"]>0 and item.get("repRequired",0)==0
+            marker,=item["markers"]
+            assert marker in kinds and set(item["forbidMarkers"])==kinds-{marker}
+            assert item["rarity"]==("COMMON" if tier=="common" else "RARE")
+            if role=="obj":assert ":" in item["content"]
+            else:
+                assert item["name"]==("??? Common Reward" if tier=="common" else "??? Legendary Reward")
+                alias={"common":"mystery_common","legendary":"mystery_legendary",
+                       "dragon":"mystery_dragon","plushie":"mystery_plushie",
+                       "trophy":"mystery_trophy"}[marker]
+                assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" {alias}'
+    for obj in objs["content"].values():
+        matches=[r for r in rews["content"].values()
+                 if not (set(obj["forbidMarkers"])&set(r["markers"])
+                         or set(r["forbidMarkers"])&set(obj["markers"]))]
+        assert matches,(tier,obj["name"])
+        assert all(r["markers"]==obj["markers"] for r in matches)
+        assert any(abs(r["amount"]["min"]*r["unitWorth"]-obj["amount"]["min"]*obj["unitWorth"])
+                   <=0.25*r["amount"]["min"]*r["unitWorth"] for r in matches),(tier,obj["name"])
+# Uncommon is now an internal legacy-loot-directory name, NOT an active bounty tier.
+assert all(x["markers"]==["common"] for x in com_o["content"].values())
+assert all(x["markers"]==["common"] for x in com_r["content"].values())
+assert sum(e["markers"]==["legendary"] for e in leg_o["content"].values())==7
+assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==35
+# Verify the recent finished-beverage changes survived the merge.
 finished={
     "lilitu_wine":("vinery:lilitu_wine",12),
     "cherry_wine":("vinery:cherry_wine",8),
@@ -44,104 +57,83 @@ finished={
     "oolong_tea":("herbalbrews:oolong_tea",12),
     "milk_coffee":("herbalbrews:milk_coffee",8),
     "yerba_mate_tea":("herbalbrews:yerba_mate_tea",8),
+    "rooibos_tea":("herbalbrews:rooibos_tea",10),
+    "chorus_wine":("vinery:chorus_wine",10),
 }
 for key,(item,quantity) in finished.items():
-    data=tiers["common"][0][key]
-    assert data["content"]==item and data["amount"]=={"min":quantity,"max":quantity},key
+    data=com_o["content"][key]
+    assert data["content"]==item and data["amount"]=={"min":quantity,"max":quantity}
 for old in ("red_savanna_grape","dark_cherry","coffee_beans","dried_oolong_tea"):
-    assert old not in tiers["common"][0]
-assert tiers["uncommon"][0]["rooibos_tea"]["content"]=="herbalbrews:rooibos_tea"
-# Every initial reward has at least one matching objective, and vice versa.
-objectives={marker:[] for marker in kinds}
-rewards={marker:[] for marker in kinds}
-for o,r in tiers.values():
-    for entry in o.values():objectives[entry["markers"][0]].append(entry)
-    for entry in r.values():rewards[entry["markers"][0]].append(entry)
-for marker in kinds:
-    assert objectives[marker] and rewards[marker],marker
-    for obj in objectives[marker]:
-        assert all(
-            (rew["markers"][0]==marker)==(
-                not bool(set(obj["forbidMarkers"])&set(rew["markers"]))
-                and not bool(set(rew["forbidMarkers"])&set(obj["markers"])))
-            for pool in tiers.values() for rew in pool[1].values())
-# Blind rewards: contracts expose only one of two visible labels and opaque
-# server commands; the real prize is drawn on redemption, never sent in
-# the preview. Preserve objective markers and special item exclusivity.
-mystery_aliases={
-    "common": "mystery_common", "uncommon": "mystery_uncommon",
-    "rare": "mystery_legendary",
+    assert old not in com_o["content"]
+# Bountiful normalises weights by entry count. At starter reputation 0,
+# common has rarity weight 1024 and RARE has 256/2.25**2.
+# This is a baseline ratio, not a guarantee: reputation changes rarity weights.
+common_weight=sum(e["weightMult"] for e in com_r["content"].values())/len(com_r["content"])*com_r["weightMult"]*1024
+legendary_weight=sum(e["weightMult"] for e in leg_r["content"].values())/len(leg_r["content"])*leg_r["weightMult"]*(256/2.25**2)
+legendary_fraction=legendary_weight/(common_weight+legendary_weight)
+assert 0.47<=legendary_fraction<=0.53,legendary_fraction
+# The only two random reward aggregate pools. Three collector challenges
+# remain entries inside Legendary, not additional reward pools.
+loots=rl/"bounties/rewards"
+assert {f.name for f in loots.glob("*_pool.json")}=={"common_pool.json","legendary_pool.json"}
+expected_common={
+    *(f"brainmeth:bounties/rewards/common/{k}" for k in (
+        "cherry_wood","mangrove_timber","warped_timber","crimson_timber","pale_oak",
+        "calcite","terracotta_palette","copper_construction","lanterns",
+        "mushroom_architecture","landscaper","mudbricks","decorated_pots")),
+    *(f"brainmeth:bounties/rewards/uncommon/{k}" for k in (
+        "sponges","powered_rails","blue_ice","sea_lanterns","froglights",
+        "end_rods","shroomlights","gilded_blackstone","crying_obsidian",
+        "dark_prismarine","quartz","coral","shellstone","ore_display",
+        "copper_masterwork","spore_blossom"))
 }
-for group,(objectives,prizes) in tiers.items():
-    for key,item in prizes.items():
-        expected_label = "??? Common Reward" if group in ("common","uncommon") else "??? Legendary Reward"
-        assert item["name"]==expected_label,(group,key,item["name"])
-        alias=(mystery_aliases[group] if group!="special" else {
-            "dragon_egg":"mystery_dragon",
-            "king_crown":"mystery_plushie",
-            "kill_switch":"mystery_trophy",
-        }[key])
-        assert item["content"] == f'brainmethbounty grant "%PLAYER_NAME%" {alias}', (group,key)
-for tier,expected_size in (("common",13),("uncommon",16),("rare",35)):
-    aggregate=json.loads((rl/"bounties/rewards"/(tier+"_pool.json")).read_text())
-    assert aggregate["type"]=="minecraft:generic"
-    pool=aggregate["pools"]
-    assert len(pool)==1 and pool[0]["rolls"]==1
-    entries=pool[0]["entries"]
-    assert len(entries)==expected_size,(tier,len(entries))
-    assert len({entry["value"] for entry in entries})==expected_size
-    assert all(entry["type"]=="minecraft:loot_table" for entry in entries)
-    expected_table=(
-        {"brainmeth:bounties/rewards/"+tier+"/"+key for key in tiers[tier][1]}
-        if tier in ("common","uncommon")
-        else {"brainmeth:rewards/uncommon/"+key for key in tiers["rare"][1]})
-    assert {entry["value"] for entry in entries}==expected_table, tier
-bridge=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
-for code in ("mystery_common","mystery_uncommon","mystery_legendary",
-             "mystery_dragon","mystery_plushie","mystery_trophy"):
-    assert code in bridge
-assert "Mystery reward revealed! Check your inventory." in bridge
-assert len(tiers["rare"][1])==35,len(tiers["rare"][1])
-assert "kill_switch" not in tiers["rare"][1] and "king_of_brainmeth_crown" not in tiers["rare"][1]
-assert tiers["special"][0]["rare_plushie"]["content"]=="perfectplushies:sirjain_plushie_rare"
-ward=tiers["special"][0]["warden_trophy"]
+expected_legendary={f"brainmeth:rewards/uncommon/{key}" for key,item
+                    in leg_r["content"].items() if item["markers"]==["legendary"]}
+for pool_name,expected in (("common",expected_common),("legendary",expected_legendary)):
+    data=json.loads((loots/(pool_name+"_pool.json")).read_text())
+    assert data["type"]=="minecraft:generic" and len(data["pools"])==1
+    entries=data["pools"][0]["entries"]
+    assert data["pools"][0]["rolls"]==1
+    assert len(entries)==len(expected) and len({e["value"] for e in entries})==len(entries)
+    assert {e["value"] for e in entries}==expected
+    assert all(e["type"]=="minecraft:loot_table" for e in entries)
+# No prize loss: validate nested loot table files, including legacy uncommon assets.
+for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
+    _,dirs=pool
+    for directory in dirs:
+        folder=loots/directory
+        assert folder.is_dir()
+        assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
+assert len(expected_common)==29 and len(expected_legendary)==35
+for marker in ("dragon","plushie","trophy"):
+    assert sum(v["markers"]==[marker] for v in leg_o["content"].values())==1
+    assert sum(v["markers"]==[marker] for v in leg_r["content"].values())==1
+assert leg_o["content"]["rare_plushie"]["content"]=="perfectplushies:sirjain_plushie_rare"
+ward=leg_o["content"]["warden_trophy"]
 assert ward["content"]=="trofers:large_pillar" and ward["components"]=={"trofers:trophy":"trofers:warden"}
-assert tiers["special"][1]["king_crown"]["markers"]==["plushie"]
-assert tiers["special"][1]["kill_switch"]["markers"]==["trophy"]
-assert tiers["special"][1]["dragon_egg"]["markers"]==["dragon"]
-seal=tiers["rare"][0]["four_calamities"]
+assert leg_r["content"]["king_crown"]["markers"]==["plushie"]
+assert leg_r["content"]["kill_switch"]["markers"]==["trophy"]
+assert leg_r["content"]["dragon_egg"]["markers"]==["dragon"]
+assert "king_crown" not in expected_legendary and "kill_switch" not in expected_legendary
+seal=leg_o["content"]["four_calamities"]
 assert seal["components"]=={"minecraft:custom_data":{"brainmeth_bounty":"four_calamities_seal"}}
 recipe=json.loads((rl.parent/"recipe/four_calamities_seal.json").read_text())
 assert {i["item"] for i in recipe["ingredients"]}=={
     "bosses_of_mass_destruction:"+s for s in ("ancient_anima","blazing_eye","obsidian_heart","void_thorn")}
 assert recipe["result"]["components"]["minecraft:custom_data"]["brainmeth_bounty"]=="four_calamities_seal"
-# Reward command definitions must actually have matching loot tables and supply their declared items.
-for tier in ("common","uncommon"):
-    for key in tiers[tier][1]:
-        payload=json.loads((rl/"bounties/rewards"/tier/(key+".json")).read_text())
-        assert len(payload["pools"])>=1 and all(p["rolls"]==1 for p in payload["pools"])
-        assert all(entry["type"]=="minecraft:item" and entry["name"].count(":")==1
-                   for p in payload["pools"] for entry in p["entries"])
-rare_pool=json.loads((rl/"bounties/rewards/rare_pool.json").read_text())["pools"][0]["entries"]
-assert len(rare_pool)==35 and len({e["value"] for e in rare_pool})==35
-assert "disc_passionfruit" not in tiers["rare"][1]
-assert all("disc_passionfruit" not in e["value"] for e in rare_pool)
-assert not (rl/"bounties/rewards/rare/disc_passionfruit.json").exists()
-for key in tiers["rare"][1]:
-    target=rl/"bounties/rewards/rare"/(key+".json")
-    data=json.loads(target.read_text())
-    assert data["pools"][0]["entries"][0]["value"]=="brainmeth:rewards/uncommon/"+key
-assert "king_of_brainmeth_crown" not in (e["value"] for e in rare_pool)
-assert "kill_switch" not in (e["value"] for e in rare_pool)
-crown=json.loads((rl/"rewards/rare/king_of_brainmeth_crown.json").read_text())
-assert crown["pools"][0]["entries"][0]["functions"][0]["components"]["minecraft:custom_data"]["brainmeth_reward"]=="king_of_brainmeth_crown"
 java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
+for alias in ("mystery_common","mystery_uncommon","mystery_legendary",
+              "mystery_dragon","mystery_plushie","mystery_trophy"):
+    assert alias in java
+assert 'id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/common_pool"' in java
+assert 'id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/legendary_pool"' in java
+assert 'loot(server,name,"brainmeth:bounties/rewards/legendary_pool")' in java
+assert "Mystery reward revealed! Check your inventory." in java
 assert "DRAGON_EGG_CLAIMS" in java and "dragon_egg" in java and "kill_switch" in java
-config_script=(root/"scripts/configure-bountiful.py").read_text()
-assert 'bounty_pools/bountiful/*' in config_script and 'bounty_decrees/bountiful/*' in config_script
-# Normal Bountiful boards, crafting, village spawning and default decrees remain available.
-assert 'board["villageGenFrequency"]=1.0' in config_script
-assert 'if p not in previous_brainmeth_exclusions' in config_script
+config=(root/"scripts/configure-bountiful.py").read_text()
+assert 'bounty_pools/bountiful/*' in config and 'bounty_decrees/bountiful/*' in config
+assert 'board["villageGenFrequency"]=1.0' in config
+assert '"reverseMatchingAlgorithm":False' in config
 assert not (dp/"recipe/bountyboard.json").exists()
 assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
-print("Brainmeth Bountiful verified: 13 Common, 13 Uncommon, 10 Rare challenges; 64 reward options, tier isolation and exclusive crown/switch.")
+print(f"Brainmeth Bountiful verified: two categories, 26 Common and 10 Legendary objectives; 29 Common and 35 random Legendary prizes; special collectors protected; baseline {legendary_fraction:.1%} Legendary.")

@@ -15,8 +15,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -38,8 +37,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -61,8 +59,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -84,8 +81,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -107,8 +103,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -130,8 +125,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -153,8 +147,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -176,8 +169,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -199,8 +191,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -222,8 +213,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -245,8 +235,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -268,8 +257,7 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
         "dragon",
         "plushie",
         "trophy"
@@ -291,8 +279,293 @@
         "common"
       ],
       "forbidMarkers": [
-        "uncommon",
-        "rare",
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "soul_crystal": {
+      "type": "item",
+      "content": "deeperdarker:soul_crystal",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Souls of the Stalkers",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "resonarium": {
+      "type": "item",
+      "content": "deeperdarker:resonarium",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 16,
+        "max": 16
+      },
+      "unitWorth": 812.5,
+      "name": "Resonarium Research",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "temple_gloomsherd": {
+      "type": "item",
+      "content": "deeperdarker:temple_gloomsherd",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "The Lost Gloomsherds",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "echo_log": {
+      "type": "item",
+      "content": "deeperdarker:echo_log",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 64,
+        "max": 64
+      },
+      "unitWorth": 203.125,
+      "name": "Echo Forest Expedition",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "shellstone_bricks": {
+      "type": "item",
+      "content": "naturalist:shellstone_bricks",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 64,
+        "max": 64
+      },
+      "unitWorth": 203.125,
+      "name": "Shellstone Mason",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "chorus_wine": {
+      "type": "item",
+      "content": "vinery:chorus_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 10,
+        "max": 10
+      },
+      "unitWorth": 1300,
+      "name": "Otherworldly Vintage",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "rooibos_tea": {
+      "type": "item",
+      "content": "herbalbrews:rooibos_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 10,
+        "max": 10
+      },
+      "unitWorth": 1300,
+      "name": "Rooibos Brewer",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "netherite_door": {
+      "type": "item",
+      "content": "supplementaries:netherite_door",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Door of the Rich",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "sniffer_egg": {
+      "type": "item",
+      "content": "minecraft:sniffer_egg",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Ancient Hatchery",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "recovery_compass": {
+      "type": "item",
+      "content": "minecraft:recovery_compass",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Recovery Squad",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "ominous_trial_key": {
+      "type": "item",
+      "content": "minecraft:ominous_trial_key",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Trial Champion",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "music_disc_pigstep": {
+      "type": "item",
+      "content": "minecraft:music_disc_pigstep",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "Bastion Disc Hunter",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "dragon",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "creaking_heart": {
+      "type": "item",
+      "content": "minecraft:creaking_heart",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 4333.333333333333,
+      "name": "A Heart of Pale Oak",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
         "dragon",
         "plushie",
         "trophy"

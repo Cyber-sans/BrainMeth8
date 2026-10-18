@@ -58,96 +58,93 @@ after config changes; already generated bounty papers are not retroactively
 changed. The admin `/give` syntax is based on Bountiful's decree component
 definition and still needs an in-game check.
 
-## Objectives
+## Objectives — exactly two tiers
 
-**Common (13):** 3 Naturalist Chrysalises; 3 Snail Shells; 10 Lizard
-Tails; 12 Vinery Miss Lilitus Wines (Red Savanna); 8 Cherry Wines;
-12 HerbalBrews Coffees; 12 Oolong Teas; 8 Milk Coffees;
-8 Yerba Mate Teas; 64 Supplementaries Flax; 32 Rope;
-3 Snort Sherds; 64 Vanilla Backport Resin Clumps.
+**Common (26):** Original 13 Common and 13 former Uncommon objectives are
+now one Common category, with the existing quantities kept pending a separate
+fairness review. Includes Naturalist drops, Supplementaries supplies,
+Vinery/HerbalBrews finished drinks, Deeper & Darker materials, and several
+challenging vanilla exploration items. There is no active Uncommon tier.
 
-**Uncommon (13):** 3 Deeper & Darker Soul Crystals; 16 Resonarium;
-3 Temple Gloomsherds; 64 Echo Logs; 64 Naturalist Shellstone Bricks;
-10 Vinery Chorus Wines; 10 Rooibos Teas; 3 Supplementaries Netherite
-Doors; 3 Sniffer Eggs; 3 Recovery Compasses; 3 Ominous Trial Keys;
-3 Pigstep discs; 3 Creaking Hearts.
+**Legendary (10):** Seven regular high-difficulty challenges — Ancient Anima,
+Blazing Eye, Obsidian Heart, Void Thorn, Heart of the Deep, the crafted Four
+Calamities Seal, and 3 Nether Stars — plus three exclusive collectors:
+1 Dragon Egg, the SirJain Rare Plushie, and the Warden Trophy on its large
+pillar. Internally special collector entries have distinct matching markers
+so that the Crown, Kill Switch and one-time Dragon Egg exception cannot
+randomly be awarded to other Legendary objectives.
 
-**Rare (8):** 1 Ancient Anima; 1 Blazing Eye; 1 Obsidian Heart;
-1 Void Thorn; 1 Heart of the Deep; 1 Four Calamities Seal (crafted
-shapeless from all four BOMD materials, consuming them); 3 Nether Stars;
-1 Dragon Egg. The Dragon Egg is returned when redeemed. Its custom
-reward is **one-time per player**; later redemptions return the egg with
-no additional prize, enforced in
-`world/brainmeth-dragon-egg-claims.json`.
+The Dragon Egg is returned on redemption, and the bonus prize is awarded
+only once per player (recorded in world/brainmeth-dragon-egg-claims.json).
+Only the rare SirJain plushie unlocks the King of Brainmeth Crown; only
+the correctly mounted Warden trophy unlocks the Kill Switch. The prizes
+themselves are not randomly included in the ordinary Legendary prize pool.
 
-**Exclusive collectors (2):**
-- Deliver the *SirJain Rare Plushie* (`perfectplushies:sirjain_plushie_rare`)
-  => **King of Brainmeth Crown**, the ONLY non-operator source.
-- Deliver a *Warden Trophy mounted on its large pillar* (component
-  `trofers:trophy=trofers:warden`) => **Kill Switch**, the ONLY
-  non-operator source.
+## Mystery rewards — exactly two pools
 
-The matching system forbids mixing any Common/Uncommon/Rare/special
-markers, even though all are under a single Brainmeth decree.
-Both collector items are obtainable only as rare random plushie/trophy
-rewards; prior natural acquisition locks remain in place. The named
-specials do not appear in the 36-option ordinary Rare reward pool.
-The original Crown of Nothing remains in that ordinary Rare pool.
+The decree references exactly two objective pools (`common_objs`,
+`legendary_objs`) and two reward pools (`common_rews`, `legendary_rews`).
+Contracts visibly offer only **??? Common Reward** or
+**??? Legendary Reward**. One reward is granted per completed contract.
+The concrete reward is drawn server-side **at redemption time**, not
+stored in the bounty preview.
 
-## Mystery rewards
+- **Common:** all 26 objectives can match 29 building-resource shipment
+  entries, now drawing from one combined 29-outcome random loot table.
+  The existing relative work values (6000 and 13000) remain so that
+  more demanding Common objectives still have matching reward entries.
+- **Legendary:** seven regular challenges select one of 35 original
+  custom prizes. The three protected collector objectives use the same
+  Legendary reward POOL JSON with different matching markers; their
+  redemption commands retain their exclusive behaviour.
+- Previously-issued `mystery_uncommon` papers are redirected to the new
+  Common random loot table. Existing `mystery_legendary` and Dragon Egg
+  redemptions now target the renamed Legendary loot table.
 
-Brainmeth contracts display only **??? Common Reward** or
-**??? Legendary Reward**. The exact prize is **not chosen when the bounty
-is created**; its identity is drawn exclusively by the server during
-redemption and the player receives the actual item(s) in their inventory.
+**Appearance target:** about half of new Brainmeth board contracts should
+be Legendary at initial (zero) reputation. Bountiful normalises entry
+weights by pool length, then applies rarity- and reputation-dependent
+weights. The Legendary reward pool multiplier is tuned to **21.54**
+against Common 1.0; protected specials stay relatively rare.
+This is a *generation weight target*, not a hard per-board quota.
+As board reputation increases the RARE rarity is less penalised, so the
+Legendary share may rise substantially. Calibrate in-game with realistic
+board reputation if a roughly even ratio must be maintained over time.
 
-- **Common:** both Common and Uncommon objective tiers draw from their
-  respective building-resource shipment pools (13 and 16 choices).
-- **Legendary:** ordinary Rare objectives draw from the 35-choice pool
-  of custom prizes.
-- **Exclusive Legendary:** the SirJain plushie and Warden trophy still
-  redeem for their exclusive Crown and Kill Switch. Dragon Egg rewards
-  are still one-time per player, with the egg always returned.
-- Normal, unmodified Bountiful decrees still display their ordinary
-  rewards. Only the Brainmeth reward data uses mystery labels.
-
-The bounty metadata carries opaque identifiers like `mystery_common`
-and `mystery_legendary`, never the specific item. Even examining a
-bounty's command payload should not reveal its eventual prize. The
-server dispatches a random nested loot table on redemption. Loot tables
-and reward grant permissions remain server-side; the in-world delivery
-items are unchanged.
-
-Existing bounty items generated before this update may retain their
-old preview data. Generate new contracts after deploying and refreshing
-the board, then test redemption with a non-operator account before
-treating this feature as verified.
+Ordinary village Bountiful decrees remain unaffected. The board refresh
+interval remains 15 minutes; contracts do not expire, and players
+can take at most three Brainmeth contracts per Minecraft day
+(pickup-mixin behaviour still requires live validation).
 
 ## Rewards
 
-**Common (13 shipments):** cherry logs + saplings (64+4),
+**Common — 29 equally possible shipments:** cherry logs + saplings (64+4),
 mangrove logs + roots (64+16), 64 warped stems, 64 crimson stems,
-pale oak logs + saplings (64+4), 64 calcite, matched cyan and light-blue
-terracotta (32+32, not the earlier rejected 64+64), 64 copper grates,
-lanterns + chains (32+32), 64 mushroom stems,
-moss blocks + carpet (64+64), mud bricks + packed mud (64+64), and
-32 decorated pots.
+pale oak logs + saplings (64+4), 64 calcite,
+32 cyan and 32 light-blue terracotta, 64 copper grates,
+32 lanterns and 32 chains, 64 mushroom stems,
+64 moss blocks and 64 moss carpets, 64 mud bricks and
+64 packed mud, 32 decorated pots, 64 sponges, 64 powered rails,
+64 blue ice, 64 sea lanterns, 64 pearlescent froglights,
+64 end rods, 64 shroomlights, 64 gilded blackstone,
+64 crying obsidian, 64 dark prismarine, 128 quartz blocks,
+64 tube coral blocks, 64 Naturalist shellstone bricks,
+32 deepslate emerald ore, 64 waxed oxidised copper,
+and 16 spore blossoms.
 
-**Uncommon (16 shipments):** 64 sponges, powered rails, blue ice,
-sea lanterns, pearlescent froglights, end rods, shroomlights,
-gilded blackstone, crying obsidian or dark prismarine;
-128 quartz blocks; 64 tube coral blocks; 64 Naturalist Shellstone
-Bricks; 32 deepslate emerald ore; 64 waxed oxidised copper; 16
-Spore Blossoms.
+**Legendary — 35 equally possible ordinary prizes:** existing grimoires,
+potions, gadgets, collectibles and custom music disc rewards, excluding the
+exclusive King of Brainmeth Crown and Kill Switch. The 3 protected
+collector challenges use fixed exceptional redemption behaviour, not
+the 35-prize lottery.
 
-**Rare (36 custom reward choices):** every previously created custom
-reward (grimoires, potions, gadgets, unique collectibles, discs with
-placeholder audio, etc.) except the reserved Kill Switch and new
-King of Brainmeth Crown; ordinary building supplies are not here.
-Named individual reward entries run as server-authorised
-`brainmethbounty grant "%PLAYER_NAME%" rare_<reward_id>` commands;
-they invoke existing private admin-only loot tables. Non-op players
-cannot invoke that command.
+The 16 previously Uncommon shipment definitions remain under the legacy
+`bounties/rewards/uncommon/` loot table directory solely as item assets;
+there is NO active `uncommon_pool.json` or Uncommon Bountiful pool.
+The 35 previous Rare prize definitions similarly remain in their existing
+private paths. The only two random aggregate tables are
+`bounties/rewards/common_pool.json` and
+`bounties/rewards/legendary_pool.json`.
 
 ## Gameplay verification required
 
@@ -159,12 +156,11 @@ cannot invoke that command.
    decree, insert it into a normal board and wait for fresh custom contracts.
 4. Confirm a board with both a vanilla and Brainmeth decree never mixes
    their objective/reward pools.
-5. Complete Common, Uncommon, Rare and special hand-ins; check item quantities,
+5. Complete Common, Legendary and protected collector hand-ins; check item quantities,
    reward isolation and persistent one-time Dragon Egg claim.
 6. **Do not activate the Kill Switch outside an isolated test container.**
 
 IMPORTANT: Bountiful 8.0.0-beta.2 has publicly reported
 NeoForge villager/board NPE and server hangs when bounties are redeemed
 near villagers. Test redemptions on the isolated test world before
-moving board anywhere near villager pathfinding. No 26.2 production
-environment has been changed.
+moving board anywhere near villager pathfinding. Keep this change on the 1.21.1 branch isolated until live validation.

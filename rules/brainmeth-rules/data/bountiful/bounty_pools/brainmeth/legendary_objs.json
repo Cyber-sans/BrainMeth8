@@ -1,5 +1,5 @@
 {
-  "weightMult": 1.45,
+  "weightMult": 26.2,
   "content": {
     "ancient_anima": {
       "type": "item",
@@ -12,11 +12,10 @@
       "unitWorth": 45000,
       "name": "Remains of the Night Lich",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -35,11 +34,10 @@
       "unitWorth": 45000,
       "name": "Burning Fist of the Gauntlet",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -58,11 +56,10 @@
       "unitWorth": 45000,
       "name": "Heart of the Obsidilith",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -81,11 +78,10 @@
       "unitWorth": 45000,
       "name": "Last Flower of the Void",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -104,11 +100,10 @@
       "unitWorth": 45000,
       "name": "Warden's Heart",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -127,11 +122,10 @@
       "unitWorth": 45000,
       "name": "The Four Calamities",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
@@ -155,17 +149,85 @@
       "unitWorth": 15000,
       "name": "The Wither Hunter",
       "markers": [
-        "rare"
+        "legendary"
       ],
       "forbidMarkers": [
         "common",
-        "uncommon",
         "dragon",
         "plushie",
         "trophy"
       ],
       "repRequired": 0,
       "weightMult": 1
+    },
+    "dragon_egg": {
+      "type": "item",
+      "content": "minecraft:dragon_egg",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Dragon's Legacy",
+      "markers": [
+        "dragon"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.066
+    },
+    "rare_plushie": {
+      "type": "item",
+      "content": "perfectplushies:sirjain_plushie_rare",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Ultra-Rare SirJain Plushie",
+      "markers": [
+        "plushie"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "dragon",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.33
+    },
+    "warden_trophy": {
+      "type": "item",
+      "content": "trofers:large_pillar",
+      "rarity": "RARE",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 45000,
+      "name": "Warden Trophy and Display Stand",
+      "markers": [
+        "trophy"
+      ],
+      "forbidMarkers": [
+        "common",
+        "legendary",
+        "dragon",
+        "plushie"
+      ],
+      "repRequired": 0,
+      "weightMult": 0.33,
+      "components": {
+        "trofers:trophy": "trofers:warden"
+      }
     }
   }
 }
