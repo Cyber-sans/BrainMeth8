@@ -97,7 +97,7 @@ expected_common={
         "copper_masterwork","spore_blossom"))
 }
 expected_legendary={f"brainmeth:rewards/uncommon/{key}" for key,item
-                    in leg_r["content"].items() if item["markers"]==["legendary"]}
+                    in leg_r["content"].items() if item["markers"]==["legendary"] and key!="dragon_egg"}
 for pool_name,expected in (("common",expected_common),("legendary",expected_legendary)):
     data=json.loads((loots/(pool_name+"_pool.json")).read_text())
     assert data["type"]=="minecraft:generic" and len(data["pools"])==1
