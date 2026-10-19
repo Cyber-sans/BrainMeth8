@@ -29,8 +29,17 @@ The taunt is selected with equal probability among **14** entries:
 
 Only players online at the chosen second receive the broadcast.
 There is **no replay**, catch-up, or notification history for daily taunts.
-If nobody is online, or nobody owns the crown, that day's reminder is skipped.
-If the server was offline at the scheduled instant, the missed taunt is skipped
-on restart rather than being delivered late.
+The clock runs whether or not someone owns the crown. The taunt only
+plays if the legitimate current holder is **online and wearing it in the
+helmet slot at the scheduled instant**. Being in inventory or Ender Chest
+is not enough. If nobody is wearing it, the event is skipped (no retries).
+
+Immediately after the daily taunt, the server broadcasts a second line:
+`The king is ruling at [X, Y, Z] (Overworld/Nether/End).`
+These are the wearer's current **in-game** block coordinates and dimension,
+shared with online players only. Neither daily message is replayed later.
+
+If the server was offline at the scheduled instant, the missed daily event is
+skipped on restart rather than delivered late.
 The daily reminder does not modify crown acquisition/theft announcements,
 which continue to be stored for offline catch-up.

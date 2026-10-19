@@ -431,6 +431,15 @@ public final class BrainmethKingCrown {
         return issued && lastHolder != null ? lastHolderName : "";
     }
 
+    /** True only for an online player wearing the current genuine crown. */
+    static ServerPlayer currentWearingHolder(MinecraftServer server) {
+        load(server);
+        if (!issued || lastHolder == null) return null;
+        ServerPlayer holder = server.getPlayerList().getPlayer(lastHolder);
+        if (holder == null || !isValidCrown(holder.getInventory().armor.get(3))) return null;
+        return holder;
+    }
+
     /** Used only to avoid taunting the holder as though they lost the crown. */
     static UUID currentHolderId(MinecraftServer server) {
         load(server);

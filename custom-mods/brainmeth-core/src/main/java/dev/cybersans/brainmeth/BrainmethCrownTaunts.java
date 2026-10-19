@@ -6,6 +6,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -146,12 +147,15 @@ public final class BrainmethCrownTaunts {
         fired = true;
         save(server);
 
-        String holder = BrainmethKingCrown.currentHolderName(server);
-        if (holder.isBlank()) return; // No crown exists yet.
+        // The random daily clock always fires, but the taunt and location
+        // reveal require the legitimate current owner to be wearing the crown
+        // at that exact moment. It will NOT retry if the crown is unequipped.
+        ServerPlayer wearer = BrainmethKingCrown.currentWearingHolder(server);
+        if (wearer == null) return;
+        String holder = wearer.getGameProfile().getName();
         List<ServerPlayer> online = server.getPlayerList().getPlayers();
-        if (online.isEmpty()) return;
 
-        UUID holderId = BrainmethKingCrown.currentHolderId(server);
+        UUID holderId = wearer.getUUID();
         List<ServerPlayer> nonOwners = online.stream()
             .filter(p -> !p.getUUID().equals(holderId))
             .toList();
@@ -178,5 +182,18 @@ public final class BrainmethCrownTaunts {
         // This is deliberately NOT part of BrainmethKingCrown's persisted
         // theft notices. Anyone offline at broadcast time simply misses it.
         server.getPlayerList().broadcastSystemMessage(message, false);
+
+        // Only reveal in-game coordinates at the same daily instant as the
+        // taunt. Include the dimension so Nether/End locations aren't
+        // misrepresented as Overworld coordinates.
+        String dimension = wearer.level().dimension().equals(Level.OVERWORLD) ? "Overworld"
+            : wearer.level().dimension().equals(Level.NETHER) ? "Nether"
+            : wearer.level().dimension().equals(Level.END) ? "End"
+            : wearer.level().dimension().location().toString();
+        var pos = wearer.blockPosition();
+        String location = "The king is ruling at [" + pos.getX() + ", "
+            + pos.getY() + ", " + pos.getZ() + "] (" + dimension + ").";
+        server.getPlayerList().broadcastSystemMessage(
+            Component.literal(location).withStyle(ChatFormatting.YELLOW), false);
     }
 }

@@ -43,8 +43,16 @@ assert "broadcastSystemMessage(message, false)" in daily
 assert "PlayerLoggedInEvent" not in daily and "notices.add" not in daily
 assert "if (!fired && now >= scheduledEpoch)" in daily
 assert "if (fired || now < scheduledEpoch) return;" in daily
-assert "BrainmethKingCrown.currentHolderName(server)" in daily
-assert "BrainmethKingCrown.currentHolderId(server)" in daily
+assert "BrainmethKingCrown.currentWearingHolder(server)" in daily
+assert "static ServerPlayer currentWearingHolder(MinecraftServer server)" in crown
+assert "isValidCrown(holder.getInventory().armor.get(3))" in crown
+assert "if (wearer == null) return;" in daily
+assert "server.getPlayerList().getPlayer(lastHolder)" in crown
+assert "The king is ruling at [" in daily
+assert "pos.getX()" in daily and "pos.getY()" in daily and "pos.getZ()" in daily
+assert "Level.OVERWORLD" in daily and "Level.NETHER" in daily and "Level.END" in daily
+assert daily.count("broadcastSystemMessage(") == 2
+assert "fired = true;" in daily and daily.index("fired = true;") < daily.index("currentWearingHolder(server)")
 assert 'ThreadLocalRandom.current().nextInt(TAUNTS.length)' in daily
 assert "nonOwners.isEmpty()" in daily
 assert "TAUNTS[selected]" in daily
@@ -72,4 +80,4 @@ assert 'private static final int SPECIAL_RANDOM_PLAYER = 7;' in daily
 assert 'private static final int NAME_METH = 9;' in daily
 assert "static String currentHolderName(MinecraftServer server)" in crown
 assert "static UUID currentHolderId(MinecraftServer server)" in crown
-print("Unique Crown verified: bounty transfer, ownership, theft replay, 14 daily random online-only UK-time taunts.")
+print("Unique Crown verified: theft replay and 14 daily UK-time taunts with worn-crown gating and online-only dimension-aware coordinates.")
