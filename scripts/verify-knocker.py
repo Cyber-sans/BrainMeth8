@@ -6,7 +6,7 @@ from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 with (root/"rules/server-config/knocker.toml").open("rb") as f:
     conf=tomllib.load(f)
-assert conf == {"serverandclient": {"story": True, "rarity": 1.0, "spawn_sound": False, "inactivity": 1.0, "sleepevent": 1.0, "first_load": False}}, conf
+assert conf == {"serverandclient": {"story": True, "rarity": 0.1, "spawn_sound": False, "inactivity": 0.2, "sleepevent": 0.2, "first_load": False}}, conf
 deploy=(root/"scripts/deploy.sh").read_text()
 assert 'KNOCKER_CONFIG_DEST="$DATA_DIR/config/knocker.toml"' in deploy
 assert 'cp "$KNOCKER_CONFIG_SOURCE" "$KNOCKER_CONFIG_DEST"' in deploy
