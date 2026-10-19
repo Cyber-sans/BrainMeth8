@@ -10,7 +10,22 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 32
+              "count": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:soul_lantern",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 16
             }
           ]
         }
