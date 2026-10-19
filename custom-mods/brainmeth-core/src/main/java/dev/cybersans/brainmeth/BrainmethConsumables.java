@@ -74,6 +74,9 @@ public final class BrainmethConsumables {
     private static final String SCALE_AMOUNT = "brainmeth_scale_factor";
     private static final String CREATIVE_END = "brainmeth_creative_ends";
     private static final ResourceLocation SCALE_MODIFIER = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "potion_scale");
+    private static final ResourceLocation GROW_HEALTH_MODIFIER = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "potion_grow_health");
+    /** Two hearts. */
+    private static final double GROW_BONUS_HEALTH = 4.0D;
     private static final int MAX_FAKE_BLOCKS = 256;
     private static MinecraftServer trackedServer;
     private static final Map<String, Set<Long>> fakeBlocks = new HashMap<>();
@@ -194,6 +197,17 @@ public final class BrainmethConsumables {
                 attribute.addOrUpdateTransientModifier(new AttributeModifier(
                     SCALE_MODIFIER, delta, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
             }
+        }
+        // Any Growing potion also grants +2 max hearts while it lasts. The extra hearts
+        // start empty, and vanilla trims current health back down when it ends.
+        AttributeInstance health = player.getAttribute(Attributes.MAX_HEALTH);
+        if (health == null) return;
+        boolean growing = expiry > now() && player.isAlive() && scale > 1.0D;
+        if (growing && !health.hasModifier(GROW_HEALTH_MODIFIER)) {
+            health.addOrUpdateTransientModifier(new AttributeModifier(
+                GROW_HEALTH_MODIFIER, GROW_BONUS_HEALTH, AttributeModifier.Operation.ADD_VALUE));
+        } else if (!growing && health.hasModifier(GROW_HEALTH_MODIFIER)) {
+            health.removeModifier(GROW_HEALTH_MODIFIER);
         }
     }
 

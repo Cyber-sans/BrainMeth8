@@ -84,7 +84,8 @@ The Extinguishing Grimoire has been removed from the design. The old Repulsion G
 
 - Potion of Everything: a fixed selection of beneficial effects for 3 minutes, plus instant heal/saturation.
 - Shrinking Potion: sets player size to 0.2x for **10 real minutes**.
-- Growing Potion: sets player size to 2x for **10 real minutes**.
+- Growing Potion: sets player size to 2x for **10 real minutes**, with **+2 max hearts**
+  while it lasts (every Growing potion, reward or brewed, gives the extra hearts).
 - Creative Potion: **2 real seconds**, granting flight and invulnerability without switching
   gamemode or unlocking Creative inventory. No infinite blocks/items; slow falling for 8 seconds after.
 - Compressed TNT: delayed explosion energy equivalent to ten ordinary TNT blocks;
@@ -333,6 +334,8 @@ Design notes:
   before vanilla ones. Adding gunpowder or dragon's breath turns one into a
   plain Splash/Lingering Thick Potion and loses the size effect (no splash
   versions exist yet).
+- Every Growing potion adds **+2 max hearts** for its duration. The new hearts start
+  empty and are removed (with any health above the normal maximum) when it ends.
 - Drinking uses the same real-time scale timer as the reward potions: it keeps
   counting offline, ends on death, and a new size potion replaces the current one.
 

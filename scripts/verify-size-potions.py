@@ -65,4 +65,7 @@ for kind, scale, seconds in (("brew_shrink", "0.5D", "3 * 60"), ("brew_shrink_lo
 assert "BrainmethBrewing.BREWS.get(kind)" in consumables
 # The admin-only 10-minute reward potions keep their original strength.
 assert 'kind.equals("potion_shrink") ? 0.2D : 2.0D, SCALE_SECONDS' in consumables
+# Growing (scale above 1) grants +2 max hearts only while active.
+assert "GROW_BONUS_HEALTH = 4.0D" in consumables and "scale > 1.0D" in consumables
+assert "health.removeModifier(GROW_HEALTH_MODIFIER)" in consumables
 print("Size potions verified: 2 mob drops, 2 crafting recipes, 6 brewable potions.")
