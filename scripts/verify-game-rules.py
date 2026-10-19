@@ -71,4 +71,4 @@ assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction"
 assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
 assert "function brainmeth:lobby/parkour_finish" in (lobby / "tick.mcfunction").read_text()
 # Structural, PvP and parkour physics checks are in scripts/verify-lobby.py.
-print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; minecart speed temporarily vanilla; gated launch lobby.")
+print("Brainmeth datapack validated: Netherite + Warden Mending; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; 4x minecart speed via Brainmeth Core; gated launch lobby.")

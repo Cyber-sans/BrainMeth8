@@ -1,8 +1,37 @@
-# Brainmeth minecart speed
+# Brainmeth minecart speed (NeoForge 1.21.1)
 
-Minecart Speed [NeoForge 1.21.1 version 1.0.0](https://modrinth.com/mod/minecart-speed/version/pW7iywFp) is server-side-only. It provides the global `/minecartspeed <multiplier>` operator command, covering ordinary and powered rails.
+Brainmeth Core implements a 4x vanilla **maximum rail speed** on the four
+vanilla rail blocks (normal, powered, detector, activator).
 
-The function `rules/brainmeth-rules/data/brainmeth/function/load.mcfunction`
-runs `minecartspeed 4` on world load and `/reload`, making the desired setting reproducible across test-server restarts. Do not add a separate speed mod.
+- Vanilla limit: 0.4 blocks/tick = 8 blocks/second.
+- Brainmeth limit: 1.6 blocks/tick = 32 blocks/second.
+- Only the return value of `AbstractMinecart.getMaxSpeedWithRail()` is changed.
+- The mod does **not** increase acceleration or powered-rail boost, change
+  friction, impose velocity, alter minecart physics, or scan entities each tick.
+- Water slowdown and modded rails retain their default speed limits.
+- Server-side only. Loaded through the existing Brainmeth Core JAR.
+- The old third-party Minecart Speed mod stays quarantined and removed from
+  the server mod directory by `scripts/deploy.sh`.
 
-**Test required:** Run `/minecartspeed` as an operator after starting the isolated 1.21.1 test server to verify 4.00x. Test straight rails, powered-to-unpowered transitions, slopes and curves, and restart/reload persistence. The mod raises the maximum speed; reaching 32 blocks/s still depends on rail acceleration and physics. Minecraft 1.21.1 classic rail physics may be unstable at high speed.
+**Caution:** NeoForge 1.21.1 documents rail issues above 0.5–0.6 blocks/tick
+on corners/slopes and chunk-loading issues above ~1.1 blocks/tick. Raising a
+cap does not fix vanilla minecart physics or guarantee safe operation at 1.6.
+Do not release this to production until tested on the isolated test server.
+
+## Test before production
+
+Wait for the GitHub Action to build and commit `server-mods/brainmeth-core.jar`.
+Deploy only to the **test** server first:
+
+```bash
+cd /srv/minecraft/brainmeth/server-1211
+git pull --ff-only origin migration/neoforge-1.21.1
+bash ./scripts/deploy.sh test
+```
+
+Use a long, powered, straight test rail and sample cart position/motion over
+multiple ticks. Compare time-to-speed with vanilla; verify max 1.6
+blocks/tick (32 blocks/second) without changing rail acceleration.
+Also test curves, slopes, rail transitions, multiple carts/passengers,
+unloaded-chunk boundaries, and server MSPT/TPS. If unstable, leave production
+on its currently deployed version.

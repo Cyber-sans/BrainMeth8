@@ -30,4 +30,14 @@ with zipfile.ZipFile(jar) as archive:
         sys.exit("Missing brainmeth_core mod identity")
     if "dev/cybersans/brainmeth/BrainmethCore.class" not in archive.namelist():
         sys.exit("Compiled mod entrypoint is missing")
+    mixins = "brainmeth_core.mixins.json"
+    if mixins not in archive.namelist():
+        sys.exit("Missing Brainmeth Mixin configuration")
+    import json
+    registered = json.loads(archive.read(mixins))["mixins"]
+    if "BrainmethMinecartSpeedMixin" not in registered:
+        sys.exit("Minecart speed mixin is not registered")
+    speed_class = "dev/cybersans/brainmeth/mixin/BrainmethMinecartSpeedMixin.class"
+    if speed_class not in archive.namelist():
+        sys.exit("Missing compiled minecart speed mixin")
 print(f"PASS: NeoForge mod descriptor and Java entrypoint verified: {jar}")
