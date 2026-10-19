@@ -91,8 +91,8 @@ difficulty pass*, requiring in-game adjustment if one route dominates.
 
 ### Common shipment balancing
 
-The original 29 Common shipments are retained with internal worth 16000.
-The random prize table now offers 39 equally likely outcomes, including
+The original 29 Common shipments (one now removed from the random pool) are retained with internal worth 16000.
+The random prize table now offers 38 equally likely outcomes, including
 10 new non-block reward types.
 Seven exceptionally valuable crates are reduced: Sponges **64→16**,
 Deepslate Emerald Ore **32→4**, Spore Blossoms **16→8**,
@@ -123,7 +123,7 @@ and `common_rews`, `legendary_rews`, `mythic_rews`.
 Only three labels appear: **??? Common Reward**,
 **??? Legendary Reward** and **??? Mythic Reward**.
 
-- Common: 26 objectives, 39 equally likely mystery outcomes: 29 building
+- Common: 26 objectives, 38 equally likely mystery outcomes: 28 building
   shipments and 10 specialist tools, collectibles and rare-food prizes.
 - Legendary: 8 objectives and 35 random custom prizes.
 - Mythic: 2 special objectives, each with one exclusive guaranteed prize.
@@ -146,7 +146,7 @@ quota are unchanged.
 
 ## Rewards
 
-**Common — 39 equally possible outcomes:** cherry logs + saplings (64+4),
+**Common — 38 equally possible outcomes:** cherry logs + saplings (64+4),
 mangrove logs + roots (64+16), 64 warped stems, 64 crimson stems,
 pale oak logs + saplings (64+4), 64 calcite,
 32 cyan and 32 light-blue terracotta, 64 copper grates,
@@ -157,10 +157,10 @@ pale oak logs + saplings (64+4), 64 calcite,
 64 end rods, 64 shroomlights, 64 gilded blackstone,
 64 crying obsidian, 64 dark prismarine, 128 quartz blocks,
 64 tube coral blocks, 64 Naturalist shellstone bricks,
-32 deepslate emerald ore, 64 waxed oxidised copper,
+4 deepslate emerald ore and 4 deepslate coal ore, 64 waxed oxidised copper,
 and 8 spore blossoms.
 
-**Ten newly added non-block outcomes** (each 1-in-39 among Common prizes):
+**Ten newly added non-block outcomes** (each 1-in-38 among Common prizes):
 
 - **Builder's Toolbelt:** 1 Supplementaries Wrench, 1 Slingshot and
   12 Rope Arrows (rope charges included by the mod's item defaults).
@@ -181,7 +181,7 @@ and 8 spore blossoms.
   Custom `minecraft:entity_data` should make each frame invisible
   when placed; test placement and drops on the live NeoForge 1.21.1 build.
 
-Each new outcome has **one** entry in the 39-way random aggregate table,
+Each new outcome has **one** entry in the 38-way random aggregate table,
 regardless of the number of items or variants inside its contents.
 No extra mods are required. The original 29 Bountiful `common_rews`
 command entries remain unchanged to preserve Common/Legendary/Mythic

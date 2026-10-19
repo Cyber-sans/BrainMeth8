@@ -134,7 +134,7 @@ expected_common={
     *(f"brainmeth:bounties/rewards/uncommon/{k}" for k in (
         "sponges","powered_rails","blue_ice","sea_lanterns","froglights",
         "end_rods","shroomlights","gilded_blackstone","crying_obsidian",
-        "dark_prismarine","quartz","coral","shellstone","ore_display",
+        "dark_prismarine","coral","shellstone","ore_display",
         "copper_masterwork","spore_blossom")),
     *(f"brainmeth:bounties/rewards/common/{k}" for k in (
         "builders_toolbelt","copper_restoration","mob_head","goat_horn",
@@ -158,7 +158,7 @@ for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
         folder=loots/directory
         assert folder.is_dir()
         assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
-assert len(expected_common)==39 and len(expected_legendary)==35
+assert len(expected_common)==38 and len(expected_legendary)==35
 
 # Validate custom building tools, food, instruments and invisible frame metadata.
 extra=("builders_toolbelt","copper_restoration","mob_head","goat_horn",
@@ -201,7 +201,7 @@ for e in frames:
 # ordinary builder shipments; no single pool dominates the mystery draw.
 balanced_shipments={
     "sponges": 16,
-    "ore_display": 4,
+    "ore_display": [4, 4],
     "spore_blossom": 8,
     "blue_ice": 32,
     "gilded_blackstone": 32,
@@ -213,7 +213,7 @@ for key,count in balanced_shipments.items():
     gift=json.loads(path.read_text())
     counts=[f["count"] for pool in gift["pools"] for entry in pool["entries"]
             for f in entry.get("functions",[]) if f["function"]=="minecraft:set_count"]
-    assert counts==[count],(key,counts)
+    assert counts==(count if isinstance(count,list) else [count]),(key,counts)
 
 assert leg_o["content"]["dragon_egg"]["content"]=="minecraft:dragon_egg"
 assert leg_o["content"]["dragon_egg"]["markers"]==["legendary"]
