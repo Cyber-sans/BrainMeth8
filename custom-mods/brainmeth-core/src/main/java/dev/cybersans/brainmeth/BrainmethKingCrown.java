@@ -425,6 +425,18 @@ public final class BrainmethKingCrown {
         }
     }
 
+    /** Persistent last known holder, including when that player is offline. */
+    static String currentHolderName(MinecraftServer server) {
+        load(server);
+        return issued && lastHolder != null ? lastHolderName : "";
+    }
+
+    /** Used only to avoid taunting the holder as though they lost the crown. */
+    static UUID currentHolderId(MinecraftServer server) {
+        load(server);
+        return issued ? lastHolder : null;
+    }
+
     private static void scan(ServerPlayer player, net.minecraft.world.Container inventory, List<Location> found) {
         for (int slot = 0; slot < inventory.getContainerSize(); slot++) {
             ItemStack stack = inventory.getItem(slot);
