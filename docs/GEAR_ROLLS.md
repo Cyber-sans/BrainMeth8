@@ -36,6 +36,7 @@ custom data and shown as a lore line, so players need no extra client mod.
 | Pickaxe | Fortune: chance per ore drop of +1 extra item | 3% | 5% | 7% | 10% |
 | Sword, axe | Sharpness: attack damage | +2% | +3% | +5% | +8% |
 | Shovel, hoe | Efficiency: mining speed | +3% | +5% | +7% | +10% |
+| Bow, crossbow | Power: projectile damage | +2% | +3% | +5% | +8% |
 | Armour | Protection: all damage | 1% | 2% | 3% | 4% |
 | Armour | Fire Protection: fire damage | 2% | 4% | 6% | 8% |
 | Armour | Blast Protection: explosion damage | 2% | 4% | 6% | 8% |
@@ -49,6 +50,10 @@ custom data and shown as a lore line, so players need no extra client mod.
   Silk Touch. It stacks with real Fortune.
 - Sharpness and Efficiency bonuses use vanilla attributes, so they also appear in
   the normal "When in Main Hand" tooltip.
+- Power boosts every arrow fired by the rolled bow or crossbow (including each
+  Multishot arrow), and firework rockets fired from a rolled crossbow held in
+  either hand. It stacks with the Power enchantment. Thrown items, tridents and
+  dispensers are unaffected.
 
 ## Tests before production
 1. Craft each tool type and an armour piece, by clicking and by shift-clicking;
@@ -60,6 +65,9 @@ custom data and shown as a lore line, so players need no extra client mod.
 5. Upgrade a rolled diamond pickaxe and a rolled diamond sword or axe to netherite;
    check the action-bar message, that the better tier is kept, and that the netherite
    weapon shows netherite damage (not diamond).
-6. Mine ores with a Legendary pickaxe and compare drop counts with a Plain one.
-7. Take fire, explosion, arrow and melee damage in rolled armour; check reductions
+6. Shoot the same target with a Legendary and a Plain bow, and with crossbow
+   arrows and fireworks; the rolled weapon should deal more. Reload the area and
+   check stuck arrows aren't boosted twice.
+7. Mine ores with a Legendary pickaxe and compare drop counts with a Plain one.
+8. Take fire, explosion, arrow and melee damage in rolled armour; check reductions
    and that the 25% cap holds.
