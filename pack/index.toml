@@ -30,7 +30,7 @@ hash = "5e9293b9f104a087d5e2cfd06c3354483d93d2d344c8884baa6ff554bb285cfa"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
-hash = "f4200a7f994599da7b78e3f945b215401d14a6867bcc23d67dd187b87836afa4"
+hash = "93a0ff5d3c7e5fe8adef20ef6a27d0ac3b350a82fe04e645031f5e248456c825"
 metafile = true
 
 [[files]]
