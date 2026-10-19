@@ -48,8 +48,14 @@ public final class BrainmethBountyDelivery {
         else if(id.equals("kill_switch"))loot="brainmeth:rewards/uncommon/kill_switch";
         else if(id.equals("dragon_egg") || id.equals("mystery_dragon"))loot="brainmeth:bounties/rewards/legendary_pool"; // Legacy papers
         else return 0;
-        if ((id.equals("mystery_plushie") || id.equals("king_of_brainmeth_crown"))
-                && !BrainmethKingCrown.reserveUniqueReward(target)) return 0;
+        if (id.equals("mystery_plushie") || id.equals("king_of_brainmeth_crown")) {
+            // Re-winning the unique Crown takes it from the previous owner;
+            // never run the untagged /loot give path for this reward.
+            if (!BrainmethKingCrown.grantThroughBounty(target)) return 0;
+            if (id.startsWith("mystery_"))
+                target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
+            return 1;
+        }
         loot(server,name,loot);
         if(id.startsWith("mystery_"))
             target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));

@@ -5,6 +5,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
@@ -175,24 +181,115 @@ public final class BrainmethKingCrown {
         }
     }
 
-    /** Called BEFORE the Mythic bounty loot command, so repeated redeems
-     * cannot generate multiple crowns, even if the server subsequently restarts. */
-    public static boolean reserveUniqueReward(ServerPlayer recipient) {
-        MinecraftServer server = recipient.getServer();
+    /**
+     * A Mythic crown bounty is a forced transfer, NOT a second crown mint.
+     * The previous crown ID is revoked atomically in world state, including
+     * crowns held by offline players or hidden in unloaded storage.
+     * Obsolete physical items are removed when their inventories are loaded.
+     */
+    public static boolean grantThroughBounty(ServerPlayer winner) {
+        MinecraftServer server = winner.getServer();
         load(server);
-        if (issued) {
-            recipient.sendSystemMessage(Component.literal(
-                "The Crown of Brainmeth already exists. No second crown can be awarded."
-            ).withStyle(ChatFormatting.GOLD));
+
+        // Roll the SAME loot table used by the original reward so the enchanted
+        // Netherite Crown retains every existing enchantment, name and lore.
+        // Unlike /loot give, this lets us assign the unique ID BEFORE delivery.
+        final ItemStack prize;
+        try {
+            ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE,
+                ResourceLocation.parse("brainmeth:rewards/rare/king_of_brainmeth_crown"));
+            LootTable table = server.reloadableRegistries().getLootTable(key);
+            List<ItemStack> generated = table.getRandomItems(
+                new LootParams.Builder(winner.serverLevel()).create(LootContextParamSets.EMPTY));
+            if (generated.size() != 1 || generated.get(0).getCount() != 1
+                    || !isCrown(generated.get(0))) {
+                throw new IllegalStateException("Crown loot table must generate exactly one tagged Crown");
+            }
+            prize = generated.get(0);
+        } catch (RuntimeException ex) {
+            LoggerFactory.getLogger(BrainmethCore.MOD_ID).error("Failed to roll Crown of Brainmeth bounty", ex);
+            winner.sendSystemMessage(Component.literal("Crown reward failed; please contact an admin.")
+                .withStyle(ChatFormatting.RED));
             return false;
         }
+
+        // Save enough state to roll back a failed disk write. Never invalidate
+        // the existing crown if ownership cannot first be persisted.
+        boolean oldIssued = issued, oldActivated = activated;
+        String oldId = crownId, oldHolderName = lastHolderName;
+        UUID oldHolder = lastHolder;
+        int oldEvent = lastEventId, oldNoticeCount = notices.size();
+        Map<UUID, Integer> oldSeen = new HashMap<>(seen);
+
+        String newId = UUID.randomUUID().toString();
+        tag(prize, newId);
         issued = true;
-        crownId = UUID.randomUUID().toString();
-        activated = false;
-        lastHolder = recipient.getUUID();
-        lastHolderName = recipient.getGameProfile().getName();
-        save(server);
+        activated = true;
+        crownId = newId;
+        lastHolder = winner.getUUID();
+        lastHolderName = winner.getGameProfile().getName();
+
+        String message = null;
+        if (!winner.getUUID().equals(oldHolder)) {
+            message = winner.getGameProfile().getName()
+                + (oldIssued ? " has stolen the Crown of Brainmeth!"
+                             : " has claimed the Crown of Brainmeth!");
+            notices.add(new Notice(++lastEventId, message));
+            for (ServerPlayer player : server.getPlayerList().getPlayers())
+                seen.put(player.getUUID(), lastEventId);
+        }
+        try {
+            save(server);
+        } catch (RuntimeException ex) {
+            issued = oldIssued;
+            activated = oldActivated;
+            crownId = oldId;
+            lastHolder = oldHolder;
+            lastHolderName = oldHolderName;
+            lastEventId = oldEvent;
+            while (notices.size() > oldNoticeCount) notices.remove(notices.size() - 1);
+            seen.clear();
+            seen.putAll(oldSeen);
+            LoggerFactory.getLogger(BrainmethCore.MOD_ID).error("Crown bounty transfer not persisted", ex);
+            winner.sendSystemMessage(Component.literal("Crown transfer failed; please contact an admin.")
+                .withStyle(ChatFormatting.RED));
+            return false;
+        }
+
+        // Immediately confiscate every obsolete crown from online players,
+        // including equipment and Ender Chests. Offline copies are removed on
+        // login; unloaded chests are inert because the old ID is revoked.
+        for (ServerPlayer player : server.getPlayerList().getPlayers()) removeRevoked(player);
+
+        if (!winner.getInventory().add(prize)) {
+            // The reward is still uniquely identified even if the winner's
+            // inventory was full, and can be picked up through normal play.
+            winner.drop(prize, false);
+        }
+        winner.containerMenu.broadcastChanges();
+        if (message != null) {
+            Component announcement = Component.literal(message).withStyle(ChatFormatting.GOLD);
+            for (ServerPlayer player : server.getPlayerList().getPlayers())
+                player.sendSystemMessage(announcement);
+        }
         return true;
+    }
+
+    private static void removeRevoked(ServerPlayer player) {
+        if (!activated || crownId == null) return;
+        removeRevoked(player, player.getInventory());
+        removeRevoked(player, player.getEnderChestInventory());
+    }
+
+    private static void removeRevoked(ServerPlayer player, net.minecraft.world.Container inventory) {
+        for (int slot = 0; slot < inventory.getContainerSize(); slot++) {
+            ItemStack candidate = inventory.getItem(slot);
+            if (!isCrown(candidate) || isValidCrown(candidate)) continue;
+            inventory.setItem(slot, ItemStack.EMPTY);
+            LoggerFactory.getLogger(BrainmethCore.MOD_ID).info(
+                "Recalled obsolete Crown of Brainmeth from {}", player.getGameProfile().getName());
+        }
+        player.containerMenu.broadcastChanges();
     }
 
     private static boolean isCrown(ItemStack stack) {
@@ -212,8 +309,12 @@ public final class BrainmethKingCrown {
     }
 
     private static void tag(ItemStack stack) {
+        tag(stack, crownId);
+    }
+
+    private static void tag(ItemStack stack, String id) {
         CompoundTag tag = stack.get(DataComponents.CUSTOM_DATA).copyTag();
-        tag.putString(ID_TAG, crownId);
+        tag.putString(ID_TAG, id);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
     }
 
@@ -221,6 +322,9 @@ public final class BrainmethKingCrown {
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         load(player.getServer());
+        // The offline former owner loses their revoked physical helmet before
+        // seeing the transfer notice. No offline player-NBT file is rewritten.
+        removeRevoked(player);
         int checkpoint = seen.getOrDefault(player.getUUID(), 0);
         for (Notice notice : notices) {
             if (notice.id() > checkpoint)
@@ -239,6 +343,7 @@ public final class BrainmethKingCrown {
         if (++elapsed % 20 != 0) return;
 
         List<ServerPlayer> players = new ArrayList<>(server.getPlayerList().getPlayers());
+        for (ServerPlayer player : players) removeRevoked(player);
         // Prefer the previous owner if identical crowns appear via cloning.
         players.sort(Comparator.comparingInt(p -> p.getUUID().equals(lastHolder) ? 0 : 1));
         List<Location> found = new ArrayList<>();
