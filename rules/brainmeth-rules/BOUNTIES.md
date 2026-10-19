@@ -157,7 +157,7 @@ pale oak logs + saplings (64+4), 64 calcite,
 64 end rods, 64 shroomlights, 64 gilded blackstone,
 64 crying obsidian, 64 dark prismarine, 128 quartz blocks,
 64 tube coral blocks, 64 Naturalist shellstone bricks,
-4 deepslate emerald ore and 4 deepslate coal ore, 64 waxed oxidised copper,
+12 deepslate emerald ore and 12 deepslate coal ore, 64 waxed oxidised copper,
 and 8 spore blossoms.
 
 **Ten newly added non-block outcomes** (each 1-in-38 among Common prizes):

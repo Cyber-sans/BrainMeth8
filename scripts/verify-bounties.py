@@ -201,7 +201,7 @@ for e in frames:
 # ordinary builder shipments; no single pool dominates the mystery draw.
 balanced_shipments={
     "sponges": 16,
-    "ore_display": [4, 4],
+    "ore_display": [12, 12],
     "spore_blossom": 8,
     "blue_ice": 32,
     "gilded_blackstone": 32,
