@@ -68,4 +68,7 @@ assert 'kind.equals("potion_shrink") ? 0.2D : 2.0D, SCALE_SECONDS' in consumable
 # Growing (scale above 1) grants +2 max hearts only while active.
 assert "GROW_BONUS_HEALTH = 4.0D" in consumables and "scale > 1.0D" in consumables
 assert "health.removeModifier(GROW_HEALTH_MODIFIER)" in consumables
+# Shrinking (scale below 1) halves visibility while active.
+assert "SHRINK_VISIBILITY = 0.5D" in consumables and "LivingVisibilityEvent" in consumables
+assert "getDouble(SCALE_AMOUNT) < 1.0D" in consumables
 print("Size potions verified: 2 mob drops, 2 crafting recipes, 6 brewable potions.")

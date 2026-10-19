@@ -84,6 +84,8 @@ The Extinguishing Grimoire has been removed from the design. The old Repulsion G
 
 - Potion of Everything: a fixed selection of beneficial effects for 3 minutes, plus instant heal/saturation.
 - Shrinking Potion: sets player size to 0.2x for **10 real minutes**.
+  Every Shrinking potion (reward or brewed) also halves how far mobs can spot you
+  (visibility x0.5, stacking with sneaking, invisibility and mob heads; never below 2 blocks).
 - Growing Potion: sets player size to 2x for **10 real minutes**, with **+2 max hearts**
   while it lasts (every Growing potion, reward or brewed, gives the extra hearts).
 - Creative Potion: **2 real seconds**, granting flight and invulnerability without switching
@@ -334,6 +336,10 @@ Design notes:
   before vanilla ones. Adding gunpowder or dragon's breath turns one into a
   plain Splash/Lingering Thick Potion and loses the size effect (no splash
   versions exist yet).
+- Every Shrinking potion sets visibility to **x0.5**: mobs notice you at half their
+  normal range. It multiplies with sneaking (x0.8), invisibility and mob heads, and
+  the vanilla 2-block minimum still applies. The Ender Dragon ignores visibility
+  except when scanning from its perch.
 - Every Growing potion adds **+2 max hearts** for its duration. The new hearts start
   empty and are removed (with any health above the normal maximum) when it ends.
 - Drinking uses the same real-time scale timer as the reward potions: it keeps
