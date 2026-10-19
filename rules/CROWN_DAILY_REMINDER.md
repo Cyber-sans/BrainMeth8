@@ -30,5 +30,7 @@ The taunt is selected with equal probability among **14** entries:
 Only players online at the chosen second receive the broadcast.
 There is **no replay**, catch-up, or notification history for daily taunts.
 If nobody is online, or nobody owns the crown, that day's reminder is skipped.
+If the server was offline at the scheduled instant, the missed taunt is skipped
+on restart rather than being delivered late.
 The daily reminder does not modify crown acquisition/theft announcements,
 which continue to be stored for offline catch-up.

@@ -80,6 +80,13 @@ public final class BrainmethCrownTaunts {
             fired = obj.get("fired").getAsBoolean();
             LocalDate.parse(scheduledDay);
             if (scheduledEpoch <= 0) throw new IllegalArgumentException("Invalid reminder time");
+            // If the chosen instant elapsed while the server was stopped,
+            // that day's broadcast was missed; NEVER replay it on startup.
+            long now = Instant.now().getEpochSecond();
+            if (!fired && now >= scheduledEpoch) {
+                fired = true;
+                save(server);
+            }
         } catch (Exception e) {
             throw new IllegalStateException("Unable to restore the daily Crown reminder schedule", e);
         }

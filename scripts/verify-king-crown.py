@@ -41,6 +41,8 @@ assert 'obj.addProperty("fired", fired)' in daily
 assert "fired = true;" in daily and 'save(server);' in daily
 assert "broadcastSystemMessage(message, false)" in daily
 assert "PlayerLoggedInEvent" not in daily and "notices.add" not in daily
+assert "if (!fired && now >= scheduledEpoch)" in daily
+assert "if (fired || now < scheduledEpoch) return;" in daily
 assert "BrainmethKingCrown.currentHolderName(server)" in daily
 assert "BrainmethKingCrown.currentHolderId(server)" in daily
 assert 'ThreadLocalRandom.current().nextInt(TAUNTS.length)' in daily
