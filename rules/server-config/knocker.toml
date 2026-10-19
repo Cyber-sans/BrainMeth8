@@ -3,8 +3,8 @@
 # spawn_rate/respect_difficulty fields are no longer recognized.
 [serverandclient]
 story = true
-rarity = 1.0
+rarity = 0.1
 spawn_sound = false
-inactivity = 1.0
-sleepevent = 1.0
+inactivity = 0.2
+sleepevent = 0.2
 first_load = false
