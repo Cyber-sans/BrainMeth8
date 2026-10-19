@@ -43,6 +43,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -77,6 +78,8 @@ public final class BrainmethConsumables {
     private static final ResourceLocation GROW_HEALTH_MODIFIER = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "potion_grow_health");
     /** Two hearts. */
     private static final double GROW_BONUS_HEALTH = 4.0D;
+    /** Mobs spot a shrunk player at half their normal distance; stacks with sneaking and invisibility. */
+    private static final double SHRINK_VISIBILITY = 0.5D;
     private static final int MAX_FAKE_BLOCKS = 256;
     private static MinecraftServer trackedServer;
     private static final Map<String, Set<Long>> fakeBlocks = new HashMap<>();
@@ -209,6 +212,14 @@ public final class BrainmethConsumables {
         } else if (!growing && health.hasModifier(GROW_HEALTH_MODIFIER)) {
             health.removeModifier(GROW_HEALTH_MODIFIER);
         }
+    }
+
+    @SubscribeEvent
+    public static void onVisibility(LivingEvent.LivingVisibilityEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        CompoundTag data = player.getPersistentData();
+        if (data.contains(SCALE_END) && data.getLong(SCALE_END) > now() && data.getDouble(SCALE_AMOUNT) < 1.0D)
+            event.modifyVisibility(SHRINK_VISIBILITY);
     }
 
     private static void startCreativeBurst(ServerPlayer player) {
