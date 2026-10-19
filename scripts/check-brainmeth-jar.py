@@ -28,6 +28,8 @@ with zipfile.ZipFile(jar) as archive:
         sys.exit("Missing loaderVersion range; this JAR will crash NeoForge")
     if not any(mod.get("modId") == "brainmeth_core" for mod in config.get("mods", [])):
         sys.exit("Missing brainmeth_core mod identity")
+    if "dev/cybersans/brainmeth/BrainmethKingCrown.class" not in archive.namelist():
+        sys.exit("Missing Crown of Brainmeth ownership enforcement")
     if "dev/cybersans/brainmeth/BrainmethCore.class" not in archive.namelist():
         sys.exit("Compiled mod entrypoint is missing")
     mixins = "brainmeth_core.mixins.json"
