@@ -48,6 +48,7 @@ public final class BrainmethKingCrown {
     private static MinecraftServer loadedServer;
     private static boolean issued;
     private static String crownId;
+    private static boolean activated;
     private static UUID lastHolder;
     private static String lastHolderName;
     private static int lastEventId;
@@ -69,6 +70,7 @@ public final class BrainmethKingCrown {
         // Never silently reuse state from a different world (test vs production).
         issued = false;
         crownId = null;
+        activated = false;
         lastHolder = null;
         lastHolderName = "";
         lastEventId = 0;
@@ -89,6 +91,7 @@ public final class BrainmethKingCrown {
             issued = root.get("issued").getAsBoolean();
             if (root.has("crownId") && !root.get("crownId").isJsonNull())
                 crownId = root.get("crownId").getAsString();
+            activated = root.has("activated") ? root.get("activated").getAsBoolean() : crownId != null;
             if (root.has("lastHolder") && !root.get("lastHolder").isJsonNull())
                 lastHolder = UUID.fromString(root.get("lastHolder").getAsString());
             lastHolderName = root.has("lastHolderName") ? root.get("lastHolderName").getAsString() : "";
@@ -143,6 +146,7 @@ public final class BrainmethKingCrown {
         root.addProperty("version", 1);
         root.addProperty("issued", issued);
         if (crownId != null) root.addProperty("crownId", crownId);
+        root.addProperty("activated", activated);
         if (lastHolder != null) root.addProperty("lastHolder", lastHolder.toString());
         root.addProperty("lastHolderName", lastHolderName);
         root.addProperty("lastEventId", lastEventId);
@@ -184,6 +188,7 @@ public final class BrainmethKingCrown {
         }
         issued = true;
         crownId = UUID.randomUUID().toString();
+        activated = false;
         lastHolder = recipient.getUUID();
         lastHolderName = recipient.getGameProfile().getName();
         save(server);
@@ -256,28 +261,35 @@ public final class BrainmethKingCrown {
             crownId = UUID.randomUUID().toString();
             authentic = found.get(0);
             tag(authentic.stack());
+            activated = true;
             save(server);
         }
-        if (authentic == null && issued && crownId != null) {
+        if (authentic == null && issued && crownId != null && !activated) {
             // The first crown awarded by the new system is created by a loot
             // table without an ID; tag it on its first observed acquisition.
             for (Location loc : found) {
                 if (identity(loc.stack()).isEmpty()) {
                     authentic = loc;
                     tag(authentic.stack());
+                    activated = true;
+                    save(server);
                     break;
                 }
             }
         }
-        // Remove additional tagged helmets (including cloned IDs). Such items
-        // must never provide buffs or create multiple legitimate crown owners.
+        // Remove all unauthorised tagged helmets, including when the real
+        // crown is currently in a chest, dropped, or carried by an offline player.
+        for (Location loc : found) {
+            if (loc != authentic) {
+                loc.inventory().setItem(loc.slot(), ItemStack.EMPTY);
+                LoggerFactory.getLogger(BrainmethCore.MOD_ID).warn(
+                    "Removed duplicate Crown of Brainmeth from {}", loc.player().getGameProfile().getName());
+            }
+        }
         if (authentic != null) {
-            for (Location loc : found) {
-                if (loc != authentic) {
-                    loc.inventory().setItem(loc.slot(), ItemStack.EMPTY);
-                    LoggerFactory.getLogger(BrainmethCore.MOD_ID).warn(
-                        "Removed duplicate Crown of Brainmeth from {}", loc.player().getGameProfile().getName());
-                }
+            if (!activated) {
+                activated = true;
+                save(server);
             }
             UUID owner = authentic.player().getUUID();
             if (!owner.equals(lastHolder)) {
