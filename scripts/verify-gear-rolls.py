@@ -21,7 +21,7 @@ assert weights["FINE"] == "50" and weights["LEGENDARY"] == "2"
 # Every stat has four strictly increasing values, staying mild.
 stats = {name: list(map(int, values.split(", ")))
          for name, values in re.findall(r'^\s+([A-Z_]+)\("[^"]+", ([\d, ]+)\)', code, re.M)}
-assert set(stats) == {"FORTUNE", "SHARPNESS", "EFFICIENCY", "PROTECTION", "FIRE_PROTECTION",
+assert set(stats) == {"FORTUNE", "SHARPNESS", "EFFICIENCY", "POWER", "PROTECTION", "FIRE_PROTECTION",
                       "BLAST_PROTECTION", "PROJECTILE_PROTECTION"}, stats
 for name, values in stats.items():
     assert len(values) == 4 and values == sorted(set(values)) and values[-1] <= 10, (name, values)
@@ -30,6 +30,11 @@ assert "MAX_ARMOUR_REDUCTION = 25" in code
 # Swords and axes roll Sharpness; shovels and hoes roll Efficiency.
 assert "item instanceof SwordItem || item instanceof AxeItem) return List.of(Stat.SHARPNESS)" in code
 assert "item instanceof ShovelItem || item instanceof HoeItem) return List.of(Stat.EFFICIENCY)" in code
+# Bows and crossbows roll Power, applied once per new arrow and to crossbow fireworks.
+assert "item instanceof BowItem || item instanceof CrossbowItem) return List.of(Stat.POWER)" in code
+assert stats["POWER"] == stats["SHARPNESS"]
+for hook in ("event.loadedFromDisk()", "POWER_APPLIED", "getWeaponItem()", "isShotAtAngle()", "FIREWORK_POWER"):
+    assert hook in code, hook
 
 # Crafting grids and smithing upgrades roll; trades, anvils, trims and repairs do not.
 for guard in ("MerchantMenu", "ItemCombinerMenu", "CraftingContainer", "AnimalArmorItem",
@@ -43,4 +48,4 @@ assert config["package"] == "dev.cybersans.brainmeth.mixin"
 assert config["mixins"] == ["ItemCombinerQuickMoveMixin", "ItemCraftedByMixin"]
 assert config["required"] is True
 assert '[[mixins]]\nconfig="${mod_id}.mixins.json"' in mods_toml
-print("Gear rolls verified: 5 tiers totalling 100%, 7 stats, crafting and smithing mixin hooks.")
+print("Gear rolls verified: 5 tiers totalling 100%, 8 stats, crafting and smithing mixin hooks.")

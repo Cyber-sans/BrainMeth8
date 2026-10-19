@@ -21,6 +21,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.inventory.ItemCombinerMenu;
 import net.minecraft.world.inventory.MerchantMenu;
@@ -29,6 +31,8 @@ import net.minecraft.world.inventory.SmithingMenu;
 import net.minecraft.world.item.AnimalArmorItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -44,6 +48,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
@@ -59,6 +64,8 @@ import java.util.List;
 @EventBusSubscriber(modid = BrainmethCore.MOD_ID)
 public final class BrainmethGearRolls {
     private static final String ROLL = "brainmeth_roll";
+    private static final String POWER_APPLIED = "brainmeth_power_applied";
+    private static final String FIREWORK_POWER = "brainmeth_firework_power";
     private static final ResourceLocation BONUS_ID = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "gear_roll");
     /** Combined cap for all armour bonuses against a single hit, in percent. */
     static final int MAX_ARMOUR_REDUCTION = 25;
@@ -84,6 +91,7 @@ public final class BrainmethGearRolls {
         FORTUNE("Fortune", 3, 5, 7, 10),
         SHARPNESS("Sharpness", 2, 3, 5, 8),
         EFFICIENCY("Efficiency", 3, 5, 7, 10),
+        POWER("Power", 2, 3, 5, 8),
         PROTECTION("Protection", 1, 2, 3, 4),
         FIRE_PROTECTION("Fire Protection", 2, 4, 6, 8),
         BLAST_PROTECTION("Blast Protection", 2, 4, 6, 8),
@@ -112,6 +120,7 @@ public final class BrainmethGearRolls {
         if (item instanceof PickaxeItem) return List.of(Stat.FORTUNE);
         if (item instanceof SwordItem || item instanceof AxeItem) return List.of(Stat.SHARPNESS);
         if (item instanceof ShovelItem || item instanceof HoeItem) return List.of(Stat.EFFICIENCY);
+        if (item instanceof BowItem || item instanceof CrossbowItem) return List.of(Stat.POWER);
         if (item instanceof ArmorItem && !(item instanceof AnimalArmorItem)) return ARMOUR_STATS;
         return null;
     }
@@ -291,5 +300,39 @@ public final class BrainmethGearRolls {
         }
         if (total <= 0) return;
         event.setAmount(event.getAmount() * (1.0F - Math.min(total, MAX_ARMOUR_REDUCTION) / 100.0F));
+    }
+
+    /** Power roll from the bow or crossbow that fired a projectile, or 0. */
+    private static int powerPercent(ItemStack weapon) {
+        Roll roll = weapon == null ? null : read(weapon);
+        return roll == null || roll.stat() != Stat.POWER ? 0 : roll.percent();
+    }
+
+    /** Power: arrows from a rolled bow or crossbow, and crossbow-fired fireworks, hit harder. */
+    @SubscribeEvent
+    public static void onProjectileSpawn(EntityJoinLevelEvent event) {
+        // Saved projectiles keep their boosted damage; never apply the bonus twice.
+        if (event.getLevel().isClientSide() || event.loadedFromDisk()) return;
+        if (event.getEntity() instanceof AbstractArrow arrow) {
+            int percent = powerPercent(arrow.getWeaponItem());
+            if (percent <= 0 || arrow.getPersistentData().getBoolean(POWER_APPLIED)) return;
+            arrow.getPersistentData().putBoolean(POWER_APPLIED, true);
+            arrow.setBaseDamage(arrow.getBaseDamage() * (1.0D + percent / 100.0D));
+        } else if (event.getEntity() instanceof FireworkRocketEntity rocket && rocket.isShotAtAngle() &&
+                   rocket.getOwner() instanceof LivingEntity owner) {
+            // Rockets don't remember their weapon; use the crossbow in hand, main hand first.
+            ItemStack weapon = owner.getMainHandItem().getItem() instanceof CrossbowItem ?
+                owner.getMainHandItem() : owner.getOffhandItem();
+            if (!(weapon.getItem() instanceof CrossbowItem)) return;
+            int percent = powerPercent(weapon);
+            if (percent > 0) rocket.getPersistentData().putInt(FIREWORK_POWER, percent);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onFireworkDamage(LivingIncomingDamageEvent event) {
+        if (!(event.getSource().getDirectEntity() instanceof FireworkRocketEntity rocket)) return;
+        int percent = rocket.getPersistentData().getInt(FIREWORK_POWER);
+        if (percent > 0) event.setAmount(event.getAmount() * (1.0F + percent / 100.0F));
     }
 }
