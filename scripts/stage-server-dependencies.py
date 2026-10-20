@@ -20,7 +20,7 @@ data=args.data_root.resolve()
 server_mods=data/"mods"
 server_mods.mkdir(parents=True,exist_ok=True)
 for stem in ("kotlin-for-forge","cloth-config","fzzy-config",
-             "brainmeth-core","brainmeth-precision-railgun"):
+             "brainmeth-core","brainmeth-precision-railgun","worldedit"):
     meta_path=runtime/"mods"/(stem+".pw.toml")
     with meta_path.open("rb") as fh:
         info=tomllib.load(fh)
@@ -32,7 +32,7 @@ for stem in ("kotlin-for-forge","cloth-config","fzzy-config",
     dl=info["download"]
     algo=dl["hash-format"].replace("-","").lower()
     expected=dl["hash"].lower()
-    if stem.startswith("brainmeth-"):
+    if stem.startswith("brainmeth-") or stem == "worldedit":
         source=runtime/"files"/filename
     else:
         source=data/"automodpack"/"host-modpack"/"main"/"mods"/filename

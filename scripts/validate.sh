@@ -36,6 +36,13 @@ for slug in ("sounds", "presence-footsteps", "mru", "yacl"):
     entry = re.search(rb'file = "mods/' + slug.encode() + rb'\.pw\.toml"\nhash = "([a-f0-9]{64})"', index)
     assert entry and entry.group(1).decode() == hashlib.sha256(metadata.read_bytes()).hexdigest(), f"Invalid checksum for {slug}"
     assert tomllib.loads(metadata.read_text())["side"] == "client", f"{slug} must be client-only"
+worldedit = root / "mods/worldedit.pw.toml"
+assert worldedit.is_file(), "WorldEdit missing from runtime"
+assert b'file = "mods/worldedit.pw.toml"' in index
+info = tomllib.loads(worldedit.read_text())
+assert info["side"] == "server" and info["filename"] == "worldedit-mod-7.3.8.jar"
+assert info["download"]["hash-format"] == "sha512"
+assert info["update"]["modrinth"]["version"] == "WTAFvuRx"
 PY
 
 # Keep the DH 3.3.3 dedicated-server baseline deterministic.
@@ -67,7 +74,7 @@ python3 scripts/verify-wither-reincarnated.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "disable-minecart-speed.py", "prepare-collectibles.py", "lock-collectibles.py", "verify-collectibles.py", "verify-client-groups.py", "verify-resource-packs.py", "verify-lobby.py", "prepare-brainmeth-core.py", "configure-bountiful.py", "verify-bounties.py", "verify-launch.py", "verify-lobby.py"):
+for name in ("prepare-pack-v5.py", "configure-automodpack.py", "stage-client-mods.py", "prepare-audio-mods.py", "prepare-qol-mods.py", "prepare-ui-mods.py", "prepare-falling-leaves.py", "prepare-client-extras.py", "prepare-effectual.py", "prepare-particle-rain.py", "prepare-no-chat-restrictions.py", "disable-minecart-speed.py", "prepare-collectibles.py", "lock-collectibles.py", "verify-collectibles.py", "verify-client-groups.py", "verify-resource-packs.py", "verify-lobby.py", "prepare-brainmeth-core.py", "prepare-worldedit.py", "configure-bountiful.py", "verify-bounties.py", "verify-launch.py", "verify-lobby.py"):
     ast.parse((Path("scripts") / name).read_text(encoding="utf-8"))
 PY
 docker compose config -q

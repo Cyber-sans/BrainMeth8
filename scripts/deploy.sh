@@ -26,6 +26,8 @@ python3 ./scripts/prepare-collectibles.py --runtime-root "$ROOT/.pack-runtime"
 # Required only for 1.21.1; no schedule is created on install.
 # Github Actions commits the server-side mod JAR for simple git pull deployment.
 python3 ./scripts/prepare-brainmeth-core.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-core.jar"
+# Operator-only WorldEdit; pinned NeoForge 1.21.1 build, server-side only.
+python3 ./scripts/prepare-worldedit.py --runtime-root "$ROOT/.pack-runtime"
 # Pinned MIT Orbital Railgun fork: both client/server, one-block-only impact.
 python3 ./scripts/prepare-precision-railgun.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/brainmeth-precision-railgun.jar"
 # Generated Packwiz metadata can inherit a restrictive umask (e.g. 0600).
