@@ -56,7 +56,9 @@ public final class BrainmethBountyDelivery {
                 target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
             return 1;
         }
-        loot(server,name,loot);
+        if (id.equals("mystery_common") || id.equals("mystery_uncommon")) {
+            if (!BrainmethAncientInvitation.grantCommon(target)) return 0;
+        } else loot(server,name,loot);
         if(id.startsWith("mystery_"))
             target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
         return 1;

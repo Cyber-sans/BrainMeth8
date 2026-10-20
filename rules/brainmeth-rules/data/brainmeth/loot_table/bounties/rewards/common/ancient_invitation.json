@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"text\":\"Invitation\",\"italic\":false}",
+                "minecraft:max_stack_size": 1,
+                "minecraft:written_book_content": {
+                  "title": "Invitation",
+                  "author": "The Ancient Ones",
+                  "generation": 0,
+                  "pages": [
+                    "{\"text\":\"Meet me at coordinates 25,200, 1,150.\"}"
+                  ],
+                  "resolved": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
