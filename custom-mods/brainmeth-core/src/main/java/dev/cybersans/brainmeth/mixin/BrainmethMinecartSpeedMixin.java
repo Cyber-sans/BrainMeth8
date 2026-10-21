@@ -66,6 +66,17 @@ public abstract class BrainmethMinecartSpeedMixin {
         // across descending slope-to-flat transitions. Use vanilla movement
         // there instead of risking a cart being pushed into solid blocks.
         if (brainmeth$isSlope(originalState)) return;
+        // Preserve vanilla physics throughout nearby slope transitions.
+        // Fast projection into a slope can wedge a cart against its support.
+        for (int dx = -3; dx <= 3; dx++) {
+            for (int dz = -3; dz <= 3; dz++) {
+                for (int dy = -2; dy <= 2; dy++) {
+                    if (brainmeth$isSlope(cart.level().getBlockState(originalRail.offset(dx, dy, dz)))) {
+                        return;
+                    }
+                }
+            }
+        }
 
         Vec3 velocity = cart.getDeltaMovement();
         double passengerFactor = cart.isVehicle() ? 0.75D : 1.0D;
@@ -82,6 +93,7 @@ public abstract class BrainmethMinecartSpeedMixin {
         double stride = distance / steps;
         Vec3 direction = movement.normalize();
 
+        int completedSteps = 0;
         for (int i = 0; i < steps; i++) {
             BlockPos rail = cart.getCurrentRailPosition();
             BlockState railState = cart.level().getBlockState(rail);
@@ -116,8 +128,10 @@ public abstract class BrainmethMinecartSpeedMixin {
             if (actual.horizontalDistanceSqr() < 1.0E-6D) break;
             direction = new Vec3(actual.x, 0.0D, actual.z).normalize();
             brainmeth$lastTrackDirection = direction;
+            completedSteps++;
         }
-        if (brainmeth$lastTrackDirection.lengthSqr() > 0.0D) ci.cancel();
+        // Never run vanilla movement on top of an already moved cart.
+        if (completedSteps > 0) ci.cancel();
     }
 
     @Inject(method = "moveAlongTrack", at = @At("RETURN"))
