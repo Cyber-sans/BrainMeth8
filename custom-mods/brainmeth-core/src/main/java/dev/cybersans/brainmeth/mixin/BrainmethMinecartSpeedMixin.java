@@ -117,7 +117,7 @@ public abstract class BrainmethMinecartSpeedMixin {
             direction = new Vec3(actual.x, 0.0D, actual.z).normalize();
             brainmeth$lastTrackDirection = direction;
         }
-        ci.cancel();
+        if (brainmeth$lastTrackDirection.lengthSqr() > 0.0D) ci.cancel();
     }
 
     @Inject(method = "moveAlongTrack", at = @At("RETURN"))
