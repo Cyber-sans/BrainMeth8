@@ -5,6 +5,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BaseRailBlock;
+import net.minecraft.world.level.block.state.properties.RailShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,12 +48,24 @@ public abstract class BrainmethMinecartSpeedMixin {
             || state.is(Blocks.DETECTOR_RAIL) || state.is(Blocks.ACTIVATOR_RAIL);
     }
 
+    @Unique
+    private static boolean brainmeth$isSlope(BlockState state) {
+        if (!(state.getBlock() instanceof BaseRailBlock rail)) return false;
+        RailShape shape = state.getValue(rail.getShapeProperty());
+        return shape.isAscending();
+    }
+
     @Inject(method = "moveMinecartOnRail", at = @At("HEAD"), cancellable = true)
     private void brainmeth$substepRailTravel(BlockPos originalRail, CallbackInfo ci) {
         AbstractMinecart cart = (AbstractMinecart) (Object) this;
         brainmeth$lastTrackDirection = Vec3.ZERO;
         if (cart.level().isClientSide || cart.isInWater()) return;
-        if (!brainmeth$isVanillaRail(cart.level().getBlockState(originalRail))) return;
+        BlockState originalState = cart.level().getBlockState(originalRail);
+        if (!brainmeth$isVanillaRail(originalState)) return;
+        // Safety fallback: the high-speed track projection is not yet proven
+        // across descending slope-to-flat transitions. Use vanilla movement
+        // there instead of risking a cart being pushed into solid blocks.
+        if (brainmeth$isSlope(originalState)) return;
 
         Vec3 velocity = cart.getDeltaMovement();
         double passengerFactor = cart.isVehicle() ? 0.75D : 1.0D;
@@ -70,7 +84,8 @@ public abstract class BrainmethMinecartSpeedMixin {
 
         for (int i = 0; i < steps; i++) {
             BlockPos rail = cart.getCurrentRailPosition();
-            if (!brainmeth$isVanillaRail(cart.level().getBlockState(rail))) break;
+            BlockState railState = cart.level().getBlockState(rail);
+            if (!brainmeth$isVanillaRail(railState) || brainmeth$isSlope(railState)) break;
             Vec3 from = cart.position();
             // Vanilla's track projection accepts signed distance; choose the
             // orientation aligned with actual travel, not the rail's enum order.
@@ -81,6 +96,9 @@ public abstract class BrainmethMinecartSpeedMixin {
             for (Vec3 candidate : new Vec3[] {plus, minus}) {
                 if (candidate == null) continue;
                 Vec3 delta = candidate.subtract(from);
+                BlockPos nextRail = BlockPos.containing(candidate.x, candidate.y, candidate.z);
+                BlockState nextState = cart.level().getBlockState(nextRail);
+                if (brainmeth$isSlope(nextState)) continue;
                 double horizontal = delta.horizontalDistance();
                 // Reject large discontinuities from invalid/unloaded rail geometry.
                 if (horizontal < 1.0E-5D || horizontal > stride + 0.45D) continue;
