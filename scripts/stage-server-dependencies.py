@@ -2,7 +2,7 @@
 """Restore essential NeoForge server JARs from already hash-verified staging.
 
 Packwiz may report an unchanged installed pack while a dependency JAR is absent.
-Only these five known mandatory mods are copied, never arbitrary client extras.
+Only an explicit allowlist is copied, never arbitrary client extras.
 """
 import argparse
 import hashlib
@@ -61,3 +61,44 @@ for stem in ("kotlin-for-forge","cloth-config","fzzy-config",
     finally:
         staging.unlink(missing_ok=True)
     print(f"Restored required server JAR: {filename}")
+
+# Inventory Essentials is optional on either side, but its native server
+# implementation improves inventory-transfer handling. Reuse the exact pinned
+# client JAR, already downloaded and SHA-512 verified by stage-client-mods.py.
+# This deliberately leaves the client Packwiz entry and its Recommended group
+# untouched: players' installations do not change.
+stem = "inventory-essentials"
+with (runtime / "mods" / (stem + ".pw.toml")).open("rb") as fh:
+    info = tomllib.load(fh)
+if info.get("side") not in ("client", "both"):
+    raise RuntimeError("Unexpected Inventory Essentials Packwiz side")
+filename = info["filename"]
+if Path(filename).name != filename or not filename.endswith(".jar"):
+    raise RuntimeError("Unsafe Inventory Essentials JAR filename")
+dl = info["download"]
+algo = dl["hash-format"].replace("-", "").lower()
+expected = dl["hash"].lower()
+source = data / "automodpack" / "host-modpack" / "recommended" / "mods" / filename
+if not source.is_file():
+    raise FileNotFoundError(f"Inventory Essentials client staging missing: {source}")
+def verified(path):
+    h = hashlib.new(algo)
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest() == expected
+if not verified(source):
+    raise RuntimeError("Inventory Essentials staging hash mismatch")
+dest = server_mods / filename
+if not dest.is_file() or not verified(dest):
+    with tempfile.NamedTemporaryFile(dir=server_mods, delete=False) as tmp:
+        staging = Path(tmp.name)
+        with source.open("rb") as fh:
+            shutil.copyfileobj(fh, tmp)
+    try:
+        if not verified(staging):
+            raise RuntimeError("Inventory Essentials server staging hash mismatch")
+        staging.replace(dest)
+    finally:
+        staging.unlink(missing_ok=True)
+print(f"Verified server Inventory Essentials JAR: {filename}")
