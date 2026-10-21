@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - migration/neoforge-1.21.1
+      - fix/minecart-slope-safety
     paths:
       - 'custom-mods/brainmeth-core/**'
       - '.github/workflows/build-brainmeth-core.yml'
