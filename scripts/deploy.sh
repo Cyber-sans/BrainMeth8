@@ -140,6 +140,8 @@ python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-
 # Packwiz can report up-to-date despite missing server dependencies; repair
 # only verified mandatory JARs before booting NeoForge.
 python3 ./scripts/stage-server-dependencies.py --runtime-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
+# Server-only ore obfuscation; not distributed to players via AutoModpack.
+python3 ./scripts/install-antixray.py --data-root "$DATA_DIR"
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
 # Source lives outside Git and the generated JAR is never committed.
 python3 ./scripts/stage-private-music.py --data-root "$DATA_DIR"
