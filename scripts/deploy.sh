@@ -137,6 +137,8 @@ rm -f "$DATA_DIR/mods/brainmeth-core.jar"
 rm -f "$DATA_DIR/mods/brainmeth-precision-railgun.jar"
 python3 ./scripts/configure-automodpack.py --data-root "$DATA_DIR"
 python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
+# Cosmetic resource packs live in AutoModpack Extras, never server /mods.
+python3 ./scripts/stage-client-resourcepacks.py --data-root "$DATA_DIR"
 # Packwiz can report up-to-date despite missing server dependencies; repair
 # only verified mandatory JARs before booting NeoForge.
 python3 ./scripts/stage-server-dependencies.py --runtime-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
