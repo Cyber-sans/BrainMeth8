@@ -79,8 +79,17 @@ def main() -> int:
             f'version = "{version["id"]}"\n'
         )
         metadata_path.write_text(metadata, encoding="utf-8")
+        # Fast Noise is incompatible with the server-only AntiXray mod.
+        # Exclude it from runtime Packwiz so fresh installs do not restore it.
+        (tmp / "mods" / "zfastnoise.pw.toml").unlink(missing_ok=True)
         index_path = tmp / "index.toml"
         index = index_path.read_text(encoding="utf-8")
+        index, removed = __import__("re").subn(
+            r'\\[\\[files\\]\\]\\nfile = "mods/zfastnoise\\.pw\\.toml"\\nhash = "[a-f0-9]{64}"\\nmetafile = true\\n\\n',
+            "", index
+        )
+        if removed != 1:
+            raise RuntimeError("Expected one Fast Noise entry to quarantine")
         import re
         pattern = r'(file = "mods/automodpack\.pw\.toml"\nhash = ")[a-f0-9]{64}(")'
         replacement_hash = sha256(metadata.encode("utf-8"))
