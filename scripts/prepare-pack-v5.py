@@ -85,7 +85,7 @@ def main() -> int:
         index_path = tmp / "index.toml"
         index = index_path.read_text(encoding="utf-8")
         index, removed = __import__("re").subn(
-            r'\\[\\[files\\]\\]\\nfile = "mods/zfastnoise\\.pw\\.toml"\\nhash = "[a-f0-9]{64}"\\nmetafile = true\\n\\n',
+            r'\[\[files\]\]\nfile = "mods/zfastnoise\.pw\.toml"\nhash = "[a-f0-9]{64}"\nmetafile = true\n\n',
             "", index
         )
         if removed != 1:
