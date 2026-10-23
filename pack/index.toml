@@ -475,12 +475,12 @@ metafile = true
 
 [[files]]
 file = "mods/platform.pw.toml"
-hash = "3c65a8f21aaef8027725c78919c9df619487cff48e9a3b46c05bf301ad451ca7"
+hash = "9aebf60a4a9bdc08f706430670fde8fad835188cd984645aff540e6c9556236f"
 metafile = true
 
 [[files]]
 file = "mods/polytone.pw.toml"
-hash = "d906624be465493843795b76460d26693235da9536d1718fce403a380e49d97c"
+hash = "cf50e2db4231a2c3b42c2782365c62b4ba7384df9f49038f20804c9d293c288d"
 metafile = true
 
 [[files]]
