@@ -144,6 +144,8 @@ python3 ./scripts/stage-server-dependencies.py --runtime-root "$ROOT/.pack-runti
 # Remove Fast Noise (incompatible with AntiXray) from existing production data.
 rm -f "$DATA_DIR"/mods/zfastnoise-*.jar
 python3 ./scripts/install-antixray.py --data-root "$DATA_DIR"
+# Match clients using REI 16.0.799; enable multiplayer recipe item movement.
+python3 ./scripts/install-rei-server.py --data-root "$DATA_DIR"
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
 # Source lives outside Git and the generated JAR is never committed.
 python3 ./scripts/stage-private-music.py --data-root "$DATA_DIR"
