@@ -14,7 +14,6 @@ scalablelux
 modernfix
 servercore
 alternate-current
-zfastnoise
 structure-layout-optimizer
 clumps
 spark
@@ -173,5 +172,5 @@ https://modrinth.com/mod/naturalist/version/ETgOvHHS
 https://modrinth.com/mod/naturalist/version/ETgOvHHS
 
 # Distant Horizons SeedGen 0.7.0, NeoForge 1.21.1; client-side LOD acceleration.
-# Experimental with C2ME/ZFastNoise; may disable itself when missing matching server worldgen data.
+# Experimental with C2ME; may disable itself when missing matching server worldgen data.
 https://modrinth.com/mod/distant-horizons-seedgen/version/ODFiFPVn
