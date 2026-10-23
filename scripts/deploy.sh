@@ -141,6 +141,8 @@ python3 ./scripts/stage-client-mods.py --pack-root "$ROOT/.pack-runtime" --data-
 # only verified mandatory JARs before booting NeoForge.
 python3 ./scripts/stage-server-dependencies.py --runtime-root "$ROOT/.pack-runtime" --data-root "$DATA_DIR"
 # Server-only ore obfuscation; not distributed to players via AutoModpack.
+# Remove Fast Noise (incompatible with AntiXray) from existing production data.
+rm -f "$DATA_DIR"/mods/zfastnoise-*.jar
 python3 ./scripts/install-antixray.py --data-root "$DATA_DIR"
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
 # Source lives outside Git and the generated JAR is never committed.
