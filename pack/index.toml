@@ -60,7 +60,7 @@ metafile = true
 
 [[files]]
 file = "mods/amendments.pw.toml"
-hash = "9f72b0e914a9851f33a268382aa8cea648dbe36073acb469ac4d9906fa000681"
+hash = "c2b032f7a28c6dfabf10bdb46baf3007f788ff7c712203f01b35c09d0f4d6ca1"
 metafile = true
 
 [[files]]
@@ -300,7 +300,7 @@ metafile = true
 
 [[files]]
 file = "mods/fzzy-config.pw.toml"
-hash = "58bf7bd827e47f5bd80e9b51b931bfca08e311d02cbc95cd80ff2bf4fcc98ea1"
+hash = "618bb672613ba1f326b8e738f3a42be89338263c977bfecd2bf79a7a1eda6de9"
 metafile = true
 
 [[files]]
@@ -360,7 +360,7 @@ metafile = true
 
 [[files]]
 file = "mods/just-zoom.pw.toml"
-hash = "639d477709dcdfe0b2d32965f9e851b10a903c724f92168c1f3076fec417a29d"
+hash = "63f97362e4d717b868a5ead16288b3b941efd3df3b87cdae889fdef601c9dcb1"
 metafile = true
 
 [[files]]
@@ -420,7 +420,7 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "d10fbef1555f5277563b9cbf7683811ac0f38c1af41646e6ce5c3aaa2149425d"
+hash = "ef65836e005bd42a0f40df30a94eba1ad7ee5ed3194b11eafbeadc64edb44252"
 metafile = true
 
 [[files]]
@@ -475,12 +475,12 @@ metafile = true
 
 [[files]]
 file = "mods/platform.pw.toml"
-hash = "9aebf60a4a9bdc08f706430670fde8fad835188cd984645aff540e6c9556236f"
+hash = "a76b6068b10171b1fc244d5cb0a9dfbd0694b33e25c62eeeb5726c73d297cd3d"
 metafile = true
 
 [[files]]
 file = "mods/polytone.pw.toml"
-hash = "cf50e2db4231a2c3b42c2782365c62b4ba7384df9f49038f20804c9d293c288d"
+hash = "ed3cb95086c3d6fcfacf5a3b5ff8b21c45ad9c8c9ee309b107d4355c9034de02"
 metafile = true
 
 [[files]]
@@ -495,7 +495,7 @@ metafile = true
 
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
-hash = "2e0b31d4a3d4298045b368558ce7fe191a13bccb02a4524ca748598a9dcf4ca5"
+hash = "d465abcc806c0d4fdeefb6a5e774cca4fff0ffd27d7c75954ab4688f4c9eaf05"
 metafile = true
 
 [[files]]
@@ -555,12 +555,12 @@ metafile = true
 
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
-hash = "7681fbacd49acab59672be55de1b88f43418bb8dc949900b16f6d9ac8947ce80"
+hash = "770dd95e251f0b0b87f732a9665f9c472e7948b3d6ad37ba7d775c3c350b5216"
 metafile = true
 
 [[files]]
 file = "mods/sodium-extra.pw.toml"
-hash = "049effb741d20c6f529376025d50c9e0fe0666c2557f0a98f1391ce35a30b263"
+hash = "68995959b7eb8af369ee08f0660c3ad2259a5b3386e81cd7c8cfb0c2194b5482"
 metafile = true
 
 [[files]]
