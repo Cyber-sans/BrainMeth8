@@ -146,10 +146,8 @@ python3 ./scripts/stage-server-dependencies.py --runtime-root "$ROOT/.pack-runti
 # Remove Fast Noise (incompatible with AntiXray) from existing production data.
 rm -f "$DATA_DIR"/mods/zfastnoise-*.jar
 python3 ./scripts/install-antixray.py --data-root "$DATA_DIR"
-# The pinned REI 16.0.799 server-only JAR requests legacy javafml [41,)
-# while NeoForge 21.1.253 provides 4.0.45; remove that incompatible JAR.
-# Client-side REI stays distributed normally via AutoModpack.
-rm -f "$DATA_DIR/mods/RoughlyEnoughItems-16.0.799-server-only.jar"
+# Match clients using REI 16.0.799; enable multiplayer recipe item movement.
+python3 ./scripts/install-rei-server.py --data-root "$DATA_DIR"
 # Unofficial Naturalist 2.0.5 whale/shark multipart leak fix.
 # Install on production only; the test server stays unchanged.
 if [[ "$TARGET" == "prod" ]]; then
