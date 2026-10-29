@@ -149,8 +149,8 @@ python3 ./scripts/install-antixray.py --data-root "$DATA_DIR"
 # Match clients using REI 16.0.799; enable multiplayer recipe item movement.
 python3 ./scripts/install-rei-server.py --data-root "$DATA_DIR"
 # Unofficial Naturalist 2.0.5 whale/shark multipart leak fix.
-# Test profile receives it first; production requires explicit opt-in.
-if [[ "$TARGET" == "test" || "${BRAINMETH_NATURALIST_FIX_PROD:-0}" == "1" ]]; then
+# Install on production only; the test server stays unchanged.
+if [[ "$TARGET" == "prod" ]]; then
   python3 ./scripts/install-naturalist-lag-fix.py --data-root "$DATA_DIR"
 fi
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
