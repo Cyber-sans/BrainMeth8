@@ -44,7 +44,7 @@ SPACES = re.compile(r"\s+")
 def format_motd(quote: str, username: str) -> str:
     """Choose one neon colour for the entire two-line quote and attribution."""
     colour = random.choice(COLORS)
-    return f'{colour}"{quote}"\\n{colour}- {username}'
+    return f'{colour}"{quote}"\n{colour}- {username}'
 
 
 def clean_quote(message: dict) -> str | None:
