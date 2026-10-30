@@ -96,7 +96,7 @@ def discord_json(path: str, token: str):
             url,
             headers={
                 "Authorization": f"Bot {token}",
-                "User-Agent": "BrainmethDiscordMOTD/1.0",
+                "User-Agent": "DiscordBot (https://github.com/Cyber-sans/BrainMeth8, 1.0)",
                 "Accept": "application/json",
             },
         )
@@ -146,6 +146,14 @@ def eligible_channels(token: str) -> list[str]:
 
 
 def refresh(token: str) -> None:
+    # Verify bot-token identity independently of its guild/channel access.
+    identity = discord_json("/users/@me", token)
+    if not isinstance(identity, dict) or not identity.get("bot"):
+        raise RuntimeError("Token did not authenticate as a Discord bot")
+    logging.info(
+        "Authenticated as Discord bot %s (ID %s); configured server ID %s",
+        identity.get("username", "unknown"), identity.get("id", "unknown"), GUILD
+    )
     channels = eligible_channels(token)
     if not channels:
         raise RuntimeError("No eligible Discord channels")
