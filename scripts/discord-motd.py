@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Read approved Discord channels and refresh MOTDoftheDay's two-line quote pool.
 
-Requires a Discord bot token, guild ID, and explicitly selected channel IDs,
-or an explicit opt-in to all bot-accessible non-NSFW text channels.
+Requires a Discord bot token, guild ID, and the configured quote channel name
+(default: #motb). Can alternatively target explicit IDs or opt in to all
+non-NSFW text channels if channel-name selection is disabled.
 
 The Minecraft MOTDoftheDay mod rotates at 120 s; this process refreshes
 its quote pool every 600 s. It requires no Discord webhook, RCON, server
@@ -31,6 +32,7 @@ CHANNELS = [
     for channel in os.getenv("DISCORD_MOTD_CHANNEL_IDS", "").split(",")
     if channel.strip()
 ]
+CHANNEL_NAME = os.getenv("DISCORD_MOTD_CHANNEL_NAME", "motb").strip().lstrip("#").lower()
 ALL_PUBLIC = os.getenv("DISCORD_MOTD_ALL_PUBLIC", "0") == "1"
 REFRESH_SECONDS = 600
 COLORS = ("§b", "§d", "§5")
@@ -121,6 +123,25 @@ def discord_json(path: str, token: str):
 
 
 def eligible_channels(token: str) -> list[str]:
+    # Name has priority over legacy DISCORD_MOTD_ALL_PUBLIC=1, so moving
+    # to #motb never accidentally includes other channels like #sbd.
+    if CHANNEL_NAME:
+        result = discord_json(f"/guilds/{GUILD}/channels", token)
+        if not isinstance(result, list):
+            raise RuntimeError("Discord returned an unexpected channel listing")
+        matches = [
+            channel for channel in result
+            if channel.get("type") == 0
+            and not channel.get("nsfw", False)
+            and str(channel.get("name", "")).casefold() == CHANNEL_NAME.casefold()
+        ]
+        if len(matches) != 1:
+            raise RuntimeError(
+                f"Expected exactly one accessible text channel named #{CHANNEL_NAME}; "
+                f"found {len(matches)}. Check Discord channel name and permissions."
+            )
+        logging.info("Selected Discord quote channel #%s (ID %s)", CHANNEL_NAME, matches[0]["id"])
+        return [matches[0]["id"]]
     if CHANNELS:
         return CHANNELS
     if not ALL_PUBLIC:
@@ -176,14 +197,16 @@ def refresh(token: str) -> None:
         collected.update(entries[:25])
 
     if not collected:
-        logging.warning("No eligible quotes (%d channels failed); keeping existing MOTD", failed)
-        return
-
-    quotes = random.sample(sorted(collected), min(len(collected), 120))
-    messages = [
-        format_motd(quote, username)
-        for quote, username in quotes
-    ]
+        # Do not keep displaying a cached pool from previously selected
+        # channels (e.g. #sbd) when the new #motb has no readable messages.
+        logging.warning("No eligible quotes (%d channels failed); using safe fallback", failed)
+        messages = ["§b\"Waiting for Discord quotes\"\n§b- Discord"]
+    else:
+        quotes = random.sample(sorted(collected), min(len(collected), 120))
+        messages = [
+            format_motd(quote, username)
+            for quote, username in quotes
+        ]
     config = {
         "Enabled": True,
         "MOTD": {"Interval": 120, "Messages": messages},
@@ -224,8 +247,8 @@ def main() -> None:
     token = TOKEN_FILE.read_text(encoding="utf-8").strip()
     if not token:
         raise SystemExit("Discord bot token file is empty")
-    if not CHANNELS and not ALL_PUBLIC:
-        raise SystemExit("Choose quote channels or explicitly opt in to non-NSFW public channels")
+    if not CHANNEL_NAME and not CHANNELS and not ALL_PUBLIC:
+        raise SystemExit("Choose a quote channel name/IDs or opt in to public channels")
     logging.info("Discord MOTD sync started for guild %s; interval=%ds", GUILD, REFRESH_SECONDS)
     while True:
         try:
