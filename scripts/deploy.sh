@@ -155,6 +155,11 @@ python3 ./scripts/install-rei-server.py --runtime-root "$ROOT/.pack-runtime" --d
 if [[ "$TARGET" == "prod" ]]; then
   python3 ./scripts/install-naturalist-lag-fix.py --data-root "$DATA_DIR"
 fi
+# Production only: enable the server-list MOTD rotation mod.
+# Existing Discord quote config persists across deployments; clients unchanged.
+if [[ "$TARGET" == "prod" ]]; then
+  python3 ./scripts/install-motdoftheday.py --data-root "$DATA_DIR"
+fi
 # Local private OGG is wrapped as a resource-only NeoForge client mod in AutoModpack Essential.
 # Source lives outside Git and the generated JAR is never committed.
 python3 ./scripts/stage-private-music.py --data-root "$DATA_DIR"
