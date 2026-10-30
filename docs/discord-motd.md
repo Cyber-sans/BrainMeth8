@@ -19,9 +19,9 @@ cyan (§b), pink (§d), or purple (§5), rather than alternating per letter.
    Do **not** grant Administrator or Manage Server.
 4. Discord Settings > Advanced > Developer Mode. Right-click the Brainmeth
    server > **Copy Server ID**.
-5. Prefer a dedicated, consented **#motd-quotes** or similar quote channel:
-   right-click the channel > **Copy Channel ID**. You may provide multiple
-   comma-separated channel IDs.
+5. The reader selects **#motb** by channel name by default. Grant the bot
+   View Channel and Read Message History for #motb, and ensure the channel is
+   an ordinary, non-NSFW text channel.
 
 The invite alone does not authorize reading server history. This integration
 uses a real Discord bot and the official API, not a self-bot/user token.
@@ -42,16 +42,20 @@ Add these **separate** lines to `.env` (don't remove existing settings):
 
 ```dotenv
 DISCORD_MOTD_GUILD_ID=YOUR_DISCORD_SERVER_ID
-DISCORD_MOTD_CHANNEL_IDS=YOUR_QUOTE_CHANNEL_ID
+DISCORD_MOTD_CHANNEL_NAME=motb
 ```
 
-For multiple channels use `DISCORD_MOTD_CHANNEL_IDS=111...,222...`.
+The Docker Compose service defaults to **#motb** even if you omit
+`DISCORD_MOTD_CHANNEL_NAME`. A legacy `DISCORD_MOTD_ALL_PUBLIC=1`
+setting will **not** override this channel restriction, but you may
+remove that old setting from `.env` for clarity.
 
-**Alternative:** For every non-NSFW text channel the bot can read, omit
-`DISCORD_MOTD_CHANNEL_IDS` and explicitly set
-`DISCORD_MOTD_ALL_PUBLIC=1`. The bot must not have access to private or
-staff channels if using this option. Moderated quote channels are safer:
-anything eligible may be shown publicly in the Minecraft server list.
+For an alternative explicit set of channel IDs, set
+`DISCORD_MOTD_CHANNEL_NAME=` (empty) and
+`DISCORD_MOTD_CHANNEL_IDS=111...,222...`.
+To explicitly use all eligible non-NSFW text channels, leave both channel
+name and IDs empty and set `DISCORD_MOTD_ALL_PUBLIC=1`. Prefer #motb:
+these quotes are shown publicly in Minecraft's multiplayer list.
 
 ## 3. Deploy mod and activate the sync
 
