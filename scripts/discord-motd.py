@@ -111,7 +111,18 @@ def discord_json(path: str, token: str):
                     delay = 10.0
                 time.sleep(max(delay, 1.0))
                 continue
-            raise
+            # Include the failed API endpoint and Discord's numeric error
+            # code, never the Authorization header or bot token.
+            try:
+                detail = json.loads(exc.read())
+                code = detail.get("code", "unknown")
+                description = str(detail.get("message", exc.reason))[:160]
+            except (ValueError, TypeError, AttributeError):
+                code, description = "unknown", str(exc.reason)
+            raise RuntimeError(
+                f"Discord GET {path}: HTTP {exc.code} "
+                f"(Discord code {code}: {description})"
+            ) from exc
     raise RuntimeError("Discord API rate-limit retries exhausted")
 
 
@@ -147,7 +158,7 @@ def refresh(token: str) -> None:
             items = discord_json(f"/channels/{channel}/messages?limit=100", token)
             if not isinstance(items, list):
                 raise ValueError("Unexpected Discord messages response")
-        except (HTTPError, URLError, TimeoutError, ValueError) as exc:
+        except (HTTPError, URLError, TimeoutError, ValueError, RuntimeError) as exc:
             # Discord returns 403 for channels the bot cannot read; keep
             # updating from permitted channels rather than requiring admin.
             failed += 1
