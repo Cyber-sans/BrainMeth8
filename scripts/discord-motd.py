@@ -74,6 +74,21 @@ def clean_quote(message: dict) -> str | None:
     return cleaned
 
 
+def clean_username(message: dict) -> str | None:
+    """Return a safe Discord username for public MOTD attribution."""
+    author = message.get("author")
+    if not isinstance(author, dict):
+        return None
+    username = author.get("username")
+    if not isinstance(username, str):
+        return None
+    username = re.sub(r"[^A-Za-z0-9._]", "", username).strip("._")
+    if not username:
+        return None
+    # Keep the complete quote visible beside Brainmeth's server name.
+    return username if len(username) <= 18 else username[:17] + "…"
+
+
 def discord_json(path: str, token: str):
     url = API + path
     for attempt in range(2):
@@ -123,7 +138,7 @@ def refresh(token: str) -> None:
     channels = eligible_channels(token)
     if not channels:
         raise RuntimeError("No eligible Discord channels")
-    collected: set[str] = set()
+    collected: set[tuple[str, str]] = set()
     failed = 0
     for channel in channels:
         if not SNOWFLAKE.fullmatch(channel):
@@ -138,7 +153,12 @@ def refresh(token: str) -> None:
             failed += 1
             logging.warning("Skipping channel %s: %s", channel, exc)
             continue
-        entries = [text for msg in items if (text := clean_quote(msg))]
+        entries = [
+            (quote, username)
+            for msg in items
+            if (quote := clean_quote(msg))
+            and (username := clean_username(msg))
+        ]
         random.shuffle(entries)
         collected.update(entries[:25])
 
@@ -148,8 +168,9 @@ def refresh(token: str) -> None:
 
     quotes = random.sample(sorted(collected), min(len(collected), 120))
     messages = [
-        neon("BRAINMETH") + "\n" + neon('"' + quote + '"')
-        for quote in quotes
+        neon("BRAINMETH") + " §7— " + neon("@" + username)
+        + "\n" + neon('"' + quote + '"')
+        for quote, username in quotes
     ]
     config = {
         "Enabled": True,
