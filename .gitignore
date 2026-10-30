@@ -1,5 +1,6 @@
 .env
 secrets/rcon_password.txt
+secrets/discord-motd-token.txt
 *.log
 .DS_Store
 .pack-runtime/
