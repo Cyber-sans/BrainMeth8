@@ -12,7 +12,7 @@ import argparse
 import json
 import os
 from pathlib import Path
-import re
+import tomllib
 import tempfile
 import urllib.request
 import zipfile
@@ -45,11 +45,14 @@ def valid_jar(path: Path) -> None:
         meta = "META-INF/neoforge.mods.toml"
         if meta not in jar.namelist():
             raise ValueError("Missing NeoForge descriptor")
-        descriptor = jar.read(meta).decode("utf-8")
-        if not re.search(r'(?m)^\s*modId\s*=\s*"motdoftheday"\s*$', descriptor):
-            raise ValueError("Unexpected modId")
-        if not re.search(r'(?m)^\s*version\s*=\s*"1\.1\.0"\s*$', descriptor):
-            raise ValueError("Unexpected mod version")
+        descriptor = tomllib.loads(jar.read(meta).decode("utf-8"))
+        entries = descriptor.get("mods", [])
+        if not any(
+            entry.get("modId") == "motdoftheday"
+            and entry.get("version") == "1.1.0"
+            for entry in entries
+        ):
+            raise ValueError("Unexpected MOTDoftheDay mod ID or version")
 
 
 def main() -> None:
