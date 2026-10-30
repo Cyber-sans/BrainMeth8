@@ -41,16 +41,10 @@ MARKDOWN = re.compile(r"[*_`~|]")
 SPACES = re.compile(r"\s+")
 
 
-def neon(text: str) -> str:
-    i = 0
-    result = []
-    for letter in text:
-        if letter.isspace():
-            result.append(letter)
-        else:
-            result.append(COLORS[i % len(COLORS)] + letter)
-            i += 1
-    return "".join(result)
+def format_motd(quote: str, username: str) -> str:
+    """Choose one neon colour for the entire two-line quote and attribution."""
+    colour = random.choice(COLORS)
+    return f'{colour}"{quote}"\\n{colour}- {username}'
 
 
 def clean_quote(message: dict) -> str | None:
@@ -187,7 +181,7 @@ def refresh(token: str) -> None:
 
     quotes = random.sample(sorted(collected), min(len(collected), 120))
     messages = [
-        neon('"' + quote + '"') + "\n§7- " + neon(username)
+        format_motd(quote, username)
         for quote, username in quotes
     ]
     config = {
