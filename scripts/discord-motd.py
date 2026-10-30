@@ -168,8 +168,7 @@ def refresh(token: str) -> None:
 
     quotes = random.sample(sorted(collected), min(len(collected), 120))
     messages = [
-        neon("BRAINMETH") + " §7— " + neon("@" + username)
-        + "\n" + neon('"' + quote + '"')
+        neon('"' + quote + '"') + "\n§7- " + neon(username)
         for quote, username in quotes
     ]
     config = {
