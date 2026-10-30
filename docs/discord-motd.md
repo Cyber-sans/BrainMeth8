@@ -5,6 +5,8 @@ Uses MOTDoftheDay 1.1.0 (NeoForge 1.21.1) and a tiny optional Python
 Discord API sidecar. MOTD changes every **120 seconds**; the quote pool is
 refreshed every **10 minutes**, with no Minecraft restart. The first MOTD line displays the Discord **quote**; the second shows
 **- username** (long usernames are abbreviated). The server name is not repeated.
+Each displayed quote and its attribution use one randomly selected colour:
+cyan (§b), pink (§d), or purple (§5), rather than alternating per letter.
 
 **Discord invite:** https://discord.gg/TgKuKGA7u
 
