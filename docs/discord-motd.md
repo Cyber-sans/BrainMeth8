@@ -3,7 +3,9 @@
 This is **production only**. No clients or AutoModpack updates are required.
 Uses MOTDoftheDay 1.1.0 (NeoForge 1.21.1) and a tiny optional Python
 Discord API sidecar. MOTD changes every **120 seconds**; the quote pool is
-refreshed every **10 minutes**, with no Minecraft restart.
+refreshed every **10 minutes**, with no Minecraft restart. The first MOTD line
+shows **BRAINMETH — @username** (with long usernames abbreviated); the second
+line displays the attributed quote.
 
 **Discord invite:** https://discord.gg/TgKuKGA7u
 
