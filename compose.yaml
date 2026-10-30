@@ -155,6 +155,39 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  # Reads opted-in Discord history and refreshes the server-only rotating
+  # MOTD mod's JSON file. Start only after adding a bot token and guild ID:
+  # docker compose --profile discord-motd up -d discord-motd
+  discord-motd:
+    image: python:3.12-alpine
+    profiles: ["discord-motd"]
+    container_name: brainmeth1211-discord-motd
+    restart: unless-stopped
+    user: "1000:1000"
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      DISCORD_MOTD_GUILD_ID: "${DISCORD_MOTD_GUILD_ID:-}"
+      DISCORD_MOTD_CHANNEL_IDS: "${DISCORD_MOTD_CHANNEL_IDS:-}"
+      DISCORD_MOTD_ALL_PUBLIC: "${DISCORD_MOTD_ALL_PUBLIC:-0}"
+      DISCORD_MOTD_TOKEN_FILE: "/run/secrets/discord_motd_token"
+      DISCORD_MOTD_CONFIG: "/motd/config.json"
+    volumes:
+      - "./scripts/discord-motd.py:/app/discord-motd.py:ro"
+      - "${PROD_DATA_DIR:-/srv/minecraft/brainmeth/prod-1211}/config/motdoftheday:/motd"
+      - "./secrets/discord-motd-token.txt:/run/secrets/discord_motd_token:ro"
+    networks:
+      - brainmeth
+    command: ["python", "-u", "/app/discord-motd.py"]
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
   minecraft-test:
     <<: *minecraft-common
     profiles: ["test"]
