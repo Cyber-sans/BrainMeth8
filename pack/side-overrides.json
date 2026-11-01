@@ -121,6 +121,7 @@
     "naturalist",
     "cloth-config",
     "fzzy-config",
-    "kotlin-for-forge"
+    "kotlin-for-forge",
+    "crawl"
   ]
 }
