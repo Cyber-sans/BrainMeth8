@@ -25,7 +25,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.SpawnPlacements;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.LevelResource;
@@ -90,6 +89,7 @@ public final class BrainmethTomes {
     private static long nextMidnight;
     private static long endGameTime;
     private static int ticks;
+    private static long lastSpawnWaveNanos;
 
     private BrainmethTomes() {}
 
@@ -229,9 +229,14 @@ public final class BrainmethTomes {
         // Freeze only the Overworld daylight clock. gameTime still advances and
         // is the timer, so seven Minecraft days elapse despite frozen daylight.
         if (level.getDayTime() != nextMidnight) level.setDayTime(nextMidnight);
-        if (++ticks % 20 != 0 || !level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)
-            || server.getAverageTickTime() > 45.0F) return;
-        bonusSpawnWave(level);
+        if (++ticks % 20 != 0 || !level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) return;
+        // Measure the actual last 20 server ticks without relying on an
+        // unstable cross-version TPS API. Skip bonus spawning below ~13 TPS.
+        long nowNanos = System.nanoTime();
+        boolean overloaded = lastSpawnWaveNanos != 0
+            && nowNanos - lastSpawnWaveNanos > 20L * 75_000_000L;
+        lastSpawnWaveNanos = nowNanos;
+        if (!overloaded) bonusSpawnWave(level);
     }
 
     private static void bonusSpawnWave(ServerLevel level) {
@@ -349,6 +354,7 @@ public final class BrainmethTomes {
         nextMidnight = 0;
         endGameTime = 0;
         ticks = 0;
+        lastSpawnWaveNanos = 0;
         opened.clear();
         Path path = stateFile(server);
         if (!Files.exists(path)) return;
