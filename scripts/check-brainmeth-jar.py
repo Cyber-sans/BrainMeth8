@@ -38,7 +38,7 @@ with zipfile.ZipFile(jar) as archive:
     if mixins not in archive.namelist():
         sys.exit("Missing Brainmeth Mixin configuration")
     import json
-    registered = json.loads(archive.read(mixins))["mixins"]
+    registered = json.loads(archive.read(mixins))["server"]
     if "BrainmethMinecartSpeedMixin" not in registered:
         sys.exit("Minecart speed mixin is not registered")
     speed_class = "dev/cybersans/brainmeth/mixin/BrainmethMinecartSpeedMixin.class"
