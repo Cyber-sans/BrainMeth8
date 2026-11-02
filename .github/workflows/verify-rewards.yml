@@ -8,6 +8,7 @@ on:
       - 'rules/brainmeth-rules/data/brainmeth/loot_table/rewards/**'
       - 'custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethRewards.java'
       - 'scripts/verify-rewards.py'
+      - 'scripts/verify-tomes.py'
       - 'scripts/stage-private-music.py'
       - 'scripts/verify-private-music.py'
       - 'rules/brainmeth-rules/data/brainmeth/jukebox_song/**'
@@ -36,5 +37,6 @@ jobs:
         run: |
           python3 -m py_compile scripts/verify-rewards.py
           python3 scripts/verify-rewards.py
+          python3 scripts/verify-tomes.py
           python3 scripts/verify-private-music.py
           python3 scripts/verify-bounties.py

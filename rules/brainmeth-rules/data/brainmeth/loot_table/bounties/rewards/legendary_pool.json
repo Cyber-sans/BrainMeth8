@@ -143,6 +143,18 @@
         {
           "type": "minecraft:loot_table",
           "value": "brainmeth:rewards/uncommon/random_trophy_set"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/tome_of_bone"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/tome_of_catacomb"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:rewards/uncommon/tome_of_cursed_biome"
         }
       ]
     }

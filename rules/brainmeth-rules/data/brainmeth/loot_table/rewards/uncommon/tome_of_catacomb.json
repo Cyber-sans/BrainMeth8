@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "text": "Tome of Catacomb",
+                  "color": "dark_red",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Read and close to awaken the curse at the next midnight.",
+                    "color": "gray",
+                    "italic": false
+                  },
+                  {
+                    "text": "Seven Minecraft days. Recharges every 30 real days.",
+                    "color": "dark_gray",
+                    "italic": false
+                  }
+                ],
+                "minecraft:custom_data": {
+                  "brainmeth_reward": "tome_of_catacomb"
+                },
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:max_stack_size": 1,
+                "minecraft:written_book_content": {
+                  "title": "Tome of Catacomb",
+                  "author": "The Buried",
+                  "generation": 0,
+                  "resolved": true,
+                  "pages": [
+                    "{\"text\":\"ᚠᛟ⛧ ⌁ᚺꙮ ⛧⸫ᛉ\\\\nꙮᚷ𖤐 ᛉᚦ⫸ 𖤐ϟ⟁\\\\n⫸ᚱ⟊ ⟁⫷ᚠ ⟊⸸⌁\\\\nᚠᛟ⛧ ⌁ᚺꙮ ⛧⸫ᛉ\\\\nꙮᚷ𖤐 ᛉᚦ⫸ 𖤐ϟ⟁\\\\n⫸ᚱ⟊ ⟁⫷ᚠ ⟊⸸⌁\\\\nᚠᛟ⛧ ⌁ᚺꙮ \",\"color\":\"dark_red\",\"obfuscated\":true}",
+                    "{\"text\":\"ᚷ𖤐ϟ ᚦ⫸ᚱ ϟ⟁⫷\\\\nᚱ⟊⸸ ⫷ᚠᛟ ⸸⌁ᚺ\\\\nᛟ⛧⸫ ᚺꙮᚷ ⸫ᛉᚦ\\\\nᚷ𖤐ϟ ᚦ⫸ᚱ ϟ⟁⫷\\\\nᚱ⟊⸸ ⫷ᚠᛟ ⸸⌁ᚺ\\\\nᛟ⛧⸫ ᚺꙮᚷ ⸫ᛉᚦ\\\\nᚷ𖤐ϟ ᚦ⫸ᚱ \",\"color\":\"dark_red\",\"obfuscated\":true}",
+                    "{\"text\":\"⟊⸸⌁ ᚠᛟ⛧ ⌁ᚺꙮ\\\\n⛧⸫ᛉ ꙮᚷ𖤐 ᛉᚦ⫸\\\\n𖤐ϟ⟁ ⫸ᚱ⟊ ⟁⫷ᚠ\\\\n⟊⸸⌁ ᚠᛟ⛧ ⌁ᚺꙮ\\\\n⛧⸫ᛉ ꙮᚷ𖤐 ᛉᚦ⫸\\\\n𖤐ϟ⟁ ⫸ᚱ⟊ ⟁⫷ᚠ\\\\n⟊⸸⌁ ᚠᛟ⛧ \",\"color\":\"dark_red\",\"obfuscated\":true}",
+                    "{\"text\":\"⸫ᛉᚦ ᚷ𖤐ϟ ᚦ⫸ᚱ\\\\nϟ⟁⫷ ᚱ⟊⸸ ⫷ᚠᛟ\\\\n⸸⌁ᚺ ᛟ⛧⸫ ᚺꙮᚷ\\\\n⸫ᛉᚦ ᚷ𖤐ϟ ᚦ⫸ᚱ\\\\nϟ⟁⫷ ᚱ⟊⸸ ⫷ᚠᛟ\\\\n⸸⌁ᚺ ᛟ⛧⸫ ᚺꙮᚷ\\\\n⸫ᛉᚦ ᚷ𖤐ϟ \",\"color\":\"dark_red\",\"obfuscated\":true}",
+                    "{\"text\":\"⟁⫷ᚠ ⟊⸸⌁ ᚠᛟ⛧\\\\n⌁ᚺꙮ ⛧⸫ᛉ ꙮᚷ𖤐\\\\nᛉᚦ⫸ 𖤐ϟ⟁ ⫸ᚱ⟊\\\\n⟁⫷ᚠ ⟊⸸⌁ ᚠᛟ⛧\\\\n⌁ᚺꙮ ⛧⸫ᛉ ꙮᚷ𖤐\\\\nᛉᚦ⫸ 𖤐ϟ⟁ ⫸ᚱ⟊\\\\n⟁⫷ᚠ ⟊⸸⌁ \",\"color\":\"dark_red\",\"obfuscated\":true}",
+                    "{\"text\":\"ᚺꙮᚷ ⸫ᛉᚦ ᚷ𖤐ϟ\\\\nᚦ⫸ᚱ ϟ⟁⫷ ᚱ⟊⸸\\\\n⫷ᚠᛟ ⸸⌁ᚺ ᛟ⛧⸫\\\\nᚺꙮᚷ ⸫ᛉᚦ ᚷ𖤐ϟ\\\\nᚦ⫸ᚱ ϟ⟁⫷ ᚱ⟊⸸\\\\n⫷ᚠᛟ ⸸⌁ᚺ ᛟ⛧⸫\\\\nᚺꙮᚷ ⸫ᛉᚦ \",\"color\":\"dark_red\",\"obfuscated\":true}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

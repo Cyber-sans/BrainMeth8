@@ -61,6 +61,7 @@ public final class BrainmethCore {
     private static ServerBossEvent bar;
 
     public BrainmethCore(IEventBus modBus, ModContainer container) {
+        modBus.addListener(BrainmethTomes::registerPayloads);
         NeoForge.EVENT_BUS.addListener(BrainmethCore::registerCommands);
         NeoForge.EVENT_BUS.addListener(BrainmethCore::onServerTick);
         LOGGER.info("Brainmeth launch scheduler registered; no launch is scheduled by default");

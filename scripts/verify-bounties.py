@@ -158,7 +158,7 @@ for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
         folder=loots/directory
         assert folder.is_dir()
         assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
-assert len(expected_common)==38 and len(expected_legendary)==35
+assert len(expected_common)==38 and len(expected_legendary)==38
 
 # Validate custom building tools, food, instruments and invisible frame metadata.
 extra=("builders_toolbelt","copper_restoration","mob_head","goat_horn",

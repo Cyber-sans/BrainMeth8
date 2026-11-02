@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Add the locally built, server-only Brainmeth launch mod to a hash-verified
-runtime Packwiz manifest. No client installation and no public mod hosting.
+"""Add the locally built, Brainmeth Core mod for server and clients to a hash-verified
+runtime Packwiz manifest. AutoModpack distributes the same verified mod to clients; no public mod hosting.
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ def main() -> None:
     metadata = (
         'name = "Brainmeth Core: scheduled launch"\n'
         'filename = "brainmeth-core.jar"\n'
-        'side = "server"\n'
+        'side = "both"\n'
         '[download]\n'
         'url = "http://packwiz/files/brainmeth-core.jar"\n'
         'hash-format = "sha256"\n'
@@ -71,7 +71,7 @@ def main() -> None:
     if n != 1:
         raise RuntimeError("Cannot update Packwiz checksum for Brainmeth Core")
     pack_path.write_text(pack, encoding="utf-8")
-    print(f"Added server-only Brainmeth Core launch mod (SHA256: {digest})")
+    print(f"Added Brainmeth Core mod for server and clients (SHA256: {digest})")
 
 if __name__ == "__main__":
     main()

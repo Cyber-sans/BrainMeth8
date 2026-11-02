@@ -44,4 +44,11 @@ with zipfile.ZipFile(jar) as archive:
     speed_class = "dev/cybersans/brainmeth/mixin/BrainmethMinecartSpeedMixin.class"
     if speed_class not in archive.namelist():
         sys.exit("Missing compiled minecart speed mixin")
+    for cls in ("BrainmethTomes", "BrainmethTomesClient"):
+        if f"dev/cybersans/brainmeth/{cls}.class" not in archive.namelist():
+            sys.exit(f"Missing Tome class {cls}")
+    if "BrainmethRedSkyMixin" not in json.loads(archive.read(mixins)).get("client", []):
+        sys.exit("Missing client red sky mixin registration")
+    if "dev/cybersans/brainmeth/mixin/BrainmethRedSkyMixin.class" not in archive.namelist():
+        sys.exit("Missing compiled client red sky mixin")
 print(f"PASS: NeoForge mod descriptor and Java entrypoint verified: {jar}")
