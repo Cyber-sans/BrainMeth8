@@ -3,14 +3,14 @@
   "minVersion": "0.8",
   "package": "dev.cybersans.brainmeth.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "BrainmethBoardPickupMixin",
-    "BrainmethMinecartSpeedMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
     "BrainmethRedSkyMixin"
+  ],
+  "server": [
+    "BrainmethBoardPickupMixin",
+    "BrainmethMinecartSpeedMixin"
   ]
 }
