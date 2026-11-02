@@ -92,7 +92,7 @@ assert not any(x["content"] in ("supplementaries:flax","minecraft:snort_pottery_
 assert all(abs(x["unitWorth"]-16000)<0.01 for x in com_r["content"].values())
 
 assert sum(e["markers"]==["legendary"] for e in leg_o["content"].values())==8
-assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==36
+assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==39
 # Verify the recent finished-beverage changes survived the merge.
 finished={
     "lilitu_wine":("vinery:lilitu_wine",24),
