@@ -20,7 +20,7 @@ com_o,com_r=read("common_objs.json"),read("common_rews.json")
 leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
 myth_o,myth_r=read("mythic_objs.json"),read("mythic_rews.json")
 assert (len(com_o["content"]),len(com_r["content"]))==(26,29)
-assert (len(leg_o["content"]),len(leg_r["content"]))==(8,36)
+assert (len(leg_o["content"]),len(leg_r["content"]))==(8,39)
 assert (len(myth_o["content"]),len(myth_r["content"]))==(2,2)
 kinds={"common","legendary","plushie","trophy"}
 for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythic":(myth_o,myth_r)}.items():
