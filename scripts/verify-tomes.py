@@ -34,7 +34,7 @@ for identity in ids:
     assert identity in java
 for required in ("EVENT_TICKS = 7L * 24000L", "30L * 24 * 60 * 60",
                  "BOOST_ATTEMPTS_PER_PLAYER_SECOND = 100", "MAX_NEARBY_HOSTILES",
-                 "RULE_DOMOBSPAWNING", "getAverageTickTime() > 45.0F",
+                 "RULE_DOMOBSPAWNING", "lastSpawnWaveNanos",
                  "SpawnPlacements.checkSpawnRules", "EventHooks.checkSpawnPosition",
                  "level.hasChunkAt", "nextMidnight", "endGameTime",
                  "brainmeth-tomes.json", "Component.literal(\"The \"",
