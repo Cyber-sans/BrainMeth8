@@ -53,7 +53,7 @@ if runtime.exists() and (runtime / "mods/brainmeth-core.pw.toml").exists():
     assert jar.is_file(), "Missing compiled release JAR"
     meta = (runtime / "mods/brainmeth-core.pw.toml").read_bytes()
     info = tomllib.loads(meta.decode())
-    assert info["side"] == "server"
+    assert info["side"] == "both"
     assert info["filename"] == "brainmeth-core.jar"
     assert info["download"]["hash-format"] == "sha256"
     assert info["download"]["hash"] == hashlib.sha256(jar.read_bytes()).hexdigest()
