@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[1]
 base = root / "custom-mods/brainmeth-core/src/main"
 src = (base / "java/dev/cybersans/brainmeth/mixin/BrainmethMinecartSpeedMixin.java").read_text()
 mixins = json.loads((base / "resources/brainmeth_core.mixins.json").read_text())
-assert "BrainmethMinecartSpeedMixin" in mixins["mixins"]
+assert "BrainmethMinecartSpeedMixin" in mixins["server"]
 assert "@Mixin(AbstractMinecart.class)" in src
 assert 'method = "getMaxSpeedWithRail"' in src
 assert '1.6D' in src
