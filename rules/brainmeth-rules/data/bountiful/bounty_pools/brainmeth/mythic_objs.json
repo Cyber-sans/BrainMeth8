@@ -20,7 +20,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "warden_trophy": {
       "type": "item",
@@ -44,7 +58,21 @@
       "weightMult": 1,
       "components": {
         "trofers:trophy": "trofers:warden"
-      }
+      },
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        }
+      ]
     }
   }
 }
