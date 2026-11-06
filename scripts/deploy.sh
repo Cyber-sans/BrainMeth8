@@ -12,6 +12,8 @@ fi
 # Production is supported exclusively in its dedicated 1.21.1 data directory.
 # The level.dat + version marker guard below prevents accidental 26.2 downgrades.
 python3 ./scripts/prepare-pack-v5.py --pack-root "$ROOT/pack" --runtime-root "$ROOT/.pack-runtime"
+# Use only the GitHub-built, checksum-pinned beta.2 bounty selection patch.
+python3 ./scripts/prepare-bountiful-patch.py --runtime-root "$ROOT/.pack-runtime" --jar "$ROOT/server-mods/bountiful-neoforge-8.0.0-beta.2-brainmeth.jar"
 # TEMP: quarantine Minecart Speed on 1.21.1 until its watchdog hang is resolved.
 python3 ./scripts/disable-minecart-speed.py --runtime-root "$ROOT/.pack-runtime"
 python3 ./scripts/prepare-audio-mods.py --runtime-root "$ROOT/.pack-runtime"
@@ -61,6 +63,9 @@ elif [[ -f "$marker" ]] && [[ "$(cat "$marker")" != "1.21.1" ]]; then
 else
   printf '1.21.1\n' > "$marker"
 fi
+# Stop Minecraft BEFORE writing Bountiful config: shutdown otherwise rewrites the old in-memory config.
+docker compose --profile "$TARGET" stop "minecraft-$TARGET"
+
 # Install Brainmeth gameplay rules as a server-side datapack before startup.
 # The function runs on every world load/reload; no client changes required.
 DATAPACK_SOURCE="$ROOT/rules/brainmeth-rules"
