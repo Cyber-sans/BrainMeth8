@@ -1,9 +1,9 @@
 {
   "weightMult": 1,
   "content": {
-    "cherry_wood": {
+    "chrysalis": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -22,9 +22,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "mangrove_timber": {
+    "snail_shell": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -43,9 +43,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "warped_timber": {
+    "lizard_tail": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -64,9 +64,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "crimson_timber": {
+    "rope": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -85,9 +85,30 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "pale_oak": {
+    "snort_pottery_sherd": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "resin_clump": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -106,9 +127,51 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "calcite": {
+    "lilitu_wine": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "cherry_wine": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "coffee": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -127,9 +190,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "terracotta_palette": {
+    "oolong_tea": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -148,9 +211,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "copper_construction": {
+    "milk_coffee": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -169,9 +232,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "lanterns": {
+    "yerba_mate_tea": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -190,9 +253,93 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "mushroom_architecture": {
+    "soul_crystal": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "resonarium": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "temple_gloomsherd": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "echo_log": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "shellstone_bricks": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -211,9 +358,30 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "landscaper": {
+    "chorus_wine": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1
+    },
+    "rooibos_tea": {
+      "type": "command",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
@@ -232,10 +400,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "mudbricks": {
+    "netherite_door": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -253,10 +421,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "decorated_pots": {
+    "sniffer_egg": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -274,10 +442,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "sponges": {
+    "recovery_compass": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -295,10 +463,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "powered_rails": {
+    "ominous_trial_key": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3",
+      "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -316,10 +484,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "blue_ice": {
+    "music_disc_pigstep": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4",
+      "name": "??? 4 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -337,10 +505,10 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "sea_lanterns": {
+    "creaking_heart": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2",
+      "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
         "min": 1,
@@ -358,240 +526,9 @@
       "repRequired": 0,
       "weightMult": 1
     },
-    "froglights": {
+    "sack_workshop": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "end_rods": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "shroomlights": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "gilded_blackstone": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "crying_obsidian": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "dark_prismarine": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "quartz": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "coral": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "shellstone": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "ore_display": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "copper_masterwork": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
-      "name": "??? Common Reward",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 1,
-        "max": 1
-      },
-      "unitWorth": 16000,
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1
-    },
-    "spore_blossom": {
-      "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1",
       "name": "??? Common Reward",
       "rarity": "COMMON",
       "amount": {
