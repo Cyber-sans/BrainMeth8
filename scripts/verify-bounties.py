@@ -19,7 +19,7 @@ read=lambda name: json.loads((p/name).read_text())
 com_o,com_r=read("common_objs.json"),read("common_rews.json")
 leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
 myth_o,myth_r=read("mythic_objs.json"),read("mythic_rews.json")
-assert (len(com_o["content"]),len(com_r["content"]))==(26,26)
+assert (len(com_o["content"]),len(com_r["content"]))==(25,25)
 assert (len(leg_o["content"]),len(leg_r["content"]))==(8,40)
 assert (len(myth_o["content"]),len(myth_r["content"]))==(2,2)
 kinds={"common","legendary","plushie","trophy"}
@@ -102,7 +102,6 @@ expected_amounts={
     "snail_shell": 32,
     "lizard_tail": 12,
     "sack_workshop": 12,
-    "rope": 64,
     "snort_pottery_sherd": 1,
     "resin_clump": 64,
     "lilitu_wine": 4,
@@ -126,6 +125,7 @@ expected_amounts={
     "creaking_heart": 2,
 }
 assert set(com_o["content"])==set(expected_amounts)
+assert "rope" not in com_o["content"] and "rope" not in com_r["content"]
 for key,amount in expected_amounts.items():
     entry=com_o["content"][key]
     assert entry["amount"]=={"min":amount,"max":amount},key
@@ -138,7 +138,7 @@ assert all(abs(x["unitWorth"]-16000)<0.01 for x in com_r["content"].values())
 # Four Common payout levels. One independent mystery roll per unit, with
 # the Ancient Invitation chance applied separately to each roll.
 common_payouts={
-    1:("chrysalis","snail_shell","lizard_tail","rope","resin_clump","coffee",
+    1:("chrysalis","snail_shell","lizard_tail","resin_clump","coffee",
        "oolong_tea","milk_coffee","yerba_mate_tea","rooibos_tea",
        "sack_workshop","shellstone_bricks"),
     2:("cherry_wine","lilitu_wine","chorus_wine","resonarium","echo_log",
@@ -147,7 +147,7 @@ common_payouts={
        "netherite_door","recovery_compass","ominous_trial_key"),
     4:("music_disc_pigstep",)
 }
-assert sum(map(len,common_payouts.values()))==26
+assert sum(map(len,common_payouts.values()))==25
 for n,keys in common_payouts.items():
     for key in keys:
         entry=com_r["content"][key]
@@ -393,6 +393,7 @@ assert '"$OLD_REWARD_POOLS/uncommon_pool.json"' in deployment
 assert '"$OLD_REWARD_POOLS/rare_pool.json"' in deployment
 config=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config and 'bounty_decrees/bountiful/*' in config
+assert 'board["updateFrequencySecs"]=60' in config
 assert 'board["villageGenFrequency"]=1' in config
 assert 'board.pop("globalBoardState",None)' in config
 assert '"reverseMatchingAlgorithm":False' in config
