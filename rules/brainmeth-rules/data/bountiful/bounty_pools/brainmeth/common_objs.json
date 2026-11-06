@@ -6,10 +6,10 @@
       "content": "naturalist:chrysalis",
       "rarity": "COMMON",
       "amount": {
-        "min": 24,
-        "max": 24
+        "min": 32,
+        "max": 32
       },
-      "unitWorth": 666.6666666666666,
+      "unitWorth": 500,
       "name": "Chrysalis Collector",
       "markers": [
         "common"
@@ -45,10 +45,10 @@
       "content": "naturalist:snail_shell",
       "rarity": "COMMON",
       "amount": {
-        "min": 12,
-        "max": 12
+        "min": 32,
+        "max": 32
       },
-      "unitWorth": 1333.3333333333333,
+      "unitWorth": 500,
       "name": "A Slow Discovery",
       "markers": [
         "common"
@@ -84,10 +84,10 @@
       "content": "naturalist:lizard_tail",
       "rarity": "COMMON",
       "amount": {
-        "min": 16,
-        "max": 16
+        "min": 12,
+        "max": 12
       },
-      "unitWorth": 1000,
+      "unitWorth": 1333.3333333333333,
       "name": "A Tail to Tell",
       "markers": [
         "common"
@@ -123,10 +123,10 @@
       "content": "supplementaries:rope",
       "rarity": "COMMON",
       "amount": {
-        "min": 96,
-        "max": 96
+        "min": 64,
+        "max": 64
       },
-      "unitWorth": 166.66666666666666,
+      "unitWorth": 250,
       "name": "Rope Factory",
       "markers": [
         "common"
@@ -201,10 +201,10 @@
       "content": "minecraft:resin_clump",
       "rarity": "COMMON",
       "amount": {
-        "min": 128,
-        "max": 128
+        "min": 64,
+        "max": 64
       },
-      "unitWorth": 125,
+      "unitWorth": 250,
       "name": "Pale Forest Resin",
       "markers": [
         "common"
@@ -318,10 +318,10 @@
       "content": "herbalbrews:coffee",
       "rarity": "COMMON",
       "amount": {
-        "min": 24,
-        "max": 24
+        "min": 16,
+        "max": 16
       },
-      "unitWorth": 666.6666666666666,
+      "unitWorth": 1000,
       "name": "Coffee Roastery",
       "markers": [
         "common"
@@ -435,10 +435,10 @@
       "content": "herbalbrews:yerba_mate_tea",
       "rarity": "COMMON",
       "amount": {
-        "min": 20,
-        "max": 20
+        "min": 12,
+        "max": 12
       },
-      "unitWorth": 800,
+      "unitWorth": 1333.3333333333333,
       "name": "Yerba Mate Brewer",
       "markers": [
         "common"
@@ -474,10 +474,10 @@
       "content": "deeperdarker:soul_crystal",
       "rarity": "COMMON",
       "amount": {
-        "min": 4,
-        "max": 4
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 4000,
+      "unitWorth": 8000,
       "name": "Souls of the Stalkers",
       "markers": [
         "common"
@@ -513,10 +513,10 @@
       "content": "deeperdarker:resonarium",
       "rarity": "COMMON",
       "amount": {
-        "min": 32,
-        "max": 32
+        "min": 16,
+        "max": 16
       },
-      "unitWorth": 500,
+      "unitWorth": 1000,
       "name": "Resonarium Research",
       "markers": [
         "common"
@@ -591,10 +591,10 @@
       "content": "deeperdarker:echo_log",
       "rarity": "COMMON",
       "amount": {
-        "min": 128,
-        "max": 128
+        "min": 48,
+        "max": 48
       },
-      "unitWorth": 125,
+      "unitWorth": 333.3333333333333,
       "name": "Echo Forest Expedition",
       "markers": [
         "common"
@@ -630,10 +630,10 @@
       "content": "naturalist:shellstone_bricks",
       "rarity": "COMMON",
       "amount": {
-        "min": 48,
-        "max": 48
+        "min": 32,
+        "max": 32
       },
-      "unitWorth": 333.3333333333333,
+      "unitWorth": 500,
       "name": "Shellstone Mason",
       "markers": [
         "common"
@@ -708,10 +708,10 @@
       "content": "herbalbrews:rooibos_tea",
       "rarity": "COMMON",
       "amount": {
-        "min": 20,
-        "max": 20
+        "min": 12,
+        "max": 12
       },
-      "unitWorth": 800,
+      "unitWorth": 1333.3333333333333,
       "name": "Rooibos Brewer",
       "markers": [
         "common"
@@ -864,10 +864,10 @@
       "content": "minecraft:ominous_trial_key",
       "rarity": "COMMON",
       "amount": {
-        "min": 2,
-        "max": 2
+        "min": 1,
+        "max": 1
       },
-      "unitWorth": 8000,
+      "unitWorth": 16000,
       "name": "Trial Champion",
       "markers": [
         "common"
@@ -942,10 +942,10 @@
       "content": "minecraft:creaking_heart",
       "rarity": "COMMON",
       "amount": {
-        "min": 4,
-        "max": 4
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 4000,
+      "unitWorth": 8000,
       "name": "A Heart of Pale Oak",
       "markers": [
         "common"
@@ -981,10 +981,10 @@
       "content": "supplementaries:sack",
       "rarity": "COMMON",
       "amount": {
-        "min": 16,
-        "max": 16
+        "min": 12,
+        "max": 12
       },
-      "unitWorth": 1000,
+      "unitWorth": 1333.3333333333333,
       "name": "Sackmaker's Workshop",
       "markers": [
         "common"
