@@ -47,6 +47,20 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
         assert all(r["markers"]==obj["markers"] for r in matches)
         assert any(abs(r["amount"]["min"]*r["unitWorth"]-obj["amount"]["min"]*obj["unitWorth"])
                    <=0.25*r["amount"]["min"]*r["unitWorth"] for r in matches),(tier,obj["name"])
+# Bountiful's actual runtime filtering uses PoolEntry.forbids (type/content),
+# not our human-readable markers/forbidMarkers. Verify all tier combinations.
+all_reward_entries=[x for pool in (com_r,leg_r,myth_r) for x in pool["content"].values()]
+for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
+    for key,obj in objs["content"].items():
+        actual={(v["type"],v["content"]) for v in obj.get("forbids",[])}
+        expected={(reward["type"],reward["content"]) for reward in all_reward_entries
+                  if reward["markers"]!=obj["markers"]}
+        assert actual==expected,(tier,key,"missing real tier exclusions",expected-actual,actual-expected)
+        assert len(obj.get("forbids",[]))==len(actual),(tier,key,"duplicate exclusions")
+        for reward in all_reward_entries:
+            blocked=(reward["type"],reward["content"]) in actual
+            assert blocked==(reward["markers"]!=obj["markers"]),(tier,key,reward["content"])
+
 # Uncommon is now an internal legacy-loot-directory name, NOT an active bounty tier.
 assert all(x["markers"]==["common"] for x in com_o["content"].values())
 assert all(x["markers"]==["common"] for x in com_r["content"].values())
