@@ -154,57 +154,6 @@
         }
       ]
     },
-    "rope": {
-      "type": "item",
-      "content": "supplementaries:rope",
-      "rarity": "COMMON",
-      "amount": {
-        "min": 64,
-        "max": 64
-      },
-      "unitWorth": 250,
-      "name": "Rope Factory",
-      "markers": [
-        "common"
-      ],
-      "forbidMarkers": [
-        "legendary",
-        "plushie",
-        "trophy"
-      ],
-      "repRequired": 0,
-      "weightMult": 1,
-      "forbids": [
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
-        },
-        {
-          "type": "command",
-          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
-        }
-      ]
-    },
     "snort_pottery_sherd": {
       "type": "item",
       "content": "minecraft:snort_pottery_sherd",
