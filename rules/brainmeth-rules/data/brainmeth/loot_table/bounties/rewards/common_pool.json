@@ -155,6 +155,22 @@
         {
           "type": "minecraft:loot_table",
           "value": "brainmeth:bounties/rewards/common/invisible_frames"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/sculk_stone"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/bloom_wood"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/cobwebs"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "brainmeth:bounties/rewards/common/cave_vegetation"
         }
       ]
     }
