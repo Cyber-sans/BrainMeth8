@@ -33,6 +33,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -71,6 +75,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     }
