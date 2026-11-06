@@ -19,7 +19,7 @@ read=lambda name: json.loads((p/name).read_text())
 com_o,com_r=read("common_objs.json"),read("common_rews.json")
 leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
 myth_o,myth_r=read("mythic_objs.json"),read("mythic_rews.json")
-assert (len(com_o["content"]),len(com_r["content"]))==(26,29)
+assert (len(com_o["content"]),len(com_r["content"]))==(26,26)
 assert (len(leg_o["content"]),len(leg_r["content"]))==(8,40)
 assert (len(myth_o["content"]),len(myth_r["content"]))==(2,2)
 kinds={"common","legendary","plushie","trophy"}
@@ -34,7 +34,14 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
             assert item["rarity"]=={"common":"COMMON","legendary":"RARE","mythic":"EPIC"}[tier]
             if role=="obj":assert ":" in item["content"]
             else:
-                if tier=="legendary" and key=="seal_five_legendary":
+                if tier=="common":
+                    assert key in com_o["content"],key
+                    n=int(item["content"].rsplit("_",1)[-1])
+                    assert 1<=n<=4
+                    assert item["name"]==("??? Common Reward" if n==1 else f"??? {n} Common Rewards")
+                    assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}'
+                    assert item["weightMult"]==1
+                elif tier=="legendary" and key=="seal_five_legendary":
                     assert item["name"]=="??? 5 Legendary Rewards"
                     assert item["content"]=='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
                     assert item["weightMult"]==5
@@ -62,17 +69,26 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
                   if reward["markers"]!=obj["markers"]}
         special=("command",'brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary')
         regular=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_legendary')
+        old_common=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_common')
+        common_commands={n:("command",f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}')
+                         for n in range(1,5)}
         if tier=="legendary" and key=="four_calamities":
             expected.add(regular)
         else:
             expected.add(special)
+        if tier=="common":
+            correct_roll=int(com_r["content"][key]["content"].rsplit("_",1)[-1])
+            expected.update(command for n,command in common_commands.items() if n!=correct_roll)
+        else:
+            expected.add(old_common) # Legacy command is excluded from non-Common pools
         assert actual==expected,(tier,key,"missing real tier exclusions",expected-actual,actual-expected)
         assert len(obj.get("forbids",[]))==len(actual),(tier,key,"duplicate exclusions")
         for reward in all_reward_entries:
             blocked=(reward["type"],reward["content"]) in actual
             expected_blocked=(reward["markers"]!=obj["markers"]
                 or (tier=="legendary" and key=="four_calamities" and reward["content"]==regular[1])
-                or (not (tier=="legendary" and key=="four_calamities") and reward["content"]==special[1]))
+                or (not (tier=="legendary" and key=="four_calamities") and reward["content"]==special[1])
+                or (tier=="common" and reward["content"]!=common_commands[correct_roll][1]))
             assert blocked==expected_blocked,(tier,key,reward["content"])
 
 # Uncommon is now an internal legacy-loot-directory name, NOT an active bounty tier.
@@ -118,6 +134,38 @@ assert com_o["content"]["sack_workshop"]["content"]=="supplementaries:sack"
 assert not any(x["content"] in ("supplementaries:flax","minecraft:snort_pottery_sherd")
                for k,x in com_o["content"].items() if k=="sack_workshop")
 assert all(abs(x["unitWorth"]-16000)<0.01 for x in com_r["content"].values())
+
+# Four Common payout levels. One independent mystery roll per unit, with
+# the Ancient Invitation chance applied separately to each roll.
+common_payouts={
+    1:("chrysalis","snail_shell","lizard_tail","rope","resin_clump","coffee",
+       "oolong_tea","milk_coffee","yerba_mate_tea","rooibos_tea",
+       "sack_workshop","shellstone_bricks"),
+    2:("cherry_wine","lilitu_wine","chorus_wine","resonarium","echo_log",
+       "creaking_heart","sniffer_egg"),
+    3:("snort_pottery_sherd","soul_crystal","temple_gloomsherd",
+       "netherite_door","recovery_compass","ominous_trial_key"),
+    4:("music_disc_pigstep",)
+}
+assert sum(map(len,common_payouts.values()))==26
+for n,keys in common_payouts.items():
+    for key in keys:
+        entry=com_r["content"][key]
+        assert entry["content"]==f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}'
+        assert entry["amount"]=={"min":1,"max":1}
+        obj=com_o["content"][key]
+        excluded={x["content"] for x in obj["forbids"]}
+        for other in range(1,5):
+            command=f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{other}'
+            assert (command in excluded)==(other!=n),(key,n,other)
+assert set(com_r["content"])==set(com_o["content"])
+assert all(x["weightMult"]==1 for x in com_r["content"].values())
+for pool in (leg_o,myth_o):
+    for obj in pool["content"].values():
+        excludes={x["content"] for x in obj["forbids"]}
+        for n in range(1,5):
+            assert f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}' in excludes
+
 
 assert sum(e["markers"]==["legendary"] for e in leg_o["content"].values())==8
 # Heart of the Deep is easier to farm than the other Legendary trophies.
@@ -303,6 +351,10 @@ for alias in ("mystery_common","mystery_uncommon","mystery_legendary",
               "mystery_dragon","mystery_plushie","mystery_trophy"):
     assert alias in java
 assert 'id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/common_pool"' in java
+assert 'id.matches("mystery_common_[1-4]")' in java
+assert 'case "mystery_common_4" -> 4;' in java
+assert 'for (int i = 0; i < commonRolls; i++)' in java
+assert 'BrainmethAncientInvitation.grantCommon(target)' in java
 assert 'id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/legendary_pool"' in java
 assert 'id.equals("mystery_dragon"))loot="brainmeth:bounties/rewards/legendary_pool"' in java
 assert "Mystery reward revealed! Check your inventory." in java
