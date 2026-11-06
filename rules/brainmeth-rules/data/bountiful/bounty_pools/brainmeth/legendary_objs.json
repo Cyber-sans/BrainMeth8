@@ -33,6 +33,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -68,6 +72,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -103,6 +111,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -138,6 +150,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -173,6 +189,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -185,7 +205,7 @@
         "max": 1
       },
       "unitWorth": 45000,
-      "name": "The Four Calamities",
+      "name": "Seal of the Four Calamities",
       "markers": [
         "legendary"
       ],
@@ -199,6 +219,11 @@
       "components": {
         "minecraft:custom_data": {
           "brainmeth_bounty": "four_calamities_seal"
+        },
+        "minecraft:item_name": {
+          "text": "Seal of the Four Calamities",
+          "color": "dark_purple",
+          "italic": false
         }
       },
       "forbids": [
@@ -213,6 +238,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
         }
       ]
     },
@@ -248,6 +277,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     },
@@ -283,6 +316,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
         }
       ]
     }
