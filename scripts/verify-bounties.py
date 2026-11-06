@@ -36,7 +36,7 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
             else:
                 if tier=="legendary" and key=="seal_five_legendary":
                     assert item["name"]=="??? 5 Legendary Rewards"
-                    assert item["content"]=="execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
+                    assert item["content"]=='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
                     assert item["weightMult"]==5
                 else:
                     assert item["name"]=={"common":"??? Common Reward","legendary":"??? Legendary Reward","mythic":"??? Mythic Reward"}[tier]
@@ -60,7 +60,7 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
         actual={(v["type"],v["content"]) for v in obj.get("forbids",[])}
         expected={(reward["type"],reward["content"]) for reward in all_reward_entries
                   if reward["markers"]!=obj["markers"]}
-        special=("command","execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary")
+        special=("command",'brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary')
         regular=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_legendary')
         if tier=="legendary" and key=="four_calamities":
             expected.add(regular)
@@ -126,7 +126,7 @@ assert heart["content"]=="deeperdarker:heart_of_the_deep"
 assert heart["amount"]=={"min":2,"max":2}
 assert heart["unitWorth"]==22500 and heart["amount"]["min"]*heart["unitWorth"]==45000
 assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==40
-special_command="execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
+special_command='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
 normal_command='brainmethbounty grant "%PLAYER_NAME%" mystery_legendary'
 seal_reward=leg_r["content"]["seal_five_legendary"]
 assert seal_reward["content"]==special_command
@@ -288,10 +288,16 @@ assert {i["item"] for i in recipe["ingredients"]}=={
 assert recipe["result"]["components"]=={
     **expected_seal_components,"minecraft:enchantment_glint_override":True
 }
-# Execute as the completing player, then award five independent Legendary draws.
-function=(rl.parent/"function/grant_five_legendary.mcfunction").read_text()
-lines=[line.strip() for line in function.splitlines() if line.strip() and not line.startswith("#")]
-assert lines==["loot give @s loot brainmeth:bounties/rewards/legendary_pool"]*5
+# The dispatcher maps rare_seal_five_legendary to the matching rare/ loot table.
+# Five outer rolls each call the existing Legendary pool for an independent draw.
+seal_table=json.loads((loots/"rare/seal_five_legendary.json").read_text())
+assert seal_table["type"]=="minecraft:generic"
+assert len(seal_table["pools"])==1
+assert seal_table["pools"][0]["rolls"]==5
+assert seal_table["pools"][0]["entries"]==[{
+    "type":"minecraft:loot_table",
+    "value":"brainmeth:bounties/rewards/legendary_pool"
+}]
 java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
 for alias in ("mystery_common","mystery_uncommon","mystery_legendary",
               "mystery_dragon","mystery_plushie","mystery_trophy"):
