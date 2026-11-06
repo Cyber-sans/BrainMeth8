@@ -19,7 +19,7 @@ read=lambda name: json.loads((p/name).read_text())
 com_o,com_r=read("common_objs.json"),read("common_rews.json")
 leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
 myth_o,myth_r=read("mythic_objs.json"),read("mythic_rews.json")
-assert (len(com_o["content"]),len(com_r["content"]))==(25,25)
+assert (len(com_o["content"]),len(com_r["content"]))==(60,60)
 assert (len(leg_o["content"]),len(leg_r["content"]))==(8,40)
 assert (len(myth_o["content"]),len(myth_r["content"]))==(2,2)
 kinds={"common","legendary","plushie","trophy"}
@@ -101,28 +101,63 @@ expected_amounts={
     "chrysalis": 32,
     "snail_shell": 32,
     "lizard_tail": 12,
-    "sack_workshop": 12,
     "snort_pottery_sherd": 1,
     "resin_clump": 64,
-    "lilitu_wine": 4,
-    "cherry_wine": 6,
+    "lilitu_wine": 2,
+    "cherry_wine": 3,
     "coffee": 16,
-    "oolong_tea": 16,
+    "oolong_tea": 8,
     "milk_coffee": 16,
-    "yerba_mate_tea": 12,
+    "yerba_mate_tea": 6,
     "soul_crystal": 2,
     "resonarium": 16,
     "temple_gloomsherd": 1,
     "echo_log": 48,
     "shellstone_bricks": 32,
-    "chorus_wine": 4,
-    "rooibos_tea": 12,
+    "chorus_wine": 2,
+    "rooibos_tea": 6,
     "netherite_door": 1,
     "sniffer_egg": 1,
     "recovery_compass": 1,
     "ominous_trial_key": 1,
     "music_disc_pigstep": 1,
     "creaking_heart": 2,
+    "sack_workshop": 12,
+    "apple_cider": 4,
+    "apple_wine": 4,
+    "mead": 4,
+    "glowing_wine": 4,
+    "solaris_wine": 3,
+    "kelp_cider": 4,
+    "eiswein": 3,
+    "aegis_wine": 2,
+    "villagers_fright": 3,
+    "clark_wine": 3,
+    "jellie_wine": 1,
+    "noir_wine": 4,
+    "red_wine": 4,
+    "strad_wine": 3,
+    "cristel_wine": 2,
+    "jo_special_mixture": 3,
+    "bolvar_wine": 2,
+    "magnetic_wine": 3,
+    "stal_wine": 3,
+    "chenet_wine": 3,
+    "bottle_mojang_noir": 2,
+    "creepers_crush": 3,
+    "mellohi_wine": 3,
+    "green_tea": 8,
+    "black_tea": 8,
+    "hibiscus_tea": 6,
+    "lavender_tea": 6,
+    "breeze_rod": 16,
+    "sculk_catalyst": 8,
+    "fur": 32,
+    "antler": 12,
+    "glow_goop": 24,
+    "tooth": 16,
+    "scorpion_poison_gland": 4,
+    "hide": 24,
 }
 assert set(com_o["content"])==set(expected_amounts)
 assert "rope" not in com_o["content"] and "rope" not in com_r["content"]
@@ -134,20 +169,17 @@ assert com_o["content"]["sack_workshop"]["content"]=="supplementaries:sack"
 assert not any(x["content"] in ("supplementaries:flax","minecraft:snort_pottery_sherd")
                for k,x in com_o["content"].items() if k=="sack_workshop")
 assert all(abs(x["unitWorth"]-16000)<0.01 for x in com_r["content"].values())
+assert len({x["content"] for x in com_o["content"].values()})==len(com_o["content"])
 
 # Four Common payout levels. One independent mystery roll per unit, with
 # the Ancient Invitation chance applied separately to each roll.
 common_payouts={
-    1:("chrysalis","snail_shell","lizard_tail","resin_clump","coffee",
-       "oolong_tea","milk_coffee","yerba_mate_tea","rooibos_tea",
-       "sack_workshop","shellstone_bricks"),
-    2:("cherry_wine","lilitu_wine","chorus_wine","resonarium","echo_log",
-       "creaking_heart","sniffer_egg"),
-    3:("snort_pottery_sherd","soul_crystal","temple_gloomsherd",
-       "netherite_door","recovery_compass","ominous_trial_key"),
+    1:("chrysalis","snail_shell","lizard_tail","resin_clump","coffee","oolong_tea","milk_coffee","yerba_mate_tea","shellstone_bricks","rooibos_tea","sack_workshop","apple_cider","apple_wine","mead","glowing_wine","kelp_cider","noir_wine","red_wine","green_tea","black_tea","hibiscus_tea","lavender_tea","fur","glow_goop","tooth","hide"),
+    2:("lilitu_wine","cherry_wine","resonarium","echo_log","chorus_wine","sniffer_egg","creaking_heart","solaris_wine","eiswein","aegis_wine","villagers_fright","clark_wine","strad_wine","cristel_wine","jo_special_mixture","bolvar_wine","magnetic_wine","stal_wine","chenet_wine","bottle_mojang_noir","creepers_crush","mellohi_wine","breeze_rod","sculk_catalyst","antler","scorpion_poison_gland"),
+    3:("snort_pottery_sherd","soul_crystal","temple_gloomsherd","netherite_door","recovery_compass","ominous_trial_key","jellie_wine"),
     4:("music_disc_pigstep",)
 }
-assert sum(map(len,common_payouts.values()))==25
+assert sum(map(len,common_payouts.values()))==60
 for n,keys in common_payouts.items():
     for key in keys:
         entry=com_r["content"][key]
@@ -187,14 +219,41 @@ for key,obj in leg_o["content"].items():
 
 # Verify the recent finished-beverage changes survived the merge.
 finished={
-    "lilitu_wine":("vinery:lilitu_wine",4),
-    "cherry_wine":("vinery:cherry_wine",6),
+    "lilitu_wine":("vinery:lilitu_wine",2),
+    "cherry_wine":("vinery:cherry_wine",3),
     "coffee":("herbalbrews:coffee",16),
-    "oolong_tea":("herbalbrews:oolong_tea",16),
+    "oolong_tea":("herbalbrews:oolong_tea",8),
     "milk_coffee":("herbalbrews:milk_coffee",16),
-    "yerba_mate_tea":("herbalbrews:yerba_mate_tea",12),
-    "rooibos_tea":("herbalbrews:rooibos_tea",12),
-    "chorus_wine":("vinery:chorus_wine",4),
+    "yerba_mate_tea":("herbalbrews:yerba_mate_tea",6),
+    "chorus_wine":("vinery:chorus_wine",2),
+    "rooibos_tea":("herbalbrews:rooibos_tea",6),
+    "apple_cider":("vinery:apple_cider",4),
+    "apple_wine":("vinery:apple_wine",4),
+    "mead":("vinery:mead",4),
+    "glowing_wine":("vinery:glowing_wine",4),
+    "solaris_wine":("vinery:solaris_wine",3),
+    "kelp_cider":("vinery:kelp_cider",4),
+    "eiswein":("vinery:eiswein",3),
+    "aegis_wine":("vinery:aegis_wine",2),
+    "villagers_fright":("vinery:villagers_fright",3),
+    "clark_wine":("vinery:clark_wine",3),
+    "jellie_wine":("vinery:jellie_wine",1),
+    "noir_wine":("vinery:noir_wine",4),
+    "red_wine":("vinery:red_wine",4),
+    "strad_wine":("vinery:strad_wine",3),
+    "cristel_wine":("vinery:cristel_wine",2),
+    "jo_special_mixture":("vinery:jo_special_mixture",3),
+    "bolvar_wine":("vinery:bolvar_wine",2),
+    "magnetic_wine":("vinery:magnetic_wine",3),
+    "stal_wine":("vinery:stal_wine",3),
+    "chenet_wine":("vinery:chenet_wine",3),
+    "bottle_mojang_noir":("vinery:bottle_mojang_noir",2),
+    "creepers_crush":("vinery:creepers_crush",3),
+    "mellohi_wine":("vinery:mellohi_wine",3),
+    "green_tea":("herbalbrews:green_tea",8),
+    "black_tea":("herbalbrews:black_tea",8),
+    "hibiscus_tea":("herbalbrews:hibiscus_tea",6),
+    "lavender_tea":("herbalbrews:lavender_tea",6),
 }
 for key,(item,quantity) in finished.items():
     data=com_o["content"][key]
@@ -399,4 +458,4 @@ assert 'board.pop("globalBoardState",None)' in config
 assert '"reverseMatchingAlgorithm":False' in config
 assert not (dp/"recipe/bountyboard.json").exists()
 assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
-print(f"Brainmeth Bountiful verified: 25 Common, 8 Legendary, 2 Mythic objectives; two random shipment pools, one fixed collector pool; starting odds {rates}.")
+print(f"Brainmeth Bountiful verified: 60 Common, 8 Legendary, 2 Mythic objectives; two random shipment pools, one fixed collector pool; starting odds {rates}.")
