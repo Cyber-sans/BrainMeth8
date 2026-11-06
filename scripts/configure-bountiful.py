@@ -35,9 +35,10 @@ board["updateFrequencySecs"]=900
 # Restore normal village board generation. Decree JSON (canSpawn=false,
 # canReveal=false, canWanderBuy=false) prevents random Brainmeth decrees.
 # The former operator-only board policy has been removed.
-board["villageGenFrequency"]=1.0
-# Deliberately do not enable global board state. Avoid interfering with
-# unrelated world boards, and let every local board share the catalogue.
-board["globalBoardState"]=False
+# This is an integer in Bountiful's serializer. A float makes the entire
+# config fail to deserialize, causing Bountiful to overwrite it with defaults.
+board["villageGenFrequency"]=1
+# Legacy/unsupported key: unknown fields also break Bountiful deserialization.
+board.pop("globalBoardState",None)
 path.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n")
 print("Configured normal Bountiful boards/decrees plus admin-only Brainmeth decree; one objective/reward, no expiry, 15m refresh.")
