@@ -64,36 +64,36 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
 # Uncommon is now an internal legacy-loot-directory name, NOT an active bounty tier.
 assert all(x["markers"]==["common"] for x in com_o["content"].values())
 assert all(x["markers"]==["common"] for x in com_r["content"].values())
-# All Common objectives require a significant production or exploration
-# commitment. Match every objective to the same internal Bountiful worth,
-# so reward generation never reintroduces the old 6000/13000 split.
+# Rebalanced Common quantities account for brewing time, mob farming,
+# crafting throughput, resource scarcity and exploration. Keep equal internal
+# worth for fair reward matching without treating item counts as equal effort.
 expected_amounts={
-    "chrysalis": 12,
+    "chrysalis": 24,
     "snail_shell": 12,
     "lizard_tail": 16,
-    "sack_workshop": 32,
-    "rope": 192,
+    "sack_workshop": 16,
+    "rope": 96,
     "snort_pottery_sherd": 1,
-    "resin_clump": 192,
-    "lilitu_wine": 24,
-    "cherry_wine": 24,
-    "coffee": 48,
-    "oolong_tea": 24,
-    "milk_coffee": 24,
-    "yerba_mate_tea": 32,
-    "soul_crystal": 8,
-    "resonarium": 48,
+    "resin_clump": 128,
+    "lilitu_wine": 4,
+    "cherry_wine": 6,
+    "coffee": 24,
+    "oolong_tea": 16,
+    "milk_coffee": 16,
+    "yerba_mate_tea": 20,
+    "soul_crystal": 4,
+    "resonarium": 32,
     "temple_gloomsherd": 1,
-    "echo_log": 256,
-    "shellstone_bricks": 192,
-    "chorus_wine": 16,
-    "rooibos_tea": 40,
-    "netherite_door": 2,
+    "echo_log": 128,
+    "shellstone_bricks": 48,
+    "chorus_wine": 4,
+    "rooibos_tea": 20,
+    "netherite_door": 1,
     "sniffer_egg": 1,
     "recovery_compass": 1,
-    "ominous_trial_key": 3,
+    "ominous_trial_key": 2,
     "music_disc_pigstep": 1,
-    "creaking_heart": 8
+    "creaking_heart": 4,
 }
 assert set(com_o["content"])==set(expected_amounts)
 for key,amount in expected_amounts.items():
@@ -114,14 +114,14 @@ assert heart["unitWorth"]==22500 and heart["amount"]["min"]*heart["unitWorth"]==
 assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==39
 # Verify the recent finished-beverage changes survived the merge.
 finished={
-    "lilitu_wine":("vinery:lilitu_wine",24),
-    "cherry_wine":("vinery:cherry_wine",24),
-    "coffee":("herbalbrews:coffee",48),
-    "oolong_tea":("herbalbrews:oolong_tea",24),
-    "milk_coffee":("herbalbrews:milk_coffee",24),
-    "yerba_mate_tea":("herbalbrews:yerba_mate_tea",32),
-    "rooibos_tea":("herbalbrews:rooibos_tea",40),
-    "chorus_wine":("vinery:chorus_wine",16),
+    "lilitu_wine":("vinery:lilitu_wine",4),
+    "cherry_wine":("vinery:cherry_wine",6),
+    "coffee":("herbalbrews:coffee",24),
+    "oolong_tea":("herbalbrews:oolong_tea",16),
+    "milk_coffee":("herbalbrews:milk_coffee",16),
+    "yerba_mate_tea":("herbalbrews:yerba_mate_tea",20),
+    "rooibos_tea":("herbalbrews:rooibos_tea",20),
+    "chorus_wine":("vinery:chorus_wine",4),
 }
 for key,(item,quantity) in finished.items():
     data=com_o["content"][key]
