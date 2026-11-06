@@ -146,10 +146,10 @@
       "content": "deeperdarker:heart_of_the_deep",
       "rarity": "RARE",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 45000,
+      "unitWorth": 22500,
       "name": "Warden's Heart",
       "markers": [
         "legendary"
