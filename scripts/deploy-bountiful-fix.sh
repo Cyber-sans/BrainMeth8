@@ -52,7 +52,7 @@ wait_for() {
       sleep 5
     done
   ' bash "$name"
-  docker logs "$name" 2>&1 | grep -Fq 'Done ('
+  docker logs "$name" 2>&1 | grep -F 'Done (' >/dev/null
 }
 echo "[Bountiful] Deploying isolated test..."
 bash scripts/deploy.sh test
