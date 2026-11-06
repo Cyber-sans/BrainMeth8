@@ -20,7 +20,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "blazing_eye": {
       "type": "item",
@@ -41,7 +55,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "obsidian_heart": {
       "type": "item",
@@ -62,7 +90,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "void_thorn": {
       "type": "item",
@@ -83,7 +125,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "heart_of_the_deep": {
       "type": "item",
@@ -104,7 +160,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "four_calamities": {
       "type": "item",
@@ -130,7 +200,21 @@
         "minecraft:custom_data": {
           "brainmeth_bounty": "four_calamities_seal"
         }
-      }
+      },
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "nether_star": {
       "type": "item",
@@ -151,7 +235,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "dragon_egg": {
       "type": "item",
@@ -172,7 +270,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     }
   }
 }
