@@ -36,7 +36,8 @@ public final class BrainmethBountyDelivery {
         String loot;
         // Mystery labels carry no actual prize IDs to the client. The
         // server chooses the shipment at the instant of redemption.
-        if(id.equals("mystery_common"))loot="brainmeth:bounties/rewards/common_pool";
+        if(id.matches("mystery_common_[1-4]"))loot="brainmeth:bounties/rewards/common_pool";
+        else if(id.equals("mystery_common"))loot="brainmeth:bounties/rewards/common_pool";
         else if(id.equals("mystery_uncommon"))loot="brainmeth:bounties/rewards/common_pool"; // Legacy papers
         else if(id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/legendary_pool";
         else if(id.equals("mystery_plushie"))loot="brainmeth:rewards/rare/king_of_brainmeth_crown";
@@ -56,8 +57,20 @@ public final class BrainmethBountyDelivery {
                 target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
             return 1;
         }
-        if (id.equals("mystery_common") || id.equals("mystery_uncommon")) {
-            if (!BrainmethAncientInvitation.grantCommon(target)) return 0;
+        // Each Common mystery roll independently checks for the Ancient
+        // Invitation before selecting one of the existing 38 prize tables.
+        // Legacy bounty papers retain their single-roll behaviour.
+        int commonRolls = switch (id) {
+            case "mystery_common", "mystery_uncommon", "mystery_common_1" -> 1;
+            case "mystery_common_2" -> 2;
+            case "mystery_common_3" -> 3;
+            case "mystery_common_4" -> 4;
+            default -> 0;
+        };
+        if (commonRolls > 0) {
+            for (int i = 0; i < commonRolls; i++) {
+                if (!BrainmethAncientInvitation.grantCommon(target)) return 0;
+            }
         } else loot(server,name,loot);
         if(id.startsWith("mystery_"))
             target.sendSystemMessage(Component.literal("Mystery reward revealed! Check your inventory."));
