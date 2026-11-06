@@ -20,7 +20,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "snail_shell": {
       "type": "item",
@@ -41,7 +55,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "lizard_tail": {
       "type": "item",
@@ -62,7 +90,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "rope": {
       "type": "item",
@@ -83,7 +125,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "snort_pottery_sherd": {
       "type": "item",
@@ -104,7 +160,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "resin_clump": {
       "type": "item",
@@ -125,7 +195,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "lilitu_wine": {
       "type": "item",
@@ -146,7 +230,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "cherry_wine": {
       "type": "item",
@@ -167,7 +265,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "coffee": {
       "type": "item",
@@ -188,7 +300,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "oolong_tea": {
       "type": "item",
@@ -209,7 +335,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "milk_coffee": {
       "type": "item",
@@ -230,7 +370,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "yerba_mate_tea": {
       "type": "item",
@@ -251,7 +405,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "soul_crystal": {
       "type": "item",
@@ -272,7 +440,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "resonarium": {
       "type": "item",
@@ -293,7 +475,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "temple_gloomsherd": {
       "type": "item",
@@ -314,7 +510,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "echo_log": {
       "type": "item",
@@ -335,7 +545,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "shellstone_bricks": {
       "type": "item",
@@ -356,7 +580,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "chorus_wine": {
       "type": "item",
@@ -377,7 +615,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "rooibos_tea": {
       "type": "item",
@@ -398,7 +650,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "netherite_door": {
       "type": "item",
@@ -419,7 +685,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "sniffer_egg": {
       "type": "item",
@@ -440,7 +720,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "recovery_compass": {
       "type": "item",
@@ -461,7 +755,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "ominous_trial_key": {
       "type": "item",
@@ -482,7 +790,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "music_disc_pigstep": {
       "type": "item",
@@ -503,7 +825,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "creaking_heart": {
       "type": "item",
@@ -524,7 +860,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     },
     "sack_workshop": {
       "type": "item",
@@ -545,7 +895,21 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        }
+      ]
     }
   }
 }
