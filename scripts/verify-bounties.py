@@ -271,7 +271,8 @@ assert '"$OLD_REWARD_POOLS/uncommon_pool.json"' in deployment
 assert '"$OLD_REWARD_POOLS/rare_pool.json"' in deployment
 config=(root/"scripts/configure-bountiful.py").read_text()
 assert 'bounty_pools/bountiful/*' in config and 'bounty_decrees/bountiful/*' in config
-assert 'board["villageGenFrequency"]=1.0' in config
+assert 'board["villageGenFrequency"]=1' in config
+assert 'board.pop("globalBoardState",None)' in config
 assert '"reverseMatchingAlgorithm":False' in config
 assert not (dp/"recipe/bountyboard.json").exists()
 assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
