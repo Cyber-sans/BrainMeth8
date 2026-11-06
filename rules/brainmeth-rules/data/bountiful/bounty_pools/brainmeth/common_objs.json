@@ -261,10 +261,10 @@
       "content": "vinery:lilitu_wine",
       "rarity": "COMMON",
       "amount": {
-        "min": 4,
-        "max": 4
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 4000,
+      "unitWorth": 8000,
       "name": "Miss Lilitus Wine Cellar",
       "markers": [
         "common"
@@ -312,10 +312,10 @@
       "content": "vinery:cherry_wine",
       "rarity": "COMMON",
       "amount": {
-        "min": 6,
-        "max": 6
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 2666.6666666666665,
+      "unitWorth": 5333.333333333333,
       "name": "Cherry Winemaker",
       "markers": [
         "common"
@@ -414,10 +414,10 @@
       "content": "herbalbrews:oolong_tea",
       "rarity": "COMMON",
       "amount": {
-        "min": 16,
-        "max": 16
+        "min": 8,
+        "max": 8
       },
-      "unitWorth": 1000,
+      "unitWorth": 2000,
       "name": "Oolong Tea Brewer",
       "markers": [
         "common"
@@ -516,10 +516,10 @@
       "content": "herbalbrews:yerba_mate_tea",
       "rarity": "COMMON",
       "amount": {
-        "min": 12,
-        "max": 12
+        "min": 6,
+        "max": 6
       },
-      "unitWorth": 1333.3333333333333,
+      "unitWorth": 2666.6666666666665,
       "name": "Yerba Mate Brewer",
       "markers": [
         "common"
@@ -822,10 +822,10 @@
       "content": "vinery:chorus_wine",
       "rarity": "COMMON",
       "amount": {
-        "min": 4,
-        "max": 4
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 4000,
+      "unitWorth": 8000,
       "name": "Otherworldly Vintage",
       "markers": [
         "common"
@@ -873,10 +873,10 @@
       "content": "herbalbrews:rooibos_tea",
       "rarity": "COMMON",
       "amount": {
-        "min": 12,
-        "max": 12
+        "min": 6,
+        "max": 6
       },
-      "unitWorth": 1333.3333333333333,
+      "unitWorth": 2666.6666666666665,
       "name": "Rooibos Brewer",
       "markers": [
         "common"
@@ -1235,6 +1235,1791 @@
       },
       "unitWorth": 1333.3333333333333,
       "name": "Sackmaker's Workshop",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "apple_cider": {
+      "type": "item",
+      "content": "vinery:apple_cider",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Cider",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "apple_wine": {
+      "type": "item",
+      "content": "vinery:apple_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Apple Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "mead": {
+      "type": "item",
+      "content": "vinery:mead",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Mead",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "glowing_wine": {
+      "type": "item",
+      "content": "vinery:glowing_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Sun-kissed Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "solaris_wine": {
+      "type": "item",
+      "content": "vinery:solaris_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Solaris Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "kelp_cider": {
+      "type": "item",
+      "content": "vinery:kelp_cider",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Kelp Cider",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "eiswein": {
+      "type": "item",
+      "content": "vinery:eiswein",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Eiswein",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "aegis_wine": {
+      "type": "item",
+      "content": "vinery:aegis_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 2,
+        "max": 2
+      },
+      "unitWorth": 8000,
+      "name": "Aegis Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "villagers_fright": {
+      "type": "item",
+      "content": "vinery:villagers_fright",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Villagers Fright",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "clark_wine": {
+      "type": "item",
+      "content": "vinery:clark_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Clark Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "jellie_wine": {
+      "type": "item",
+      "content": "vinery:jellie_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "unitWorth": 16000,
+      "name": "Jellie Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "noir_wine": {
+      "type": "item",
+      "content": "vinery:noir_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Noir Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "red_wine": {
+      "type": "item",
+      "content": "vinery:red_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Red Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "strad_wine": {
+      "type": "item",
+      "content": "vinery:strad_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Strad Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "cristel_wine": {
+      "type": "item",
+      "content": "vinery:cristel_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 2,
+        "max": 2
+      },
+      "unitWorth": 8000,
+      "name": "Cristel Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "jo_special_mixture": {
+      "type": "item",
+      "content": "vinery:jo_special_mixture",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Jo's Special Mixture",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "bolvar_wine": {
+      "type": "item",
+      "content": "vinery:bolvar_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 2,
+        "max": 2
+      },
+      "unitWorth": 8000,
+      "name": "Bolvar Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "magnetic_wine": {
+      "type": "item",
+      "content": "vinery:magnetic_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Magnetic Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "stal_wine": {
+      "type": "item",
+      "content": "vinery:stal_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Stal Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "chenet_wine": {
+      "type": "item",
+      "content": "vinery:chenet_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Chenet Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "bottle_mojang_noir": {
+      "type": "item",
+      "content": "vinery:bottle_mojang_noir",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 2,
+        "max": 2
+      },
+      "unitWorth": 8000,
+      "name": "Mojang Noir",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "creepers_crush": {
+      "type": "item",
+      "content": "vinery:creepers_crush",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Creepers Crush",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "mellohi_wine": {
+      "type": "item",
+      "content": "vinery:mellohi_wine",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 3,
+        "max": 3
+      },
+      "unitWorth": 5333.333333333333,
+      "name": "Mellohi Wine",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "green_tea": {
+      "type": "item",
+      "content": "herbalbrews:green_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 2000,
+      "name": "green tea",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "black_tea": {
+      "type": "item",
+      "content": "herbalbrews:black_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 2000,
+      "name": "black tea",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "hibiscus_tea": {
+      "type": "item",
+      "content": "herbalbrews:hibiscus_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 6,
+        "max": 6
+      },
+      "unitWorth": 2666.6666666666665,
+      "name": "hibiscus tea",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "lavender_tea": {
+      "type": "item",
+      "content": "herbalbrews:lavender_tea",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 6,
+        "max": 6
+      },
+      "unitWorth": 2666.6666666666665,
+      "name": "lavender tea",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "breeze_rod": {
+      "type": "item",
+      "content": "minecraft:breeze_rod",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 16,
+        "max": 16
+      },
+      "unitWorth": 1000,
+      "name": "Breeze Hunter",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "sculk_catalyst": {
+      "type": "item",
+      "content": "minecraft:sculk_catalyst",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 8,
+        "max": 8
+      },
+      "unitWorth": 2000,
+      "name": "Sculk Catalyst Collector",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "fur": {
+      "type": "item",
+      "content": "naturalist:fur",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 32,
+        "max": 32
+      },
+      "unitWorth": 500,
+      "name": "Wild Fur",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "antler": {
+      "type": "item",
+      "content": "naturalist:antler",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 12,
+        "max": 12
+      },
+      "unitWorth": 1333.3333333333333,
+      "name": "Deer Antlers",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "glow_goop": {
+      "type": "item",
+      "content": "naturalist:glow_goop",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 24,
+        "max": 24
+      },
+      "unitWorth": 666.6666666666666,
+      "name": "Firefly Glow Goop",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "tooth": {
+      "type": "item",
+      "content": "naturalist:tooth",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 16,
+        "max": 16
+      },
+      "unitWorth": 1000,
+      "name": "Predator Teeth",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "scorpion_poison_gland": {
+      "type": "item",
+      "content": "naturalist:scorpion_poison_gland",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 4,
+        "max": 4
+      },
+      "unitWorth": 4000,
+      "name": "Scorpion Poison Glands",
+      "markers": [
+        "common"
+      ],
+      "forbidMarkers": [
+        "legendary",
+        "plushie",
+        "trophy"
+      ],
+      "repRequired": 0,
+      "weightMult": 1,
+      "forbids": [
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_plushie"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_trophy"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        }
+      ]
+    },
+    "hide": {
+      "type": "item",
+      "content": "naturalist:hide",
+      "rarity": "COMMON",
+      "amount": {
+        "min": 24,
+        "max": 24
+      },
+      "unitWorth": 666.6666666666666,
+      "name": "Animal Hides",
       "markers": [
         "common"
       ],
