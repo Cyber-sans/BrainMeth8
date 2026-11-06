@@ -20,7 +20,7 @@ com_o,com_r=read("common_objs.json"),read("common_rews.json")
 leg_o,leg_r=read("legendary_objs.json"),read("legendary_rews.json")
 myth_o,myth_r=read("mythic_objs.json"),read("mythic_rews.json")
 assert (len(com_o["content"]),len(com_r["content"]))==(26,29)
-assert (len(leg_o["content"]),len(leg_r["content"]))==(8,39)
+assert (len(leg_o["content"]),len(leg_r["content"]))==(8,40)
 assert (len(myth_o["content"]),len(myth_r["content"]))==(2,2)
 kinds={"common","legendary","plushie","trophy"}
 for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythic":(myth_o,myth_r)}.items():
@@ -34,11 +34,16 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
             assert item["rarity"]=={"common":"COMMON","legendary":"RARE","mythic":"EPIC"}[tier]
             if role=="obj":assert ":" in item["content"]
             else:
-                assert item["name"]=={"common":"??? Common Reward","legendary":"??? Legendary Reward","mythic":"??? Mythic Reward"}[tier]
-                alias={"common":"mystery_common","legendary":"mystery_legendary",
-                       "plushie":"mystery_plushie",
-                       "trophy":"mystery_trophy"}[marker]
-                assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" {alias}'
+                if tier=="legendary" and key=="seal_five_legendary":
+                    assert item["name"]=="??? 5 Legendary Rewards"
+                    assert item["content"]=="execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
+                    assert item["weightMult"]==5
+                else:
+                    assert item["name"]=={"common":"??? Common Reward","legendary":"??? Legendary Reward","mythic":"??? Mythic Reward"}[tier]
+                    alias={"common":"mystery_common","legendary":"mystery_legendary",
+                           "plushie":"mystery_plushie",
+                           "trophy":"mystery_trophy"}[marker]
+                    assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" {alias}'
     for obj in objs["content"].values():
         matches=[r for r in rews["content"].values()
                  if not (set(obj["forbidMarkers"])&set(r["markers"])
@@ -55,11 +60,20 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
         actual={(v["type"],v["content"]) for v in obj.get("forbids",[])}
         expected={(reward["type"],reward["content"]) for reward in all_reward_entries
                   if reward["markers"]!=obj["markers"]}
+        special=("command","execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary")
+        regular=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_legendary')
+        if tier=="legendary" and key=="four_calamities":
+            expected.add(regular)
+        else:
+            expected.add(special)
         assert actual==expected,(tier,key,"missing real tier exclusions",expected-actual,actual-expected)
         assert len(obj.get("forbids",[]))==len(actual),(tier,key,"duplicate exclusions")
         for reward in all_reward_entries:
             blocked=(reward["type"],reward["content"]) in actual
-            assert blocked==(reward["markers"]!=obj["markers"]),(tier,key,reward["content"])
+            expected_blocked=(reward["markers"]!=obj["markers"]
+                or (tier=="legendary" and key=="four_calamities" and reward["content"]==regular[1])
+                or (not (tier=="legendary" and key=="four_calamities") and reward["content"]==special[1]))
+            assert blocked==expected_blocked,(tier,key,reward["content"])
 
 # Uncommon is now an internal legacy-loot-directory name, NOT an active bounty tier.
 assert all(x["markers"]==["common"] for x in com_o["content"].values())
@@ -111,7 +125,18 @@ heart=leg_o["content"]["heart_of_the_deep"]
 assert heart["content"]=="deeperdarker:heart_of_the_deep"
 assert heart["amount"]=={"min":2,"max":2}
 assert heart["unitWorth"]==22500 and heart["amount"]["min"]*heart["unitWorth"]==45000
-assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==39
+assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==40
+special_command="execute as %PLAYER_NAME% run function brainmeth:grant_five_legendary"
+normal_command='brainmethbounty grant "%PLAYER_NAME%" mystery_legendary'
+seal_reward=leg_r["content"]["seal_five_legendary"]
+assert seal_reward["content"]==special_command
+assert seal_reward["amount"]=={"min":1,"max":1}
+assert seal_reward["unitWorth"]==45000
+for key,obj in leg_o["content"].items():
+    blocked={x["content"] for x in obj["forbids"]}
+    assert (normal_command in blocked)==(key=="four_calamities")
+    assert (special_command in blocked)==(key!="four_calamities")
+
 # Verify the recent finished-beverage changes survived the merge.
 finished={
     "lilitu_wine":("vinery:lilitu_wine",4),
@@ -131,7 +156,10 @@ for old in ("red_savanna_grape","dark_cherry","coffee_beans","dried_oolong_tea")
 # Bountiful normalises pool entry weights by pool size and uses reward-first
 # generation. At reputation 0 its native rarity weights are COMMON=1024,
 # RARE=256 and EPIC=128 (no scaling penalty at zero reputation).
-assert (com_r["weightMult"],leg_r["weightMult"],myth_r["weightMult"])==(1,4,0.16)
+assert com_r["weightMult"]==1 and myth_r["weightMult"]==0.16
+# 39 normal + 1 Seal-exclusive entry at weight 5. Scale the pool multiplier
+# by 40/44 so the aggregate Legendary generation odds remain unchanged.
+assert abs(leg_r["weightMult"]-40/11)<1e-9
 assert (com_o["weightMult"],leg_o["weightMult"],myth_o["weightMult"])==(1,4,0.16)
 weights={
     "common":com_r["weightMult"]*1024*sum(e["weightMult"] for e in com_r["content"].values())/len(com_r["content"]),
@@ -161,7 +189,7 @@ expected_common={
         "saturation_stew","chorus_fruit","invisible_frames"))
 }
 expected_legendary={f"brainmeth:rewards/uncommon/{key}" for key,item
-                    in leg_r["content"].items() if item["markers"]==["legendary"] and key!="dragon_egg"}
+                    in leg_r["content"].items() if item["markers"]==["legendary"] and key not in ("dragon_egg","seal_five_legendary")}
 for pool_name,expected in (("common",expected_common),("legendary",expected_legendary)):
     data=json.loads((loots/(pool_name+"_pool.json")).read_text())
     assert data["type"]=="minecraft:generic" and len(data["pools"])==1
@@ -248,11 +276,22 @@ assert myth_r["content"]["king_crown"]["markers"]==["plushie"]
 assert myth_r["content"]["kill_switch"]["markers"]==["trophy"]
 assert "king_crown" not in expected_legendary and "kill_switch" not in expected_legendary
 seal=leg_o["content"]["four_calamities"]
-assert seal["components"]=={"minecraft:custom_data":{"brainmeth_bounty":"four_calamities_seal"}}
+expected_seal_components={
+    "minecraft:custom_data":{"brainmeth_bounty":"four_calamities_seal"},
+    "minecraft:item_name":{"text":"Seal of the Four Calamities","color":"dark_purple","italic":False}
+}
+assert seal["components"]==expected_seal_components
+assert seal["name"]=="Seal of the Four Calamities"
 recipe=json.loads((rl.parent/"recipe/four_calamities_seal.json").read_text())
 assert {i["item"] for i in recipe["ingredients"]}=={
     "bosses_of_mass_destruction:"+s for s in ("ancient_anima","blazing_eye","obsidian_heart","void_thorn")}
-assert recipe["result"]["components"]["minecraft:custom_data"]["brainmeth_bounty"]=="four_calamities_seal"
+assert recipe["result"]["components"]=={
+    **expected_seal_components,"minecraft:enchantment_glint_override":True
+}
+# Execute as the completing player, then award five independent Legendary draws.
+function=(rl.parent/"function/grant_five_legendary.mcfunction").read_text()
+lines=[line.strip() for line in function.splitlines() if line.strip() and not line.startswith("#")]
+assert lines==["loot give @s loot brainmeth:bounties/rewards/legendary_pool"]*5
 java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
 for alias in ("mystery_common","mystery_uncommon","mystery_legendary",
               "mystery_dragon","mystery_plushie","mystery_trophy"):
