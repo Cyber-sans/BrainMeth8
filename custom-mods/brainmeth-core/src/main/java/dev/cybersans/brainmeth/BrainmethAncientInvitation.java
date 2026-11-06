@@ -18,10 +18,10 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * A secret Common bounty invitation. Before the first award, half of Common
  * redemptions reveal it. Afterwards it is one of 39 equally likely prizes:
- * the original 38 Common shipments plus the invitation.
+ * the 42 Common shipments plus the invitation.
  */
 public final class BrainmethAncientInvitation {
-    private static final int ORIGINAL_COMMON_REWARDS = 38;
+    private static final int ORIGINAL_COMMON_REWARDS = 42;
     private static MinecraftServer loadedServer;
     private static boolean discovered;
 
