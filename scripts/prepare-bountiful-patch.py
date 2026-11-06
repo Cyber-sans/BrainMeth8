@@ -25,6 +25,13 @@ def main():
     with zipfile.ZipFile(args.jar) as jar:
         if jar.testzip() is not None or TARGET_CLASS not in jar.namelist():
             raise RuntimeError("Bad Bountiful JAR / missing BountyCreator")
+        entry_class = "io/ejekta/bountiful/data/PoolEntry.class"
+        if entry_class not in jar.namelist():
+            raise RuntimeError("Missing Bountiful PoolEntry; cannot verify tier exclusions")
+        entry_bytes = jar.read(entry_class)
+        creator_bytes = jar.read(TARGET_CLASS)
+        if not all(key in entry_bytes for key in (b"forbids", b"forbidsAny")) or b"forbidsAny" not in creator_bytes:
+            raise RuntimeError("Bountiful lacks the required real forbids logic; tier isolation unsafe")
     root = args.runtime_root
     meta_path = root / "mods/bountiful.pw.toml"
     with meta_path.open("rb") as file:
