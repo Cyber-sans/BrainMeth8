@@ -37,6 +37,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -76,6 +92,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -115,6 +147,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -154,6 +202,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -193,6 +257,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -242,6 +322,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -281,6 +377,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     },
@@ -320,6 +432,22 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_seal_five_legendary"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_1"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_2"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_3"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
         }
       ]
     }
