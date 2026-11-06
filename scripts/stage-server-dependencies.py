@@ -20,7 +20,7 @@ data=args.data_root.resolve()
 server_mods=data/"mods"
 server_mods.mkdir(parents=True,exist_ok=True)
 for stem in ("kotlin-for-forge","cloth-config","fzzy-config",
-             "brainmeth-core","brainmeth-precision-railgun","worldedit"):
+             "brainmeth-core","brainmeth-precision-railgun","worldedit","bountiful"):
     meta_path=runtime/"mods"/(stem+".pw.toml")
     with meta_path.open("rb") as fh:
         info=tomllib.load(fh)
@@ -32,7 +32,7 @@ for stem in ("kotlin-for-forge","cloth-config","fzzy-config",
     dl=info["download"]
     algo=dl["hash-format"].replace("-","").lower()
     expected=dl["hash"].lower()
-    if stem.startswith("brainmeth-") or stem == "worldedit":
+    if stem.startswith("brainmeth-") or stem in ("worldedit", "bountiful"):
         source=runtime/"files"/filename
     else:
         source=data/"automodpack"/"host-modpack"/"main"/"mods"/filename
@@ -102,3 +102,12 @@ if not dest.is_file() or not verified(dest):
     finally:
         staging.unlink(missing_ok=True)
 print(f"Verified server Inventory Essentials JAR: {filename}")
+
+# Only after the patched JAR has been SHA-256 verified and installed, remove
+# the original beta.2 copy. NeoForge must never load duplicate Bountiful mods.
+patched = server_mods / "bountiful-neoforge-8.0.0-beta.2-brainmeth.jar"
+original = server_mods / "bountiful-neoforge-8.0.0-beta.2.jar"
+if not patched.is_file():
+    raise RuntimeError("Patched Bountiful missing; refusing to remove upstream")
+original.unlink(missing_ok=True)
+print("Verified single patched Bountiful installation")
