@@ -234,7 +234,8 @@ expected_common={
     *(f"brainmeth:bounties/rewards/common/{k}" for k in (
         "builders_toolbelt","copper_restoration","mob_head","goat_horn",
         "firework_display","enchanted_golden_apple","rabbit_banquet",
-        "saturation_stew","chorus_fruit","invisible_frames"))
+        "saturation_stew","chorus_fruit","invisible_frames",
+        "sculk_stone","bloom_wood","cobwebs","cave_vegetation"))
 }
 expected_legendary={f"brainmeth:rewards/uncommon/{key}" for key,item
                     in leg_r["content"].items() if item["markers"]==["legendary"] and key not in ("dragon_egg","seal_five_legendary")}
@@ -253,7 +254,31 @@ for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
         folder=loots/directory
         assert folder.is_dir()
         assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
-assert len(expected_common)==38 and len(expected_legendary)==38
+assert len(expected_common)==42 and len(expected_legendary)==38
+# Decorative bundles are actual available modded/vanilla item IDs. Every
+# component is an independent pool so the player receives all promised stacks.
+new_bundles={
+    "sculk_stone":[("deeperdarker:sculk_stone_bricks",64),
+                    ("deeperdarker:sculk_stone_tiles",64)],
+    "bloom_wood":[("deeperdarker:blooming_stem",64),
+                  ("deeperdarker:bloom_planks",64)],
+    "cobwebs":[("minecraft:cobweb",32)],
+    "cave_vegetation":[("minecraft:hanging_roots",32),
+                       ("minecraft:big_dripleaf",32),
+                       ("minecraft:pointed_dripstone",32)]
+}
+for name,expected in new_bundles.items():
+    bundle=json.loads((loots/"common"/(name+".json")).read_text())
+    assert bundle["type"]=="minecraft:generic"
+    assert len(bundle["pools"])==len(expected)
+    for pool,(item,count) in zip(bundle["pools"],expected):
+        assert pool["rolls"]==1 and len(pool["entries"])==1
+        entry=pool["entries"][0]
+        assert entry["type"]=="minecraft:item" and entry["name"]==item
+        assert entry["functions"]==[{"function":"minecraft:set_count","count":count}]
+ancient=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethAncientInvitation.java").read_text()
+assert "ORIGINAL_COMMON_REWARDS = 42;" in ancient
+assert "ORIGINAL_COMMON_REWARDS + 1" in ancient
 
 # Validate custom building tools, food, instruments and invisible frame metadata.
 extra=("builders_toolbelt","copper_restoration","mob_head","goat_horn",
