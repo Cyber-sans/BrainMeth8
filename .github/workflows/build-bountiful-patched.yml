@@ -1,0 +1,62 @@
+name: Build patched Bountiful 8.0.0-beta.2
+
+on:
+  push:
+    branches:
+      - migration/neoforge-1.21.1
+    paths:
+      - 'scripts/BountifulJarPatcher.java'
+      - '.github/workflows/build-bountiful-patched.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brainmeth-bountiful-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Patch pinned upstream beta.2 and commit tested JAR
+        shell: bash
+        run: |
+          set -euo pipefail
+          ORIGINAL="bountiful-neoforge-8.0.0-beta.2.jar"
+          PATCHED="bountiful-neoforge-8.0.0-beta.2-brainmeth.jar"
+          URL="https://cdn.modrinth.com/data/BpwWFOVM/versions/swTb6NU9/$ORIGINAL"
+          EXPECTED="a30c55813348a1f1f2869996e627f7357b9a47de478c477ef02b767d36a33f4ffad8836c60974146d4c6be3e75e42eba9285a84ad95e544c6f0549a12ceb08fb"
+          curl -fsSL --retry 3 "$URL" -o "$ORIGINAL"
+          echo "$EXPECTED  $ORIGINAL" | sha512sum -c -
+          javac --add-exports java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED scripts/BountifulJarPatcher.java
+          mkdir -p server-mods
+          java --add-exports java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+            -cp scripts BountifulJarPatcher "$ORIGINAL" "server-mods/$PATCHED"
+          unzip -t "server-mods/$PATCHED" >/dev/null
+          python3 - "$ORIGINAL" "server-mods/$PATCHED" <<'PY'
+          import sys, zipfile
+          src, out = (zipfile.ZipFile(s) for s in sys.argv[1:])
+          assert set(src.namelist()) == set(out.namelist()), "JAR entries changed"
+          changed = [name for name in src.namelist() if src.read(name) != out.read(name)]
+          assert changed == ["io/ejekta/bountiful/content/BountyCreator.class"], changed
+          assert b"java/util/Collections" in out.read(changed[0]), "Shuffle missing"
+          print("Patch verified: exactly one Bountiful beta.2 class modified")
+          PY
+          sha256sum "server-mods/$PATCHED"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "server-mods/$PATCHED"
+          if git diff --cached --quiet; then
+            echo "Patched JAR already published"
+            exit 0
+          fi
+          git commit -m "Publish verified patched Bountiful beta.2 JAR"
+          git push origin HEAD:"$GITHUB_REF_NAME"
