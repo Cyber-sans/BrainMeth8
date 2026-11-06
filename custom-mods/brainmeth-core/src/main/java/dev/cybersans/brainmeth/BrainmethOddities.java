@@ -205,7 +205,11 @@ public final class BrainmethOddities {
                 String[] endings={"was struck by a flying potato","forgot to breathe",
                     "tried to swim through air","was slain by a highly emotional chicken",
                     "discovered gravity twice","was overwhelmed by a mild inconvenience",
-                    "lost an argument with a fence","was vaporised by absolutely nothing"};
+                    "lost an argument with a fence","was vaporised by absolutely nothing",
+                    "died doing what they loved","got removed","is gone",
+                    "is no longer with us","was killed by them",
+                    "died for being an infidel","died from self reflection",
+                    "died while attempting to make crystal meth","died from hitting a blinker"};
                 String message=player.getName().getString()+" "+endings[level.random.nextInt(endings.length)];
                 level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(message),false);
             }
