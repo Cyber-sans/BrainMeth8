@@ -31,7 +31,7 @@ bounty.update({
     "allowDecreeMixing":False
 })
 board=current.setdefault("board",{})
-board["updateFrequencySecs"]=900
+board["updateFrequencySecs"]=60
 # Restore normal village board generation. Decree JSON (canSpawn=false,
 # canReveal=false, canWanderBuy=false) prevents random Brainmeth decrees.
 # The former operator-only board policy has been removed.
@@ -41,4 +41,4 @@ board["villageGenFrequency"]=1
 # Legacy/unsupported key: unknown fields also break Bountiful deserialization.
 board.pop("globalBoardState",None)
 path.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n")
-print("Configured normal Bountiful boards/decrees plus admin-only Brainmeth decree; one objective/reward, no expiry, 15m refresh.")
+print("Configured normal Bountiful boards/decrees plus admin-only Brainmeth decree; one objective/reward, no expiry, 1m refresh.")
