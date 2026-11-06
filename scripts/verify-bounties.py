@@ -399,4 +399,4 @@ assert 'board.pop("globalBoardState",None)' in config
 assert '"reverseMatchingAlgorithm":False' in config
 assert not (dp/"recipe/bountyboard.json").exists()
 assert not (root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyBoards.java").exists()
-print(f"Brainmeth Bountiful verified: 26 Common, 8 Legendary, 2 Mythic objectives; two random shipment pools, one fixed collector pool; starting odds {rates}.")
+print(f"Brainmeth Bountiful verified: 25 Common, 8 Legendary, 2 Mythic objectives; two random shipment pools, one fixed collector pool; starting odds {rates}.")
