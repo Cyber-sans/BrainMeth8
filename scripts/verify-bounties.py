@@ -43,12 +43,13 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
                     assert item["weightMult"]==1
                     assert item["amount"]=={"min":n,"max":n},(key,"display quantity")
                     assert abs(n*item["unitWorth"]-16000)<0.01,(key,"display worth")
-                elif tier=="legendary" and key=="seal_five_legendary":
-                    assert item["name"]=="??? 5 Legendary Rewards"
-                    assert item["content"]=='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
-                    assert item["weightMult"]==5
-                    assert item["amount"]=={"min":5,"max":5}
-                    assert item["unitWorth"]==9000
+                elif tier=="legendary" and key in ("seal_five_legendary","dragon_egg"):
+                    count,alias=(5,"rare_seal_five_legendary") if key=="seal_five_legendary" else (6,"rare_dragon_six_legendary")
+                    assert item["name"]==f"??? {count} Legendary Rewards"
+                    assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" {alias}'
+                    assert item["weightMult"]==count
+                    assert item["amount"]=={"min":count,"max":count}
+                    assert abs(item["unitWorth"]*count-45000)<0.01
                 else:
                     assert item["name"]=={"common":"??? Common Reward","legendary":"??? Legendary Reward","mythic":"??? Mythic Reward"}[tier]
                     alias={"common":"mystery_common","legendary":"mystery_legendary",
@@ -72,14 +73,16 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
         expected={(reward["type"],reward["content"]) for reward in all_reward_entries
                   if reward["markers"]!=obj["markers"]}
         special=("command",'brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary')
+        egg_special=("command",'brainmethbounty grant "%PLAYER_NAME%" rare_dragon_six_legendary')
         regular=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_legendary')
         old_common=("command",'brainmethbounty grant "%PLAYER_NAME%" mystery_common')
         common_commands={n:("command",f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}')
                          for n in range(1,5)}
-        if tier=="legendary" and key=="four_calamities":
+        for reward_cmd,owner in ((special,"four_calamities"),(egg_special,"dragon_egg")):
+            if not (tier=="legendary" and key==owner):
+                expected.add(reward_cmd)
+        if tier=="legendary" and key in ("four_calamities","dragon_egg"):
             expected.add(regular)
-        else:
-            expected.add(special)
         if tier=="common":
             correct_roll=int(com_r["content"][key]["content"].rsplit("_",1)[-1])
             expected.update(command for n,command in common_commands.items() if n!=correct_roll)
@@ -90,8 +93,9 @@ for tier,objs in (("common",com_o),("legendary",leg_o),("mythic",myth_o)):
         for reward in all_reward_entries:
             blocked=(reward["type"],reward["content"]) in actual
             expected_blocked=(reward["markers"]!=obj["markers"]
-                or (tier=="legendary" and key=="four_calamities" and reward["content"]==regular[1])
+                or (tier=="legendary" and key in ("four_calamities","dragon_egg") and reward["content"]==regular[1])
                 or (not (tier=="legendary" and key=="four_calamities") and reward["content"]==special[1])
+                or (not (tier=="legendary" and key=="dragon_egg") and reward["content"]==egg_special[1])
                 or (tier=="common" and reward["content"]!=common_commands[correct_roll][1]))
             assert blocked==expected_blocked,(tier,key,reward["content"])
 
@@ -219,8 +223,9 @@ assert seal_reward["amount"]=={"min":5,"max":5}
 assert seal_reward["unitWorth"]==9000
 for key,obj in leg_o["content"].items():
     blocked={x["content"] for x in obj["forbids"]}
-    assert (normal_command in blocked)==(key=="four_calamities")
+    assert (normal_command in blocked)==(key in ("four_calamities","dragon_egg"))
     assert (special_command in blocked)==(key!="four_calamities")
+    assert ('brainmethbounty grant "%PLAYER_NAME%" rare_dragon_six_legendary' in blocked)==(key!="dragon_egg")
 
 # Verify the recent finished-beverage changes survived the merge.
 finished={
@@ -269,9 +274,10 @@ for old in ("red_savanna_grape","dark_cherry","coffee_beans","dried_oolong_tea")
 # generation. At reputation 0 its native rarity weights are COMMON=1024,
 # RARE=256 and EPIC=128 (no scaling penalty at zero reputation).
 assert com_r["weightMult"]==1 and myth_r["weightMult"]==0.16
-# 39 normal + 1 Seal-exclusive entry at weight 5. Scale the pool multiplier
-# by 40/44 so the aggregate Legendary generation odds remain unchanged.
-assert abs(leg_r["weightMult"]-40/11)<1e-9
+# 38 regular + Seal weight 5 + Dragon Egg weight 6 = 49.
+# Normalize back to the original 40 aggregate weight units to preserve rarity odds.
+assert abs(leg_r["weightMult"]-160/49)<1e-9
+assert sum(e["weightMult"] for e in leg_r["content"].values())==49
 assert (com_o["weightMult"],leg_o["weightMult"],myth_o["weightMult"])==(1,4,0.16)
 weights={
     "common":com_r["weightMult"]*1024*sum(e["weightMult"] for e in com_r["content"].values())/len(com_r["content"]),
@@ -402,7 +408,9 @@ for key,count in balanced_shipments.items():
 assert leg_o["content"]["dragon_egg"]["content"]=="minecraft:dragon_egg"
 assert leg_o["content"]["dragon_egg"]["markers"]==["legendary"]
 assert leg_r["content"]["dragon_egg"]["markers"]==["legendary"]
-assert leg_r["content"]["dragon_egg"]["content"]=='brainmethbounty grant "%PLAYER_NAME%" mystery_legendary'
+assert leg_r["content"]["dragon_egg"]["content"]=='brainmethbounty grant "%PLAYER_NAME%" rare_dragon_six_legendary'
+assert leg_r["content"]["dragon_egg"]["amount"]=={"min":6,"max":6}
+assert leg_r["content"]["dragon_egg"]["unitWorth"]==7500
 for marker in ("plushie","trophy"):
     assert sum(x["markers"]==[marker] for x in myth_o["content"].values())==1
     assert sum(x["markers"]==[marker] for x in myth_r["content"].values())==1
@@ -435,6 +443,12 @@ assert seal_table["pools"][0]["entries"]==[{
     "type":"minecraft:loot_table",
     "value":"brainmeth:bounties/rewards/legendary_pool"
 }]
+dragon_table=json.loads((loots/"rare/dragon_six_legendary.json").read_text())
+assert dragon_table["type"]=="minecraft:generic"
+assert dragon_table["pools"]==[{ "rolls":6, "entries":[{
+    "type":"minecraft:loot_table",
+    "value":"brainmeth:bounties/rewards/legendary_pool"
+}]}]
 java=(root/"custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethBountyDelivery.java").read_text()
 for alias in ("mystery_common","mystery_uncommon","mystery_legendary",
               "mystery_dragon","mystery_plushie","mystery_trophy"):
@@ -447,6 +461,7 @@ assert 'BrainmethAncientInvitation.grantCommon(target)' in java
 assert 'id.equals("mystery_legendary"))loot="brainmeth:bounties/rewards/legendary_pool"' in java
 assert 'id.equals("mystery_dragon"))loot="brainmeth:bounties/rewards/legendary_pool"' in java
 assert "Mystery reward revealed! Check your inventory." in java
+assert 'else if(id.startsWith("rare_"))loot="brainmeth:bounties/rewards/rare/"+id.substring(5);' in java
 assert "DRAGON_EGG_CLAIMS" not in java and "brainmeth-dragon-egg-claims" not in java
 assert '"give "+name+" minecraft:dragon_egg' not in java
 assert "dragon_egg" in java and "kill_switch" in java
