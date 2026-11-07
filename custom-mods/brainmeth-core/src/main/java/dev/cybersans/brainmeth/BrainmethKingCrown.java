@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.slf4j.LoggerFactory;
 
@@ -59,6 +61,8 @@ public final class BrainmethKingCrown {
     private static String lastHolderName;
     private static int lastEventId;
     private static int elapsed;
+    private static final long RESURRECTION_COOLDOWN_MILLIS = 24L * 60 * 60 * 1000;
+    private static long resurrectionReadyAtMillis;
     private static final List<Notice> notices = new ArrayList<>();
     private static final Map<UUID, Integer> seen = new HashMap<>();
 
@@ -81,6 +85,7 @@ public final class BrainmethKingCrown {
         lastHolderName = "";
         lastEventId = 0;
         elapsed = 0;
+        resurrectionReadyAtMillis = 0;
         notices.clear();
         seen.clear();
         loadedServer = server;
@@ -102,6 +107,8 @@ public final class BrainmethKingCrown {
                 lastHolder = UUID.fromString(root.get("lastHolder").getAsString());
             lastHolderName = root.has("lastHolderName") ? root.get("lastHolderName").getAsString() : "";
             lastEventId = root.get("lastEventId").getAsInt();
+            resurrectionReadyAtMillis = root.has("resurrectionReadyAtMillis")
+                ? root.get("resurrectionReadyAtMillis").getAsLong() : 0;
             for (var item : root.getAsJsonArray("notices")) {
                 JsonObject obj = item.getAsJsonObject();
                 notices.add(new Notice(obj.get("id").getAsInt(), obj.get("message").getAsString()));
@@ -156,6 +163,7 @@ public final class BrainmethKingCrown {
         if (lastHolder != null) root.addProperty("lastHolder", lastHolder.toString());
         root.addProperty("lastHolderName", lastHolderName);
         root.addProperty("lastEventId", lastEventId);
+        root.addProperty("resurrectionReadyAtMillis", resurrectionReadyAtMillis);
         JsonArray list = new JsonArray();
         for (Notice notice : notices) {
             JsonObject entry = new JsonObject();
@@ -316,6 +324,46 @@ public final class BrainmethKingCrown {
         CompoundTag tag = stack.get(DataComponents.CUSTOM_DATA).copyTag();
         tag.putString(ID_TAG, id);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+    }
+
+    /**
+     * The real crown has one shared 24-hour real-time resurrection, regardless
+     * of who wears it. Persist BEFORE cancelling death so a crash/restart or
+     * theft cannot provide a free second activation.
+     */
+    @SubscribeEvent
+    public static void onCrownWearerDeath(LivingDeathEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        if (event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
+        MinecraftServer server = player.getServer();
+        if (server == null) return;
+        load(server);
+        if (!isValidCrown(player.getInventory().armor.get(3))) return;
+        long now = System.currentTimeMillis();
+        if (now < resurrectionReadyAtMillis) return;
+
+        long previousReadyAt = resurrectionReadyAtMillis;
+        resurrectionReadyAtMillis = now + RESURRECTION_COOLDOWN_MILLIS;
+        try {
+            save(server);
+        } catch (RuntimeException ex) {
+            resurrectionReadyAtMillis = previousReadyAt;
+            LoggerFactory.getLogger(BrainmethCore.MOD_ID).error(
+                "Unable to persist Crown of Brainmeth resurrection cooldown", ex);
+            // Do not grant an unrecorded resurrection.
+            return;
+        }
+
+        event.setCanceled(true);
+        player.setHealth(1.0F);
+        player.removeAllEffects();
+        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 45, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20 * 40, 0));
+        player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 20 * 5, 1));
+        player.level().broadcastEntityEvent(player, (byte) 35);
+        player.sendSystemMessage(Component.literal(
+            "Royal Resurrection activated! The Crown will recharge in 24 hours.")
+            .withStyle(ChatFormatting.GOLD));
     }
 
     @SubscribeEvent
