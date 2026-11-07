@@ -1,5 +1,5 @@
 {
-  "weightMult": 3.6363636363636362,
+  "weightMult": 3.2653061224489797,
   "content": {
     "poo": {
       "type": "command",
@@ -738,14 +738,14 @@
     },
     "dragon_egg": {
       "type": "command",
-      "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_legendary",
-      "name": "??? Legendary Reward",
+      "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_dragon_six_legendary",
+      "name": "??? 6 Legendary Rewards",
       "rarity": "RARE",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 6
       },
-      "unitWorth": 45000,
+      "unitWorth": 7500,
       "markers": [
         "legendary"
       ],
@@ -755,7 +755,7 @@
         "trophy"
       ],
       "repRequired": 0,
-      "weightMult": 1
+      "weightMult": 6
     },
     "tome_of_bone": {
       "type": "command",
