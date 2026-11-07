@@ -70,10 +70,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -112,10 +112,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -133,10 +133,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -238,10 +238,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -259,10 +259,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -280,10 +280,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -301,10 +301,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -343,10 +343,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -385,10 +385,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -406,10 +406,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -427,10 +427,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -448,10 +448,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -469,10 +469,10 @@
       "name": "??? 4 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 4,
+        "max": 4
       },
-      "unitWorth": 16000,
+      "unitWorth": 4000,
       "markers": [
         "common"
       ],
@@ -490,10 +490,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -616,10 +616,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -658,10 +658,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -679,10 +679,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -700,10 +700,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -721,10 +721,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -742,10 +742,10 @@
       "name": "??? 3 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 3
       },
-      "unitWorth": 16000,
+      "unitWorth": 5333.333333333333,
       "markers": [
         "common"
       ],
@@ -805,10 +805,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -826,10 +826,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -847,10 +847,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -868,10 +868,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -889,10 +889,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -910,10 +910,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -931,10 +931,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -952,10 +952,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -973,10 +973,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -994,10 +994,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -1099,10 +1099,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -1120,10 +1120,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -1162,10 +1162,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
@@ -1225,10 +1225,10 @@
       "name": "??? 2 Common Rewards",
       "rarity": "COMMON",
       "amount": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 2
       },
-      "unitWorth": 16000,
+      "unitWorth": 8000,
       "markers": [
         "common"
       ],
