@@ -41,10 +41,14 @@ for tier,(objs,rews) in {"common":(com_o,com_r),"legendary":(leg_o,leg_r),"mythi
                     assert item["name"]==("??? Common Reward" if n==1 else f"??? {n} Common Rewards")
                     assert item["content"]==f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}'
                     assert item["weightMult"]==1
+                    assert item["amount"]=={"min":n,"max":n},(key,"display quantity")
+                    assert abs(n*item["unitWorth"]-16000)<0.01,(key,"display worth")
                 elif tier=="legendary" and key=="seal_five_legendary":
                     assert item["name"]=="??? 5 Legendary Rewards"
                     assert item["content"]=='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
                     assert item["weightMult"]==5
+                    assert item["amount"]=={"min":5,"max":5}
+                    assert item["unitWorth"]==9000
                 else:
                     assert item["name"]=={"common":"??? Common Reward","legendary":"??? Legendary Reward","mythic":"??? Mythic Reward"}[tier]
                     alias={"common":"mystery_common","legendary":"mystery_legendary",
@@ -168,7 +172,7 @@ for key,amount in expected_amounts.items():
 assert com_o["content"]["sack_workshop"]["content"]=="supplementaries:sack"
 assert not any(x["content"] in ("supplementaries:flax","minecraft:snort_pottery_sherd")
                for k,x in com_o["content"].items() if k=="sack_workshop")
-assert all(abs(x["unitWorth"]-16000)<0.01 for x in com_r["content"].values())
+assert all(abs(x["unitWorth"]*x["amount"]["min"]-16000)<0.01 for x in com_r["content"].values())
 assert len({x["content"] for x in com_o["content"].values()})==len(com_o["content"])
 
 # Four Common payout levels. One independent mystery roll per unit, with
@@ -184,7 +188,8 @@ for n,keys in common_payouts.items():
     for key in keys:
         entry=com_r["content"][key]
         assert entry["content"]==f'brainmethbounty grant "%PLAYER_NAME%" mystery_common_{n}'
-        assert entry["amount"]=={"min":1,"max":1}
+        assert entry["amount"]=={"min":n,"max":n}
+        assert abs(entry["unitWorth"]*n-16000)<0.01
         obj=com_o["content"][key]
         excluded={x["content"] for x in obj["forbids"]}
         for other in range(1,5):
@@ -210,8 +215,8 @@ special_command='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
 normal_command='brainmethbounty grant "%PLAYER_NAME%" mystery_legendary'
 seal_reward=leg_r["content"]["seal_five_legendary"]
 assert seal_reward["content"]==special_command
-assert seal_reward["amount"]=={"min":1,"max":1}
-assert seal_reward["unitWorth"]==45000
+assert seal_reward["amount"]=={"min":5,"max":5}
+assert seal_reward["unitWorth"]==9000
 for key,obj in leg_o["content"].items():
     blocked={x["content"] for x in obj["forbids"]}
     assert (normal_command in blocked)==(key=="four_calamities")
