@@ -21,6 +21,11 @@
                     "text": "The rightful ruler. Resistance II, Regeneration, Strength and Night Vision while worn.",
                     "color": "light_purple",
                     "italic": false
+                  },
+                  {
+                    "text": "Royal Resurrection: survives one fatal blow every 24 real hours. Cooldown follows the Crown.",
+                    "color": "gold",
+                    "italic": false
                   }
                 ],
                 "minecraft:custom_data": {
