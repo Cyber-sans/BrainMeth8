@@ -53,6 +53,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_dragon_six_legendary"
         }
       ]
     },
@@ -111,6 +115,10 @@
         {
           "type": "command",
           "content": "brainmethbounty grant \"%PLAYER_NAME%\" mystery_common_4"
+        },
+        {
+          "type": "command",
+          "content": "brainmethbounty grant \"%PLAYER_NAME%\" rare_dragon_six_legendary"
         }
       ]
     }
