@@ -29,6 +29,28 @@ assert "oldIssued ? \" has stolen the Crown of Brainmeth!\"" in crown
 assert "reserveUniqueReward" not in crown
 assert "No second crown can be awarded" not in crown
 assert "removeRevoked(player);" in crown.split("public static void onLogin", 1)[1]
+# Royal Resurrection: genuine equipped crown only, 24 real hours, persisted
+# in the world alongside crown identity (not per-player or per-item data).
+assert "LivingDeathEvent" in crown
+assert "onCrownWearerDeath(LivingDeathEvent event)" in crown
+assert "DamageTypeTags.BYPASSES_INVULNERABILITY" in crown
+assert "isValidCrown(player.getInventory().armor.get(3))" in crown
+assert "RESURRECTION_COOLDOWN_MILLIS = 24L * 60 * 60 * 1000" in crown
+assert "System.currentTimeMillis()" in crown
+assert "now < resurrectionReadyAtMillis" in crown
+assert 'root.addProperty("resurrectionReadyAtMillis", resurrectionReadyAtMillis)' in crown
+assert 'root.has("resurrectionReadyAtMillis")' in crown
+assert crown.index("save(server);", crown.index("public static void onCrownWearerDeath")) < crown.index("event.setCanceled(true);", crown.index("public static void onCrownWearerDeath"))
+assert 'player.setHealth(1.0F)' in crown
+assert 'MobEffects.REGENERATION, 20 * 45, 1' in crown
+assert 'MobEffects.FIRE_RESISTANCE, 20 * 40, 0' in crown
+assert 'MobEffects.ABSORPTION, 20 * 5, 1' in crown
+assert 'player.level().broadcastEntityEvent(player, (byte) 35)' in crown
+assert 'player.removeAllEffects()' in crown
+assert "resurrectionReadyAtMillis = 0;" in crown
+assert "resurrectionReadyAtMillis = previousReadyAt;" in crown
+crown_loot=(root / "rules/brainmeth-rules/data/brainmeth/loot_table/rewards/rare/king_of_brainmeth_crown.json").read_text()
+assert "Royal Resurrection: survives one fatal blow every 24 real hours." in crown_loot
 assert "BrainmethKingCrown.class" in (root / "scripts/check-brainmeth-jar.py").read_text()
 assert "BrainmethCrownTaunts.class" in (root / "scripts/check-brainmeth-jar.py").read_text()
 
