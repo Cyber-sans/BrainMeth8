@@ -12,6 +12,10 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.game.ClientboundClearTitlesPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
@@ -56,6 +60,10 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -94,6 +102,28 @@ public final class BrainmethConsumables {
     private static final Map<String, Set<Long>> fakeBlocks = new HashMap<>();
     private static final List<PrimedTnt> fakeIgnitions = new ArrayList<>();
     private static final List<PrimedTnt> superIgnitions = new ArrayList<>();
+
+    public record GodInventoryLock(boolean locked) implements CustomPacketPayload {
+        public static final Type<GodInventoryLock> TYPE = new Type<>(
+            ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "god_inventory_lock"));
+        public static final StreamCodec<RegistryFriendlyByteBuf, GodInventoryLock> CODEC =
+            StreamCodec.composite(ByteBufCodecs.BOOL, GodInventoryLock::locked, GodInventoryLock::new);
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    public static void registerPayload(PayloadRegistrar registrar) {
+        registrar.playToClient(GodInventoryLock.TYPE, GodInventoryLock.CODEC, BrainmethConsumables::receiveLock);
+    }
+
+    private static void receiveLock(GodInventoryLock message, IPayloadContext context) {
+        if (context.player().level().isClientSide())
+            BrainmethConsumablesClient.setLocked(message.locked());
+    }
+
+    /** Used by the server's packet guard; ordinary Creative-mode players are unaffected. */
+    public static boolean isPotionCreative(ServerPlayer player) {
+        return "creative".equals(player.getPersistentData().getString(GOD_PHASE));
+    }
 
     private BrainmethConsumables() {}
 
@@ -227,7 +257,10 @@ public final class BrainmethConsumables {
     private static void clearGodState(ServerPlayer player, boolean slowFalling) {
         CompoundTag data = player.getPersistentData();
         String phase = data.getString(GOD_PHASE);
-        if ("creative".equals(phase)) player.setGameMode(GameType.SURVIVAL);
+        if ("creative".equals(phase)) {
+            player.setGameMode(GameType.SURVIVAL);
+            PacketDistributor.sendToPlayer(player, new GodInventoryLock(false));
+        }
         data.remove(GOD_PHASE);
         data.remove(GOD_TICK);
         data.remove(GOD_HOVER_Y);
@@ -302,6 +335,8 @@ public final class BrainmethConsumables {
                 }
                 data.putString(GOD_PHASE, "creative");
                 data.putLong(GOD_TICK, tick + GOD_CREATIVE_TICKS);
+                // Lock the client Creative inventory before changing gamemode.
+                PacketDistributor.sendToPlayer(player, new GodInventoryLock(true));
                 player.setGameMode(GameType.CREATIVE);
                 godTitle(player, "GOD MODE ACTIVATED", "");
                 org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
@@ -325,6 +360,7 @@ public final class BrainmethConsumables {
     public static void onGodLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         CompoundTag data = player.getPersistentData();
+        PacketDistributor.sendToPlayer(player, new GodInventoryLock(false));
         if (data.contains(GOD_PHASE)) clearGodState(player, false);
         // Recover from the legacy two-second version if a player was saved
         // while its temporary abilities were enabled.
