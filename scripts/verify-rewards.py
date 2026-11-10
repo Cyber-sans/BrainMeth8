@@ -154,11 +154,11 @@ assert "Next charge in" not in code and "Already floating for another" not in co
 consumables = (root / "custom-mods/brainmeth-core/src/main/java/dev/cybersans/brainmeth/BrainmethConsumables.java").read_text()
 for marker in ("potion_everything", "potion_shrink", "potion_grow", "potion_creative", "super_tnt", "ultimate_chorus_fruit", "splash_binding", "splash_vanishing", "splash_coronavirus", "fake_tnt"):
     assert marker in consumables, marker
-assert "10 * 60" in consumables and "CREATIVE_SECONDS = 2" in consumables
+assert "10 * 60" in consumables and "GOD_COUNTDOWN_TICKS = 3 * 20" in consumables\nassert "GOD_CREATIVE_TICKS = 20" in consumables
 assert "4.0 * Math.cbrt(20)" in consumables
 assert "the energy of 20 TNT." in (base/"uncommon/super_tnt.json").read_text()
 assert "getGameModeForPlayer() == GameType.SURVIVAL" in consumables
-assert "instabuild = true" not in consumables and "setGameMode(GameType.CREATIVE)" not in consumables
+assert "player.setGameMode(GameType.CREATIVE)" in consumables\nassert "player.setGameMode(GameType.SURVIVAL)" in consumables\nassert "PlayerLoggedInEvent" in consumables and "PlayerLoggedOutEvent" in consumables\nassert "God Mode activated in 3" in consumables
 assert "MAX_FAKE_BLOCKS = 256" in consumables
 assert "onFakeTntDrops(BlockDropsEvent event)" in consumables
 assert 'tag.putString(REWARD, "fake_tnt")' in consumables
