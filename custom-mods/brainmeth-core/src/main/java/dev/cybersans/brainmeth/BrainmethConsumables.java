@@ -7,12 +7,14 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundClearTitlesPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -47,6 +49,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -67,6 +70,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.joml.Vector3f;
 
 /** Batch-3 reward abilities, all attached to server-verified custom-data tags.
  * No survival recipes or natural drops exist; Bountiful wiring is separate.
@@ -75,6 +79,7 @@ import java.util.Set;
 public final class BrainmethConsumables {
     private static final String REWARD = "brainmeth_reward";
     private static final long SCALE_SECONDS = 10 * 60;
+    private static final int GOD_BUILDUP_TICKS = 5 * 20;
     private static final int GOD_COUNTDOWN_TICKS = 3 * 20;
     private static final int GOD_CREATIVE_TICKS = 20;
     private static final String SCALE_END = "brainmeth_scale_ends";
@@ -82,6 +87,7 @@ public final class BrainmethConsumables {
     private static final String CREATIVE_END = "brainmeth_creative_ends"; // Legacy potion marker
     private static final String GOD_PHASE = "brainmeth_god_phase";
     private static final String GOD_TICK = "brainmeth_god_tick";
+    private static final String GOD_HOVER_Y = "brainmeth_god_hover_y";
     private static final ResourceLocation SCALE_MODIFIER = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "potion_scale");
     private static final int MAX_FAKE_BLOCKS = 256;
     private static MinecraftServer trackedServer;
@@ -120,15 +126,9 @@ public final class BrainmethConsumables {
                 }
             }
             case "potion_creative" -> {
-                if (item.is(Items.POTION)) {
-                    if (player.gameMode.getGameModeForPlayer() == GameType.SURVIVAL
-                        && !player.getPersistentData().contains(GOD_PHASE)
-                        && !player.getPersistentData().contains(CREATIVE_END)) {
-                        startGodCountdown(player);
-                        finishBottle(player, item);
-                    }
-                    used = true;
-                }
+                // Let vanilla play the full drinking animation and consume
+                // the bottle. The god-mode sequence starts on Finish, not click.
+                return;
             }
             case "ultimate_chorus_fruit" -> {
                 if (item.is(Items.CHORUS_FRUIT)) {
@@ -141,6 +141,18 @@ public final class BrainmethConsumables {
         if (used) {
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onGodPotionDrunk(LivingEntityUseItemEvent.Finish event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)
+            || !event.getItem().is(Items.POTION)
+            || !"potion_creative".equals(kind(event.getItem()))) return;
+        if (player.gameMode.getGameModeForPlayer() == GameType.SURVIVAL
+            && !player.getPersistentData().contains(GOD_PHASE)
+            && !player.getPersistentData().contains(CREATIVE_END)) {
+            startGodBuildUp(player);
         }
     }
 
@@ -193,37 +205,73 @@ public final class BrainmethConsumables {
         }
     }
 
-    /** A one-second, genuine Creative-mode burst after three seconds of warning. */
-    private static void godTitle(ServerPlayer player, String message) {
+    /** Vanilla drinking completes before five seconds of escalating golden particles. */
+    private static void godTitle(ServerPlayer player, String title, String subtitle) {
         player.connection.send(new ClientboundSetTitlesAnimationPacket(0, 24, 0));
         player.connection.send(new ClientboundSetTitleTextPacket(
-            Component.literal(message).withStyle(ChatFormatting.GOLD)));
+            Component.literal(title).withStyle(ChatFormatting.GOLD)));
+        player.connection.send(new ClientboundSetSubtitleTextPacket(
+            Component.literal(subtitle).withStyle(ChatFormatting.GOLD)));
     }
 
-    private static void startGodCountdown(ServerPlayer player) {
+    private static void startGodBuildUp(ServerPlayer player) {
         CompoundTag data = player.getPersistentData();
-        data.putString(GOD_PHASE, "countdown");
-        data.putLong(GOD_TICK, player.serverLevel().getServer().getTickCount() + GOD_COUNTDOWN_TICKS);
-        godTitle(player, "God Mode activated in 3");
+        data.putString(GOD_PHASE, "buildup");
+        data.putLong(GOD_TICK, player.serverLevel().getServer().getTickCount() + GOD_BUILDUP_TICKS);
+        data.putDouble(GOD_HOVER_Y, player.getY() + 3.0D);
+        godTitle(player, "A divine power awakens", "");
         org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
-            .info("Creative Potion countdown started for {}", player.getGameProfile().getName());
+            .info("Creative Potion golden buildup started for {}", player.getGameProfile().getName());
     }
 
     private static void clearGodState(ServerPlayer player, boolean slowFalling) {
         CompoundTag data = player.getPersistentData();
         String phase = data.getString(GOD_PHASE);
-        // An active potion always started in Survival. Never leave Creative
-        // permissions behind on expiration, logout, or the next login.
         if ("creative".equals(phase)) player.setGameMode(GameType.SURVIVAL);
         data.remove(GOD_PHASE);
         data.remove(GOD_TICK);
+        data.remove(GOD_HOVER_Y);
+        // Slow Falling only at the end of the true Creative second;
+        // it safely returns the player to the ground from the hover.
         if (slowFalling && "creative".equals(phase)) {
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20 * 8, 0));
-            godTitle(player, "God Mode expired");
+            godTitle(player, "God Mode expired", "");
         }
         org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
             .info("Creative Potion {} for {}", slowFalling ? "expired" : "cancelled",
                 player.getGameProfile().getName());
+    }
+
+    private static void godHealAura(ServerPlayer player, long tick) {
+        if (tick % 10 != 0) return;
+        AABB range = player.getBoundingBox().inflate(10.0D);
+        for (ServerPlayer target : player.serverLevel().getEntitiesOfClass(ServerPlayer.class, range,
+             other -> other.isAlive() && other.distanceToSqr(player) <= 100.0D)) {
+            target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 30, 1, true, true));
+        }
+    }
+
+    private static void godParticles(ServerPlayer player, long remaining, String phase, long tick) {
+        if (tick % 3 != 0) return;
+        double intensity = "buildup".equals(phase)
+            ? 1.0D - Math.max(0, remaining) / (double) GOD_BUILDUP_TICKS : 1.0D;
+        int count = 2 + (int) Math.round(30.0D * intensity);
+        player.serverLevel().sendParticles(
+            new DustParticleOptions(new Vector3f(1.0F, 0.70F, 0.08F), 1.3F),
+            player.getX(), player.getY() + 1.0D, player.getZ(),
+            count, 0.45D, 0.85D, 0.45D, 0.035D);
+    }
+
+    private static void godHover(ServerPlayer player) {
+        CompoundTag data = player.getPersistentData();
+        double diff = data.getDouble(GOD_HOVER_Y) - player.getY();
+        // Slow, controlled upward movement capped near three blocks;
+        // during the countdown the same controller maintains the hover.
+        double yMotion = Math.max(-0.12D, Math.min(0.14D, diff * 0.13D + 0.075D));
+        Vec3 old = player.getDeltaMovement();
+        player.setDeltaMovement(old.x, yMotion, old.z);
+        player.hurtMarked = true;
+        player.fallDistance = 0.0F;
     }
 
     private static void tickGodMode(ServerPlayer player, long tick) {
@@ -234,11 +282,20 @@ public final class BrainmethConsumables {
             clearGodState(player, false);
             return;
         }
+        godHealAura(player, tick);
         long remaining = data.getLong(GOD_TICK) - tick;
-        if ("countdown".equals(phase)) {
+        if ("buildup".equals(phase)) {
+            godParticles(player, remaining, phase, tick);
+            godHover(player);
             if (remaining <= 0) {
-                // If a mode-changing mod interferes, do not give or retain
-                // Creative permissions outside the expected Survival state.
+                data.putString(GOD_PHASE, "countdown");
+                data.putLong(GOD_TICK, tick + GOD_COUNTDOWN_TICKS);
+                godTitle(player, "You have obtained the power of God", "3");
+            }
+        } else if ("countdown".equals(phase)) {
+            godParticles(player, remaining, phase, tick);
+            godHover(player);
+            if (remaining <= 0) {
                 if (player.gameMode.getGameModeForPlayer() != GameType.SURVIVAL) {
                     clearGodState(player, false);
                     return;
@@ -246,13 +303,14 @@ public final class BrainmethConsumables {
                 data.putString(GOD_PHASE, "creative");
                 data.putLong(GOD_TICK, tick + GOD_CREATIVE_TICKS);
                 player.setGameMode(GameType.CREATIVE);
-                godTitle(player, "GOD MODE ACTIVATED");
+                godTitle(player, "GOD MODE ACTIVATED", "");
                 org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
-                    .info("Creative Potion Creative mode activated for {}", player.getGameProfile().getName());
+                    .info("Creative Potion true Creative activated for {}", player.getGameProfile().getName());
             } else if (remaining == 40 || remaining == 20) {
-                godTitle(player, "God Mode activated in " + remaining / 20);
+                godTitle(player, "You have obtained the power of God", String.valueOf(remaining / 20));
             }
         } else if ("creative".equals(phase)) {
+            godParticles(player, remaining, phase, tick);
             if (remaining <= 0) clearGodState(player, true);
         } else clearGodState(player, false);
     }
