@@ -11,6 +11,9 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundClearTitlesPacket;
+import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -46,6 +49,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
@@ -71,10 +75,13 @@ import java.util.Set;
 public final class BrainmethConsumables {
     private static final String REWARD = "brainmeth_reward";
     private static final long SCALE_SECONDS = 10 * 60;
-    private static final long CREATIVE_SECONDS = 2;
+    private static final int GOD_COUNTDOWN_TICKS = 3 * 20;
+    private static final int GOD_CREATIVE_TICKS = 20;
     private static final String SCALE_END = "brainmeth_scale_ends";
     private static final String SCALE_AMOUNT = "brainmeth_scale_factor";
-    private static final String CREATIVE_END = "brainmeth_creative_ends";
+    private static final String CREATIVE_END = "brainmeth_creative_ends"; // Legacy potion marker
+    private static final String GOD_PHASE = "brainmeth_god_phase";
+    private static final String GOD_TICK = "brainmeth_god_tick";
     private static final ResourceLocation SCALE_MODIFIER = ResourceLocation.fromNamespaceAndPath(BrainmethCore.MOD_ID, "potion_scale");
     private static final int MAX_FAKE_BLOCKS = 256;
     private static MinecraftServer trackedServer;
@@ -115,8 +122,9 @@ public final class BrainmethConsumables {
             case "potion_creative" -> {
                 if (item.is(Items.POTION)) {
                     if (player.gameMode.getGameModeForPlayer() == GameType.SURVIVAL
-                        && player.getPersistentData().getLong(CREATIVE_END) <= now()) {
-                        startCreativeBurst(player);
+                        && !player.getPersistentData().contains(GOD_PHASE)
+                        && !player.getPersistentData().contains(CREATIVE_END)) {
+                        startGodCountdown(player);
                         finishBottle(player, item);
                     }
                     used = true;
@@ -185,32 +193,93 @@ public final class BrainmethConsumables {
         }
     }
 
-    private static void startCreativeBurst(ServerPlayer player) {
-        // A real Creative gamemode grants infinite inventory and allows item duplication.
-        // Grant invulnerability and flight for 2 seconds WITHOUT instabuild or mode switching.
-        CompoundTag data = player.getPersistentData();
-        data.putBoolean("brainmeth_prev_mayfly", player.getAbilities().mayfly);
-        data.putBoolean("brainmeth_prev_flying", player.getAbilities().flying);
-        data.putBoolean("brainmeth_prev_invulnerable", player.getAbilities().invulnerable);
-        data.putLong(CREATIVE_END, now() + CREATIVE_SECONDS);
-        player.getAbilities().mayfly = true;
-        player.getAbilities().flying = true;
-        player.getAbilities().invulnerable = true;
-        player.onUpdateAbilities();
+    /** A one-second, genuine Creative-mode burst after three seconds of warning. */
+    private static void godTitle(ServerPlayer player, String message) {
+        player.connection.send(new ClientboundSetTitlesAnimationPacket(0, 24, 0));
+        player.connection.send(new ClientboundSetTitleTextPacket(
+            Component.literal(message).withStyle(ChatFormatting.GOLD)));
     }
 
-    private static void stopCreativeBurst(ServerPlayer player) {
+    private static void startGodCountdown(ServerPlayer player) {
         CompoundTag data = player.getPersistentData();
-        if (!data.contains(CREATIVE_END)) return;
-        data.remove(CREATIVE_END);
-        player.getAbilities().mayfly = data.getBoolean("brainmeth_prev_mayfly");
-        player.getAbilities().flying = data.getBoolean("brainmeth_prev_flying");
-        player.getAbilities().invulnerable = data.getBoolean("brainmeth_prev_invulnerable");
-        data.remove("brainmeth_prev_mayfly");
-        data.remove("brainmeth_prev_flying");
-        data.remove("brainmeth_prev_invulnerable");
-        player.onUpdateAbilities();
-        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20 * 8, 0));
+        data.putString(GOD_PHASE, "countdown");
+        data.putLong(GOD_TICK, player.serverLevel().getServer().getTickCount() + GOD_COUNTDOWN_TICKS);
+        godTitle(player, "God Mode activated in 3");
+        org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
+            .info("Creative Potion countdown started for {}", player.getGameProfile().getName());
+    }
+
+    private static void clearGodState(ServerPlayer player, boolean slowFalling) {
+        CompoundTag data = player.getPersistentData();
+        String phase = data.getString(GOD_PHASE);
+        // An active potion always started in Survival. Never leave Creative
+        // permissions behind on expiration, logout, or the next login.
+        if ("creative".equals(phase)) player.setGameMode(GameType.SURVIVAL);
+        data.remove(GOD_PHASE);
+        data.remove(GOD_TICK);
+        if (slowFalling && "creative".equals(phase)) {
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20 * 8, 0));
+            godTitle(player, "God Mode expired");
+        }
+        org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
+            .info("Creative Potion {} for {}", slowFalling ? "expired" : "cancelled",
+                player.getGameProfile().getName());
+    }
+
+    private static void tickGodMode(ServerPlayer player, long tick) {
+        CompoundTag data = player.getPersistentData();
+        if (!data.contains(GOD_PHASE)) return;
+        String phase = data.getString(GOD_PHASE);
+        if (!player.isAlive()) {
+            clearGodState(player, false);
+            return;
+        }
+        long remaining = data.getLong(GOD_TICK) - tick;
+        if ("countdown".equals(phase)) {
+            if (remaining <= 0) {
+                // If a mode-changing mod interferes, do not give or retain
+                // Creative permissions outside the expected Survival state.
+                if (player.gameMode.getGameModeForPlayer() != GameType.SURVIVAL) {
+                    clearGodState(player, false);
+                    return;
+                }
+                data.putString(GOD_PHASE, "creative");
+                data.putLong(GOD_TICK, tick + GOD_CREATIVE_TICKS);
+                player.setGameMode(GameType.CREATIVE);
+                godTitle(player, "GOD MODE ACTIVATED");
+                org.slf4j.LoggerFactory.getLogger(BrainmethCore.MOD_ID)
+                    .info("Creative Potion Creative mode activated for {}", player.getGameProfile().getName());
+            } else if (remaining == 40 || remaining == 20) {
+                godTitle(player, "God Mode activated in " + remaining / 20);
+            }
+        } else if ("creative".equals(phase)) {
+            if (remaining <= 0) clearGodState(player, true);
+        } else clearGodState(player, false);
+    }
+
+    @SubscribeEvent
+    public static void onGodLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player
+            && player.getPersistentData().contains(GOD_PHASE)) clearGodState(player, false);
+    }
+
+    @SubscribeEvent
+    public static void onGodLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        CompoundTag data = player.getPersistentData();
+        if (data.contains(GOD_PHASE)) clearGodState(player, false);
+        // Recover from the legacy two-second version if a player was saved
+        // while its temporary abilities were enabled.
+        if (data.contains(CREATIVE_END)) {
+            player.getAbilities().mayfly = data.getBoolean("brainmeth_prev_mayfly");
+            player.getAbilities().flying = data.getBoolean("brainmeth_prev_flying");
+            player.getAbilities().invulnerable = data.getBoolean("brainmeth_prev_invulnerable");
+            player.onUpdateAbilities();
+            data.remove(CREATIVE_END);
+            data.remove("brainmeth_prev_mayfly");
+            data.remove("brainmeth_prev_flying");
+            data.remove("brainmeth_prev_invulnerable");
+        }
     }
 
     private static boolean teleportToLoadedSafeLocation(ServerLevel level, ServerPlayer player) {
@@ -449,8 +518,7 @@ public final class BrainmethConsumables {
         for (ServerPlayer player : server.getPlayerList().getPlayers()) {
             CompoundTag data = player.getPersistentData();
             if (data.contains(SCALE_END)) updateScale(player, data.getLong(SCALE_END), data.getDouble(SCALE_AMOUNT));
-            if (data.contains(CREATIVE_END) && (data.getLong(CREATIVE_END) <= now() || !player.isAlive()))
-                stopCreativeBurst(player);
+            if (data.contains(GOD_PHASE)) tickGodMode(player, server.getTickCount());
         }
         Iterator<PrimedTnt> fake = fakeIgnitions.iterator();
         while (fake.hasNext()) {
