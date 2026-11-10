@@ -18,7 +18,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "2 seconds of invulnerability and flight; no Creative inventory or item creation.",
+                    "text": "God Mode: 3-second countdown, then 1 second of real Creative mode.",
                     "italic": false,
                     "color": "gray"
                   }
