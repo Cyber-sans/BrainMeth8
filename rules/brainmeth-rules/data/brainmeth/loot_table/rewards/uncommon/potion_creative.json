@@ -18,12 +18,12 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "5s golden levitation, 3s countdown, then 1s of true Creative mode.",
+                    "text": "5s golden ascent, 3s countdown, then 1s Creative: duplicate held blocks.",
                     "italic": false,
                     "color": "gray"
                   },
                   {
-                    "text": "Nearby players receive Regeneration II; Slow Falling afterward.",
+                    "text": "Creative inventory locked. Nearby Regeneration II; Slow Falling after.",
                     "italic": false,
                     "color": "gray"
                   }
