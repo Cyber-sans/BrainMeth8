@@ -32,6 +32,8 @@ x-minecraft-common: &minecraft-common
     USE_MEOWICE_FLAGS: "false"
     USE_MEOWICE_GRAALVM_FLAGS: "false"
     MODE: "survival"
+    # Allow Brainmeth God Mode levitation and other legitimate modded flight.
+    ALLOW_FLIGHT: "TRUE"
     # Only affects world generation when level.dat does not yet exist.
     SEED: "${WORLD_SEED:-}"
     DIFFICULTY: "hard"
