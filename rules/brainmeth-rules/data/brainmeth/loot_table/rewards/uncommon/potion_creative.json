@@ -18,7 +18,12 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "God Mode: 3-second countdown, then 1 second of real Creative mode.",
+                    "text": "5s golden levitation, 3s countdown, then 1s of true Creative mode.",
+                    "italic": false,
+                    "color": "gray"
+                  },
+                  {
+                    "text": "Nearby players receive Regeneration II; Slow Falling afterward.",
                     "italic": false,
                     "color": "gray"
                   }
