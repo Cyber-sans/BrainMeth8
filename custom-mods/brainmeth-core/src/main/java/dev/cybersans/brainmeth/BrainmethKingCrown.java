@@ -21,6 +21,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.storage.LevelResource;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -61,6 +62,7 @@ public final class BrainmethKingCrown {
     private static String lastHolderName;
     private static int lastEventId;
     private static int elapsed;
+    private static UUID previouslyWearing;
     private static final long RESURRECTION_COOLDOWN_MILLIS = 24L * 60 * 60 * 1000;
     private static long resurrectionReadyAtMillis;
     private static final List<Notice> notices = new ArrayList<>();
@@ -85,6 +87,7 @@ public final class BrainmethKingCrown {
         lastHolderName = "";
         lastEventId = 0;
         elapsed = 0;
+        previouslyWearing = null;
         resurrectionReadyAtMillis = 0;
         notices.clear();
         seen.clear();
@@ -462,6 +465,23 @@ public final class BrainmethKingCrown {
                 save(server);
             }
         }
+
+        // Announce a new equip, but never repeat while the same king keeps it on.
+        // Reset when nobody is wearing the genuine crown so re-equipping announces again.
+        ServerPlayer wearer = currentWearingHolder(server);
+        UUID wearingId = wearer == null ? null : wearer.getUUID();
+        if (wearer != null && !wearingId.equals(previouslyWearing)) {
+            var pos = wearer.blockPosition();
+            String dimension = wearer.level().dimension().equals(Level.OVERWORLD) ? "Overworld"
+                : wearer.level().dimension().equals(Level.NETHER) ? "Nether"
+                : wearer.level().dimension().equals(Level.END) ? "End"
+                : wearer.level().dimension().location().toString();
+            server.getPlayerList().broadcastSystemMessage(Component.literal(
+                "The crown is currently on his throne at [" + pos.getX() + ", "
+                    + pos.getY() + ", " + pos.getZ() + "] (" + dimension + ")."
+            ).withStyle(ChatFormatting.YELLOW), false);
+        }
+        previouslyWearing = wearingId;
 
         for (ServerPlayer player : players) {
             ItemStack helmet = player.getInventory().armor.get(3);
