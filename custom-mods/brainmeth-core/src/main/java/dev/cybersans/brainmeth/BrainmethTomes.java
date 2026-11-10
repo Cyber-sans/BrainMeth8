@@ -97,6 +97,7 @@ public final class BrainmethTomes {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToServer(CloseTome.TYPE, CloseTome.CODEC, BrainmethTomes::receiveClose);
         registrar.playToClient(RedSky.TYPE, RedSky.CODEC, BrainmethTomes::receiveSky);
+        BrainmethConsumables.registerPayload(registrar);
     }
 
     public record CloseTome() implements CustomPacketPayload {
