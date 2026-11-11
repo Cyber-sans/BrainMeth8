@@ -214,7 +214,7 @@ heart=leg_o["content"]["heart_of_the_deep"]
 assert heart["content"]=="deeperdarker:heart_of_the_deep"
 assert heart["amount"]=={"min":2,"max":2}
 assert heart["unitWorth"]==22500 and heart["amount"]["min"]*heart["unitWorth"]==45000
-assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==40
+assert sum(e["markers"]==["legendary"] for e in leg_r["content"].values())==41
 special_command='brainmethbounty grant "%PLAYER_NAME%" rare_seal_five_legendary'
 normal_command='brainmethbounty grant "%PLAYER_NAME%" mystery_legendary'
 seal_reward=leg_r["content"]["seal_five_legendary"]
