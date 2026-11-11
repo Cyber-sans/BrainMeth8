@@ -15,6 +15,7 @@ assert mending["slots"] == ["any"]
 allowed = read("data/brainmeth/tags/item/mending_allowed.json")["values"]
 expected = {f"minecraft:netherite_{n}" for n in ("helmet", "chestplate", "leggings", "boots", "sword", "pickaxe", "axe", "shovel", "hoe")}
 expected |= {f"deeperdarker:warden_{n}" for n in ("helmet", "chestplate", "leggings", "boots", "sword", "pickaxe", "axe", "shovel", "hoe")}
+expected.add("minecraft:trident")
 assert set(allowed) == expected and len(allowed) == len(expected), allowed
 
 # Unbreaking is otherwise vanilla 1.21.1; Elytra is the sole excluded vanilla item.
@@ -89,4 +90,4 @@ assert "scoreboard players set #state bm_launch 0" in (lobby / "init.mcfunction"
 assert "scoreboard players set #state bm_launch 1" in (lobby / "open.mcfunction").read_text()
 assert "function brainmeth:lobby/parkour_finish" in (lobby / "tick.mcfunction").read_text()
 # Structural, PvP and parkour physics checks are in scripts/verify-lobby.py.
-print("Brainmeth datapack validated: Netherite + Warden Mending; Elytra Unbreaking blocked; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; 4x minecart speed via Brainmeth Core; gated launch lobby.")
+print("Brainmeth datapack validated: Netherite + Warden + trident Mending; Elytra Unbreaking blocked; soul elytra blocked; DnT Elytra/enchants filtered; rare chest membranes; crafting blocked; phantoms disabled; 4x minecart speed via Brainmeth Core; gated launch lobby.")

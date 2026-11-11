@@ -3,8 +3,9 @@
 The migration deploy script installs `rules/brainmeth-rules` into the
 **isolated test world's** `world/datapacks/brainmeth-rules` before server start.
 
-- Mending can only be newly applied to **netherite armour and tools**:
-  helmet, chestplate, leggings, boots, sword, pickaxe, axe, shovel, hoe.
+- Mending can only be newly applied to **Netherite or Warden armour and tools**,
+  plus **tridents**. Eligible armour and tools are helmets, chestplates,
+  leggings, boots, swords, pickaxes, axes, shovels and hoes.
   This is a vanilla enchantment registry override using `supported_items`,
   not an extra mod. Mending books may still be found/traded, but cannot be
   applied to other items (including Elytra). Existing illegitimate gear
@@ -14,7 +15,7 @@ The migration deploy script installs `rules/brainmeth-rules` into the
   mechanics; this does not delete phantom membranes from the game.
 
 Test in-game: anvil Mending on Elytra must fail; netherite pickaxe and
-netherite chestplate must accept Mending. Confirm
+netherite chestplate, Warden sword and trident must accept Mending. Confirm
 `/gamerule doInsomnia` returns `false`, and check vanilla phantom spawn.
 If another mod/datapack replaces `minecraft:mending`, inspect datapack order.
 
