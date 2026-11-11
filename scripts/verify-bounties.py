@@ -274,10 +274,10 @@ for old in ("red_savanna_grape","dark_cherry","coffee_beans","dried_oolong_tea")
 # generation. At reputation 0 its native rarity weights are COMMON=1024,
 # RARE=256 and EPIC=128 (no scaling penalty at zero reputation).
 assert com_r["weightMult"]==1 and myth_r["weightMult"]==0.16
-# 38 regular + Seal weight 5 + Dragon Egg weight 6 = 49.
+# 39 regular + Seal weight 5 + Dragon Egg weight 6 = 50.
 # Normalize back to the original 40 aggregate weight units to preserve rarity odds.
-assert abs(leg_r["weightMult"]-160/49)<1e-9
-assert sum(e["weightMult"] for e in leg_r["content"].values())==49
+assert abs(leg_r["weightMult"]-160/50)<1e-9
+assert sum(e["weightMult"] for e in leg_r["content"].values())==50
 assert (com_o["weightMult"],leg_o["weightMult"],myth_o["weightMult"])==(1,4,0.16)
 weights={
     "common":com_r["weightMult"]*1024*sum(e["weightMult"] for e in com_r["content"].values())/len(com_r["content"]),
