@@ -324,7 +324,7 @@ for pool in (("common",["common","uncommon"]),("legendary",["rare"])):
         folder=loots/directory
         assert folder.is_dir()
         assert all(json.loads(f.read_text())["type"]=="minecraft:generic" for f in folder.glob("*.json"))
-assert len(expected_common)==42 and len(expected_legendary)==38
+assert len(expected_common)==42 and len(expected_legendary)==39
 # Decorative bundles are actual available modded/vanilla item IDs. Every
 # component is an independent pool so the player receives all promised stacks.
 new_bundles={
