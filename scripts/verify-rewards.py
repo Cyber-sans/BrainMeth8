@@ -36,6 +36,7 @@ expected = {
     "uncommon/tree_of_life": ("minecraft:oak_sapling", 1, "tree_of_life"),
     "uncommon/orbital_strike_gun": ("orbital_railgun:orbital_railgun", 1, "orbital_strike_gun"),
     "uncommon/crystal_ball": ("minecraft:ender_eye", 1, "crystal_ball"),
+    "uncommon/tracker": ("minecraft:compass", 1, "tracker"),
     "uncommon/kill_switch": ("minecraft:stone_button", 1, "kill_switch"),
     "uncommon/cognitohazard_book": ("minecraft:written_book", 1, "cognitohazard_book"),
     "uncommon/crown_of_nothing": ("minecraft:golden_helmet", 1, "crown_of_nothing"),
